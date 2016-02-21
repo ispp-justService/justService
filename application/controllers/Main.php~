@@ -1,11 +1,17 @@
 <?php 
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 class Main extends CI_Controller {
 
 	public function index(){
-		$this->render->renderView('justService');
+		$this->load->view('main');
+	}
+
+	public function loadExample(){
+		return $this->load->view('main/justService');
 	}
 }
+
 ?>
