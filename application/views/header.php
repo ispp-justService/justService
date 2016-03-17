@@ -29,11 +29,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		width: 60%;
 	    }
 	    #search-input{
-		height: 40px;
+		height: 45px;
   		font-size: 20px;
+		
 	    }
 	    #search-span{
-		height: 40px;
+		height: 45px;
+		border: 3px solid #7E7E82;
 	    }
             #navbar-login-signup{
 		margin-right: -70px;
@@ -66,6 +68,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    text-decoration-color: -moz-use-text-color;
 		    text-decoration-line: none;
 		    text-decoration-style: solid;
+	   }
+	   .searchCentral::-moz-placeholder{
+		color:#101010;
+	   }
+	   .searchCentral:-ms-input-placeholder{
+		color:#101010;
+	   }
+	   .searchCentral::-webkit-input-placeholder{
+		color:#101010;
+	   }
+           .searchCentral{
+		border: 3px solid #7E7E82;
+	   }
+	   .borderCentral{
+		border-color:#101010;
 	   }
         </style>
         <link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">

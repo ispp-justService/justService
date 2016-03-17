@@ -10,8 +10,8 @@
       <!-- Example row of columns -->
       <div class="row">
         <div class="container text-center" id="search">
-	<div class="input-group">
-	     <input type="text" class="form-control" id="search-input" placeholder="What do you need?">
+	<div class="input-group borderCentral">
+	     <input type="text" class="form-control searchCentral" id="search-input" placeholder="What do you need?">
 	     <span class="input-group-btn">
 		<button class="btn btn-default" type="submit" id="search-span" >
 		    <span class="glyphicon glyphicon-search" ><span/>
