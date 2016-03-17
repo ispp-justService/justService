@@ -47,6 +47,8 @@
 			</div>
 		</div>
 	     </form>
+			<!-- Aquí mostraremos los errores del formulario -->
+			<?php echo validation_errors(); ?>
 	</div> <!-- /class cols  -->
       </div> <!-- /row -->
     </div> <!-- /container -->
