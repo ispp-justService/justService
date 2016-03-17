@@ -41,15 +41,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    #navbar-signup{
 		padding-left: 20px;
 	    }
-		.row-centered{
-			text-align:center;
-		}
-		.col-centered{
-			display:inline-block;
-			text-align:left;
-			margin-right:-10px;
-			float:none
-		}
+	   .row-centered{
+		text-align:center;
+	    }
+	   .col-centered{
+		display:inline-block;
+		text-align:left;
+		margin-right:-10px;
+		float:none
+	    }
+           .buttonBlack{
+		color: #fff;
+		background-color: #101010;
+		border-color: #101010;
+	   }
+	   .buttonRed{
+		color: #fff;
+		background-color: #FF1F1F;
+		border-color: #FF1F1F;
+	   }
+           .buttonRed:hover, .buttonRed:focus{
+		color: #FF1F1F;
+		text-decoration: none;
+		    text-decoration-color: -moz-use-text-color;
+		    text-decoration-line: none;
+		    text-decoration-style: solid;
+	   }
         </style>
         <link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/footer-distributed-with-address-and-phones.css"); ?>">
@@ -79,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="form-group">
               <input type="password" placeholder="Password" class="form-control">
             </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
+            <button type="submit" class="btn buttonRed">Sign in</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>

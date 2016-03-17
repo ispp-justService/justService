@@ -2,7 +2,7 @@
 
 	<div class="footer-left text-center">
 
-		<img src="<?php echo base_url("assets/img/logoWithName.png"); ?>" wigth="125px" height="125px" />
+		<img src="<?php echo base_url("assets/img/logo.png"); ?>" wigth="100px" height="100px" />
 
 		<p class="footer-links">
 			<a href="<?php echo base_url("/") ?>">Home</a>

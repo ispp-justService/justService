@@ -43,7 +43,7 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
-				<button type="submit" class="btn btn-primary pull-right">Sign up</button>
+				<button type="submit" class="btn buttonBlack pull-right">Sign up</button>
 			</div>
 		</div>
 	     </form>
