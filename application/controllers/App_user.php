@@ -3,10 +3,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-class Signup extends CI_Controller {
+class App_user extends CI_Controller {
 
-	public function index(){
-		$this->load->view('signup');
+	public function signup(){
+		$this->render->renderView('app_user/signup');
 	}
 
 	public function sendRegistration(){
@@ -20,7 +20,7 @@ class Signup extends CI_Controller {
 		$this->form_validation->set_rules('email','Email','required|valid_email');
 
 		if($this->form_validation->run() == FALSE){
-			$this->load->view('signup');
+			$this->render->renderView('app_user/signup');
 		}else{
 			$data['name'] = $this->input->post('name');
 			$data['surname'] = $this->input->post('surname');

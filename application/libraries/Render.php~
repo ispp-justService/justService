@@ -4,14 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Render{
 
-	public function renderView($nameView){
+	public function renderView($nameView, $data = array()){
 
-		$CI =& get_instance();
+		$this->CI =& get_instance();
 
-		$CI->load->view('header');
-		$CI->load->view('main'.$nameView);
-		$CI->load->view('footer');
+		$content_data['content'] = $this->CI->load->view($nameView, $data, TRUE);
 
+		return $this->CI->load->view('main', $content_data, FALSE);
 	}
 }
 ?>

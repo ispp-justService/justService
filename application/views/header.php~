@@ -29,12 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		width: 60%;
 	    }
 	    #search-input{
-		height: 50px;
+		height: 45px;
   		font-size: 20px;
 		
 	    }
 	    #search-span{
-		height: 50px;
+		height: 45px;
 		border: 3px solid #7E7E82;
 	    }
             #navbar-login-signup{
@@ -118,3 +118,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
+
+
+	<?php $content ?>

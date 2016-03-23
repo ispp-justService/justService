@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div id="navbar" class="navbar-collapse collapse" id="navbar-login-signup">
 	  <div class="navbar-header pull-right">
-	 	<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("signup"); ?>">Sign up</a>
+	 	<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("app_user/signup"); ?>">Sign up</a>
 	  </div>
           <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
@@ -118,3 +118,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
+
+
+	<?php $content ?>

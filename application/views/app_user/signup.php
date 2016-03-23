@@ -1,10 +1,9 @@
-	<?php include('header.php'); ?>
     <div class="container">
       <div class="row row-centered">
 	<h3>Sign up</h3>
 	<hr>
 	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
-		<?php echo form_open('/signup/sendRegistration') ?>
+		<?php echo form_open('/app_user/sendRegistration') ?>
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<div class="form-group">
@@ -52,6 +51,3 @@
 	</div> <!-- /class cols  -->
       </div> <!-- /row -->
     </div> <!-- /container -->
-	<?php include('footer.php'); ?>
-    </body>
-</html>
