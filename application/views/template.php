@@ -1,5 +1,5 @@
 	<?php 
-		include('header.php'); 
+		include('headerLogeado.php'); 
 
 		echo $content;	
 

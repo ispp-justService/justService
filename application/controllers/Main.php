@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 
 	public function index(){
-		$this->render->renderView('main/main');
+		$this->render->renderView('customer/profile');
 	}
 
 	public function login(){
