@@ -106,12 +106,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  <div class="navbar-header pull-right">
 	 	<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("app_user/signup"); ?>">Sign up</a>
 	  </div>
-          <form class="navbar-form navbar-right" role="form">
+          <form class="navbar-form navbar-right" role="form" action="<?php echo site_url("main/login"); ?>" method="POST">
             <div class="form-group">
-              <input type="email" placeholder="Email" class="form-control">
+              <input type="email" name="email" placeholder="Email" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" name="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn buttonRed">Sign in</button>
           </form>
