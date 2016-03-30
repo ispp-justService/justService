@@ -5,7 +5,11 @@
 	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
 		<?php foreach($customers as $customer): ?>
 		<div class="row">
-		<div class="panel panel-default" >
+		<?php if($customer->type == 'Freelance'): ?>
+		   <div class="panel panel-default" style="background-color: aquamarine;" >
+		<?php else: ?>
+		   <div class="panel panel-default" style="background-color: bisque;" >	
+		<?php endif; ?>
 		   <div class="panel-heading"><?php echo $customer->name ?></div>
 		      <div class="panel-body">
 			<div class="row">
