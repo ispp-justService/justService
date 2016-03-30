@@ -4,6 +4,7 @@
 	<hr>
 	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
 		<div class="panel panel-default" >
+			<? echo $data ?>
 		   <div class="panel-heading">Nombre Apellidos</div>
 		      <div class="panel-body">
 			<div class="row">

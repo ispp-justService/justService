@@ -1,4 +1,4 @@
-﻿DROP TABLE IF EXISTS favorite;
+﻿DROP TABLE IF EXISTS bookmark;
 DROP TABLE IF EXISTS have;
 DROP TABLE IF EXISTS tag;
 DROP TABLE IF EXISTS banner;
@@ -82,7 +82,7 @@ CREATE TABLE have(
 );
 
 -- Creación de la tabla intermedia entre App_User y Customer
-CREATE TABLE favorite(
+CREATE TABLE bookmark(
 	app_user_id	serial		REFERENCES app_user(app_user_id),
 	customer_id	serial		REFERENCES customer(customer_id),
 	UNIQUE(app_user_id,customer_id),

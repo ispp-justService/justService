@@ -107,20 +107,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div id="navbar" class="navbar-collapse collapse" id="navbar-login-signup">
 
-		<?php 
-			if($this->session->userdata('user')):?>
-			<div class="navbar-header pull-right">
-				<li class="dropdown" id="loginTop">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-					User Name <span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Profile</a></li>
-						<li class="divider" role="separator"></li>
-						<li><a href="#"><?php $this->session->userdata('user')->email ?></a></li>
-					</ul>
-				</li>
-		  </div>
+		<?php if($this->session->userdata('id')):?>
+				<div class="navbar-header pull-right">
+					<li class="dropdown" id="loginTop">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+			<?php if($this->session->role == "ADMINISTRATOR"): ?>
+						<?php echo $this->session->id ?> <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="<?php echo site_url('admin/usersList') ?>">User's List</a></li>
+							<li class="divider" role="separator"></li>
+							<li><a href="<?php echo site_url('admin/customersList') ?>">Customer's Signup</a></li>
+			<?php elseif($this->session->role == "CUSTOMER"): ?>
+						<?php echo $this->session->id ?> <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="<?php echo site_url('customer/showProfile') ?>">Profile</a></li>
+							<li class="divider" role="separator"></li>
+							<li><a href="<?php echo site_url('customer/editInformation') ?>">Edit information</a></li>
+							<li><a href="<?php echo site_url('customer/serivcesList') ?>">Service's List</a></li>
+			<?php elseif($this->session->role == "APP_USER"): ?>
+						<?php echo $this->session->id ?> <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="<?php echo site_url('app_user/showProfile') ?>">Profile</a></li>
+							<li class="divider" role="separator"></li>
+							<li><a href="<?php echo site_url('app_user/editInformation') ?>">Edit information</a></li>
+							<li><a href="<?php echo site_url('app_user/editInformation') ?>">Service's List</a></li>
+			<?php endif; ?>
+							<li class="divider" role="separator"></li>
+							<li><a href="<?php echo site_url("main/logout"); ?>">Log out</a></li>
+						</ul>
+					</li>
+				</div>
 		<?php else: ?>
 			<div class="navbar-header pull-right">
 	 			<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("app_user/signup"); ?>">Sign up</a>
