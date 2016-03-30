@@ -7,7 +7,6 @@ class Main extends CI_Controller {
 
 	public function index(){
 		$this->render->renderView('main/main');
-		session_destroy();
 	}
 
 	public function login(){
