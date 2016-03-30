@@ -21,6 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    #logo{
 		padding: 7px 20px;
 	    }
+		#loginTop{
+		padding-top: 16px;
+	    }
 	    #logoCentral{
 		padding-bottom: 23px;
 		padding-top: 20px;
@@ -103,21 +106,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  <a href="<?php echo base_url("/") ?>"> <img src="<?php echo base_url("assets/img/rotulo.png"); ?>" class="navbar-brand" id="logo" wight ="100px" height="100px"/> </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" id="navbar-login-signup">
-	  <div class="navbar-header pull-right">
-	 	<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("app_user/signup"); ?>">Sign up</a>
-	  </div>
-          <form class="navbar-form navbar-right" role="form" action="<?php echo site_url("main/login"); ?>" method="POST">
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" name="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn buttonRed">Sign in</button>
-          </form>
+
+		<?php 
+			if($this->session->userdata('user')):?>
+			<div class="navbar-header pull-right">
+				<li class="dropdown" id="loginTop">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+					User Name <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Profile</a></li>
+						<li class="divider" role="separator"></li>
+						<li><a href="#"><?php $this->session->userdata('user')->email ?></a></li>
+					</ul>
+				</li>
+		  </div>
+		<?php else: ?>
+			<div class="navbar-header pull-right">
+	 			<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("app_user/signup"); ?>">Sign up</a>
+	  		</div>
+			<form class="navbar-form navbar-right" role="form" action="<?php echo site_url("main/login"); ?>" method="POST">
+	            <div class="form-group">
+					<input type="email" name="email" placeholder="Email" class="form-control">
+            	</div>
+            	<div class="form-group">
+              		<input type="password" name="password" placeholder="Password" class="form-control">
+           		</div>
+            	<button type="submit" class="btn buttonRed">Sign in</button>
+          	</form>
+		<?php endif; ?>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-
 
 	<?php $content ?>

@@ -6,7 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 
 	public function index(){
-		$this->render->renderView('customer/profile');
+		$this->render->renderView('main/main');
+		session_destroy();
 	}
 
 	public function login(){
@@ -19,7 +20,8 @@ class Main extends CI_Controller {
 			echo "fallo en el login";
 		}else{
 			if(password_verify($data['password'], $result->password)){
-				echo "login con exito";
+				$this->session->set_userdata('user',$result);
+				$this->render->renderView('main/main');
 			}else{
 				echo "contraseña incorrecta";
 			}

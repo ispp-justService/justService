@@ -50,6 +50,7 @@ class Accounts extends CI_Model {
 				$query = $this->db->get();
 				
 				if($query -> num_rows() == 1){
+					$query->type = 'CUSTOMER';
 				    return $query;
 				}
 				else{
