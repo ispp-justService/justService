@@ -14,7 +14,7 @@ class App_users extends CI_Model {
 		}
 
 		public function get_all(){
-				$query = $this->db->get('app_user');
+				$query = $this->db->query('select app_user_id,name,surname,email,moment,discount,photo,zip_code,phone_number from app_user where deleted=false');
 				return $query;
 		}
 

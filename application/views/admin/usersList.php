@@ -4,26 +4,28 @@
 	<hr>
 	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
 		<div class="panel panel-default" >
-			<? echo $data ?>
-		   <div class="panel-heading">Nombre Apellidos</div>
+
+			<?php foreach($users as $user): ?>
+
+		   <div class="panel-heading"><?php echo $user->name." ".$user->surname ?></div>
 		      <div class="panel-body">
 			<div class="row">
 			   <div class="col-md-8">
 			      	<table>
 				   <tr>
-					<td><b>Email:</b> prueba@gmail.com</td>	
+					<td><b>Email:</b> <?php echo $user->email ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Moment:</b> 30/03/2016 13:19</td>	
+					<td><b>Moment:</b> <?php echo $user->moment?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Discount available:</b> 20%</td>	
+					<td><b>Discount available:</b> <?php echo $user->discount?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Zip Code:</b> 41412</td>	
+					<td><b>Zip Code:</b> <?php echo $user->zip_code?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Phone Number:</b> 654789987</td>	
+					<td><b>Phone Number:</b> <?php echo $user->phone_number?></td>	
 				   </tr>				
 				</table>
 			    </div>
@@ -33,6 +35,9 @@
 			</row>
 		      </div>
 		   </div>
+
+			<?php endforeach; ?> 
+
 		</div>
 	</div> <!-- /class cols  -->
       </div> <!-- /row -->
