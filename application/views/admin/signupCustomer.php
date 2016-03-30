@@ -3,7 +3,7 @@
 	<h3>Sign up</h3>
 	<hr>
 	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
-		<?php echo form_open('/admin/sendRegistration') ?>
+		<?php echo form_open('/admin/sendCustomerSignup') ?>
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<div class="form-group">
