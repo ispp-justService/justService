@@ -21,12 +21,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    #logo{
 		padding: 7px 20px;
 	    }
-		#loginTop{
+	    #loginTop{
 		padding-top: 16px;
 	    }
 	    #logoCentral{
 		padding-bottom: 23px;
 		padding-top: 20px;
+	    }
+	    #textWhiteHeader{
+		color: #ffffff;
+		text-decoration: none;
 	    }
 	    #search{
 		width: 60%;
@@ -110,14 +114,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<?php if($this->session->userdata('id')):?>
 				<div class="navbar-header pull-right">
 					<li class="dropdown" id="loginTop">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<a id="textWhiteHeader" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 			<?php if($this->session->role == "ADMINISTRATOR"): ?>
 						<?php echo $this->session->id ?> <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="<?php echo site_url('admin/usersList') ?>">User's List</a></li>
 							<li class="divider" role="separator"></li>
-							<li><a href="<?php echo site_url('admin/customersList') ?>">Customer's Signup</a></li>
+							<li><a href="<?php echo site_url('admin/customersList') ?>">Customer's List</a></li>
+							<li class="divider" role="separator"></li>
+							<li><a href="<?php echo site_url('admin/customerSignup') ?>">Customer's Signup</a></li>
 			<?php elseif($this->session->role == "CUSTOMER"): ?>
 						<?php echo $this->session->id ?> <span class="caret"></span>
 						</a>
