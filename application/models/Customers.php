@@ -28,6 +28,25 @@ class Customers extends CI_Model {
 			$query = $this->db->get('customer');
 			return $query;
 		}
-}
 
+		public function updateCustomer($id, $data){
+			$this->db->where('customer_id', $id);
+			$this->db->update('customer', $data); 
+			
+			$query = $this->find_customer($id);
+			$customer = $query->row();
+
+			if($customer->name == $data['name'] 
+					and $customer->phone_number == $data['phone_number'] 
+					and $customer->latitude 	== $data['latitude']
+					and $customer->longitude	== $data['longitude']
+					and $customer->zip_code		== $data['zip_code']
+					and $customer->email 		== $data['email']
+					and	$customer->password		== $data['password']){
+				return $query;
+			}else{
+				return FALSE;
+			}
+		}			
+}
 ?>

@@ -52,6 +52,52 @@ class App_user extends CI_Controller {
 			}
 		}
 	}
+
+	public function editInformation(){
+		$id = $this->session->id;
+		if(isset($id)){
+			$this->load->model('app_users');
+			$result = $this->app_users->find_app_user($id);
+
+			if($result != FALSE){
+				$data['user'] = $result->row();
+				$this->render->renderView('app_user/editInformation',$data);
+			}
+		}		
+	}
+
+	public function sendEditInformation(){
+		$this->load->library('app_user_utils');
+		$this->load->model('app_users');
+		
+		$checkForm = $this->app_user_utils->checkForm();
+		$role = $this->session->role;
+		$id = $this->session->id;
+
+		if(isset($id) and isset($role) and $checkForm != FALSE and $role == "APP_USER"){
+			$data['name'] = $this->input->post('name');
+			$data['surname'] = $this->input->post('surname');	
+			$data['password'] = password_hash($this->input->post('password'),PASSWORD_DEFAULT);
+			$data['email'] = $this->input->post('email');
+			if($this->input->post('zipCode')!=""){
+				$data['zip_code'] = $this->input->post('zipCode');			
+			}
+			if($this->input->post('phoneNumber')!=""){
+				$data['phone_number'] = $this->input->post('phoneNumber');						
+			}			
+			$updateUser = $this->app_users->updateApp_user($id, $data);
+			if($updateUser!=FALSE){
+				$data['user'] = $updateUser->row();
+				$this->render->renderView('app_user/profile',$data);			
+			}
+		}else{
+			$result = $this->app_users->find_app_user($id);
+			if($result != FALSE){
+				$data['user'] = $result->row();
+				$this->render->renderView('app_user/editInformation',$data);
+			}
+		}			
+	}	
 }
 
 ?>

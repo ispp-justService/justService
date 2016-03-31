@@ -34,6 +34,23 @@ class App_users extends CI_Model {
 				return $query;
 		}
 
+		public function updateApp_user($id, $data){
+			$this->db->where('app_user_id', $id);
+			$this->db->update('app_user', $data); 
+			
+			$query = $this->find_app_user($id);
+			$user = $query->row();
+
+			if($user->name == $data['name'] 
+					and $user->surname 		== $data['surname']
+					and $user->email 		== $data['email']
+					and	$user->password		== $data['password']){
+				return $query;
+			}else{
+				return FALSE;
+			}
+		}	
+
 }
 
 ?>

@@ -11,19 +11,11 @@ class Admin extends CI_Controller {
 
 	public function sendCustomerSignup(){
 
-		$this->form_validation->set_error_delimiters('<div class="alert alert-warning">', '</div>');
+		$this->load->library('customer_utils');
 
-		$this->form_validation->set_rules('name','Name','required');
-		$this->form_validation->set_rules('type','Type','required');
-		$this->form_validation->set_rules('phoneNumber','Phone Number','required|numeric');
-		$this->form_validation->set_rules('latitude','Latitude','required|decimal');		
-		$this->form_validation->set_rules('longitude','Longitude','required|decimal');		
-		$this->form_validation->set_rules('password','Password','required');
-		$this->form_validation->set_rules('passwordConfirm','Confirm Password','required|matches[password]');
-		$this->form_validation->set_rules('email','Email','required|valid_email');
-		$this->form_validation->set_rules('zipCode','ZipCode','required|numeric');
+		$checkForm = $this->customer_utils->checkForm();
 
-		if($this->form_validation->run() == FALSE){
+		if($checkForm == FALSE){
 			$this->render->renderView('admin/signupCustomer');
 		}else{
 			$data['name'] = $this->input->post('name');
