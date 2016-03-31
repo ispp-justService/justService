@@ -3,10 +3,9 @@
 	<h3>User's list</h3>
 	<hr>
 	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
+		<?php foreach($users as $user): ?>
+		<div class="row">
 		<div class="panel panel-default" >
-
-			<?php foreach($users as $user): ?>
-
 		   <div class="panel-heading"><?php echo $user->name." ".$user->surname ?></div>
 		      <div class="panel-body">
 			<div class="row">
@@ -32,9 +31,11 @@
 			    <div class="col-md-4">
 				<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/>
 			    </div>
-			</row>
+			</div>
 		      </div>
 		   </div>
+		   </div> <!-- /row para separar los paneles entre sí -->
+		   <br />
 
 			<?php endforeach; ?> 
 
