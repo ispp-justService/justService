@@ -35,8 +35,8 @@ class Admin extends CI_Controller {
 			$data['email'] = $this->input->post('email');
 			$data['zip_code'] = $this->input->post('zipCode');
 
-			$this->load->model('customer');
-			if($this->customer->register_customer($data)){
+			$this->load->model('customers');
+			if($this->customers->register_customer($data)){
 				$this->render->renderView('main/main');
 			}
 		}

@@ -27,8 +27,29 @@ class App_user extends CI_Controller {
 			$data['password'] = password_hash($this->input->post('password'),PASSWORD_DEFAULT);
 			$data['email'] = $this->input->post('email');
 
-			$this->load->model('app_user');
-			$this->app_user->register_user($data);
+			$this->load->model('app_users');
+			$result = $this->app_users->register_user($data);
+			if($result != FALSE){
+				$result = $result->row();
+				$this->session->set_userdata('role',"APP_USER");
+				$this->session->set_userdata('id',$result->app_user_id);
+				$this->render->renderView('main/main');			
+			}
+		}
+	}
+
+	public function showProfile(){
+		$id = $this->session->id;
+		if(isset($id)){
+			$this->load->model('app_users');
+			$result = $this->app_users->find_app_user($id);
+		
+			if($result != FALSE){
+				$data['user'] = $result->row();
+				$this->render->renderView('app_user/profile',$data);
+			}else{
+			
+			}
 		}
 	}
 }

@@ -123,10 +123,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<li class="divider" role="separator"></li>
 							<li><a href="<?php echo site_url('admin/signupCustomer') ?>">Customer's Signup</a></li>
 							<li><a href="<?php echo site_url('admin/customersList') ?>">Customer's List</a></li>
-							<li class="divider" role="separator"></li>
-							<li><a href="<?php echo site_url('admin/customerSignup') ?>">Customer's Signup</a></li>
 			<?php elseif($this->session->role == "CUSTOMER"): ?>
-						<?php echo $this->session->id ?> <span class="caret"></span>
+				del		<?php echo $this->session->id ?> <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="<?php echo site_url('customer/showProfile') ?>">Profile</a></li>
