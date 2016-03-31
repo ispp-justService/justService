@@ -170,16 +170,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</ul>
 	<?php endif; ?>
 
-	<?php if($this->session->role == "ADMINISTRATOR"): ?>
-	<div id="textWhiteHeader" class="navbar-right navbar-text cursor" data-toggle="dropdown" data-target=".user-dropdown">
-	 <?php echo $this->session->id ?> <span class="caret"></span>
-	</div>
-	<?php endif; ?>	
-
         <div id="navbar" class="navbar-collapse collapse" id="navbar-login-signup">
 
 		<?php if($this->session->userdata('id')):?>
-			
+			<div id="textWhiteHeader" class="navbar-right navbar-text cursor" data-toggle="dropdown" data-target=".user-dropdown">
+			 	<?php echo $this->session->id ?> <span class="caret"></span>
+			</div>
 		<?php else: ?>
 			<div class="navbar-header pull-right">
 	 			<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("app_user/signup"); ?>">Sign up</a>
