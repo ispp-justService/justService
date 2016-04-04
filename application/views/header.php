@@ -146,10 +146,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<ul class="nav navbar-nav navbar-user navbar-right">
 	   <li class="dropdown user-dropdown">
 		<ul class="dropdown-menu">
-			<li><a href="<?php echo site_url('customer/showProfile') ?>">Profile</a></li>
+			<li><a href="<?php echo site_url('customer/showProfile') ?>">My Profile</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url('customer/editInformation') ?>">Edit information</a></li>
-			<li><a href="<?php echo site_url('customer/serivcesList') ?>">Service's List</a></li>
+			<li><a href="<?php echo site_url('customer/servicesList') ?>">Service's List</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url("main/logout"); ?>">Log out</a></li>
 		</ul>
@@ -159,10 +159,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<ul class="nav navbar-nav navbar-user navbar-right">
 	   <li class="dropdown user-dropdown">
 		<ul class="dropdown-menu">
-			<li><a href="<?php echo site_url('app_user/showProfile') ?>">Profile</a></li>
+			<li><a href="<?php echo site_url('app_user/showProfile') ?>">My Profile</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url('app_user/editInformation') ?>">Edit information</a></li>
-			<li><a href="<?php echo site_url('app_user/editInformation') ?>">Service's List</a></li>
+			<li><a href="<?php echo site_url('app_user/servicesList') ?>">Service's List</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url("main/logout"); ?>">Log out</a></li>
 		</ul>

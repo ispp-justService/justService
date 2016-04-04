@@ -20,6 +20,18 @@ class Customer extends CI_Controller {
 		}
 	}
 
+	public function servicesList(){
+		$role 	= $this->session->role;
+		$id 	= $this->session->id;
+		if(isset($role) && $role == 'CUSTOMER' && isset($id)){
+			$this->load->model('services');
+			$result = $this->services->get_all_by_customer($id);
+			
+			$data['services'] = $result->result();
+			$this->render->renderView('customer/servicesList',$data);
+		}
+	}
+
 	public function editInformation(){
 		$id = $this->session->id;
 		if(isset($id)){

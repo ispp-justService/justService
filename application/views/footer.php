@@ -42,7 +42,7 @@
 
 		<p class="footer-company-about">
 			<span>About the company</span>
-			Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+			Broker service between users who have a problem with their homes and experts which can help them.
 		</p>
 
 		<div class="footer-icons">

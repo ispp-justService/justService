@@ -1,6 +1,6 @@
     <div class="container">
       <div class="row row-centered">
-	<h3>Sign up</h3>
+	<h3>Edit my information</h3>
 	<hr>
 	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
 		<?php echo form_open('/app_user/sendEditInformation') ?>

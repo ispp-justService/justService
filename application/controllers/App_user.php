@@ -9,6 +9,18 @@ class App_user extends CI_Controller {
 		$this->render->renderView('app_user/signup');
 	}
 
+	public function servicesList(){
+		$role 	= $this->session->role;
+		$id 	= $this->session->id;
+		if(isset($role) && $role == 'APP_USER' && isset($id)){
+			$this->load->model('services');
+			$result = $this->services->get_all_by_user($id);
+			
+			$data['services'] = $result->result();
+			$this->render->renderView('app_user/servicesList',$data);
+		}
+	}
+
 	public function sendRegistration(){
 
 		$this->form_validation->set_error_delimiters('<div class="alert alert-warning">', '</div>');

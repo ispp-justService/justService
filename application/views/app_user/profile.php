@@ -1,6 +1,6 @@
     <div class="container">
       <div class="row row-centered">
-	<h3>Profile</h3>
+	<h3>My Profile</h3>
 	<hr>
 	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
 		<div class="row">
