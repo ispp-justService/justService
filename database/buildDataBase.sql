@@ -1,5 +1,5 @@
 ﻿DROP TABLE IF EXISTS bookmark;
-DROP TABLE IF EXISTS have;
+DROP TABLE IF EXISTS tag_entry;
 DROP TABLE IF EXISTS tag;
 DROP TABLE IF EXISTS banner;
 DROP TABLE IF EXISTS service;
@@ -43,12 +43,11 @@ CREATE TABLE service(
 	service_id		serial		PRIMARY KEY,
 	description		varchar		NOT NULL,
 	moment			timestamp	NOT NULL DEFAULT current_timestamp,
-	status			varchar		NOT NULL,
-	rating_user		smallint	CHECK(rating_user >= 0 AND rating_user < 5),
+	status			varchar		NOT NULL CHECK(status = 'PENDING' OR status = 'FINALIZE' OR status = 'ACTIVE'),
+	rating_user		smallint	CHECK(rating_user >= 0 AND rating_user <= 5),
 	comment_user		varchar,
-	rating_customer		smallint	CHECK(rating_customer >= 0 AND rating_customer < 5),
+	rating_customer		smallint	CHECK(rating_customer >= 0 AND rating_customer <= 5),
 	comment_customer	varchar,
-	address			varchar,
 	discount_to_apply	decimal		CHECK(discount_to_apply < 0.2),
 
 	customer_id		serial		REFERENCES customer(customer_id),
@@ -74,7 +73,7 @@ CREATE TABLE tag(
 );
 
 -- Creación de la tabla intermedia entre Tag y Customer
-CREATE TABLE have(
+CREATE TABLE tag_entry(
 	customer_id	serial		REFERENCES customer(customer_id),
 	tag_id		serial		REFERENCES tag(tag_id),
 	UNIQUE(customer_id,tag_id),

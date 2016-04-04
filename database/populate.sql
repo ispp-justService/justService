@@ -1,4 +1,5 @@
-﻿DELETE FROM ADMINISTRATOR;
+﻿DELETE FROM TAG_ENTRY;
+DELETE FROM ADMINISTRATOR;
 DELETE FROM CUSTOMER;
 DELETE FROM TAG;
 DELETE FROM APP_USER;
@@ -56,4 +57,46 @@ INSERT INTO TAG (name) VALUES('builder');
 INSERT INTO TAG (name) VALUES('locksmith');
 INSERT INTO TAG (name) VALUES('plumber');
 
+/*
+ Tag_entry's populate
+*/
+/* CUSTOMER 1 WITH HIS ASSOCIATED TAGS */
+INSERT INTO TAG_ENTRY VALUES('1','1');
+INSERT INTO TAG_ENTRY VALUES('1','11');
+INSERT INTO TAG_ENTRY VALUES('1','12');
+/* CUSTOMER 2 WITH HIS ASSOCIATED TAGS */
+INSERT INTO TAG_ENTRY VALUES('2','2');
+INSERT INTO TAG_ENTRY VALUES('2','6');
+INSERT INTO TAG_ENTRY VALUES('2','7');
+INSERT INTO TAG_ENTRY VALUES('2','12');
+INSERT INTO TAG_ENTRY VALUES('2','14');
+INSERT INTO TAG_ENTRY VALUES('2','17');
+INSERT INTO TAG_ENTRY VALUES('2','20');
+INSERT INTO TAG_ENTRY VALUES('2','21');
+INSERT INTO TAG_ENTRY VALUES('2','25');
+/* CUSTOMER 3 WITH HIS ASSOCIATED TAGS */
+INSERT INTO TAG_ENTRY VALUES('3','3');
+INSERT INTO TAG_ENTRY VALUES('3','4');
+INSERT INTO TAG_ENTRY VALUES('3','13');
+INSERT INTO TAG_ENTRY VALUES('3','15');
+INSERT INTO TAG_ENTRY VALUES('3','6');
+INSERT INTO TAG_ENTRY VALUES('3','24');
+/* CUSTOMER 4 WITH HIS ASSOCIATED TAGS */
+INSERT INTO TAG_ENTRY VALUES('4','4');
+INSERT INTO TAG_ENTRY VALUES('4','5');
+INSERT INTO TAG_ENTRY VALUES('4','6');
+INSERT INTO TAG_ENTRY VALUES('4','7');
+INSERT INTO TAG_ENTRY VALUES('4','9');
+INSERT INTO TAG_ENTRY VALUES('4','10');
+INSERT INTO TAG_ENTRY VALUES('4','20');
+INSERT INTO TAG_ENTRY VALUES('4','21');
+INSERT INTO TAG_ENTRY VALUES('4','23');
 
+
+/*
+  Service's populate
+*/
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Hey there is no light at my home. I need an electrician.','PENDING','1','1');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('My bathroom is crazy!!! I had to built a boat like Noah.','ACTIVE','2','2');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer) VALUES('I forgot my keys inside my house :( help!','FINALIZE','3','3','4','It saved my life','5','Thanks for calling me');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Hey I need to do some changes in my house. Can you do it?', 'PENDING','4','1');
