@@ -14,7 +14,8 @@
 		      <div class="panel-body">
 			<div class="row">
 			   <div class="col-md-8">
-			      	<table>
+			      	<div class="table-responsive">
+			      	<table class="table">
 				   <tr>
 					<td><b>Email:</b> <?php echo $customer->email ?></td>	
 				   </tr>
@@ -37,6 +38,7 @@
 					<td><b>Phone Number:</b> <?php echo $customer->phone_number ?></td>	
 				   </tr>				
 				</table>
+				</div>
 			    </div>
 			    <div class="col-md-4">
 				<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/>
