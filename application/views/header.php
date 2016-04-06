@@ -148,6 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<ul class="dropdown-menu">
 			<li><a href="<?php echo site_url('customer/showProfile') ?>">My Profile</a></li>
 			<li class="divider" role="separator"></li>
+			<li><a href="<?php echo site_url('customer/showTags') ?>">Manage Tags</a></li>
 			<li><a href="<?php echo site_url('customer/editInformation') ?>">Edit information</a></li>
 			<li><a href="<?php echo site_url('customer/servicesList') ?>">Service's List</a></li>
 			<li class="divider" role="separator"></li>

@@ -20,6 +20,63 @@ class Customer extends CI_Controller {
 		}
 	}
 
+	public function showTags(){
+		$id = $this->session->id;
+		$role = $this->session->role;
+		if(isset($id) && isset($role) && $role == 'CUSTOMER'){
+			$this->load->model('tags');
+			$customerTags = $this->tags->get_tags_by_customer($id);
+		
+			if($customerTags != FALSE){
+				$data['customerTags'] = $customerTags->result();
+				$this->render->renderView('customer/showTags',$data);
+			}else{
+				
+			}
+		}
+	}
+
+	public function editTags(){
+		$id = $this->session->id;
+		$role = $this->session->role;
+		if(isset($id) && isset($role) && $role == 'CUSTOMER'){
+			$this->load->model('tags');
+			$tags = $this->tags->get_tags_to_edit_by_customer($id);
+		
+			if($tags != FALSE){
+				$data['tags'] = $tags->result();
+				$this->render->renderView('customer/editTags',$data);
+			}else{
+				
+			}
+		}
+	}
+
+	public function sendEditTags(){
+		$id = $this->session->id;
+		$role = $this->session->role;
+		if(isset($id) && isset($role) && $role == 'CUSTOMER'){
+			
+			$size = $this->input->post('size');
+
+			foreach($_POST as $key => $val){
+				if($key != "submit"){
+					$data[$key] = $this->input->post($key);									
+				}
+			}
+			
+			$this->load->model('tags');
+			$result = $this->tags->modify_tags($id,$data);
+			
+			if($result == TRUE){
+				redirect('customer/showTags');
+			}else{
+				echo "fallo al editar tags";
+			}
+
+		}
+	}
+
 	public function servicesList(){
 		$role 	= $this->session->role;
 		$id 	= $this->session->id;
