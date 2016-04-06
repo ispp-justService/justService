@@ -147,7 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<ul class="nav navbar-nav navbar-user navbar-right">
 	   <li class="dropdown user-dropdown">
 		<ul class="dropdown-menu">
-			<li><a href="<?php echo site_url('customer/showProfile') ?>">My Profile</a></li>
+			<li><a href="<?php echo site_url('customer/showProfile/'.$this->session->id) ?>">My Profile</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url('customer/showTags') ?>">Manage Tags</a></li>
 			<li><a href="<?php echo site_url('customer/editInformation') ?>">Edit information</a></li>
@@ -161,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<ul class="nav navbar-nav navbar-user navbar-right">
 	   <li class="dropdown user-dropdown">
 		<ul class="dropdown-menu">
-			<li><a href="<?php echo site_url('app_user/showProfile') ?>">My Profile</a></li>
+			<li><a href="<?php echo site_url('app_user/showProfile/'.$this->session->id) ?>">My Profile</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url('app_user/editInformation') ?>">Edit information</a></li>
 			<li><a href="<?php echo site_url('app_user/servicesList') ?>">Service's List</a></li>
@@ -176,7 +176,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<?php if($this->session->userdata('id')):?>
 			<div id="textWhiteHeader" class="navbar-right navbar-text cursor" data-toggle="dropdown" data-target=".user-dropdown">
-			 	<?php echo $this->session->id ?> <span class="caret"></span>
+			 	<?php echo $this->session->name ?> <span class="caret"></span>
 			</div>
 		<?php else: ?>
 			<div class="navbar-header pull-right">

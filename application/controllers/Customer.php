@@ -5,8 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Customer extends CI_Controller {
 
-	public function showProfile(){
-		$id = $this->session->id;
+	public function showProfile($id){
 		if(isset($id)){
 			$this->load->model('customers');
 			$result = $this->customers->find_customer($id);
@@ -16,6 +15,66 @@ class Customer extends CI_Controller {
 				$this->render->renderView('customer/profile',$data);
 			}else{
 			
+			}
+		}
+	}
+
+	public function activateService($id){
+		$customer_id 	= $this->session->id;
+		$role 			= $this->session->role;
+		if(isset($id) && isset($customer_id) && isset($role) && $role == "CUSTOMER"){
+			$this->load->model('services');
+			$result = $this->services->activate_service($id, $customer_id);
+
+			if($result != FALSE){
+				$status = $result->row()->status;
+				if($status == 'ACTIVE'){
+					redirect('customer/servicesList');
+				}else{
+					echo "estado no cambiado";
+				}								
+			}else{
+				echo "no se ha podido activar el servicio";
+			}
+		}				
+	}
+
+	public function rateService($id){
+		$customer_id 	= $this->session->id;
+		$role 			= $this->session->role;
+		if(isset($id) && isset($customer_id) && isset($role) && $role == "CUSTOMER"){
+			$this->load->model("services");
+			$rating_customer = $this->input->post("rating_customer");
+			$comment_customer = $this->input->post("comment_customer");
+			
+			$result = $this->services->rate_service_by_customer($id,$customer_id,$rating_customer,$comment_customer);
+			
+			if($result != FALSE){
+				$result = $result->row();
+				if($result->rating_customer == $rating_customer && $result->comment_customer == $comment_customer){
+					redirect('customer/servicesList');
+				}
+			}
+		}
+		
+	}
+
+	public function finalizeService($id){
+		$customer_id 	= $this->session->id;
+		$role 			= $this->session->role;
+		if(isset($id) && isset($customer_id) && isset($role) && $role == "CUSTOMER"){
+			$this->load->model('services');
+			$result = $this->services->finalize_service($id, $customer_id);
+
+			if($result != FALSE){
+				$status = $result->row()->status;
+				if($status == 'FINALIZE'){
+					redirect('customer/servicesList');
+				}else{
+					echo "estado no cambiado";
+				}								
+			}else{
+				echo "no se ha podido finalizar servicio";
 			}
 		}
 	}

@@ -16,6 +16,7 @@ class Main extends CI_Controller {
 		$this->load->model('accounts');
 		$role = "";
 		$id = "";
+		$name = "";
 		// Intentamos primero el login del admin
 		$result = $this->accounts->login_as_administrator($data);
 		if($result == false){
@@ -27,14 +28,17 @@ class Main extends CI_Controller {
 				if($result != false){
 					$role = "APP_USER";
 					$id = $result->app_user_id;
+					$name = $result->name;
 				}
 			}else{
 				$role = "CUSTOMER";
 				$id = $result->customer_id;
+				$name = $result->name;
 			}
 		}else{
 			$role = "ADMINISTRATOR";		
-			$id = $result->email;		
+			$id = $result->email;
+			$name = $result->email;		
 		}
 
 		// Si finalmente el resultado es falso, ha fallado el login
@@ -45,6 +49,7 @@ class Main extends CI_Controller {
 				
 				$this->session->set_userdata('role',$role);
 				$this->session->set_userdata('id',$id);
+				$this->session->set_userdata('name',$name);
 				$this->render->renderView('main/main');
 			}else{
 				echo "contraseña incorrecta";

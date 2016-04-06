@@ -13,6 +13,23 @@
 				<div class="table-responsive">
 			      	<table class="table-responsive">
 				   <tr>
+					<?php if($service->type == "Freelance"): ?>
+						<td>
+							<b>Professional:</b>
+							<a href="<?php echo site_url("customer/showProfile/".$service->customer_id) ?>">
+								<?php echo $service->name ?>
+							</a>
+						</td>	
+					<?php else: ?>
+						<td>
+							<b>Business:</b>
+							<a href="<?php echo site_url("customer/showProfile/".$service->customer_id) ?>">
+								<?php echo $service->name ?>
+							</a>
+						</td>	
+					<?php endif;?>
+				   </tr>
+				   <tr>
 					<td><b>Description:</b> <?php echo $service->description ?></td>	
 				   </tr>
 				   <tr>
@@ -25,74 +42,96 @@
 					    <?php endif; ?>
 					</td>	
 				   </tr>
-				   <?php if($service->status == 'FINALIZE' && $service->rating_user == null): ?>
-				   <tr>
-					<td>
-					   <b>Rate this service:</b>
-					   <div class="rating">
-					      <span>&#9734</span><span>&#9734</span><span>&#9734</span><span>&#9734</span><span>&#9734</span>
-					   </div>
-					</td>
-				   </tr>
-				   <?php elseif($service->status == 'FINALIZE' && $service->rating_user != null): ?>
-				   <tr>
-					<td>
-					   <b>Rate this service:</b>
-					   <div class="ratingShow">
-					   <?php
-					      for ($i=0 ; $i < $service->rating_user; $i++){
-						  echo '<span>&#9733</span>';
-					      }
-					   ?>
-					   </div>
-					</td>
-				   </tr>
+				   <?php if($service->status == 'FINALIZE'): ?>
+					<?php if($service->rating_customer != null): ?>
+					   <tr>
+						<td>
+						   <b>Customer's rate for you:</b>
+						   <div class="ratingShow">
+						   <?php
+							  for ($i=0 ; $i < $service->rating_customer; $i++){
+							  echo '<span>&#9733</span>';
+							  }
+						   ?>
+						   </div>
+						</td>
+					   </tr>
+					   <?php endif; ?>
+					   <?php if($service->comment_customer != null): ?>
+					   <tr>
+						<td>
+						   <b>Comment:</b>
+						   <?php echo $service->comment_customer?>
+						</td>
+					   </tr>
+					   <?php endif; ?>
+						<?php if($service->rating_user == null): ?>
+					   <tr>
+						<td>
+						   <b>Rate the user:</b>
+						   <div class="rating">
+							  	<span id="span5" onclick="changeStars('5')">&#9734</span>
+								<span id="span4" onclick="changeStars('4')">&#9734</span>
+								<span id="span3" onclick="changeStars('3')">&#9734</span>
+								<span id="span2" onclick="changeStars('2')">&#9734</span>
+								<span id="span1" onclick="changeStars('1')">&#9734</span>	
+
+								<script>
+									function changeStars(number) {
+
+										for(i=5; i>=1; i--){
+											$("#span"+i).html("&#9734");
+										}
+
+										for(i=number; i>=1; i--){
+											$("#span"+i).html("&#9733");
+										}
+										$("#rating").val(number);
+									}
+								</script>
+						   </div>
+						</td>
+					   </tr>
+					   <?php else: ?>
+					   <tr>
+						<td>
+						   <b>Your customer's rate:</b>
+						   <div class="ratingShow">
+						   <?php
+							  for ($i=0 ; $i < $service->rating_user; $i++){
+							  echo '<span>&#9733</span>';
+							  }
+						   ?>
+						   </div>
+						</td>
+					   </tr>
+					   <?php endif; ?>
+					   <?php if($service->comment_user != null): ?>
+					   <tr>
+						<td>
+						   <b>Comment:</b>
+						   <?php echo $service->comment_user?>
+						</td>
+					   </tr>
+					   <?php endif; ?>
 				   <?php endif; ?>
-				   <?php if($service->status == 'FINALIZE' && $service->comment_user != null): ?>
-				   <tr>
-					<td>
-					   <b>Comment Customer:</b>
-					   <?php echo $service->comment_user?>
-					</td>
-				   </tr>
-				   <?php endif; ?>
-				   <?php if($service->status == 'FINALIZE' && $service->rating_customer != null): ?>
-				   <tr>
-					<td>
-					   <b>Rate this customer:</b>
-					   <div class="ratingShow">
-					   <?php
-					      for ($i=0 ; $i < $service->rating_customer; $i++){
-						  echo '<span>&#9733</span>';
-					      }
-					   ?>
-					   </div>
-					</td>
-				   </tr>
-				   <?php endif; ?>
-				   <?php if($service->status == 'FINALIZE' && $service->comment_customer != null): ?>
-				   <tr>
-					<td>
-					   <b>Comment Customer:</b>
-					   <?php echo $service->comment_customer?>
-					</td>
-				   </tr>
-				   <?php endif; ?>				
+				   				
 				</table>
 				</div>
 			    </div>
 			    <div class="col-md-4">
-				<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/>
+				<a href="<?php echo site_url("customer/showProfile/".$service->customer_id) ?>"><img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/></a>
 			    </div>
 			</div>
 		      </div>
 		      <?php if($service->status == 'FINALIZE' && $service->rating_user == null): ?>
 		      <div class="panel-footer">
-			<form role="form">
+			<?php echo form_open('/app_user/rateService/'.$service->service_id) ?>
 			  <div class="row">
 			    <div class="col-md-10">
 				  <div class="form-group">
 				    <label for="comment_user">Comment:</label>
+					<input type="hidden" name="rating_user" id="rating" value="" />
 				    <textarea class="form-control" rows="5" name="comment_user"></textarea>
 				  </div>
 			    </div>

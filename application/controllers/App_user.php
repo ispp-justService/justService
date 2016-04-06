@@ -50,8 +50,27 @@ class App_user extends CI_Controller {
 		}
 	}
 
-	public function showProfile(){
-		$id = $this->session->id;
+	public function rateService($id){
+		$user_id 	= $this->session->id;
+		$role 			= $this->session->role;
+		if(isset($id) && isset($user_id) && isset($role) && $role == "APP_USER"){
+			$this->load->model("services");
+			$rating_user = $this->input->post("rating_user");
+			$comment_user = $this->input->post("comment_user");
+			
+			$result = $this->services->rate_service_by_user($id,$user_id,$rating_user,$comment_user);
+			
+			if($result != FALSE){
+				$result = $result->row();
+				if($result->rating_user == $rating_user && $result->comment_user == $comment_user){
+					redirect('app_user/servicesList');
+				}
+			}
+		}
+		
+	}
+
+	public function showProfile($id){
 		if(isset($id)){
 			$this->load->model('app_users');
 			$result = $this->app_users->find_app_user($id);
