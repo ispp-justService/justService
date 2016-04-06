@@ -1,56 +1,59 @@
     <div class="container">
-      <div class="row row-centered">
-	<h3>Profile</h3>
-	<hr>
-	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
-		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
-				<div class="form-group">
-				  <label for="name">Name: <?php echo $customer->name ?></label>
-		     	</div>
+	<div class="row">
+		<div class="col-md-3 col-lg-3">
+		   <div class="row">
+			<div class="text-center">
+			   <img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+			   <b>My Photo</b>
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6">
+		   </div>
+		</div>
+		<div class="col-md-9 col-lg-9">
+			<h3>My Profile</h3>
+			<hr>
+		<div class="row">
+			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
-				  <label for="type">Type: <?php echo $customer->type ?></label>
-		     	</div>
+				  <label for="name">Name: </label>&nbsp;<?php echo $customer->name ?>
+		     		</div>
+			</div>
+			<div class="col-md-6 col-lg-6">
+				<div class="form-group">
+				  <label for="type">Type: </label>&nbsp;<?php echo $customer->type ?>
+		     		</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
-				  <label for="phoneNumber">Phone Number: <?php echo $customer->phone_number ?></label>
-		     	</div>
+				  <label for="phone_number">Phone Number: </label>&nbsp;<?php echo $customer->phone_number ?>
+		     		</div>
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
-				  <label for="zipCode">Zip Code: <?php echo $customer->zip_code ?></label>
-		     	</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
-				<div class="form-group">
-				  <label for="latitude">Latitude: <?php echo $customer->latitude ?></label>
-		     	</div>
-			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6">
-				<div class="form-group">
-				  <label for="longitude">Longitude: <?php echo $customer->longitude ?></label>
-		     	</div>
+				  <label for="zip_code">Zip Code: </label>&nbsp;<?php echo $customer->zip_code ?>
+		     		</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
-				  <label for="email">Email: <?php echo $customer->email ?></label>
-		     	</div>
+				  <label for="latitude">Latitude: </label>&nbsp;<?php echo $customer->latitude ?>
+		     		</div>
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6">
+			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
-				  <label for="photo">Photo: <?php echo $customer->photo ?></label>
-		     	</div>
+				  <label for="email">Email: </label>&nbsp;<?php echo $customer->email ?>
+		     		</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-6 col-lg-6">
+				<div class="form-group">
+				  <label for="longitude">Longitude: </label>&nbsp;<?php echo $customer->longitude ?>
+		     		</div>
+			</div>
+		</div>
+	</div>
 	</div> <!-- /class cols  -->
-      </div> <!-- /row -->
     </div> <!-- /container -->

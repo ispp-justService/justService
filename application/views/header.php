@@ -112,6 +112,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         </style>
         <link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/rating.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/footer-distributed-with-address-and-phones.css"); ?>">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
         <script src="<?php echo base_url("assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"); ?>"></script>
