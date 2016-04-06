@@ -92,6 +92,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-color:#101010;
 	   }
 
+	   .ulDivideColumn{
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+	   }
+
 	.cursor {cursor:pointer}
 
 

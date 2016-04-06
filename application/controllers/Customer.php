@@ -85,8 +85,10 @@ class Customer extends CI_Controller {
 		if(isset($id) && isset($role) && $role == 'CUSTOMER'){
 			$this->load->model('tags');
 			$customerTags = $this->tags->get_tags_by_customer($id);
+			$tags = $this->tags->get_tags_to_edit_by_customer($id);
 		
-			if($customerTags != FALSE){
+			if($customerTags != FALSE && $tags != FALSE){
+				$data['tags'] = $tags->result();
 				$data['customerTags'] = $customerTags->result();
 				$this->render->renderView('customer/showTags',$data);
 			}else{

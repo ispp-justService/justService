@@ -4,14 +4,14 @@ class Tags extends CI_Model {
 
 	public function get_tags_by_customer($id){
 
-		$query = $this->db->query("select name from tag_entry natural join tag where customer_id = ".$id);
+		$query = $this->db->query("select name from tag_entry natural join tag where customer_id = ".$id." order by name ASC");
 		
 		return $query;
 	}
 	
 	public function get_tags_to_edit_by_customer($id){
 
-		$query = $this->db->query("select t.tag_id, name, (select TRUE from tag_entry as t1 where customer_id=".$id."and t.tag_id = t1.tag_id) as checked from tag as t");
+		$query = $this->db->query("select t.tag_id, name, (select TRUE from tag_entry as t1 where customer_id=".$id."and t.tag_id = t1.tag_id) as checked from tag as t order by name ASC");
 
 		return $query;
 	}
