@@ -202,8 +202,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </nav>
 	<?php if(isset($error)): ?>
-		<div class="show">
-			<?php echo $error; ?>
+		<div class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Error!</strong>&nbsp;<?php echo $error; ?>
 		</div>
 	<?php endif;  ?>
 
