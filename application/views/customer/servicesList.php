@@ -31,6 +31,15 @@
 					    <?php endif; ?>
 					</td>	
 				   </tr>
+					<?php if($service->status == 'PENDING'):?>
+						<tr>
+							<td>
+							   <a href="<?php echo site_url("customer/cancelService/".$service->service_id) ?>">
+								Cancel service
+								</a>
+							</td>
+					   </tr>
+					<?php endif; ?>
 				   <?php if($service->status == 'FINALIZE'): ?>
 						<?php if($service->rating_user != null): ?>
 					   <tr>
@@ -108,6 +117,13 @@
 							<td>
 							   <a href="<?php echo site_url("customer/finalizeService/".$service->service_id) ?>">
 								Finalize service
+								</a>
+							</td>
+					   </tr>
+						<tr>
+							<td>
+							   <a href="<?php echo site_url("customer/cancelService/".$service->service_id) ?>">
+								Cancel service
 								</a>
 							</td>
 					   </tr>

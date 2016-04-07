@@ -43,7 +43,7 @@ CREATE TABLE service(
 	service_id		serial		PRIMARY KEY,
 	description		varchar		NOT NULL,
 	moment			timestamp	NOT NULL DEFAULT current_timestamp,
-	status			varchar		NOT NULL CHECK(status = 'PENDING' OR status = 'FINALIZE' OR status = 'ACTIVE'),
+	status			varchar		NOT NULL CHECK(status = 'PENDING' OR status = 'FINALIZE' OR status = 'ACTIVE' OR status = 'CANCELLED'),
 	rating_user		smallint	CHECK(rating_user >= 0 AND rating_user <= 5),
 	comment_user		varchar,
 	rating_customer		smallint	CHECK(rating_customer >= 0 AND rating_customer <= 5),

@@ -79,6 +79,26 @@ class Customer extends CI_Controller {
 		}
 	}
 
+	public function cancelService($id){
+		$customer_id 	= $this->session->id;
+		$role 			= $this->session->role;
+		if(isset($id) && isset($customer_id) && isset($role) && $role == "CUSTOMER"){
+			$this->load->model('services');
+			$result = $this->services->cancel_service_by_customer($id, $customer_id);
+
+			if($result != FALSE){
+				$status = $result->row()->status;
+				if($status == 'CANCELLED'){
+					redirect('customer/servicesList');
+				}else{
+					echo "estado no cambiado";
+				}								
+			}else{
+				echo "no se ha podido finalizar servicio";
+			}
+		}
+	}
+
 	public function showTags(){
 		$id = $this->session->id;
 		$role = $this->session->role;

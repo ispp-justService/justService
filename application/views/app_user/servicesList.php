@@ -42,6 +42,15 @@
 					    <?php endif; ?>
 					</td>	
 				   </tr>
+					<?php if($service->status == 'PENDING'):?>
+						<tr>
+							<td>
+							   <a href="<?php echo site_url("app_user/cancelService/".$service->service_id) ?>">
+								Cancel service
+								</a>
+							</td>
+					   </tr>
+					<?php endif; ?>
 				   <?php if($service->status == 'FINALIZE'): ?>
 					<?php if($service->rating_customer != null): ?>
 					   <tr>

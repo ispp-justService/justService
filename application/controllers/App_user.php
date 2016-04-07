@@ -50,6 +50,26 @@ class App_user extends CI_Controller {
 		}
 	}
 
+	public function cancelService($id){
+		$user_id 	= $this->session->id;
+		$role 			= $this->session->role;
+		if(isset($id) && isset($user_id) && isset($role) && $role == "APP_USER"){
+			$this->load->model('services');
+			$result = $this->services->cancel_service_by_user($id, $user_id);
+
+			if($result != FALSE){
+				$status = $result->row()->status;
+				if($status == 'CANCELLED'){
+					redirect('app_user/servicesList');
+				}else{
+					echo "estado no cambiado";
+				}								
+			}else{
+				echo "no se ha podido finalizar servicio";
+			}
+		}
+	}
+
 	public function rateService($id){
 		$user_id 	= $this->session->id;
 		$role 			= $this->session->role;
