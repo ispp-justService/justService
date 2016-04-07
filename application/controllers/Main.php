@@ -43,7 +43,7 @@ class Main extends CI_Controller {
 
 		// Si finalmente el resultado es falso, ha fallado el login
 		if($result == false){
-			echo "fallo en el login";
+			$this->render->renderViewWithError('main/main',"Sorry. Did you put your credentials correctly?");
 		}else{
 			if(password_verify($data['password'], $result->password)){
 				
@@ -52,7 +52,7 @@ class Main extends CI_Controller {
 				$this->session->set_userdata('name',$name);
 				$this->render->renderView('main/main');
 			}else{
-				echo "contraseña incorrecta";
+				$this->render->renderViewWithError('main/main',"Wrong password.");
 			}
 		}
 	}

@@ -201,5 +201,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
+	<?php if(isset($error)): ?>
+		<div class="show">
+			<?php echo $error; ?>
+		</div>
+	<?php endif;  ?>
 
 	<?php $content ?>

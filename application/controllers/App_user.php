@@ -18,6 +18,8 @@ class App_user extends CI_Controller {
 			
 			$data['services'] = $result->result();
 			$this->render->renderView('app_user/servicesList',$data);
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
 		}
 	}
 
@@ -67,6 +69,8 @@ class App_user extends CI_Controller {
 			}else{
 				echo "no se ha podido finalizar servicio";
 			}
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
 		}
 	}
 
@@ -86,8 +90,9 @@ class App_user extends CI_Controller {
 					redirect('app_user/servicesList');
 				}
 			}
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
 		}
-		
 	}
 
 	public function showProfile($id){

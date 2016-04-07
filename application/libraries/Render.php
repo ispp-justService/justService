@@ -12,5 +12,17 @@ class Render{
 
 		return $this->CI->load->view('template', $content_data, FALSE);
 	}
+
+	public function renderViewWithError($nameView,  $error, $data = array()){
+
+		$data['error'] = $error;
+
+		$this->CI =& get_instance();
+
+		$content_data['content'] = $this->CI->load->view($nameView, $data, TRUE);
+
+		return $this->CI->load->view('template', $content_data, FALSE);
+	}
+
 }
 ?>
