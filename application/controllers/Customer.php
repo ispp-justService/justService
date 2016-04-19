@@ -72,7 +72,7 @@ class Customer extends CI_Controller {
 
 			if($result != FALSE){
 				$status = $result->row()->status;
-				if($status == 'FINALIZE'){
+				if($status == 'FINALIZED'){
 					redirect('customer/servicesList');
 				}else{
 					$this->render->renderViewWithError('customer/servicesList',"State of service not changed");

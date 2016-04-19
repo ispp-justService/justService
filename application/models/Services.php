@@ -4,7 +4,7 @@ class Services extends CI_Model {
 
 	public function get_all_by_customer($id){
 
-		$query = $this->db->query("select * from app_user a,service s where a.app_user_id = s.app_user_id and status not like 'CANCELLED'  and s.customer_id =".$id);
+		$query = $this->db->query("select * from app_user a,service s where a.app_user_id = s.app_user_id and s.customer_id =".$id);
 
 		return $query;
 	
@@ -12,7 +12,7 @@ class Services extends CI_Model {
 
 	public function get_all_by_user($id){
 
-		$query = $this->db->query("select * from customer c,service s where c.customer_id=s.customer_id and status not like 'CANCELLED' and s.app_user_id =".$id);
+		$query = $this->db->query("select * from customer c,service s where c.customer_id=s.customer_id and s.app_user_id =".$id);
 			
 		return $query;
 	
@@ -20,7 +20,7 @@ class Services extends CI_Model {
 
 	public function finalize_service($id, $customer_id){
 			
-		$this->db->query("UPDATE service SET status = 'FINALIZE' where service_id =".$id.' and customer_id ='.$customer_id);
+		$this->db->query("UPDATE service SET status = 'FINALIZED' where service_id =".$id.' and customer_id ='.$customer_id);
 
 		$query = $this->db->query("select status from service where service_id =".$id);
 		

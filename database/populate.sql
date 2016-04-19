@@ -102,7 +102,7 @@ INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I ca
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('This is a mistake, but i cannot delete this for now','PENDING','2','2');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I want to build a house. A BIG house','PENDING','4','3');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('My bathroom is crazy!!! I had to built a boat like Noah.','ACTIVE','2','2');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer) VALUES('I forgot my keys inside my house :( help!','FINALIZE','3','3','4','It saved my life','5','Thanks for calling me');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Hey I need to do some changes in my house. Can you do it?', 'FINALIZE','4','1');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Need a hand with a thing, please call me.', 'FINALIZE','1','1');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer) VALUES('I forgot my keys inside my house :( help!','FINALIZED','3','3','4','It saved my life','5','Thanks for calling me');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Hey I need to do some changes in my house. Can you do it?', 'FINALIZED','4','1');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Need a hand with a thing, please call me.', 'FINALIZED','1','1');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I need you to do an empire state in my garden for 5 dollars.','ACTIVE','3','3');

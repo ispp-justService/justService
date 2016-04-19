@@ -51,7 +51,7 @@
 							</td>
 					   </tr>
 					<?php endif; ?>
-				   <?php if($service->status == 'FINALIZE'): ?>
+				   <?php if($service->status == 'FINALIZED'): ?>
 					<?php if($service->rating_customer != null): ?>
 					   <tr>
 						<td>
@@ -133,7 +133,7 @@
 			    </div>
 			</div>
 		      </div>
-		      <?php if($service->status == 'FINALIZE' && $service->rating_user == null): ?>
+		      <?php if($service->status == 'FINALIZED' && $service->rating_user == null): ?>
 		      <div class="panel-footer">
 			<?php echo form_open('/app_user/rateService/'.$service->service_id) ?>
 			  <div class="row">
