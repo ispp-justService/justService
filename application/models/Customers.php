@@ -47,6 +47,14 @@ class Customers extends CI_Model {
 			}else{
 				return FALSE;
 			}
-		}			
+		}	
+
+	public function get_all_related_to_text_search($text_search){
+		$query = $this->db->query("select * from customer 
+											where customer_id in 
+													(select distinct customer_id from tag_entry natural join tag 
+																		where name like '%".$text_search."%');");
+		return $query;
+	}		
 }
 ?>

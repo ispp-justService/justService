@@ -9,6 +9,31 @@ class Main extends CI_Controller {
 		$this->render->renderView('main/main');
 	}
 
+	public function geolocation(){
+		$this->load->library('googlemaps');
+
+		$config = array();
+		$config['center'] = 'auto';
+		$config['onboundschanged'] = 
+									'if (!centreGot) {
+										var mapCentre = map.getCenter();
+										marker_0.setOptions({
+																position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+															});
+										}
+									centreGot = true;';
+		$this->googlemaps->initialize($config);
+
+		// set up the marker ready for positioning 
+		// once we know the users location
+		$marker = array();
+		$marker['position'] = $this->session->latitude.','.$this->session->longitude;
+		$this->googlemaps->add_marker($marker);
+		$data['map'] = $this->googlemaps->create_map();
+
+		$this->render->renderView('main/example',$data);
+	}
+
 	public function login(){
 		$data['email'] 		= $this->input->post('email');
 		$data['password'] 	= $this->input->post('password');	
@@ -18,7 +43,7 @@ class Main extends CI_Controller {
 		$id = "";
 		$name = "";
 		// Intentamos primero el login del admin
-		$result = $this->accounts->login_as_administrator($data);
+			$result = $this->accounts->login_as_administrator($data);
 		if($result == false){
 			// El login del admin ha fallado, intentamos el del customer
 			$result = $this->accounts->login_as_customer($data);
@@ -54,6 +79,13 @@ class Main extends CI_Controller {
 			}else{
 				$this->render->renderViewWithError('main/main',"Wrong password.");
 			}
+		}
+	}
+	
+	public function set_current_coords($lat,$lng){
+		if(!isset($this->session->latitude) || !isset($this->session->longitude)){
+			$this->session->set_userdata('latitude',$lat);
+			$this->session->set_userdata('longitude',$lng);
 		}
 	}
 

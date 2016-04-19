@@ -102,6 +102,5 @@ class Services extends CI_Model {
 		}
 	}
 
-
 }
 ?>
