@@ -40,8 +40,15 @@
 					<td><b>Rating:</b>
 					   <div class="ratingShow">
 					   <?php
+						  
 						  for ($i=0 ; $i < ceil($customer->rating); $i++){
 						  echo '<span>&#9733</span>';
+						  }
+						  $numAux = 5 - ceil($customer->rating);
+						  if ($numAux != 0){
+						     for ($i=0 ; $i < $numAux; $i++){
+							 echo '<span>&#9734</span>';
+						     }
 						  }
 					   ?>
 					   </div>
