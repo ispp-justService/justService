@@ -10,7 +10,14 @@
 		<?php else: ?>
 		   <div class="panel panel-default" style="background-color: bisque;" >	
 		<?php endif; ?>
-		   <div class="panel-heading"><?php echo $customer->name ?></div>
+		   <div class="panel-heading"><?php echo $customer->name ?>
+		        <div class="pull-right">
+			<?php echo form_open('/service/request') ?>
+			<?php echo form_hidden('customer_id', $customer->customer_id); ?>
+			<button type="submit" class="btn btn-success btn-xs">Request Service</button>
+			<?php echo form_close() ?>
+			</div>
+		      </div>
 		      <div class="panel-body">
 			<div class="row">
 			   <div class="col-md-8">
@@ -20,7 +27,7 @@
 					<td><b>Email:</b> <?php echo $customer->email ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Moment:</b> <?php echo $customer->moment ?></td>	
+					<td><b>Moment:</b> <?php echo date('Y-m-d H:i', strtotime($customer->moment)) ?></td>	
 				   </tr>
 				   <tr>
 					<td><b>Type:</b> <?php echo $customer->type ?></td>	
@@ -32,36 +39,36 @@
 					<td><b>Phone Number:</b> <?php echo $customer->phone_number ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Rating:</b> <?php echo $customer->rating ?></td>	
-				   </tr>
-				   <tr>
-					<td>
-						<?php echo form_open('/service/request') ?>
-						<?php echo form_hidden('customer_id', $customer->customer_id); ?>
-						<button type="submit" class="btn btn-success btn-xs">Request Service</button>
-						</form>
+					<td><b>Rating:</b>
+					   <div class="ratingShow">
+					   <?php
+						  for ($i=0 ; $i < ceil($customer->rating); $i++){
+						  echo '<span>&#9733</span>';
+						  }
+					   ?>
+					   </div>
 					</td>	
-				   </tr>				
+				   </tr>			
 				</table>
 				</div>
 			    </div>
 			    <div class="col-md-4">
 				<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/>
 			    </div>
-			</row>
-		      </div>
-		   </div>
-		</div>
+		      </div><!-- /row panel-body-->
+		   </div><!-- /panel-body-->
+		</div><!-- /panel-default-->
 		</div><!-- /row para separar los paneles entre sí -->
 		<br />
-		<?php endforeach; ?> 
-	</div> <!-- /class cols  -->
-      </div> <!-- /row -->
-		<?php echo $pagination; ?>
-
+		<?php endforeach; ?>
 		<script type=”text/javascript”>
 			var centreGot = false;
 		</script>
-	<?php echo $map['js']; ?>
-	<?php echo $map['html']; ?>
+		<?php echo $map['js']; ?>
+		<?php echo $map['html']; ?>
+		<div class="text-center"> 
+		<?php echo $pagination; ?>
+		</div>
+	</div> <!-- /class cols centradas -->
+      </div> <!-- /row -->
     </div> <!-- /container -->
