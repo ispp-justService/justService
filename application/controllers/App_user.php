@@ -52,6 +52,19 @@ class App_user extends CI_Controller {
 		}
 	}
 
+	public function createPendingService(){
+		$user_id 	= $this->session->id;
+		$role 			= $this->session->role;
+		if(isset($id) && isset($user_id) && isset($role) && $role == "APP_USER"){
+
+			$customer_id = $this->input->post('customer_id');
+			$description = $this->input->post('description');
+			
+						
+		
+		}		
+	}
+
 	public function cancelService($id){
 		$user_id 	= $this->session->id;
 		$role 			= $this->session->role;

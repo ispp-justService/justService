@@ -49,12 +49,14 @@ class Customers extends CI_Model {
 			}
 		}	
 
-	public function get_all_related_to_text_search($text_search){
-		$query = $this->db->query("SELECT distinct customer_id FROM tag_entry NATURAL JOIN tag WHERE name like '%".$text_search."%'");
+	public function get_all_related_to_keywords($like){
+
+		$query = $this->db->query("SELECT distinct customer_id FROM tag_entry NATURAL JOIN tag WHERE name like any ('{".$like."}')");
 		return $query;
 	}
 
-	public function get_all_related_to_text_search_order_by_distance($text_search, $latitude, $longitude, $limit, $page){
+	public function get_all_related_to_keywords_order_by_distance($like, $latitude, $longitude, $limit, $page){
+
 		$query = $this->db->query("SELECT c.* , abs( 
 														sqrt(pow(latitude,2) + pow(longitude,2)) - sqrt(pow(".$latitude.",2) + pow(".$longitude.",2) ) ) 
 														/ 
@@ -71,7 +73,7 @@ class Customers extends CI_Model {
 														IN 
 														(SELECT distinct customer_id 
 																	FROM tag_entry NATURAL JOIN tag 
-																				WHERE name like '%" .$text_search."%') 
+																				WHERE name like any ('{".$like."}') )
 										GROUP BY c.customer_id ORDER BY distancia
 										LIMIT ".$limit." OFFSET ".( ($page - 1) * $limit));
 		return $query;

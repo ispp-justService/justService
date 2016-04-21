@@ -33,6 +33,14 @@
 				   </tr>
 				   <tr>
 					<td><b>Rating:</b> <?php echo $customer->rating ?></td>	
+				   </tr>
+				   <tr>
+					<td>
+						<?php echo form_open('/service/request') ?>
+						<?php echo form_hidden('customer_id', $customer->customer_id); ?>
+						<button type="submit" class="btn btn-success btn-xs">Request Service</button>
+						</form>
+					</td>	
 				   </tr>				
 				</table>
 				</div>
