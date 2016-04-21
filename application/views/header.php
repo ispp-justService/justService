@@ -76,15 +76,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    text-decoration-line: none;
 		    text-decoration-style: solid;
 	   }
-	   .searchCentral::-moz-placeholder{
-		color:#101010;
-	   }
-	   .searchCentral:-ms-input-placeholder{
-		color:#101010;
-	   }
-	   .searchCentral::-webkit-input-placeholder{
-		color:#101010;
-	   }
            .searchCentral{
 		border: 3px solid #7E7E82;
 	   }
