@@ -30,6 +30,9 @@
 				   </tr>
 				   <tr>
 					<td><b>Phone Number:</b> <?php echo $customer->phone_number ?></td>	
+				   </tr>
+				   <tr>
+					<td><b>Rating:</b> <?php echo $customer->rating ?></td>	
 				   </tr>				
 				</table>
 				</div>
@@ -46,6 +49,7 @@
 		<?php endforeach; ?> 
 	</div> <!-- /class cols  -->
       </div> <!-- /row -->
+		<?php echo $pagination; ?>
 
 		<script type=”text/javascript”>
 			var centreGot = false;

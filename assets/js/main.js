@@ -13,8 +13,10 @@ function getLocation() {
 function setPosition(position){
 	latitude = position.coords.latitude;
 	longitude = position.coords.longitude;
+	// 37.3647904 , -5.9885559
 
 	$.ajax({url: window.location.href+"/index.php/main/set_current_coords/"+latitude+"/"+longitude, success: function(result){
         //alert(result);
     }});
-}	
+}
+

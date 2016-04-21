@@ -45,9 +45,13 @@
 					<?php if($service->status == 'PENDING'):?>
 						<tr>
 							<td>
-							   <a href="<?php echo site_url("app_user/cancelService/".$service->service_id) ?>">
-								Cancel service
-								</a>
+								<button type="button" 
+										class="btn btn-danger btn-xs" 
+										data-toggle="modal" 
+										data-target='#<?php echo "cancel_service_".$service->service_id ?>'>Cancel Service</button>
+								<?php echo get_confirmation_modal(
+											"cancel_service_".$service->service_id,
+											site_url("app_user/cancelService/".$service->service_id)) ?>
 							</td>
 					   </tr>
 					<?php endif; ?>

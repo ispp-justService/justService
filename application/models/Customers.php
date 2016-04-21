@@ -50,10 +50,30 @@ class Customers extends CI_Model {
 		}	
 
 	public function get_all_related_to_text_search($text_search){
-		$query = $this->db->query("select * from customer 
-											where customer_id in 
-													(select distinct customer_id from tag_entry natural join tag 
-																		where name like '%".$text_search."%');");
+		$query = $this->db->query("SELECT distinct customer_id FROM tag_entry NATURAL JOIN tag WHERE name like '%".$text_search."%'");
+		return $query;
+	}
+
+	public function get_all_related_to_text_search_order_by_distance($text_search, $latitude, $longitude, $limit, $page){
+		$query = $this->db->query("SELECT c.* , abs( 
+														sqrt(pow(latitude,2) + pow(longitude,2)) - sqrt(pow(".$latitude.",2) + pow(".$longitude.",2) ) ) 
+														/ 
+														coalesce(sum(s.rating_customer) 
+																		/ 
+																 sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5) 
+												as distancia,
+												coalesce(sum(s.rating_customer) 
+																		/ 
+																 sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5)
+														as rating
+										FROM service s JOIN customer c USING (customer_id) 
+												WHERE c.customer_id 
+														IN 
+														(SELECT distinct customer_id 
+																	FROM tag_entry NATURAL JOIN tag 
+																				WHERE name like '%" .$text_search."%') 
+										GROUP BY c.customer_id ORDER BY distancia
+										LIMIT ".$limit." OFFSET ".( ($page - 1) * $limit));
 		return $query;
 	}		
 }
