@@ -36,7 +36,7 @@ if ( ! function_exists('get_creation_service_modal')){
 		$modal = '
 			<!-- Modal -->
 			<div id="creation_service_modal_'.$id.'" class="modal fade" role="dialog">
-			  <div class="modal-dialog modal-sm">
+			  <div class="modal-dialog modal-lg">
 
 				<!-- Modal content-->
 				<div class="modal-content">
@@ -44,18 +44,20 @@ if ( ! function_exists('get_creation_service_modal')){
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Confirmation request of service</h4>
 				  </div>
+				  <form action="'.$controller_path.'" id="serviceForm" method="POST">
 				  <div class="modal-body">
-					<form action="'.$controller_path.'" id="serviceForm" method="POST">
-						<label>Description</label><br>
-						<textarea name="description" form="serviceForm">Enter description here...</textarea>
+					<div class="form-group">
+						<label>Description</label>
+						<textarea name="description" class="form-control" form="serviceForm" placeholder="Enter description here..." rows="3"></textarea>
 						<input type="hidden" name="customer_id" value="'.$id.'">
-						<hr>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-						<input type="submit" class="btn btn-success" value="Create">
-					</form>
+					</div>
 				  </div>
+				  <div class="modal-footer">
+				    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+				    <input type="submit" class="btn btn-success" value="Create">
+				  </div>
+				  </form>
 				</div>
-
 			  </div>
 			</div>
 		';
