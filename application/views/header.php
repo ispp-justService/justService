@@ -89,6 +89,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		column-count: 3;
 	   }
 
+	   body.modal-open{
+		overflow: inherit;
+		padding-right: 0 !important;
+	   }
+
 	.cursor {cursor:pointer}
 
 
