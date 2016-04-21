@@ -48,22 +48,14 @@
 		<div class="row">
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
-				  <label for="latitude">Latitude: </label>&nbsp;<?php echo $customer->latitude ?>
-		     		</div>
-			</div>
-			<div class="col-md-6 col-lg-6">
-				<div class="form-group">
-				  <label for="email">Email: </label>&nbsp;<?php echo $customer->email ?>
-		     		</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-lg-6">
-				<div class="form-group">
-				  <label for="longitude">Longitude: </label>&nbsp;<?php echo $customer->longitude ?>
+  				  <label for="email">Email: </label>&nbsp;<?php echo $customer->email ?>
 		     		</div>
 			</div>
 		</div>
 	</div>
 	</div> <!-- /class cols  -->
+		<div class="panel panel-default" style="background-color: aquamarine;" >
+			<?php echo $map['js']; ?>
+			<?php echo $map['html']; ?>
+		</div>
     </div> <!-- /container -->

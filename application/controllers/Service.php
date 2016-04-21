@@ -101,55 +101,62 @@ class Service extends CI_Controller {
 			}	
 
 			// Obtenemos los customers que cumplan con los requisitos asociados a la búsqueda
-			$result = $this->customers->get_all_related_to_keywords_order_by_distance($like, $latitude, $longitude, $config['per_page'],$page );
-
-			// Lo ubicamos como dato de salida
-			$data['customers'] = $result->result();
-
-			// Configuramos el mapa a mostrar al usuario
-			$config = array();
-			$config['center'] = 'auto';
-			$config['onboundschanged'] = 
-										'if (!centreGot) {
-											var mapCentre = map.getCenter();
-											marker_0.setOptions({
-																	position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
-																});
-											}
-										centreGot = true;';
-			// Iniciamos la libreria de google maps con la configuración asociada.
-			$this->googlemaps->initialize($config);
-
-			$marker = array();
-		
-			// Configuramos nuestra posición
-			$marker['position'] = $this->session->latitude.','.$this->session->longitude;
-			$marker['draggable'] = FALSE;
-			$marker['infowindow_content'] = 'Your current position';
-			$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|00FF00|000000';
-		
-			// La añadimos
-			$this->googlemaps->add_marker($marker);
-
-			// Por cada customer encontramos configuramos su posición y la añadimos
-			foreach($data['customers'] as $customer){
-				$marker = array();
-
-				$marker['position'] = $customer->latitude.','.$customer->longitude;
-				$marker['draggable'] = FALSE;
-				$marker['infowindow_content'] = $customer->name.' , '.$customer->phone_number;
-
-				$this->googlemaps->add_marker($marker);
+			if(isset($latitude) && isset($longitude)){
+				$result = $this->customers->get_all_related_to_keywords_order_by_distance($like, $latitude, $longitude, $config['per_page'],$page );
+			}else{
+				$result = $this->customers->get_all_related_to_keywords_order_by_them($like, $config['per_page'],$page );
 			}
+			
+			if( $result->num_rows() > 0 ){
+				// Lo ubicamos como dato de salida
+				$data['customers'] = $result->result();
 
-			// Creamos el mapa y lo ubicamos como dato de salida
-			$data['map'] = $this->googlemaps->create_map();
-			// Creamos los enlaces de la paginación y lo ubicamos como dato de salida
-			$data['pagination'] = $this->pagination->create_links();
+				// Configuramos el mapa a mostrar al usuario
+				$config = array();
+				$config['center'] = 'auto';
+				$config['onboundschanged'] = 
+											'if (!centreGot) {
+												var mapCentre = map.getCenter();
+												marker_0.setOptions({
+																		position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
+																	});
+												}
+											centreGot = true;';
+				// Iniciamos la libreria de google maps con la configuración asociada.
+				$this->googlemaps->initialize($config);
+
+				$marker = array();
+		
+				// Configuramos nuestra posición
+				$marker['position'] = $this->session->latitude.','.$this->session->longitude;
+				$marker['draggable'] = FALSE;
+				$marker['infowindow_content'] = 'Your current position';
+				$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|00FF00|000000';
+		
+				// La añadimos
+				$this->googlemaps->add_marker($marker);
+
+				// Por cada customer encontramos configuramos su posición y la añadimos
+				foreach($data['customers'] as $customer){
+					$marker = array();
+
+					$marker['position'] = $customer->latitude.','.$customer->longitude;
+					$marker['draggable'] = FALSE;
+					$marker['infowindow_content'] = $customer->name.' , '.$customer->phone_number;
+
+					$this->googlemaps->add_marker($marker);
+				}
+
+				// Creamos el mapa y lo ubicamos como dato de salida
+				$data['map'] = $this->googlemaps->create_map();
+				// Creamos los enlaces de la paginación y lo ubicamos como dato de salida
+				$data['pagination'] = $this->pagination->create_links();
 	
-			// Renderizamos la pantalla
-			$this->render->renderView('service/search',$data);
-
+				// Renderizamos la pantalla
+				$this->render->renderView('service/search',$data);			
+			}else{
+				$this->render->renderViewWithError('main/main',"No results found according to that search");			
+			}
 		}else{
 			$this->render->renderViewWithError('main/main',"The search text has empty values or is too short");
 		}

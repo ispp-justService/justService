@@ -12,6 +12,17 @@ class Customer extends CI_Controller {
 		
 			if($result != FALSE){
 				$data['customer'] = $result->row();
+
+				$this->load->library('googlemaps');
+
+				$config['center'] = $data['customer']->latitude.','.$data['customer']->longitude;
+				$this->googlemaps->initialize($config);
+
+				$marker = array();
+				$marker['position'] = $data['customer']->latitude.','.$data['customer']->longitude;
+				$this->googlemaps->add_marker($marker);
+				$data['map'] = $this->googlemaps->create_map();
+
 				$this->render->renderView('customer/profile',$data);
 			}else{
 			

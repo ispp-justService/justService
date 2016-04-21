@@ -10,7 +10,10 @@
 		<?php else: ?>
 		   <div class="panel panel-default" style="background-color: bisque;" >	
 		<?php endif; ?>
-		   <div class="panel-heading"><?php echo $customer->name ?>
+		   <div class="panel-heading">
+							<a href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
+								<?php echo $customer->name ?>
+							</a>
 		        <div class="pull-right">
 			<button type="button" 
 				class="btn btn-success btn-xs" 

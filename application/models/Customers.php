@@ -78,5 +78,24 @@ class Customers extends CI_Model {
 										LIMIT ".$limit." OFFSET ".( ($page - 1) * $limit));
 		return $query;
 	}		
+	public function get_all_related_to_keywords_order_by_them($like, $limit, $page){
+
+		$query = $this->db->query("SELECT c.* , 1 / coalesce(sum(s.rating_customer) / 
+																 sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5) 
+												as distancia,
+												coalesce(sum(s.rating_customer) 
+																		/ 
+																 sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5)
+														as rating
+										FROM service s JOIN customer c USING (customer_id) 
+												WHERE c.customer_id 
+														IN 
+														(SELECT distinct customer_id 
+																	FROM tag_entry NATURAL JOIN tag 
+																				WHERE name like any ('{".$like."}') )
+										GROUP BY c.customer_id ORDER BY distancia
+										LIMIT ".$limit." OFFSET ".( ($page - 1) * $limit));
+		return $query;
+	}		
 }
 ?>
