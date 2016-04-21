@@ -8,13 +8,13 @@
 		<div class="panel panel-default">
 
 		<?php if($customer->type == 'Freelance'): ?>
-		   <div class="panel-heading" style="background-color: aquamarine;"><?php echo $customer->name ?>
+		   <div class="panel-heading" style="background-color: #7DED58;"><?php echo $customer->name ?>
 		<?php else: ?>
-		   <div class="panel-heading" style="background-color: bisque;" ><?php echo $customer->name ?>	
+		   <div class="panel-heading" style="background-color: #58C8ED;" ><?php echo $customer->name ?>	
 		<?php endif; ?>
 		        <div class="pull-right">
 			<button type="button" 
-				class="btn btn-success btn-xs" 
+				class="btn btn-xs buttonRed" 
 				data-toggle="modal" 
 				data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
 			<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
