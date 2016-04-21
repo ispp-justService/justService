@@ -54,8 +54,14 @@
 		</div>
 	</div>
 	</div> <!-- /class cols  -->
-		<div class="panel panel-default" style="background-color: aquamarine;" >
+		
+    </div> <!-- /container -->
+    <br />
+    <div class="container">
+	<div class="row row-centered">
+		<div class="col-xs-6 col-sm-6 col-md-6 col-centered" >
 			<?php echo $map['js']; ?>
 			<?php echo $map['html']; ?>
 		</div>
-    </div> <!-- /container -->
+	</div>
+    </div>
