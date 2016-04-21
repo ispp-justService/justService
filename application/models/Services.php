@@ -31,6 +31,24 @@ class Services extends CI_Model {
 		}
 	}
 
+	public function create_pending_service($user_id, $customer_id, $description){
+
+		$prev_number = $this->get_all_by_user($user_id)->num_rows();
+
+		$this->db->query("INSERT INTO SERVICE 
+								(description, status, customer_id, app_user_id) 
+								VALUES
+								('".$description."','PENDING',".$customer_id.",".$user_id.")");
+
+		$next_number = $this->get_all_by_user($user_id)->num_rows();
+
+		if($next_number > $prev_number){
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
+
 	public function activate_service($id, $customer_id){
 			
 		$this->db->query("UPDATE service SET status = 'ACTIVE' where service_id =".$id.' and customer_id ='.$customer_id);

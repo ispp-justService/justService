@@ -55,13 +55,22 @@ class App_user extends CI_Controller {
 	public function createPendingService(){
 		$user_id 	= $this->session->id;
 		$role 			= $this->session->role;
-		if(isset($id) && isset($user_id) && isset($role) && $role == "APP_USER"){
+		if(isset($user_id) && isset($role) && $role == "APP_USER"){
 
 			$customer_id = $this->input->post('customer_id');
 			$description = $this->input->post('description');
 			
-						
-		
+			$this->load->model('services');
+
+			$result = $this->services->create_pending_service($user_id, $customer_id, $description);
+
+			if($result == TRUE){
+				redirect('app_user/servicesList');
+			}else{
+				$this->render->renderViewWithError('main/main',"Sorry! Error at creating a new request of service");
+			}		
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
 		}		
 	}
 
