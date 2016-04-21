@@ -12,10 +12,11 @@
 		<?php endif; ?>
 		   <div class="panel-heading"><?php echo $customer->name ?>
 		        <div class="pull-right">
-			<?php echo form_open('/service/request') ?>
-			<?php echo form_hidden('customer_id', $customer->customer_id); ?>
-			<button type="submit" class="btn btn-success btn-xs">Request Service</button>
-			<?php echo form_close() ?>
+			<button type="button" 
+				class="btn btn-success btn-xs" 
+				data-toggle="modal" 
+				data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
+			<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
 			</div>
 		      </div>
 		      <div class="panel-body">
