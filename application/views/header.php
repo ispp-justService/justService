@@ -187,6 +187,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<form class="navbar-form navbar-right" role="form" action="<?php echo site_url("main/login"); ?>" method="POST">
 	            <div class="form-group">
 					<input type="email" name="email" placeholder="Email" class="form-control">
+					<div id="latitude"></div>
+					<div id="longitude"></div>
             	</div>
             	<div class="form-group">
               		<input type="password" name="password" placeholder="Password" class="form-control">

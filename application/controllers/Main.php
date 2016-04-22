@@ -37,6 +37,8 @@ class Main extends CI_Controller {
 	public function login(){
 		$data['email'] 		= $this->input->post('email');
 		$data['password'] 	= $this->input->post('password');	
+		$latitude 			= $this->input->post('latitude');
+		$longitude			= $this->input->post('longitude');
 		
 		$this->load->model('accounts');
 		$role = "";
@@ -75,6 +77,8 @@ class Main extends CI_Controller {
 				$this->session->set_userdata('role',$role);
 				$this->session->set_userdata('id',$id);
 				$this->session->set_userdata('name',$name);
+				$this->session->set_userdata('latitude',$latitude);
+				$this->session->set_userdata('longitude',$longitude);
 				$this->render->renderView('main/main');
 			}else{
 				$this->render->renderViewWithError('main/main',"Wrong password.");
@@ -83,10 +87,10 @@ class Main extends CI_Controller {
 	}
 	
 	public function set_current_coords($lat,$lng){
-		if(!isset($this->session->latitude) || !isset($this->session->longitude)){
+
 			$this->session->set_userdata('latitude',$lat);
 			$this->session->set_userdata('longitude',$lng);
-		}
+		
 	}
 
 	public function logout(){

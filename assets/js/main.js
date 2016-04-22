@@ -15,8 +15,12 @@ function setPosition(position){
 	longitude = position.coords.longitude;
 	// 37.3647904 , -5.9885559
 
+	$( "#latitude" ).html( '<input type="hidden" name="latitude" value="'+latitude+'">' );
+	$( "#longitude" ).html( '<input type="hidden" name="longitude" value="'+longitude+'">' );
+/*
 	$.ajax({url: window.location.href+"/index.php/main/set_current_coords/"+latitude+"/"+longitude, success: function(result){
         //alert(result);
     }});
+*/
 }
 

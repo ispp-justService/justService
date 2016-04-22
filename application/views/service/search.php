@@ -8,9 +8,15 @@
 		<div class="panel panel-default">
 
 		<?php if($customer->type == 'Freelance'): ?>
-		   <div class="panel-heading" style="background-color: #7DED58;"><?php echo $customer->name ?>
+		   <div class="panel-heading" style="background-color: #7DED58;">
+				<a href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
+								<?php echo $customer->name ?>
+				</a>
 		<?php else: ?>
-		   <div class="panel-heading" style="background-color: #58C8ED;" ><?php echo $customer->name ?>	
+		   <div class="panel-heading" style="background-color: #58C8ED;" >
+				<a href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
+								<?php echo $customer->name ?>
+				</a>
 		<?php endif; ?>
 		        <div class="pull-right">
 			<button type="button" 
