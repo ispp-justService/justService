@@ -9,7 +9,7 @@
 			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
 				<?php endif; ?>
 			   <b>My Photo</b><br>
-				<?php if($this->session->id == $user->app_user_id): ?>
+				<?php if($this->session->id == $user->app_user_id && $this->session->role == "APP_USER"): ?>
 					<button type="button" 
 										class="btn btn-info btn-xs" 
 										data-toggle="modal" 

@@ -9,7 +9,7 @@
 			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
 				<?php endif; ?>
 			   <b>My Photo</b><br>
-				<?php if($this->session->id == $customer->customer_id): ?>
+				<?php if($this->session->id == $customer->customer_id  && $this->session->role == "CUSTOMER" ): ?>
 					<button type="button" 
 										class="btn btn-info btn-xs" 
 										data-toggle="modal" 
@@ -30,7 +30,7 @@
 				<br/>
 				<!-- Si el usuario ha marcado como favorito dicho cliente aparecerá la siguiente línea comentada en vez de la otra-->
 				<!-- <a href="#" class="btn btn-primary">Favorite <span class="glyphicon glyphicon-heart"></span></a> -->
-				<a href="#" class="btn btn-primary">Mark Favorite <span class="glyphicon glyphicon-heart-empty"></span></a>
+				<a href="<?php echo site_url("") ?>" class="btn btn-primary">Mark Favorite <span class="glyphicon glyphicon-heart-empty"></span></a>
 			</div>
 		</div>
 			<hr>
