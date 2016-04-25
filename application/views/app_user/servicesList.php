@@ -133,7 +133,11 @@
 				</div>
 			    </div>
 			    <div class="col-md-4">
-				<a href="<?php echo site_url("customer/showProfile/".$service->customer_id) ?>"><img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/></a>
+				 <?php if($service->photo): ?>
+					<img src="<?php echo base_url($service->photo); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+				<?php else: ?>
+			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+				<?php endif; ?>
 			    </div>
 			</div>
 		      </div>
