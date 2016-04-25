@@ -3,8 +3,21 @@
 		<div class="col-md-3 col-lg-3">
 		   <div class="row">
 			<div class="text-center">
-			   <img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
-			   <b>My Photo</b>
+			   <?php if($customer->photo): ?>
+					<img src="<?php echo base_url($customer->photo); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+				<?php else: ?>
+			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+				<?php endif; ?>
+			   <b>My Photo</b><br>
+				<?php if($this->session->id == $customer->customer_id): ?>
+					<button type="button" 
+										class="btn btn-info btn-xs" 
+										data-toggle="modal" 
+										data-target='#uploadImageModal'>Change image</button>	
+
+					<?php echo get_upload_image_modal($this->session->id, $this->session->role, site_url("main/uploadImage")); ?>
+
+				<?php endif; ?>
 			</div>
 		   </div>
 		</div>

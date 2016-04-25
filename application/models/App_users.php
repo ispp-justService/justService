@@ -51,6 +51,21 @@ class App_users extends CI_Model {
 			}
 		}	
 
+		public function upload_image($id, $image_path){
+			$this->db->set('photo'			,$image_path);
+			$this->db->where('app_user_id'	, $id);
+			$this->db->update('app_user');
+
+			$query = $this->find_app_user($id);
+			$user = $query->row();
+
+			if($user->photo == $image_path){
+				return TRUE;
+			}else{
+				return FALSE;
+			}
+		}
+
 }
 
 ?>

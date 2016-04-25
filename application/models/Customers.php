@@ -96,6 +96,21 @@ class Customers extends CI_Model {
 										GROUP BY c.customer_id ORDER BY distancia
 										LIMIT ".$limit." OFFSET ".( ($page - 1) * $limit));
 		return $query;
-	}		
+	}	
+
+	public function upload_image($id, $image_path){
+			$this->db->set('photo'			,$image_path);
+			$this->db->where('customer_id'	, $id);
+			$this->db->update('customer');
+
+			$query = $this->find_customer($id);
+			$customer = $query->row();
+
+			if($customer->photo == $image_path){
+				return TRUE;
+			}else{
+				return FALSE;
+			}
+		}	
 }
 ?>

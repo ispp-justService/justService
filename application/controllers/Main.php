@@ -9,31 +9,6 @@ class Main extends CI_Controller {
 		$this->render->renderView('main/main');
 	}
 
-	public function geolocation(){
-		$this->load->library('googlemaps');
-
-		$config = array();
-		$config['center'] = 'auto';
-		$config['onboundschanged'] = 
-									'if (!centreGot) {
-										var mapCentre = map.getCenter();
-										marker_0.setOptions({
-																position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()) 
-															});
-										}
-									centreGot = true;';
-		$this->googlemaps->initialize($config);
-
-		// set up the marker ready for positioning 
-		// once we know the users location
-		$marker = array();
-		$marker['position'] = $this->session->latitude.','.$this->session->longitude;
-		$this->googlemaps->add_marker($marker);
-		$data['map'] = $this->googlemaps->create_map();
-
-		$this->render->renderView('main/example',$data);
-	}
-
 	public function login(){
 		$data['email'] 		= $this->input->post('email');
 		$data['password'] 	= $this->input->post('password');	
@@ -85,12 +60,49 @@ class Main extends CI_Controller {
 			}
 		}
 	}
-	
-	public function set_current_coords($lat,$lng){
 
-			$this->session->set_userdata('latitude',$lat);
-			$this->session->set_userdata('longitude',$lng);
-		
+	public function uploadImage(){
+		$id 	= $this->input->post("id");
+		$role 	= $this->input->post("role");
+
+		if(isset($role) && isset($id)){
+			$config['upload_path'] = '././assets/uploads/';
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$config['max_size']	= '100';
+			$config['max_width']  = '1024';
+			$config['max_height']  = '768';
+
+			$this->load->library('upload', $config);
+
+			if ( ! $this->upload->do_upload('image')){
+				echo $this->upload->display_errors();
+				//$this->render->renderViewWithError('main/main',"Error at uploading the selected image. Maybe try another format or reduce the size.");	
+			}else{
+				$image_name = $this->upload->data()['file_name'];
+
+				if($role == 'APP_USER'){
+					$this->load->model('app_users');
+					$result = $this->app_users->upload_image($id,'././assets/uploads/'.$image_name);	
+
+					if($result == TRUE){
+						redirect('app_user/showProfile/'.$id);
+					}else{
+						$this->render->renderViewWithError('main/main',"There was an error at uploading your image.");
+					}
+				}elseif($role == 'CUSTOMER'){
+					$this->load->model('customers');
+					$result = $this->customers->upload_image($id,'././assets/uploads/'.$image_name);	
+
+					if($result == TRUE){
+						redirect('customer/showProfile/'.$id);
+					}else{
+						$this->render->renderViewWithError('main/main',"There was an error at uploading your image.");
+					}
+				}
+			}
+		}else{
+			$this->render->renderViewWithError('main/main',"You cannot change other user's image.");
+		}
 	}
 
 	public function logout(){

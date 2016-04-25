@@ -64,3 +64,39 @@ if ( ! function_exists('get_creation_service_modal')){
         return $modal;
     }   
 }
+
+if ( ! function_exists('get_upload_image_modal')){
+
+    function get_upload_image_modal($id, $role, $controller_path){
+		$modal = '
+			<!-- Modal -->
+			<div id="uploadImageModal" class="modal fade" role="dialog">
+				<div class="modal-dialog modal-xs">
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Change your profile image</h4>
+						</div>
+						<form action="'.$controller_path.'" method="POST" enctype="multipart/form-data">
+						<div class="modal-body">
+							<div class="form-group">
+								<input type="file" name="image" size="20" />
+								<input type="hidden" name="id" value="'.$id.'" />
+								<input type="hidden" name="role" value="'.$role.'" />
+							</div>
+						</div>
+					<div class="modal-footer">
+
+						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+						<input type="submit" class="btn btn-success" value="Upload">
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		';
+		return $modal;
+	}
+}
