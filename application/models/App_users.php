@@ -66,6 +66,36 @@ class App_users extends CI_Model {
 			}
 		}
 
+		public function bookmark_a_customer($id, $customerId){
+
+			$data = array(
+			   'app_user_id' => $id ,
+			   'customer_id' => $customerId
+			);
+	
+			$this->db->where('app_user_id', $id);
+			$prev = $this->db->count_all("bookmark");
+
+			$this->db->insert('bookmark', $data); 
+
+			$this->db->where('app_user_id', $id);
+			$after = $this->db->count_all("bookmark");
+
+			if($after > $prev){
+				return TRUE;	
+			}else{
+				return FALSE;
+			}
+		}
+
+		public function unBookmark_a_customer($id, $customerId){
+
+			$this->db->where('app_user_id', $id);
+			$this->db->where('customer_id', $customerId);
+
+			$this->db->delete('bookmark'); 
+		}
+
 }
 
 ?>

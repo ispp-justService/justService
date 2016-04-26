@@ -99,18 +99,37 @@ class Customers extends CI_Model {
 	}	
 
 	public function upload_image($id, $image_path){
-			$this->db->set('photo'			,$image_path);
-			$this->db->where('customer_id'	, $id);
-			$this->db->update('customer');
+		$this->db->set('photo'			,$image_path);
+		$this->db->where('customer_id'	, $id);
+		$this->db->update('customer');
 
-			$query = $this->find_customer($id);
-			$customer = $query->row();
+		$query = $this->find_customer($id);
+		$customer = $query->row();
 
-			if($customer->photo == $image_path){
+		if($customer->photo == $image_path){
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
+	
+	public function is_customer_bookmarked_by_user($id, $app_user_id){
+
+
+			$this->db->select('true as result', FALSE);
+			$this->db->where('app_user_id', $app_user_id);
+			$this->db->where('customer_id', $id);
+
+			$query = $this->db->get("bookmark");
+	
+			$result = $query->num_rows();
+			
+			if($result > 0){
 				return TRUE;
 			}else{
 				return FALSE;
 			}
-		}	
+
+	}	
 }
 ?>

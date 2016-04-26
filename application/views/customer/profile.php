@@ -29,8 +29,12 @@
 			<div class="col-md-6 col-lg-6">
 				<br/>
 				<!-- Si el usuario ha marcado como favorito dicho cliente aparecerá la siguiente línea comentada en vez de la otra-->
-				<!-- <a href="#" class="btn btn-primary">Favorite <span class="glyphicon glyphicon-heart"></span></a> -->
-				<a href="<?php echo site_url("") ?>" class="btn btn-primary">Mark Favorite <span class="glyphicon glyphicon-heart-empty"></span></a>
+				<?php if($bookmarked == TRUE): ?>
+					<a href="<?php echo site_url("app_user/unBookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary">Favorite <span class="glyphicon glyphicon-heart"></span></a>
+				<?php else: ?>
+					<a href="<?php echo site_url("app_user/bookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary">Mark Favorite <span class="glyphicon glyphicon-heart-empty"></span></a>
+				<?php endif; ?>
+				
 			</div>
 		</div>
 			<hr>

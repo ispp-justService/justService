@@ -126,7 +126,7 @@ class App_user extends CI_Controller {
 				$data['user'] = $result->row();
 				$this->render->renderView('app_user/profile',$data);
 			}else{
-			
+				$this->render->renderViewWithError('main/main',"Can not find that User");
 			}
 		}
 	}
@@ -142,6 +142,48 @@ class App_user extends CI_Controller {
 				$this->render->renderView('app_user/editInformation',$data);
 			}
 		}		
+	}
+	
+	public function bookmark_a_customer($customerId){
+
+		$id 	= $this->session->id;
+		$role 	= $this->session->role;
+
+		if(isset($id) && isset($role) && $role == "APP_USER"){
+
+			$this->load->model('app_users');
+			$result = $this->app_users->bookmark_a_customer($id, $customerId);
+
+			if($result == TRUE){
+				redirect('customer/showProfile/'.$customerId);
+			}else{
+				$this->render->renderViewWithError('main/main',"Error at bookmarking a customer");
+			}
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+		}
+	}
+
+	public function unBookmark_a_customer($customerId){
+		$id 	= $this->session->id;
+		$role 	= $this->session->role;
+
+		if(isset($id) && isset($role) && $role == "APP_USER"){
+
+			$this->load->model('app_users');
+			$this->load->model('customers');
+			$this->app_users->unBookmark_a_customer($id, $customerId);
+			
+			$result = $this->customers->is_customer_bookmarked_by_user($customerId, $id);
+
+			if($result != TRUE){
+				redirect('customer/showProfile/'.$customerId);
+			}else{
+				$this->render->renderViewWithError('main/main',"Error at unBookmarking a customer");
+			}
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+		}
 	}
 
 	public function sendEditInformation(){

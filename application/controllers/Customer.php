@@ -11,6 +11,14 @@ class Customer extends CI_Controller {
 			$result = $this->customers->find_customer($id);
 		
 			if($result != FALSE){
+
+				$app_user_id = $this->session->id;
+				$role = $this->session->role;
+
+				if(isset($app_user_id) && isset($role) && $role == "APP_USER"){
+					$data['bookmarked'] = $this->customers->is_customer_bookmarked_by_user($id, $app_user_id);
+				}
+				
 				$data['customer'] = $result->row();
 
 				$this->load->library('googlemaps');
@@ -24,8 +32,9 @@ class Customer extends CI_Controller {
 				$data['map'] = $this->googlemaps->create_map();
 
 				$this->render->renderView('customer/profile',$data);
+
 			}else{
-			
+				$this->render->renderViewWithError('main/main',"Can not find that customer");
 			}
 		}
 	}
