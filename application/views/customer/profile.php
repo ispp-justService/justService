@@ -29,15 +29,18 @@
 			<div class="col-md-6 col-lg-6">
 				<br/>
 				<!-- Si el usuario ha marcado como favorito dicho cliente aparecerá la siguiente línea comentada en vez de la otra-->
-				<?php if($bookmarked == TRUE): ?>
-					<a href="<?php echo site_url("app_user/unBookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary">Favorite <span class="glyphicon glyphicon-heart"></span></a>
-				<?php else: ?>
-					<a href="<?php echo site_url("app_user/bookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary">Mark Favorite <span class="glyphicon glyphicon-heart-empty"></span></a>
-				<?php endif; ?>
-				<?php if($this->session->role == "APP_USER"): ?>
-						<button type="button" class="btn btn-xs buttonRed" data-toggle="modal" 
-								data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
-						<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
+		
+				<?php if($this->session->role && $this->session->role == "APP_USER"): ?>
+					<?php if(isset($bookmarked) && $bookmarked == TRUE): ?>
+						<a href="<?php echo site_url("app_user/unBookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary">Favorite <span class="glyphicon glyphicon-heart"></span></a>
+					<?php else: ?>
+						<a href="<?php echo site_url("app_user/bookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary">Mark Favorite <span class="glyphicon glyphicon-heart-empty"></span></a>
+					<?php endif; ?>
+					<?php if($this->session->role == "APP_USER"): ?>
+							<button type="button" class="btn btn-xs buttonRed" data-toggle="modal" 
+									data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
+							<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
+					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 		</div>

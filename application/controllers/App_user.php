@@ -124,7 +124,12 @@ class App_user extends CI_Controller {
 		
 			if($result != FALSE){
 				$data['user'] = $result->row();
-				$this->render->renderView('app_user/profile',$data);
+				if($data['user']->deleted != 't'){
+					$this->render->renderView('app_user/profile',$data);
+				}else{
+					$this->render->renderViewWithError('main/main',"The User is desactivated, sorry");					
+				}
+				
 			}else{
 				$this->render->renderViewWithError('main/main',"Can not find that User");
 			}

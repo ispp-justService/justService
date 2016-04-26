@@ -27,6 +27,7 @@ class Accounts extends CI_Model {
 				$this->db->select('customer_id, password,name');
 				$this->db->from('customer');
 				$this->db->where('email = '. "'". $data['email'] . "'");
+				$this->db->where("deleted != 't'");
 				
 				$query = $this->db->get();
 				
@@ -43,6 +44,7 @@ class Accounts extends CI_Model {
 				$this->db->select('app_user_id, password,name');
 				$this->db->from('app_user');
 				$this->db->where('email = '. "'". $data['email'] . "'");
+				$this->db->where("deleted != 't'");
 				
 				$query = $this->db->get();
 				

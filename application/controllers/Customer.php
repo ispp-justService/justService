@@ -12,27 +12,30 @@ class Customer extends CI_Controller {
 		
 			if($result != FALSE){
 
-				$app_user_id = $this->session->id;
-				$role = $this->session->role;
-
-				if(isset($app_user_id) && isset($role) && $role == "APP_USER"){
-					$data['bookmarked'] = $this->customers->is_customer_bookmarked_by_user($id, $app_user_id);
-				}
-				
 				$data['customer'] = $result->row();
 
-				$this->load->library('googlemaps');
+				if($data['customer'] -> deleted != 't'){
+					$app_user_id = $this->session->id;
+					$role = $this->session->role;
 
-				$config['center'] = $data['customer']->latitude.','.$data['customer']->longitude;
-				$this->googlemaps->initialize($config);
+					if(isset($app_user_id) && isset($role) && $role == "APP_USER"){
+						$data['bookmarked'] = $this->customers->is_customer_bookmarked_by_user($id, $app_user_id);
+					}
 
-				$marker = array();
-				$marker['position'] = $data['customer']->latitude.','.$data['customer']->longitude;
-				$this->googlemaps->add_marker($marker);
-				$data['map'] = $this->googlemaps->create_map();
+					$this->load->library('googlemaps');
 
-				$this->render->renderView('customer/profile',$data);
+					$config['center'] = $data['customer']->latitude.','.$data['customer']->longitude;
+					$this->googlemaps->initialize($config);
 
+					$marker = array();
+					$marker['position'] = $data['customer']->latitude.','.$data['customer']->longitude;
+					$this->googlemaps->add_marker($marker);
+					$data['map'] = $this->googlemaps->create_map();
+
+					$this->render->renderView('customer/profile',$data);
+				}else{
+					$this->render->renderViewWithError('main/main',"That customer is desactivated, sorry");
+				}
 			}else{
 				$this->render->renderViewWithError('main/main',"Can not find that customer");
 			}

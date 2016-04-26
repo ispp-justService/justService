@@ -73,7 +73,7 @@ class Customers extends CI_Model {
 														IN 
 														(SELECT distinct customer_id 
 																	FROM tag_entry NATURAL JOIN tag 
-																				WHERE name like any ('{".$like."}') )
+																				WHERE name like any ('{".$like."}') ) and c.deleted != 't'
 										GROUP BY c.customer_id ORDER BY distancia
 										LIMIT ".$limit." OFFSET ".( ($page - 1) * $limit));
 		return $query;
@@ -141,6 +141,24 @@ class Customers extends CI_Model {
 
 		return $query;
 		
+	}
+
+	public function deactivateCustomer($customer_id){
+
+		$data = array(
+               'deleted' => TRUE
+            );
+
+		$this->db->where('customer_id', $customer_id);
+		$this->db->update('customer', $data);  			
+
+		$query = $this->find_customer($customer_id);
+
+		if($query != FALSE){
+			return $query;
+		}else{
+			return FALSE;
+		}
 	}
 }
 ?>

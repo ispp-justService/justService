@@ -30,8 +30,8 @@ class App_users extends CI_Model {
 		}
 
 		public function get_all(){
-				$query = $this->db->query('select app_user_id,name,surname,email,moment,discount,photo,zip_code,phone_number from app_user where deleted=false');
-				return $query;
+			$query = $this->db->get('app_user');
+			return $query;
 		}
 
 		public function updateApp_user($id, $data){
@@ -95,6 +95,24 @@ class App_users extends CI_Model {
 
 			$this->db->delete('bookmark'); 
 		}
+
+		public function deactivateUser($app_user_id){
+
+			$data = array(
+		           'deleted' => TRUE
+		        );
+
+			$this->db->where('app_user_id', $app_user_id);
+			$this->db->update('app_user', $data);  			
+
+			$query = $this->find_app_user($app_user_id);
+
+			if($query != FALSE){
+				return $query;
+			}else{
+				return FALSE;
+			}
+	}
 
 }
 

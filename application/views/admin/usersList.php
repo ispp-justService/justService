@@ -28,10 +28,23 @@
 					<td><b>Phone Number:</b> <?php echo $user->phone_number?></td>	
 				   </tr>				
 				</table>
+					<?php if($user->deleted == "f"): ?>
+						<button type="button" 
+							class="btn btn-sm buttonRed" 
+							data-toggle="modal" 
+							data-target='#<?php echo $user->app_user_id ?>'>Deactivate User</button>
+						<?php echo get_confirmation_modal($user->app_user_id , site_url('admin/deactivateUser'), "app_user_id") ?>
+					<?php else: ?>
+						User deleted
+					<?php endif; ?>
 				</div>
 			    </div>
 			    <div class="col-md-4">
-				<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/>
+				<?php if($user->photo): ?>
+					<img src="<?php echo base_url($user->photo); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+				<?php else: ?>
+			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+				<?php endif; ?>
 			    </div>
 			</div>
 		      </div>
