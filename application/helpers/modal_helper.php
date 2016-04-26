@@ -2,7 +2,7 @@
 
 if ( ! function_exists('confirmation_modal')){
 
-    function get_confirmation_modal($id, $controller_path, $hidden=FALSE){
+    function get_confirmation_modal($id, $controller_path, $hidden_fields = array()){
 		$modal = '
 			<!-- Modal -->
 			<div id="'.$id.'" class="modal fade" role="dialog">
@@ -17,8 +17,8 @@ if ( ! function_exists('confirmation_modal')){
 				  <div class="modal-body">
 					<form action="'.$controller_path.'" method="POST">
 						<label>Are you sure you want to do this operation?</label>';
-		if($hidden != FALSE){
-						$modal.='<input type="hidden" name="'.$hidden.'" value="'.$id.'">';
+		foreach($hidden_fields as $field => $value){
+			$modal.='<input type="hidden" name="'.$field.'" value="'.$value.'">';
 		}
 		$modal.='
 						<button type="button" class="btn btn-danger" data-dismiss="modal">No</button>

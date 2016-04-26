@@ -141,6 +141,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li><a href="<?php echo site_url('admin/signupCustomer') ?>">Customer's Signup</a></li>
 			<li><a href="<?php echo site_url('admin/customersList') ?>">Customer's List</a></li>
 			<li class="divider" role="separator"></li>
+			<li><a href="<?php echo site_url('admin/createBanner') ?>">Create a new Banner</a></li>
+			<li><a href="<?php echo site_url('admin/bannersList') ?>">List banners</a></li>
+			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url("main/logout"); ?>">Log out</a></li>
 		</ul>
 	   </li>

@@ -58,8 +58,7 @@ CREATE TABLE service(
 CREATE TABLE banner(
 	banner_id	serial		PRIMARY KEY,
 	name		varchar		NOT NULL,
-	type		varchar		NOT NULL,
-	url		varchar		NOT NULL,
+	image		varchar		NOT NULL,
 	delete		bool		NOT NULL DEFAULT false,
 	moment		timestamp	NOT NULL DEFAULT current_timestamp,
 

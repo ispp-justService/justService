@@ -75,8 +75,8 @@ class Main extends CI_Controller {
 			$this->load->library('upload', $config);
 
 			if ( ! $this->upload->do_upload('image')){
-				echo $this->upload->display_errors();
-				//$this->render->renderViewWithError('main/main',"Error at uploading the selected image. Maybe try another format or reduce the size.");	
+				//echo $this->upload->display_errors();
+				$this->render->renderViewWithError('main/main',"Error at uploading the selected image. Maybe try another format or reduce the size.");	
 			}else{
 				$image_name = $this->upload->data()['file_name'];
 

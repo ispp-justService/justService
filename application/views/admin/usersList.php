@@ -33,7 +33,7 @@
 							class="btn btn-sm buttonRed" 
 							data-toggle="modal" 
 							data-target='#<?php echo $user->app_user_id ?>'>Deactivate User</button>
-						<?php echo get_confirmation_modal($user->app_user_id , site_url('admin/deactivateUser'), "app_user_id") ?>
+						<?php echo get_confirmation_modal($user->app_user_id , site_url('admin/deactivateUser'), array("app_user_id" => $user->app_user_id)) ?>
 					<?php else: ?>
 						User deleted
 					<?php endif; ?>

@@ -45,10 +45,13 @@
 							class="btn btn-sm buttonRed" 
 							data-toggle="modal" 
 							data-target='#<?php echo $customer->customer_id ?>'>Deactivate Customer</button>
-						<?php echo get_confirmation_modal($customer->customer_id , site_url('admin/deactivateCustomer'), "customer_id") ?>
+						<?php echo get_confirmation_modal($customer->customer_id , site_url('admin/deactivateCustomer'), array("customer_id"=>$customer->customer_id)) ?>
 					<?php else: ?>
 						Customer deleted
 					<?php endif; ?>
+					<a href="<?php echo site_url("admin/seeCustomersBanners/".$customer->customer_id) ?>">
+						See customer's banners
+					</a>
 				</div>
 			    </div>
 			    <div class="col-md-4">

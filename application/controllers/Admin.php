@@ -92,6 +92,80 @@ class Admin extends CI_Controller {
 		}
 	}
 	
+	public function seeCustomersBanners($customer_id){
+		$role = $this->session->role;
+		if(isset($role) && $role == "ADMINISTRATOR"){
+			$data['customer_id'] = $customer_id;
+			
+			$this->load->model("banners");
+			$result = $this->banners->get_by_customer_id($customer_id);			
+
+			$data['banners'] = $result->result();
+
+			$this->render->renderView("admin/seeCustomersBanners", $data);
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");			
+		}	
+	}
+
+	public function createBanner(){
+		$role 			= $this->session->role;
+
+		$data['customer_id'] 	= $this->input->post("customer_id");
+		$data['name'] 			= $this->input->post("name");
+
+		if(isset($role) && $role == "ADMINISTRATOR"){
+
+			$config['upload_path'] = '././assets/uploads/';
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$config['max_size']	= '100';
+			$config['max_width']  = '1024';
+			$config['max_height']  = '768';
+
+			$this->load->library('upload', $config);
+
+			if ( ! $this->upload->do_upload('image')){
+				//echo ;
+				$this->render->renderViewWithError('main/main',"Error at uploading the selected image: ".$this->upload->display_errors());	
+			}else{
+				$image_name = $this->upload->data()['file_name'];
+				$data['image'] = '././assets/uploads/'.$image_name;
+				$this->load->model('banners');
+				$result = $this->banners->create_banner($data);
+				if($result == TRUE){
+					redirect("admin/seeCustomersBanners/".$data['customer_id']);
+				}else{
+					$this->render->renderViewWithError('main/main',"There was an error about creating a banner, sorry");	
+				}
+			}
+
+			$this->render->renderView("admin/createBanner");
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");			
+		}
+	}
+	
+	public function deactivateBanner(){
+
+		$role 			= $this->session->role;
+		$banner_id 		= $this->input->post('banner_id');
+		$customer_id 	= $this->input->post('customer_id'); 		
+
+		if(isset($role) && $role == "ADMINISTRATOR"){
+
+			$this->load->model('banners');
+			$result = $this->banners->deactivate_banner($banner_id);
+			if($result == TRUE){
+				redirect("admin/seeCustomersBanners/".$customer_id);
+			}else{
+				$this->render->renderViewWithError('main/main',"Error at deactivating the banner, sorry");			
+			}
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");			
+		}
+	} 
+
+	
 }
 
 ?>
