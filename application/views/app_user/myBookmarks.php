@@ -8,10 +8,14 @@
 		<div class="panel panel-default">
 
 		<?php if($customer->type == 'Freelance'): ?>
-		   <div class="panel-heading" style="background-color: #7DED58;"><?php echo $customer->name ?></div>
+		   <div class="panel-heading" style="background-color: #7DED58;">
 		<?php else: ?>
-		   <div class="panel-heading" style="background-color: #58C8ED;" ><?php echo $customer->name ?></div>
+		   <div class="panel-heading" style="background-color: #58C8ED;" >
 		<?php endif; ?>
+				<a href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
+								<?php echo $customer->name ?>
+				</a>
+			</div>
 		      <div class="panel-body">
 			<div class="row">
 			   <div class="col-md-8">
@@ -21,28 +25,17 @@
 					<td><b>Email:</b> <?php echo $customer->email ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Moment:</b> <?php echo $customer->moment ?></td>	
-				   </tr>
-				   <tr>
-					<td><b>Type:</b> <?php echo $customer->type ?></td>	
-				   </tr>
-				   <tr>
-					<td><b>Zip Code:</b> <?php echo $customer->zip_code ?></td>	
-				   </tr>
-				   <tr>
-					<td><b>Latitude:</b> <?php echo $customer->latitude ?></td>	
-				   </tr>
-				   <tr>
-					<td><b>Longitude:</b> <?php echo $customer->longitude ?></td>	
-				   </tr>
-				   <tr>
 					<td><b>Phone Number:</b> <?php echo $customer->phone_number ?></td>	
 				   </tr>				
 				</table>
 				</div>
 			    </div>
 			    <div class="col-md-4">
-				<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/>
+				<?php if($customer->photo): ?>
+					<img src="<?php echo base_url($customer->photo); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+				<?php else: ?>
+			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+				<?php endif; ?>
 			    </div>
 			</row>
 		      </div>

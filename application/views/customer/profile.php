@@ -34,7 +34,11 @@
 				<?php else: ?>
 					<a href="<?php echo site_url("app_user/bookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary">Mark Favorite <span class="glyphicon glyphicon-heart-empty"></span></a>
 				<?php endif; ?>
-				
+				<?php if($this->session->role == "APP_USER"): ?>
+						<button type="button" class="btn btn-xs buttonRed" data-toggle="modal" 
+								data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
+						<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
+				<?php endif; ?>
 			</div>
 		</div>
 			<hr>
