@@ -143,6 +143,21 @@ class App_user extends CI_Controller {
 			}
 		}		
 	}
+
+	public function myBookmarks(){
+		$id 	= $this->session->id;
+		$role 	= $this->session->role;
+
+		if(isset($id) && isset($role) && $role == "APP_USER"){
+			$this->load->model('customers');
+			$result = $this->customers->get_by_my_bookmarks($id);
+				
+			$data['customers'] = $result->result();
+			$this->render->renderView('app_user/myBookmarks',$data);
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+		}
+	}
 	
 	public function bookmark_a_customer($customerId){
 

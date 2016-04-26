@@ -115,21 +115,32 @@ class Customers extends CI_Model {
 	
 	public function is_customer_bookmarked_by_user($id, $app_user_id){
 
+		$this->db->select('true as result', FALSE);
+		$this->db->where('app_user_id', $app_user_id);
+		$this->db->where('customer_id', $id);
 
-			$this->db->select('true as result', FALSE);
-			$this->db->where('app_user_id', $app_user_id);
-			$this->db->where('customer_id', $id);
+		$query = $this->db->get("bookmark");
 
-			$query = $this->db->get("bookmark");
-	
-			$result = $query->num_rows();
-			
-			if($result > 0){
-				return TRUE;
-			}else{
-				return FALSE;
-			}
-
+		$result = $query->num_rows();
+		
+		if($result > 0){
+			return TRUE;
+		}else{
+			return FALSE;
+		}
 	}	
+
+	public function get_by_my_bookmarks($app_user_id){
+
+		$this->db->select('c.*');
+		$this->db->where('app_user_id', $app_user_id);	
+		$this->db->from('bookmark b');
+		$this->db->join('customer c', 'c.customer_id = b.customer_id');
+
+		$query = $this->db->get();
+
+		return $query;
+		
+	}
 }
 ?>

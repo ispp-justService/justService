@@ -166,6 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li><a href="<?php echo site_url('app_user/showProfile/'.$this->session->id) ?>">My Profile</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url('app_user/editInformation') ?>">Edit information</a></li>
+			<li><a href="<?php echo site_url('app_user/myBookmarks') ?>">My bookmarks</a></li>
 			<li><a href="<?php echo site_url('app_user/servicesList') ?>">Service's List</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url("main/logout"); ?>">Log out</a></li>
