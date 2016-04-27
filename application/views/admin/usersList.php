@@ -6,7 +6,19 @@
 		<?php foreach($users as $user): ?>
 		<div class="row">
 		<div class="panel panel-default" >
-		   <div class="panel-heading"><?php echo $user->name." ".$user->surname ?></div>
+		   <div class="panel-heading"><?php echo $user->name." ".$user->surname ?>
+			<div class="pull-right">
+			<?php if($user->deleted == "f"): ?>
+				<button type="button" 
+					class="btn btn-xs buttonRed" 
+					data-toggle="modal" 
+					data-target='#<?php echo $user->app_user_id ?>'>Deactivate User</button>
+				<?php echo get_confirmation_modal($user->app_user_id , site_url('admin/deactivateUser'), array("app_user_id" => $user->app_user_id)) ?>
+			<?php else: ?>
+				User deleted
+			<?php endif; ?>
+			</div>
+		   </div>
 		      <div class="panel-body">
 			<div class="row">
 			   <div class="col-md-8">
@@ -16,7 +28,7 @@
 					<td><b>Email:</b> <?php echo $user->email ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Moment:</b> <?php echo $user->moment?></td>	
+					<td><b>Moment:</b> <?php echo date('Y-m-d H:i', strtotime($user->moment))?></td>	
 				   </tr>
 				   <tr>
 					<td><b>Discount available:</b> <?php echo $user->discount?></td>	
@@ -28,15 +40,6 @@
 					<td><b>Phone Number:</b> <?php echo $user->phone_number?></td>	
 				   </tr>				
 				</table>
-					<?php if($user->deleted == "f"): ?>
-						<button type="button" 
-							class="btn btn-sm buttonRed" 
-							data-toggle="modal" 
-							data-target='#<?php echo $user->app_user_id ?>'>Deactivate User</button>
-						<?php echo get_confirmation_modal($user->app_user_id , site_url('admin/deactivateUser'), array("app_user_id" => $user->app_user_id)) ?>
-					<?php else: ?>
-						User deleted
-					<?php endif; ?>
 				</div>
 			    </div>
 			    <div class="col-md-4">

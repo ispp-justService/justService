@@ -39,7 +39,7 @@
 					<td><b>Email:</b> <?php echo $customer->email ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Moment:</b> <?php echo $customer->moment ?></td>	
+					<td><b>Moment:</b> <?php echo date('Y-m-d H:i', strtotime($customer->moment)) ?></td>	
 				   </tr>
 				   <tr>
 					<td><b>Type:</b> <?php echo $customer->type ?></td>	
