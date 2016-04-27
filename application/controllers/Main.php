@@ -105,6 +105,14 @@ class Main extends CI_Controller {
 		}
 	}
 
+	public function get_active_banners(){
+
+		$this->load->model("banners");
+		$result = $this->banners->get_active_banners();
+
+		return $result;
+	}
+
 	public function logout(){
 		$this->session->sess_destroy();
 		redirect(site_url('/'), 'refresh'); 
