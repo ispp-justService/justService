@@ -59,14 +59,26 @@
 										<tr>
 											<td>
 											<?php if($banner->delete == "f"): ?>
-
 												<button type="button" 
 												class="btn btn-sm buttonRed" 
 												data-toggle="modal" 
-												data-target='#<?php echo $banner->banner_id ?>'>Deactivate banner</button>
+												data-target='#delete<?php echo $banner->banner_id ?>'>Deactivate banner</button>
 											<?php echo get_confirmation_modal($banner->banner_id , site_url('admin/deactivateBanner'), array("banner_id" => $banner->banner_id, "customer_id" => $customer_id)) ?>
 											<?php else: ?>
 												Banner deactivated
+											<?php endif; ?>
+											</td>
+										</tr>	
+										<tr>
+											<td>
+											<?php if($banner->active == "f"): ?>
+												<button type="button" 
+												class="btn btn-sm btn-primary" 
+												data-toggle="modal" 
+												data-target='#active<?php echo $banner->banner_id ?>'>Use this banner</button>
+											<?php echo get_confirmation_modal("active".$banner->banner_id , site_url('admin/useBanner'), array("banner_id" => $banner->banner_id, "customer_id" => $customer_id)) ?>
+											<?php else: ?>
+												Already using this banner. 
 											<?php endif; ?>
 											</td>
 										</tr>				
