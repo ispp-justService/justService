@@ -36,11 +36,6 @@
 					<?php else: ?>
 						<a href="<?php echo site_url("app_user/bookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary">Mark Favorite <span class="glyphicon glyphicon-heart-empty"></span></a>
 					<?php endif; ?>
-					<?php if($this->session->role == "APP_USER"): ?>
-							<button type="button" class="btn btn-xs buttonRed" data-toggle="modal" 
-									data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
-							<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
-					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -76,6 +71,16 @@
 		     		</div>
 			</div>
 		</div>
+		<?php if($this->session->role == "APP_USER"): ?>
+			<div class="row">
+			  <div class="col-md-6 col-lg-6">
+				<h4>Need a Service?</h4>
+				<button type="button" class="btn btn-xs buttonRed" data-toggle="modal" 
+						data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
+				<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
+			  </div>
+			</div>
+		<?php endif; ?>
 	</div>
 	</div> <!-- /class cols  -->
 		

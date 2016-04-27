@@ -15,7 +15,18 @@
 			<a href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
 								<?php echo $customer->name ?>
 							</a>
+			<div class="pull-right">
+				<?php if($customer->deleted == "f"): ?>
+						<button type="button" 
+							class="btn btn-xs buttonRed" 
+							data-toggle="modal" 
+							data-target='#<?php echo $customer->customer_id ?>'>Deactivate Customer</button>
+						<?php echo get_confirmation_modal($customer->customer_id , site_url('admin/deactivateCustomer'), array("customer_id"=>$customer->customer_id)) ?>
+					<?php else: ?>
+						Customer deleted
+					<?php endif; ?>
 			</div>
+		</div>
 
 
 
@@ -40,15 +51,6 @@
 					<td><b>Phone Number:</b> <?php echo $customer->phone_number ?></td>	
 				   </tr>				
 				</table>
-					<?php if($customer->deleted == "f"): ?>
-						<button type="button" 
-							class="btn btn-sm buttonRed" 
-							data-toggle="modal" 
-							data-target='#<?php echo $customer->customer_id ?>'>Deactivate Customer</button>
-						<?php echo get_confirmation_modal($customer->customer_id , site_url('admin/deactivateCustomer'), array("customer_id"=>$customer->customer_id)) ?>
-					<?php else: ?>
-						Customer deleted
-					<?php endif; ?>
 					<a href="<?php echo site_url("admin/seeCustomersBanners/".$customer->customer_id) ?>">
 						See customer's banners
 					</a>
