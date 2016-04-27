@@ -83,7 +83,7 @@ class Banners extends CI_Model {
 	public function get_active_banners(){
 
 		$this->db->where('active', 't');
-		$this->db->order_by('id', 'RANDOM');
+		$this->db->order_by('banner_id', 'RANDOM');
 		$this->db->limit(3);
 
 		$query = $this->db->get('banner');

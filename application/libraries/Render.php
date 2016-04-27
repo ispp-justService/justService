@@ -11,7 +11,7 @@ class Render{
 		$this->CI->load->model("banners");
 		$result = $this->CI->banners->get_active_banners();
 		
-		$data['banners'] = $result->result();
+		$data['exposed_banners'] = $result->result();
 
 		$content_data['content'] = $this->CI->load->view($nameView, $data, TRUE);
 
