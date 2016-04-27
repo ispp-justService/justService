@@ -163,6 +163,29 @@ class Admin extends CI_Controller {
 		}else{
 			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");			
 		}
+	}
+
+	public function useBanner(){
+		
+		$role 			= $this->session->role;
+		$banner_id 		= $this->input->post('banner_id');
+		$customer_id 	= $this->input->post('customer_id'); 		
+
+		if(isset($role) && $role == "ADMINISTRATOR"){
+			
+			$this->load->model('banners');
+			$result = $this->banners->use_banner($banner_id, $customer_id);
+
+			if($result == TRUE){
+				redirect("admin/seeCustomersBanners/".$customer_id);
+			}else{
+				$this->render->renderViewWithError('main/main',"Error at use the banner, sorry");			
+			}
+
+		}else{
+			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");			
+		}
+		
 	} 
 
 	

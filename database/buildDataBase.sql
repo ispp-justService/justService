@@ -60,6 +60,7 @@ CREATE TABLE banner(
 	name		varchar		NOT NULL,
 	image		varchar		NOT NULL,
 	delete		bool		NOT NULL DEFAULT false,
+	active		bool		NOT NULL DEFAULT false,
 	moment		timestamp	NOT NULL DEFAULT current_timestamp,
 
 	customer_id	serial		REFERENCES customer(customer_id)
