@@ -19,7 +19,11 @@ class Service extends CI_Controller {
 	public function search(){
 
 		// Obtenemos el texto de búsqueda por GET
-		$text_search = $this->input->get("text_search");
+		$text_search = "";
+
+		foreach($this->input->get() as $input){
+			$text_search.= $input." ";
+		}
 
 		// Cortamos el texto en subtextos por los espacios posibles que pueda tener
 		$keywords = explode(' ',$text_search);
@@ -155,7 +159,8 @@ class Service extends CI_Controller {
 				// Renderizamos la pantalla
 				$this->render->renderView('service/search',$data);			
 			}else{
-				$this->render->renderViewWithError('main/main',"No results found according to that search");			
+				$data['showAdvancedSearch'] = TRUE;
+				$this->render->renderViewWithError('main/main',"No results found according to that search", $data);			
 			}
 		}else{
 			$this->render->renderViewWithError('main/main',"The search text has empty values or is too short");

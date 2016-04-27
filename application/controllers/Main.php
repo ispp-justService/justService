@@ -6,7 +6,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 
 	public function index(){
-		$this->render->renderView('main/main');
+		$this->load->model('tags');
+
+		$result = $this->tags->get_all();
+		$data['tags'] = $result->result();
+
+		$this->render->renderView('main/main', $data);
 	}
 
 	public function login(){

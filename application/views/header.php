@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- CARGA DE ARCHIVOS CSS Y CONFIGURACIÓN CSS -->
         <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
 <style>
             body {
@@ -113,11 +114,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
         </style>
-        <link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/rating.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/footer-distributed-with-address-and-phones.css"); ?>">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-        <script src="<?php echo base_url("assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"); ?>"></script>
+
+	<!-- CARGA DE ARCHIVOS JS -->
+	
+	<script src="<?php echo base_url("assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"); ?>"></script>
+
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+	<script src="<?php echo base_url("assets/js/vendor/bootstrap.min.js"); ?>"></script>
+
+	<script src="<?php echo base_url("assets/js/main.js"); ?>"></script>
+
 	<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
 	<script type="text/javascript">
 	    window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","theme":"dark-bottom"};
@@ -216,3 +227,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<?php endif;  ?>
 
 	<?php $content ?>
+
+

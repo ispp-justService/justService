@@ -30,6 +30,10 @@ class Tags extends CI_Model {
 		return $this->db->trans_status();
 	}
 
+	public function get_all(){
+		$query = $this->db->get('tag');
+		return $query;
+	}
 }
 ?>
 
