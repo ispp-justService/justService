@@ -2,7 +2,7 @@
       <div class="row row-centered">
 	<h3>Manage Tags</h3>
 	<hr>
-	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
+	<div class="col-xs-12 col-sm-6 col-md-6 col-centered">
 	   <ul class="nav nav-tabs">
 	      <li class="active"><a href="#tab-myTags" data-toggle="tab">My tags</a></li>
 	      <li><a href="#tab-editTags" data-toggle="tab">Edit tags</a></li>

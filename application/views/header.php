@@ -107,12 +107,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		border-color:#101010;
 	   }
 
-	   .ulDivideColumn{
-		-webkit-column-count: 3;
-		-moz-column-count: 3;
-		column-count: 3;
-	   }
-
 	   body.modal-open{
 		overflow: inherit;
 		padding-right: 0 !important;
@@ -148,6 +142,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  div#search{
 		width: 70%;
 	    }
+	}
+	
+	@media (min-width:768px){
+	  ul.ulDivideColumn{
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+	   }
 	}
 
 	#panel-heading-size{ font-size: 16px; }
