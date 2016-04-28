@@ -144,9 +144,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  .modal-xs{ width: @modal-sm; }
 	}
 
-	@media (max-width: @screen-xs-min){
-	  #testing{ font-size: 50px; }
-	}
 	#panel-heading-size{ font-size: 16px; }
         </style>
 

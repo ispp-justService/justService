@@ -2,9 +2,8 @@
       <div class="row row-centered">
 	<h3>Customers who can help you</h3>
 	<hr>
-	<div class="col-centered">
 		<?php foreach($customers as $customer): ?>
-		<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-centered">
 		<div class="panel panel-default">
 
 		<?php if($customer->type == 'Freelance'): ?>
@@ -75,6 +74,5 @@
 		<div class="text-center"> 
 		<?php echo $pagination; ?>
 		</div>
-	</div> <!-- /class cols centradas -->
       </div> <!-- /row -->
     </div> <!-- /container -->
