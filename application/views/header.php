@@ -11,7 +11,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- CARGA DE ARCHIVOS CSS Y CONFIGURACIÓN CSS -->
         <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
-<style>
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/rating.css"); ?>">
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/footer-distributed-with-address-and-phones.css"); ?>">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+	<!-- CARGA DE ARCHIVOS JS -->
+	
+	<script src="<?php echo base_url("assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"); ?>"></script>
+
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+	<script src="<?php echo base_url("assets/js/vendor/bootstrap.min.js"); ?>"></script>
+
+	<script src="<?php echo base_url("assets/js/main.js"); ?>"></script>
+
+	<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+	<script type="text/javascript">
+	    window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","theme":"dark-bottom"};
+	</script>
+
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+	<!-- End Cookie Consent plugin -->
+	
+	<style>
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
@@ -113,29 +136,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	}
 
+	body{
+	   font-size: 20px; 
+	}
+
+	@media (max-width: @screen-xs-min){
+	  .modal-xs{ width: @modal-sm; }
+	}
+
+	@media (max-width: @screen-xs-min){
+	  #testing{ font-size: 50px; }
+	}
+	#panel-heading-size{ font-size: 16px; }
         </style>
-    <link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/rating.css"); ?>">
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/footer-distributed-with-address-and-phones.css"); ?>">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
-	<!-- CARGA DE ARCHIVOS JS -->
-	
-	<script src="<?php echo base_url("assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"); ?>"></script>
-
-	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-
-	<script src="<?php echo base_url("assets/js/vendor/bootstrap.min.js"); ?>"></script>
-
-	<script src="<?php echo base_url("assets/js/main.js"); ?>"></script>
-
-	<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
-	<script type="text/javascript">
-	    window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","theme":"dark-bottom"};
-	</script>
-
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
-	<!-- End Cookie Consent plugin -->
 
     </head>
     <body>
