@@ -2,9 +2,9 @@
       <div class="row row-centered">
 	<h3>Customer's list</h3>
 	<hr>
-	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
+	
 		<?php foreach($customers as $customer): ?>
-		<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-centered">
 		<div class="panel panel-default">
 
 		<?php if($customer->type == 'Freelance'): ?>
@@ -18,23 +18,27 @@
 			<div class="pull-right">
 				<?php if($customer->deleted == "f"): ?>
 						<button type="button" 
-							class="btn btn-xs buttonRed" 
+							class="btn btn-md buttonRed" 
 							data-toggle="modal" 
 							data-target='#<?php echo $customer->customer_id ?>'>Deactivate Customer</button>
 						<?php echo get_confirmation_modal($customer->customer_id , site_url('admin/deactivateCustomer'), array("customer_id"=>$customer->customer_id)) ?>
 					<?php else: ?>
 						Customer deleted
 					<?php endif; ?>
-			</div>
-		</div>
+			</div><!-- /pull-right-->
+		</div><!-- /panel-heading -->
 
 
 
 		      <div class="panel-body">
-			<div class="row">
-			   <div class="col-md-8">
-			      	<div class="table-responsive">
-			      	<table class="table">
+			      	<table>
+				   <tr>
+					<?php if($customer->photo): ?>
+						<img src="<?php echo base_url($customer->photo); ?>" id="logo" wight ="100px" height="100px"/><br />
+					<?php else: ?>
+				   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/><br />
+					<?php endif; ?>
+				   </tr>
 				   <tr>
 					<td><b>Email:</b> <?php echo $customer->email ?></td>	
 				   </tr>
@@ -49,27 +53,18 @@
 				   </tr>
 				   <tr>
 					<td><b>Phone Number:</b> <?php echo $customer->phone_number ?></td>	
-				   </tr>				
+				   </tr>
+				   <tr>
+					<td>
+						<a href="<?php echo site_url("admin/seeCustomersBanners/".$customer->customer_id) ?>">
+							See customer's banners
+						</a>
+					</td>
+				   <tr>				
 				</table>
-					<a href="<?php echo site_url("admin/seeCustomersBanners/".$customer->customer_id) ?>">
-						See customer's banners
-					</a>
-				</div>
-			    </div>
-			    <div class="col-md-4">
-				<?php if($customer->photo): ?>
-					<img src="<?php echo base_url($customer->photo); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
-				<?php else: ?>
-			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
-				<?php endif; ?>
-			    </div>
-			</row>
-		      </div>
-		   </div>
-		</div>
-		</div><!-- /row para separar los paneles entre sí -->
+		     </div><!-- /panel-body--> 
+		</div><!-- /row para separar los paneles entre sí --></div>
 		<br />
 		<?php endforeach; ?> 
-	</div> <!-- /class cols  -->
       </div> <!-- /row -->
     </div> <!-- /container -->
