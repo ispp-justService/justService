@@ -112,7 +112,20 @@ class App_users extends CI_Model {
 			}else{
 				return FALSE;
 			}
-	}
+		}
+		public function get_user_comments($app_user_id){
+
+			$this->db->select('rating_customer as rating, comment_customer as comment');
+
+			$this->db->where('status', 'FINALIZED');
+			$this->db->where('comment_customer !=', '' );
+			$this->db->where('app_user_id', $app_user_id);
+	
+			$query = $this->db->get('service');
+
+			return $query;
+
+		}
 
 }
 

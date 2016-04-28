@@ -32,6 +32,10 @@ class Customer extends CI_Controller {
 					$this->googlemaps->add_marker($marker);
 					$data['map'] = $this->googlemaps->create_map();
 
+					$result = $this->customers->get_customer_comments($id);
+
+					$data['comments'] = $result->result();
+
 					$this->render->renderView('customer/profile',$data);
 				}else{
 					$this->render->renderViewWithError('main/main',"That customer is desactivated, sorry");

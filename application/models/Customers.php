@@ -160,5 +160,19 @@ class Customers extends CI_Model {
 			return FALSE;
 		}
 	}
+
+	public function get_customer_comments($customer_id){
+
+		$this->db->select('rating_user as rating, comment_user as comment');
+
+		$this->db->where('status', 'FINALIZED');
+		$this->db->where('comment_user !=', '' );
+		$this->db->where('customer_id', $customer_id);
+	
+		$query = $this->db->get('service');
+
+		return $query;
+
+	}
 }
 ?>

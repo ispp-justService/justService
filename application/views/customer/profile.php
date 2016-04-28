@@ -24,7 +24,11 @@
 		<div class="col-md-9 col-lg-9">
 		<div class="row">
 			<div class="col-md-6 col-lg-6">
+				<?php if($this->session->id && $this->session->id == $customer->customer_id): ?>
 				<h3>My Profile</h3>
+				<?php else: ?>
+				<h3>Customer profile</h3>			
+				<?php endif; ?>
 			</div>
 			<div class="col-md-6 col-lg-6">
 				<br/>
@@ -53,11 +57,13 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6 col-lg-6">
-				<div class="form-group">
-				  <label for="phone_number">Phone Number: </label>&nbsp;<?php echo $customer->phone_number ?>
-		     		</div>
-			</div>
+			<?php if($this->session->id): ?>
+				<div class="col-md-6 col-lg-6">
+					<div class="form-group">
+					  <label for="phone_number">Phone Number: </label>&nbsp;<?php echo $customer->phone_number ?>
+				 	</div>
+				</div>
+			<?php endif; ?>
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
 				  <label for="zip_code">Zip Code: </label>&nbsp;<?php echo $customer->zip_code ?>
@@ -65,11 +71,13 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6 col-lg-6">
-				<div class="form-group">
-  				  <label for="email">Email: </label>&nbsp;<?php echo $customer->email ?>
-		     		</div>
-			</div>
+			<?php if($this->session->id): ?>
+				<div class="col-md-6 col-lg-6">
+					<div class="form-group">
+	  				  <label for="email">Email: </label>&nbsp;<?php echo $customer->email ?>
+				 		</div>
+				</div>
+			<?php endif; ?>
 		</div>
 		<?php if($this->session->role == "APP_USER"): ?>
 			<div class="row">
@@ -92,5 +100,25 @@
 			<?php echo $map['js']; ?>
 			<?php echo $map['html']; ?>
 		</div>
+		<br>
+		<?php if($comments): ?>
+			<h3>User's comments for this customer</h3>
+			<?php foreach($comments as $comment): ?>
+				<p>Rating: 
+					   <?php  
+						  for ($i=0 ; $i < ceil($comment->rating); $i++){
+						  echo '<span>&#9733</span>';
+						  }
+						  $numAux = 5 - ceil($comment->rating);
+						  if ($numAux != 0){
+						     for ($i=0 ; $i < $numAux; $i++){
+							 echo '<span>&#9734</span>';
+						     }
+						  }
+					   ?>
+				</p>
+				<p>Comment:<?php echo $comment->comment ?></p>
+			<?php endforeach; ?>
+		<?php endif; ?>
 	</div>
     </div>
