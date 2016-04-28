@@ -24,10 +24,10 @@
 								<td>
 									<?php if($service->photo): ?>
 										<img src="<?php echo base_url($service->photo); ?>" 
-													style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+													id="logo" wight ="100px" height="100px"/><br />
 									<?php else: ?>
 										<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" 
-													style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+													id="logo" wight ="100px" height="100px"/><br />
 									<?php endif; ?>
 								</td>
 							</tr>
@@ -66,29 +66,25 @@
 									<?php endif; ?>
 								</td>	
 							</tr>
+							<tr>
+								<td>
 							<?php if($service->status == 'PENDING'):?>
-								<tr>
-									<td>
-										<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" 
-											data-target='#<?php echo "cancel_service_".$service->service_id ?>'>Cancel Service</button>
-										<?php echo get_confirmation_modal("cancel_service_".$service->service_id,
-											site_url("app_user/cancelService/".$service->service_id)) ?>
-									</td>
-								</tr>
+								<button type="button" class="btn btn-danger btn-md" data-toggle="modal" 
+									data-target='#<?php echo "cancel_service_".$service->service_id ?>'>Cancel Service</button>
+								<?php echo get_confirmation_modal("cancel_service_".$service->service_id,
+									site_url("app_user/cancelService/".$service->service_id)) ?>
 								<?php if($this->session->role == "CUSTOMER"): ?>
-									<tr>
-										<td>
-											<button type="button" 
-													class="btn btn-success btn-xs" 
-													data-toggle="modal" 
-													data-target='#<?php echo "active_service_".$service->service_id ?>'>Active Service</button>
-											<?php echo get_confirmation_modal(
-													"active_service_".$service->service_id,
-													site_url("customer/activateService/".$service->service_id)) ?>
-										</td>
-									</tr>
+								<button type="button" 
+										class="btn btn-success btn-md pull-right" 
+										data-toggle="modal" 
+										data-target='#<?php echo "active_service_".$service->service_id ?>'>Active Service</button>
+								<?php echo get_confirmation_modal(
+										"active_service_".$service->service_id,
+										site_url("customer/activateService/".$service->service_id)) ?>
 								<?php endif; ?>
 							<?php endif; ?>
+								</td>
+							</tr>
 							<?php if($service->status == 'FINALIZED'): ?>
 
 								<?php if($this->session->role == "CUSTOMER"): ?>
@@ -224,15 +220,12 @@
 							<?php if($service->status == 'ACTIVE' && $this->session->role == "CUSTOMER"): ?>
 								<tr>
 									<td>
-										<button type="button" class="btn btn-success btn-xs" data-toggle="modal" 
+										<button type="button" class="btn btn-success btn-md pull-right" data-toggle="modal" 
 											data-target='#<?php echo "finalize_service".$service->service_id ?>'>Finalize Service</button>
 										<?php echo get_confirmation_modal("finalize_service".$service->service_id,
 											site_url("customer/finalizeService/".$service->service_id)) ?>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" 
+
+										<button type="button" class="btn btn-danger btn-md pull-left" data-toggle="modal" 
 											data-target='#<?php echo "cancel_service_".$service->service_id ?>'>Cancel Service</button>
 										<?php echo get_confirmation_modal("cancel_service_".$service->service_id,
 											site_url("customer/cancelService/".$service->service_id)) ?>

@@ -11,7 +11,7 @@
 			   <b>My Photo</b><br>
 				<?php if($this->session->id == $user->app_user_id && $this->session->role == "APP_USER"): ?>
 					<button type="button" 
-										class="btn btn-info btn-xs" 
+										class="btn btn-info btn-md" 
 										data-toggle="modal" 
 										data-target='#uploadImageModal'>Change image</button>	
 
@@ -67,8 +67,12 @@
 	</div> <!-- /class cols  -->
 
 	<?php if($comments): ?>
+		<div class="row row-centered">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-centered" >
 		<h3>Customer's comments for this user</h3>
+		<hr>
 		<?php foreach($comments as $comment): ?>
+			<div class="alert alert-info">
 			<p>Rating: 
 				   <?php  
 					  for ($i=0 ; $i < ceil($comment->rating); $i++){
@@ -83,7 +87,10 @@
 				   ?>
 			</p>
 			<p>Comment:<?php echo $comment->comment ?></p>
+			</div>
 		<?php endforeach; ?>
+		</div>
+		</div>
 	<?php endif; ?>
 
     </div> <!-- /container -->

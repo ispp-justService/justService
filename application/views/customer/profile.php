@@ -11,7 +11,7 @@
 			   <b>My Photo</b><br>
 				<?php if($this->session->id == $customer->customer_id  && $this->session->role == "CUSTOMER" ): ?>
 					<button type="button" 
-										class="btn btn-info btn-xs" 
+										class="btn btn-info btn-md" 
 										data-toggle="modal" 
 										data-target='#uploadImageModal'>Change image</button>	
 
@@ -96,14 +96,15 @@
     <br />
     <div class="container">
 	<div class="row row-centered">
-		<div class="col-xs-6 col-sm-6 col-md-6 col-centered" >
+		<div class="col-xs-12 col-sm-6 col-md-6 col-centered" >
 			<?php echo $map['js']; ?>
 			<?php echo $map['html']; ?>
-		</div>
+		
 		<br>
 		<?php if($comments): ?>
 			<h3>User's comments for this customer</h3>
 			<?php foreach($comments as $comment): ?>
+				<div class="alert alert-info">
 				<p>Rating: 
 					   <?php  
 						  for ($i=0 ; $i < ceil($comment->rating); $i++){
@@ -118,7 +119,9 @@
 					   ?>
 				</p>
 				<p>Comment:<?php echo $comment->comment ?></p>
+				</div>
 			<?php endforeach; ?>
 		<?php endif; ?>
+		</div>
 	</div>
     </div>

@@ -75,8 +75,10 @@
 		<script type=”text/javascript”>
 			var centreGot = false;
 		</script>
-		<?php echo $map['js']; ?>
-		<?php echo $map['html']; ?>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-centered" >
+			<?php echo $map['js']; ?>
+			<?php echo $map['html']; ?>
+		</div>
 		<div class="text-center"> 
 		<?php echo $pagination; ?>
 		</div>
