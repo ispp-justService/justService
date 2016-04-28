@@ -2,28 +2,21 @@
       <div class="row row-centered">
 	<h3>User's list</h3>
 	<hr>
-	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
 		<?php foreach($users as $user): ?>
-		<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-6 col-centered">
 		<div class="panel panel-default" >
-		   <div class="panel-heading"><?php echo $user->name." ".$user->surname ?>
-			<div class="pull-right">
-			<?php if($user->deleted == "f"): ?>
-				<button type="button" 
-					class="btn btn-xs buttonRed" 
-					data-toggle="modal" 
-					data-target='#<?php echo $user->app_user_id ?>'>Deactivate User</button>
-				<?php echo get_confirmation_modal($user->app_user_id , site_url('admin/deactivateUser'), array("app_user_id" => $user->app_user_id)) ?>
-			<?php else: ?>
-				User deleted
-			<?php endif; ?>
-			</div>
-		   </div>
+		   <div class="panel-heading"><?php echo $user->name." ".$user->surname ?></div>
 		      <div class="panel-body">
-			<div class="row">
-			   <div class="col-md-8">
-				<div class="table-responsive">
-			      	<table class="table">
+			      	<table>
+				   <tr>
+					<td>
+						<?php if($user->photo): ?>
+							<img src="<?php echo base_url($user->photo); ?>" id="logo" wight ="100px" height="100px"/><br />
+						<?php else: ?>
+					   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/><br />
+						<?php endif; ?>
+					</td>
+				   </tr>
 				   <tr>
 					<td><b>Email:</b> <?php echo $user->email ?></td>	
 				   </tr>
@@ -40,16 +33,17 @@
 					<td><b>Phone Number:</b> <?php echo $user->phone_number?></td>	
 				   </tr>				
 				</table>
-				</div>
-			    </div>
-			    <div class="col-md-4">
-				<?php if($user->photo): ?>
-					<img src="<?php echo base_url($user->photo); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+				<div class="pull-right">
+				<?php if($user->deleted == "f"): ?>
+					<button type="button" 
+						class="btn btn-md buttonRed" 
+						data-toggle="modal" 
+						data-target='#<?php echo $user->app_user_id ?>'>Deactivate User</button>
+					<?php echo get_confirmation_modal($user->app_user_id , site_url('admin/deactivateUser'), array("app_user_id" => $user->app_user_id)) ?>
 				<?php else: ?>
-			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+					User deleted
 				<?php endif; ?>
-			    </div>
-			</div>
+				</div>
 		      </div>
 		   </div>
 		   </div> <!-- /row para separar los paneles entre sí -->
