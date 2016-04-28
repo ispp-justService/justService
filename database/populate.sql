@@ -8,65 +8,65 @@ DELETE FROM APP_USER;
 /*
 Customer's Populate
 */
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Freelance','Antonio','954420000',37.3505152,-5.9874927,'customer0@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Freelance','Antonio','954420000',37.3505152,-5.9874927,41001,'customer0@gmail.com','$2y$10$JOl0EAv1UPGZP3UNzDf1tO1ZzJMjwbx7Xy/zQnZBby3lflS6hl5RW','././assets/uploads/cliente1.jpg');
+			
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Freelance','Ándres','954420001',37.3663322,-6.0075867,41020,'customer1@gmail.com','$2y$10$J7ozpfhjyQZ.GKoRWiVi9.pXhXK1c6ZwIgt37/zKHrh8ssQlou.8K','././assets/uploads/cliente2.jpg');
+			
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Freelance','Javier','954420002',37.3886782,-6.0139807,41092,'customer2@gmail.com','$2y$10$adrU02vwKu/y42hoN2F.R.NfdOr13f//0TnNoEft37Jzqn/jDdDpG','././assets/uploads/cliente3.jpg');
+			
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Freelance','Álvaro','954420003',37.3737002,-6.0018037,41017,'customer3@gmail.com','$2y$10$Fp67KXNHNa0t5YzNx1nxPuhK72.GYIt7FEf8kdebtR0yevyS54qme','././assets/uploads/cliente4.jpg');
+			
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Freelance','Alberto','954420004',37.3706882,-5.9597447,41009,'customer4@gmail.com','$2y$10$1CGrK.6es4zdidrdKuuEZumq15MTVOiofpiUxc/47KssIC8C5yA/S','././assets/uploads/cliente5.jpg');
+			
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Freelance','Julio','954420005',37.4088182,-6.0067457,41011,'customer5@gmail.com','$2y$10$L8Gun75NR4Rh05AiL/ZVRuq3NrryAdQA03ZleCU38jhNaa5MjXh4a','././assets/uploads/cliente6.jpg');
 			
 INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Freelance','Ándres','954420001',37.3663322,-6.0075867,'customer1@gmail.com','');
+			VALUES('Freelance','Domingo','954420006',37.3804632,-6.0137997,41011,'customer6@gmail.com','$2y$10$XK0KYmSzHF8R1uFVlLADFeQLyRWZvt86EdId9ucDkV5Q.gDYgcuFu');
 			
 INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Freelance','Javier','954420002',37.3886782,-6.0139807,'customer2@gmail.com','');
+			VALUES('Freelance','Roberto','954420007',37.3602271,-5.9740528,41011,'customer7@gmail.com','$2y$10$eRNXHc5XU7BoepaxMQghre96SyfQDrN0BPMEYF0xuFT8NTo.KQWnS');
 			
 INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Freelance','Álvaro','954420003',37.3737002,-6.0018037,'customer3@gmail.com','');
+			VALUES('Freelance','Juán Carlos','954420009',37.4095252,-6.0070087,41011,'customer8@gmail.com','$2y$10$RlfKdXQR3b/HGM9t9ot1.eDByvZG1n5jrVhJHxgiq15PDjiAnOFhW');
 			
 INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Freelance','Alberto','954420004',37.3706882,-5.9597447,'customer4@gmail.com','');
-			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Freelance','Julio','954420005',37.4088182,-6.0067457,'customer5@gmail.com','');
-			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Freelance','Domingo','9544200006',37.3804632,-6.0137997,'customer6@gmail.com','');
-			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Freelance','Roberto','954420007',37.3602271,-5.9740528,'customer7@gmail.com','');
-			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Freelance','Juán Carlos','954420009',37.4095252,-6.0070087,'customer8@gmail.com','');
-			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Freelance','Francisco','954420010',37.4100102,-5.9885387,'customer9@gmail.com','');
+			VALUES('Freelance','Francisco','954420010',37.4100102,-5.9885387,41011,'customer9@gmail.com','$2y$10$1sK3H3UvcPuXjnOhXMbCF.cwJJ8TzNHtXmxD.qbNklWvnkvJL0siy');
 
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Business','Fontanería Sevillana S.L.','954770000',37.3793032,-5.9207757,'customer10@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Business','Fontanería Sevillana S.L.','954770000',37.3793032,-5.9207757,41008,'customer10@gmail.com','$2y$10$8wb1MxBwm2zlXasquG4IquqpZu6QR/t1GZebnoYLFKrs5qA7Cbuzi','././assets/uploads/logo1.jpg');
 
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Business','Fontanería Hermanos S.L.','954770001',37.3885282,-6.0123347,'customer10@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Business','Fontanería Hermanos S.L.','954770001',37.3885282,-6.0123347,41012,'customer11@gmail.com','$2y$10$/RUb/b59EzqCQCniZGh7tOK9NxTqkl.DjgrGx86bChfLZX9PiJozu','././assets/uploads/logo2.jpg');
 			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Business','Electricistas Sevillanos S.L.','954770002',37.4058602,-5.9933967,'customer10@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Business','Electricistas Sevillanos S.L.','954770002',37.4058602,-5.9933967,41012,'customer12@gmail.com','$2y$10$fQfavOusLGJZsSjCYMAqDevYMGNEY7MAgCab/M76v08iCfkEeQwby','././assets/uploads/logo3.jpg');
 			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Business','Instalaciones Eléctricas Pérez S.L.','954770003',37.4305372,-5.9835607,'customer10@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Business','Instalaciones Eléctricas Pérez S.L.','954770003',37.4305372,-5.9835607,41012,'customer13@gmail.com','$2y$10$kIf6Fl7gxOINA9yLilM2PeNWetF44kF7j98CrkN2R9Tu9R172q2jK','././assets/uploads/logo4.jpg');
 			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Business','Borchas Del Sur S.L.','954770004',37.3914972,-5.9685837,'customer10@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Business','Borchas Del Sur S.L.','954770004',37.3914972,-5.9685837,41012,'customer14@gmail.com','$2y$10$3hc4aiEZmPv7BD1hNguPq.Diy/PKbF8/hB1ql15Q1564azflZ1HuG','././assets/uploads/logo5.jpg');
 			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Business','Pintores Sevillanos S.L.','954770005',37.4299492,-5.9767047,'customer10@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Business','Pintores Sevillanos S.L.','954770005',37.4299492,-5.9767047,41013,'customer15@gmail.com','$2y$10$13UtALaNXQzO7GJ1SQgcAe78frIfAK/lm6oMDDodXihodriAQtGjm','././assets/uploads/logo6.jpg');
 			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Business','Reparaciones Gómez S.L.','954770006',37.4264412,-5.9694017,'customer10@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Business','Reparaciones Gómez S.L.','954770006',37.4264412,-5.9694017,41013,'customer16@gmail.com','$2y$10$tyD2GxbRSiyjy11lwCGqyeNs81uFpj0qQ/5MwGfvljIA602Cl3/CO','././assets/uploads/logo7.jpg');
 			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Business','Albañilería Sevillana S.L.','954770007',37.4135352,-5.9722037,'customer10@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Business','Albañilería Sevillana S.L.','954770007',37.4135352,-5.9722037,41013,'customer17@gmail.com','$2y$10$IAzvnTwoxyVCk2COvqhe0eJy4gvvlRCBQkn7VCdiQLIKm6TM0N2Nu','././assets/uploads/logo8.jpg');
 			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Business','Cerrajería Hermanos López S.L.','954770008',37.3927942,-5.9617027,'customer10@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Business','Cerrajería Hermanos López S.L.','954770008',37.3927942,-5.9617027,41013,'customer18@gmail.com','$2y$10$udqYDwxA7xHKx2cZDhIpUOOQS6R2pYwjsKenxtck61GwZ5/XXh42K','././assets/uploads/logo9.jpg');
 			
-INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password) 
-			VALUES('Business','Cerrajeros De Sevilla S.L.','954770009',37.4138622,-5.9788187,'customer10@gmail.com','');
+INSERT INTO CUSTOMER (type,name,phone_number,latitude,longitude,zip_code,email,password,photo) 
+			VALUES('Business','Cerrajeros De Sevilla S.L.','954770009',37.4138622,-5.9788187,41011,'customer19@gmail.com','$2y$10$7/znywKoZ2fUADfL8ih0TOOemJN7XsoNqt3l5foFGkkoNcPegCxP2','././assets/uploads/logo10.jpg');
 
 
 
@@ -78,11 +78,11 @@ INSERT INTO ADMINISTRATOR VALUES('admin@admin.com','$2y$10$Peb3/ZA1pRgV3kx6NQcxA
 /*
 App_user's Populate
 */
-INSERT INTO APP_USER(name,surname,email,password) VALUES('Domingo','García Romero','user1@gmail.com','$2y$10$DQ5pGV4l7CSv/tVaaLC56uevW74234Rp2nUO1ag.XpOMX8N1r7spi');
-INSERT INTO APP_USER(name,surname,email,password) VALUES('Antonio','Gallego Rodriguez','user2@gmail.com','$2y$10$I9tfamTVXpkFAnRz33LxPeOpih9.FjkQtSoNDSVrQqs40V0xQ2UAa');
-INSERT INTO APP_USER(name,surname,email,password) VALUES('José David','Martín Fernandez','user3@gmail.com','$2y$10$Zzr1m.NyUqPIKsh74hsF9.lIGv1Zj76cAazA4wcgcPj9dcTNEnl32');
-INSERT INTO APP_USER(name,surname,email,password) VALUES('Guillermo','De la cruz Dorado','user4@gmail.com','$2y$10$1H14jjw9hfmZTo/bVL2yduS9vshvIHUPvkj8od.Z0mV5BR5aFY9Je');
-INSERT INTO APP_USER(name,surname,email,password) VALUES('Luis','Garrido Rodríguez','user5@gmail.com','');
+INSERT INTO APP_USER(name,surname,email,password,photo) VALUES('Domingo','García Romero','user1@gmail.com','$2y$10$DQ5pGV4l7CSv/tVaaLC56uevW74234Rp2nUO1ag.XpOMX8N1r7spi','././assets/uploads/user1.jpg');
+INSERT INTO APP_USER(name,surname,email,password,photo) VALUES('Antonio','Gallego Rodriguez','user2@gmail.com','$2y$10$I9tfamTVXpkFAnRz33LxPeOpih9.FjkQtSoNDSVrQqs40V0xQ2UAa','././assets/uploads/user2.jpg');
+INSERT INTO APP_USER(name,surname,email,password,photo) VALUES('José David','Martín Fernandez','user3@gmail.com','$2y$10$Zzr1m.NyUqPIKsh74hsF9.lIGv1Zj76cAazA4wcgcPj9dcTNEnl32','././assets/uploads/user3.jpg');
+INSERT INTO APP_USER(name,surname,email,password,photo) VALUES('Guillermo','De la cruz Dorado','user4@gmail.com','$2y$10$1H14jjw9hfmZTo/bVL2yduS9vshvIHUPvkj8od.Z0mV5BR5aFY9Je','././assets/uploads/user4.jpg');
+INSERT INTO APP_USER(name,surname,email,password) VALUES('Luis','Garrido Rodríguez','user5@gmail.com','$2y$10$RLSbrrsjBpIefHblCXJLyudOAJe.mwBQK7HX8FTS4YKeHCokjrcfW');
 
 /*
 Tag's Populate
@@ -140,8 +140,6 @@ INSERT INTO TAG (name) VALUES('apartamento');
 INSERT INTO TAG (name) VALUES('baño');
 INSERT INTO TAG (name) VALUES('bano');
 INSERT INTO TAG (name) VALUES('bathroom');
-
-
 
 
 /*
@@ -405,18 +403,31 @@ INSERT INTO TAG_ENTRY VALUES('20','34');
   Service's populate
 */
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Hey there is no light at my home. I need an electrician.','PENDING','1','3');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I cannot enter in my home. Can you help me?','PENDING','2','9');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I cannot enter in my home. Can you help me?','PENDING','9','2');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('This is a mistake, but i cannot delete this for now','PENDING','3','4');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I want to build a house. A BIG house','PENDING','4','17');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I want to build a house. A BIG house','PENDING','17','4');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('My bathroom is crazy!!! I had to built a boat like Noah.','ACTIVE','5','1');
 
 INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer) 
-			VALUES('I forgot my keys inside my house :( help!','FINALIZED','1','10','5','It saved my life','5','Thanks for calling me');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) 
-			VALUES('Hey I need to do some changes in my house. Can you do it?', 'FINALIZED','2','13','4','It´s a good business','5','Thanks for calling me');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) 
-			VALUES('Need a hand with a thing, please call me.', 'FINALIZED','3','14','3','Not bad','5','Thanks for calling me');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) 
-			VALUES('I need you to do an empire state in my garden for 5 dollars.','FINALIZED','4','13','2','Bad service','5','Thanks for calling me');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) 
-			VALUES('I need you to do an empire state in my garden for 5 dollars.','FINALIZED','5','14','1','Horrible service','5','Thanks for calling me');
+			VALUES('I forgot my keys inside my house :( help!','FINALIZED','10','1','5','It saved my life','5','Thanks for calling me');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
+			VALUES('Hey I need to do some changes in my house. Can you do it?', 'FINALIZED','13','2','4','It´s a good business','5','Thanks for calling me');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
+			VALUES('Need a hand with a thing, please call me.', 'FINALIZED','14','3','3','Not bad','5','Thanks for calling me');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
+			VALUES('I need you to do an empire state in my garden for 5 dollars.','FINALIZED','13','4','2','Bad service','5','Thanks for calling me');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
+			VALUES('I need you to do an empire state in my garden for 5 dollars.','FINALIZED','14','5','1','Horrible service','5','Thanks for calling me');
+
+
+/*
+ Banner's populate
+*/
+
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner1','././assets/uploads/logo1.jpg',11, 't');
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner2','././assets/uploads/logo2.jpg',12, 't'); 
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner3','././assets/uploads/logo3.jpg',13, 't');
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner4','././assets/uploads/logo4.jpg',14, 't');
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner5','././assets/uploads/logo5.jpg',15, 't');
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner6','././assets/uploads/logo6.jpg',16, 't');
+			
