@@ -144,6 +144,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  .modal-xs{ width: @modal-sm; }
 	}
 
+	@media (max-width:767px){
+	  div#search{
+		width: 70%;
+	    }
+	}
+
 	#panel-heading-size{ font-size: 16px; }
         </style>
 
