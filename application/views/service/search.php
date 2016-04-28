@@ -20,7 +20,7 @@
 		        <div class="pull-right">
 				<?php if($this->session->id): ?>
 					<button type="button" 
-						class="btn btn-xs buttonRed" 
+						class="btn btn-md buttonRed" 
 						data-toggle="modal" 
 						data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
 					<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
