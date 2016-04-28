@@ -17,7 +17,7 @@ class App_user extends CI_Controller {
 			$result = $this->services->get_all_by_user($id);
 			
 			$data['services'] = $result->result();
-			$this->render->renderView('app_user/servicesList',$data);
+			$this->render->renderView('service/list',$data);
 		}else{
 			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
 		}
