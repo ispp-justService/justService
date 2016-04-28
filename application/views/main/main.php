@@ -1,6 +1,6 @@
       <div class="container text-center">
 	<div class="row">
-	     <img src="<?php echo base_url("assets/img/logo.png"); ?>" class="img-responsive center-block" id="logoCentral" />
+	     <img src="<?php echo base_url("assets/img/logo.png"); ?>" class="img-homeinneed center-block" id="logoCentral" />
 	</div>
       </div>
 

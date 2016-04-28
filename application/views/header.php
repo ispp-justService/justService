@@ -74,6 +74,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    #navbar-signup{
 		padding-left: 20px;
 	    }
+		.img-homeinneed{
+			width: 50%
+		}
+		.img-banner{
+			width: 70%;
+		}
 	   .row-centered{
 		text-align:center;
 	    }

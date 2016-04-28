@@ -25,6 +25,8 @@ class Service extends CI_Controller {
 			$text_search.= $input." ";
 		}
 
+		$text_search = strtolower($text_search);
+
 		// Cortamos el texto en subtextos por los espacios posibles que pueda tener
 		$keywords = explode(' ',$text_search);
 		$keywords = array_filter($keywords);
