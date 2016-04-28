@@ -80,6 +80,7 @@
 			</div>
 		</div>
 	     </form>
+	     <br />
 			<!-- Aquí mostraremos los errores del formulario -->
 			<?php echo validation_errors(); ?>
 	</div> <!-- /class cols  -->
