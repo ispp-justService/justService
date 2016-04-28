@@ -98,10 +98,10 @@ class Customer extends CI_Controller {
 				if($status == 'FINALIZED'){
 					redirect('customer/servicesList');
 				}else{
-					$this->render->renderViewWithError('customer/servicesList',"State of service not changed");
+					$this->render->renderViewWithError('service/list',"State of service not changed");
 				}								
 			}else{
-				$this->render->renderViewWithError('customer/servicesList',"Error at finishing the Service");
+				$this->render->renderViewWithError('service/list',"Error at finishing the Service");
 			}
 		}else{
 			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
@@ -120,10 +120,10 @@ class Customer extends CI_Controller {
 				if($status == 'CANCELLED'){
 					redirect('customer/servicesList');
 				}else{
-					$this->render->renderViewWithError('customer/servicesList',"State of service not changed");
+					$this->render->renderViewWithError('service/list',"State of service not changed");
 				}								
 			}else{
-				$this->render->renderViewWithError('customer/servicesList',"Error at cancelling the Service");
+				$this->render->renderViewWithError('service/list',"Error at cancelling the Service");
 			}
 		}else{
 			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
@@ -203,7 +203,7 @@ class Customer extends CI_Controller {
 			$result = $this->services->get_all_by_customer($id);
 			
 			$data['services'] = $result->result();
-			$this->render->renderView('customer/servicesList',$data);
+			$this->render->renderView('service/list',$data);
 		}else{
 			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
 		}
