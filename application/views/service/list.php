@@ -1,28 +1,36 @@
 <div class="container">
 
 	<div class="row row-centered">
-		<h3>Service's list</h3>
-		<hr>
-	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
+	<h3>Service's list</h3>
+	<hr>
 	
 	<?php foreach($services as $service): ?>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-centered">
 
-	<div class="row">
 		<div class="panel panel-default" >
 			<div class="panel-heading">
 				<b>
 					<?php echo $service->status ?>
 				</b>
-				<div class="pull-right">
+				<div class="pull-right" id="panel-heading-size">
 					<?php echo date('Y-m-d H:i', strtotime($service->moment)) ?>
 				</div>
 			</div>
 
 		<div class="panel-body">
-			<div class="row">
-				<div class="col-md-8">
-					<div class="table-responsive">
-						<table class="table-responsive">
+		
+						<table>
+							<tr>
+								<td>
+									<?php if($service->photo): ?>
+										<img src="<?php echo base_url($service->photo); ?>" 
+													style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+									<?php else: ?>
+										<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" 
+													style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+									<?php endif; ?>
+								</td>
+							</tr>
 							<tr>
 								<td>
 								<?php if($this->session->role == "CUSTOMER"): ?>
@@ -232,19 +240,6 @@
 								</tr>
 							<?php endif; ?>
 						</table>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<?php if($service->photo): ?>
-						<img src="<?php echo base_url($service->photo); ?>" 
-									style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
-					<?php else: ?>
-						<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" 
-									style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
-					<?php endif; ?>
-				</div>
-			</div>
 		</div>
 		<?php if($service->status == 'FINALIZED' && $service->rating_customer == null && $this->session->role == "CUSTOMER"): ?>
 			<div class="panel-footer">
@@ -283,7 +278,7 @@
 			</div>
 		<?php endif; ?>
 		</div> <!-- /panel-default -->
-	</div> <!-- /row para separar los paneles entre sí -->
+	</div>
 	<br />
 	<?php endforeach; ?> 
 	<script>
@@ -299,7 +294,6 @@
 			$("#"+service_id+"rating").val(number);
 		}
 	</script>
-</div>
 </div> <!-- /class cols  -->
 </div> <!-- /row -->
 </div> <!-- /container -->

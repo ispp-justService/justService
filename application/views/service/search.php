@@ -2,19 +2,18 @@
       <div class="row row-centered">
 	<h3>Customers who can help you</h3>
 	<hr>
-	<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
 		<?php foreach($customers as $customer): ?>
-		<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-centered">
 		<div class="panel panel-default">
 
 		<?php if($customer->type == 'Freelance'): ?>
 		   <div class="panel-heading" style="background-color: #7DED58;">
-				<a href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
+				<a style="color: #000000;" href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
 								<?php echo $customer->name ?>
 				</a>
 		<?php else: ?>
 		   <div class="panel-heading" style="background-color: #58C8ED;" >
-				<a href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
+				<a style="color: #000000;" href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
 								<?php echo $customer->name ?>
 				</a>
 		<?php endif; ?>
@@ -27,10 +26,7 @@
 			</div>
 		      </div>
 		      <div class="panel-body">
-			<div class="row">
-			   <div class="col-md-8">
-			      	<div class="table-responsive">
-			      	<table class="table">
+			      	<table>
 				   <tr>
 					<td><b>Email:</b> <?php echo $customer->email ?></td>	
 				   </tr>
@@ -60,14 +56,11 @@
 					   ?>
 					   </div>
 					</td>	
-				   </tr>			
+				   </tr>
+				   <tr>
+					<td><img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/></td>
+			           </tr>			
 				</table>
-				</div>
-			    </div>
-			    <div class="col-md-4">
-				<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/>
-			    </div>
-		      </div><!-- /row panel-body-->
 		   </div><!-- /panel-body-->
 		</div><!-- /panel-default-->
 		</div><!-- /row para separar los paneles entre sí -->
@@ -81,6 +74,5 @@
 		<div class="text-center"> 
 		<?php echo $pagination; ?>
 		</div>
-	</div> <!-- /class cols centradas -->
       </div> <!-- /row -->
     </div> <!-- /container -->
