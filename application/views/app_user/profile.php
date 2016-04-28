@@ -65,4 +65,25 @@
 	</div>
 
 	</div> <!-- /class cols  -->
+
+	<?php if($comments): ?>
+		<h3>Customer's comments for this user</h3>
+		<?php foreach($comments as $comment): ?>
+			<p>Rating: 
+				   <?php  
+					  for ($i=0 ; $i < ceil($comment->rating); $i++){
+					  echo '<span>&#9733</span>';
+					  }
+					  $numAux = 5 - ceil($comment->rating);
+					  if ($numAux != 0){
+					     for ($i=0 ; $i < $numAux; $i++){
+						 echo '<span>&#9734</span>';
+					     }
+					  }
+				   ?>
+			</p>
+			<p>Comment:<?php echo $comment->comment ?></p>
+		<?php endforeach; ?>
+	<?php endif; ?>
+
     </div> <!-- /container -->

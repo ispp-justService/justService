@@ -18,27 +18,33 @@
 				</a>
 		<?php endif; ?>
 		        <div class="pull-right">
-			<button type="button" 
-				class="btn btn-xs buttonRed" 
-				data-toggle="modal" 
-				data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
-			<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
-			</div>
+				<?php if($this->session->id): ?>
+					<button type="button" 
+						class="btn btn-xs buttonRed" 
+						data-toggle="modal" 
+						data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
+					<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
+				<?php endif; ?>
+				</div>
 		      </div>
 		      <div class="panel-body">
 			      	<table>
+					<?php if($this->session->id): ?>
 				   <tr>
 					<td><b>Email:</b> <?php echo $customer->email ?></td>	
 				   </tr>
+					<?php endif; ?>
 				   <tr>
 					<td><b>Type:</b> <?php echo $customer->type ?></td>	
 				   </tr>
 				   <tr>
 					<td><b>Zip Code:</b> <?php echo $customer->zip_code ?></td>	
 				   </tr>
+					<?php if($this->session->id): ?>
 				   <tr>
 					<td><b>Phone Number:</b> <?php echo $customer->phone_number ?></td>	
 				   </tr>
+					<?php endif; ?>
 				   <tr>
 					<td><b>Rating:</b>
 					   <div class="ratingShow">

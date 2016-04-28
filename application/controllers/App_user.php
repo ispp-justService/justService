@@ -125,6 +125,8 @@ class App_user extends CI_Controller {
 			if($result != FALSE){
 				$data['user'] = $result->row();
 				if($data['user']->deleted != 't'){
+					$result = $this->app_users->get_user_comments($id);
+					$data['comments'] = $result->result();
 					$this->render->renderView('app_user/profile',$data);
 				}else{
 					$this->render->renderViewWithError('main/main',"The User is desactivated, sorry");					

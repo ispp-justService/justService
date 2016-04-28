@@ -43,8 +43,8 @@ class Service extends CI_Controller {
 			$this->load->model('customers');
 		
 			// Obtenemos la posición actual del usuario
-			$latitude = $this->session->latitude;
-			$longitude = $this->session->longitude;
+			$latitude = $this->input->get('latitude');
+			$longitude = $this->input->get('longitude');
 
 			$like = "";
 
@@ -132,11 +132,12 @@ class Service extends CI_Controller {
 				$marker = array();
 		
 				// Configuramos nuestra posición
-				$marker['position'] = $this->session->latitude.','.$this->session->longitude;
-				$marker['draggable'] = FALSE;
-				$marker['infowindow_content'] = 'Your current position';
-				$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|00FF00|000000';
-		
+				if($latitude != 0 && $longitude != 0){
+					$marker['position'] = $latitude.','.$longitude;
+					$marker['draggable'] = FALSE;
+					$marker['infowindow_content'] = 'Your current position';
+					$marker['icon'] = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|00FF00|000000';
+				}
 				// La añadimos
 				$this->googlemaps->add_marker($marker);
 
@@ -146,7 +147,7 @@ class Service extends CI_Controller {
 
 					$marker['position'] = $customer->latitude.','.$customer->longitude;
 					$marker['draggable'] = FALSE;
-					$marker['infowindow_content'] = $customer->name.' , '.$customer->phone_number;
+					$marker['infowindow_content'] = $customer->name;
 
 					$this->googlemaps->add_marker($marker);
 				}

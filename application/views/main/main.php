@@ -9,6 +9,8 @@
         <div class="col-centered" id="search">
 		<form action="<?php echo site_url('/service/search') ?>" method="GET">
 			<div class="input-group borderCentral input-group-xs">
+				<div id="latitude"></div>
+				<div id="longitude"></div>
 				<input type="text" name="text_search" class="form-control searchCentral" id="search-input" placeholder="What do you need?">
 				<span class="input-group-btn">		
 					<button class="btn btn-default" type="submit" id="search-span" >
