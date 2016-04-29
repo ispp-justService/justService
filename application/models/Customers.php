@@ -68,7 +68,7 @@ class Customers extends CI_Model {
 																		/ 
 																 sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5)
 														as rating
-										FROM service s JOIN customer c USING (customer_id) 
+										FROM service s RIGHT JOIN customer c USING (customer_id) 
 												WHERE c.customer_id 
 														IN 
 														(SELECT distinct customer_id 

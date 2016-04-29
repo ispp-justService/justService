@@ -17,15 +17,6 @@
 								<?php echo $customer->name ?>
 				</a>
 		<?php endif; ?>
-		        <div class="pull-right">
-				<?php if($this->session->id): ?>
-					<button type="button" 
-						class="btn btn-md buttonRed" 
-						data-toggle="modal" 
-						data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
-					<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
-				<?php endif; ?>
-				</div>
 		      </div>
 		      <div class="panel-body">
 			      	<table>
@@ -64,9 +55,28 @@
 					</td>	
 				   </tr>
 				   <tr>
-					<td><img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/></td>
-			           </tr>			
+						<td>
+						<?php if($customer->photo): ?>
+							<img src="<?php echo base_url($customer->photo); ?>" 
+							id="logo" wight ="100px" height="100px"/><br />
+						<?php else: ?>
+							<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" 
+							id="logo" wight ="100px" height="100px"/><br />
+						<?php endif; ?>
+						</td>
+						
+			        </tr>			
+					
 				</table>
+				<div class="pull-right">
+					<?php if($this->session->id): ?>
+						<button type="button" 
+								class="btn btn-md buttonRed" 
+								data-toggle="modal" 
+								data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
+						<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
+					<?php endif; ?>
+				</div>
 		   </div><!-- /panel-body-->
 		</div><!-- /panel-default-->
 		</div><!-- /row para separar los paneles entre sí -->
