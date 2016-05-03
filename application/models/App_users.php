@@ -120,6 +120,7 @@ class App_users extends CI_Model {
 			$this->db->where('status', 'FINALIZED');
 			$this->db->where('comment_customer !=', '' );
 			$this->db->where('app_user_id', $app_user_id);
+			$this->db->where('rating_user is not', null);
 	
 			$query = $this->db->get('service');
 
