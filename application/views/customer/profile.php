@@ -8,12 +8,12 @@
 				<?php else: ?>
 			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
 				<?php endif; ?>
-			   <b>My Photo</b><br>
+			   <b><?php echo lang('profile_my_photo') ?></b><br>
 				<?php if($this->session->id == $customer->customer_id  && $this->session->role == "CUSTOMER" ): ?>
 					<button type="button" 
 										class="btn btn-info btn-md" 
 										data-toggle="modal" 
-										data-target='#uploadImageModal'>Change image</button>	
+										data-target='#uploadImageModal'><?php echo lang('profile_change_image') ?></button>	
 
 					<?php echo get_upload_image_modal($this->session->id, $this->session->role, site_url("main/uploadImage")); ?>
 
@@ -25,9 +25,9 @@
 		<div class="row">
 			<div class="col-md-6 col-lg-6">
 				<?php if($this->session->id && $this->session->id == $customer->customer_id): ?>
-				<h3>My Profile</h3>
+				<h3><?php echo lang('profile_my_profile') ?></h3>
 				<?php else: ?>
-				<h3>Customer profile</h3>			
+				<h3><?php echo lang('profile_customer_profile') ?></h3>			
 				<?php endif; ?>
 			</div>
 			<div class="col-md-6 col-lg-6">
@@ -36,9 +36,9 @@
 		
 				<?php if($this->session->role && $this->session->role == "APP_USER"): ?>
 					<?php if(isset($bookmarked) && $bookmarked == TRUE): ?>
-						<a href="<?php echo site_url("app_user/unBookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary">Favorite <span class="glyphicon glyphicon-heart"></span></a>
+						<a href="<?php echo site_url("app_user/unBookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary"><?php echo lang('profile_favorite') ?> <span class="glyphicon glyphicon-heart"></span></a>
 					<?php else: ?>
-						<a href="<?php echo site_url("app_user/bookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary">Mark Favorite <span class="glyphicon glyphicon-heart-empty"></span></a>
+						<a href="<?php echo site_url("app_user/bookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary"><?php echo lang('profile_mark_favorite') ?><span class="glyphicon glyphicon-heart-empty"></span></a>
 					<?php endif; ?>
 				<?php endif; ?>
 			</div>
@@ -47,12 +47,12 @@
 		<div class="row">
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
-				  <label for="name">Name: </label>&nbsp;<?php echo $customer->name ?>
+				  <label for="name"><?php echo lang('profile_name') ?>:</label>&nbsp;<?php echo $customer->name ?>
 		     		</div>
 			</div>
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
-				  <label for="type">Type: </label>&nbsp;<?php echo $customer->type ?>
+				  <label for="type"><?php echo lang('profile_type') ?>: </label>&nbsp;<?php echo lang('profile_'.$customer->type) ?>
 		     		</div>
 			</div>
 		</div>
@@ -60,13 +60,13 @@
 			<?php if($this->session->id): ?>
 				<div class="col-md-6 col-lg-6">
 					<div class="form-group">
-					  <label for="phone_number">Phone Number: </label>&nbsp;<?php echo $customer->phone_number ?>
+					  <label for="phone_number"><?php echo lang('profile_phone_number') ?>: </label>&nbsp;<?php echo $customer->phone_number ?>
 				 	</div>
 				</div>
 			<?php endif; ?>
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
-				  <label for="zip_code">Zip Code: </label>&nbsp;<?php echo $customer->zip_code ?>
+				  <label for="zip_code"><?php echo lang('profile_zipCode') ?>: </label>&nbsp;<?php echo $customer->zip_code ?>
 		     		</div>
 			</div>
 		</div>
@@ -84,7 +84,7 @@
 			  <div class="col-md-6 col-lg-6">
 				<h4>Need a Service?</h4>
 				<button type="button" class="btn btn-xs buttonRed" data-toggle="modal" 
-						data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
+						data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'><?php echo lang('service_request_service')?></button>
 				<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
 			  </div>
 			</div>
@@ -102,10 +102,10 @@
 		
 		<br>
 		<?php if($comments): ?>
-			<h3>User's comments for this customer</h3>
+			<h3><?php echo lang('profile_users_coments') ?></h3>
 			<?php foreach($comments as $comment): ?>
 				<div class="alert alert-info">
-				<p>Rating: 
+				<p><?php echo lang('profile_rating') ?>: 
 					   <?php  
 						  for ($i=0 ; $i < ceil($comment->rating); $i++){
 						  echo '<span>&#9733</span>';
@@ -118,7 +118,7 @@
 						  }
 					   ?>
 				</p>
-				<p>Comment:<?php echo $comment->comment ?></p>
+				<p><?php echo lang('profile_comment') ?>:<?php echo $comment->comment ?></p>
 				</div>
 			<?php endforeach; ?>
 		<?php endif; ?>

@@ -1,6 +1,6 @@
     <div class="container">
       <div class="row row-centered">
-	<h3>Customers who can help you</h3>
+	<h3><?php echo lang('service_customers_can_help_you') ?></h3>
 	<hr>
 		<?php foreach($customers as $customer): ?>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-centered">
@@ -26,18 +26,18 @@
 				   </tr>
 					<?php endif; ?>
 				   <tr>
-					<td><b>Type:</b> <?php echo $customer->type ?></td>	
+					<td><b><?php echo lang('profile_type') ?>:</b> <?php echo lang('profile_'.$customer->type) ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Zip Code:</b> <?php echo $customer->zip_code ?></td>	
+					<td><b><?php echo lang('profile_zipCode') ?>:</b> <?php echo $customer->zip_code ?></td>	
 				   </tr>
 					<?php if($this->session->id): ?>
 				   <tr>
-					<td><b>Phone Number:</b> <?php echo $customer->phone_number ?></td>	
+					<td><b><?php echo lang('profile_phone_number') ?>:</b> <?php echo $customer->phone_number ?></td>	
 				   </tr>
 					<?php endif; ?>
 				   <tr>
-					<td><b>Rating:</b>
+					<td><b><?php echo lang('profile_rating')?>:</b>
 					   <div class="ratingShow">
 					   <?php
 						  
@@ -68,12 +68,12 @@
 			        </tr>			
 					
 				</table>
-				<div class="pull-right">
-					<?php if($this->session->id): ?>
+				<div class="pull-right">	
+					<?php if($this->session->id && $this->session->role == "APP_USER"): ?>
 						<button type="button" 
 								class="btn btn-md buttonRed" 
 								data-toggle="modal" 
-								data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'>Request Service</button>
+								data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'><?php echo lang('service_request_service') ?></button>
 						<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
 					<?php endif; ?>
 				</div>

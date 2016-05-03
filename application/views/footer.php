@@ -9,11 +9,9 @@
 			·
 			<a href="#">Cookies</a>
 			·
-			<a href="#">Terms</a>
+			<a href="#"><?php echo lang('footer_terms'); ?></a>
 			·
-			<a href="#">About</a>
-			·
-			<a href="#">Contact</a>
+			<a href="#"><?php echo lang('footer_contact'); ?></a>
 		</p>
 
 		<p class="footer-company-name">Home in Need &copy; 2016</p>
@@ -23,7 +21,7 @@
 
 		<div>
 			<i class="fa fa-map-marker"></i>
-			<p><span>Avda. Reina Mercedes</span> Seville, Spain</p>
+			<p><span>Avda. Reina Mercedes</span><?php echo lang("footer_direction"); ?></p>
 		</div>
 
 		<div>
@@ -41,8 +39,8 @@
 	<div class="footer-right">
 
 		<p class="footer-company-about">
-			<span>About the company</span>
-			Broker service between users who have a problem with their homes and experts which can help them.
+			<span><?php echo lang("footer_about") ?></span>
+			<?php echo lang("footer_company_description")?>
 		</p>
 
 		<div class="footer-icons">

@@ -11,7 +11,7 @@
 			<div class="input-group borderCentral input-group-xs">
 				<div id="latitude"></div>
 				<div id="longitude"></div>
-				<input type="text" name="text_search" class="form-control searchCentral" id="search-input" placeholder="What do you need?">
+				<input type="text" name="text_search" class="form-control searchCentral" id="search-input" placeholder="<?php echo lang('searchPlaceHolder'); ?>">
 				<span class="input-group-btn">		
 					<button class="btn btn-default" type="submit" id="search-span" >
 						<span class="glyphicon glyphicon-search" ><span/>

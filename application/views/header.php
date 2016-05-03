@@ -179,12 +179,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<ul class="nav navbar-nav navbar-user navbar-right">
 	   <li class="dropdown user-dropdown">
 		<ul class="dropdown-menu">
-			<li><a href="<?php echo site_url('admin/usersList') ?>">User's List</a></li>
+			<li><a href="<?php echo site_url('admin/usersList') ?>"><?php echo lang('header_users_list') ?></a></li>
 			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url('admin/signupCustomer') ?>">Customer's Signup</a></li>
-			<li><a href="<?php echo site_url('admin/customersList') ?>">Customer's List</a></li>
+			<li><a href="<?php echo site_url('admin/signupCustomer') ?>"><?php echo lang('header_customers_signup') ?></a></li>
+			<li><a href="<?php echo site_url('admin/customersList') ?>"><?php echo lang('header_customers_list') ?></a></li>
 			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url("main/logout"); ?>">Log out</a></li>
+			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
 		</ul>
 	   </li>
 	</ul>
@@ -192,13 +192,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<ul class="nav navbar-nav navbar-user navbar-right">
 	   <li class="dropdown user-dropdown">
 		<ul class="dropdown-menu">
-			<li><a href="<?php echo site_url('customer/showProfile/'.$this->session->id) ?>">My Profile</a></li>
+			<li><a href="<?php echo site_url('customer/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></li>
 			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url('customer/showTags') ?>">Manage Tags</a></li>
-			<li><a href="<?php echo site_url('customer/editInformation') ?>">Edit information</a></li>
-			<li><a href="<?php echo site_url('customer/servicesList') ?>">Service's List</a></li>
+			<li><a href="<?php echo site_url('customer/showTags') ?>"><?php echo lang('header_manage_tags') ?></a></li>
+			<li><a href="<?php echo site_url('customer/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>
+			<li><a href="<?php echo site_url('customer/servicesList') ?>"><?php echo lang('header_list_service'); ?></a></li>
 			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url("main/logout"); ?>">Log out</a></li>
+			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
 		</ul>
 	   </li>
 	</ul>
@@ -206,13 +206,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<ul class="nav navbar-nav navbar-user navbar-right">
 	   <li class="dropdown user-dropdown">
 		<ul class="dropdown-menu">
-			<li><a href="<?php echo site_url('app_user/showProfile/'.$this->session->id) ?>">My Profile</a></li>
+			<li><a href="<?php echo site_url('app_user/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></a></li>
 			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url('app_user/editInformation') ?>">Edit information</a></li>
-			<li><a href="<?php echo site_url('app_user/myBookmarks') ?>">My bookmarks</a></li>
-			<li><a href="<?php echo site_url('app_user/servicesList') ?>">Service's List</a></li>
+			<li><a href="<?php echo site_url('app_user/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>
+			<li><a href="<?php echo site_url('app_user/myBookmarks') ?>"><?php echo lang('header_bookmarks'); ?></a></li>
+			<li><a href="<?php echo site_url('app_user/servicesList') ?>"><?php echo lang('header_list_service'); ?></a></li>
 			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url("main/logout"); ?>">Log out</a></li>
+			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
 		</ul>
 	   </li>
 	</ul>
@@ -226,16 +226,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		<?php else: ?>
 			<div class="navbar-header pull-right">
-	 			<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("app_user/signup"); ?>">Sign up</a>
+	 			<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("app_user/signup"); ?>"><?php echo lang('header_sign_up'); ?></a>
 	  		</div>
 			<form class="navbar-form navbar-right" role="form" action="<?php echo site_url("main/login"); ?>" method="POST">
 	            <div class="form-group">
 					<input type="email" name="email" placeholder="Email" class="form-control">
             	</div>
             	<div class="form-group">
-              		<input type="password" name="password" placeholder="Password" class="form-control">
+              		<input type="password" name="password" placeholder="<?php echo lang('header_password'); ?>" class="form-control">
            		</div>
-            	<button type="submit" class="btn buttonRed">Sign in</button>
+            	<button type="submit" class="btn buttonRed"><?php echo lang('header_sign_in'); ?></button>
           	</form>
 		<?php endif; ?>
         </div><!--/.navbar-collapse -->

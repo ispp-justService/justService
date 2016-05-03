@@ -1,7 +1,7 @@
 <div class="container">
 
 	<div class="row row-centered">
-	<h3>Service's list</h3>
+	<h3><?php echo lang('service_list') ?></h3>
 	<hr>
 	
 	<?php foreach($services as $service): ?>
@@ -10,7 +10,7 @@
 		<div class="panel panel-default" >
 			<div class="panel-heading">
 				<b>
-					<?php echo $service->status ?>
+					<?php echo lang('service_'.$service->status) ?>
 				</b>
 				<div class="pull-right" id="panel-heading-size">
 					<?php echo date('Y-m-d H:i', strtotime($service->moment)) ?>
@@ -40,12 +40,12 @@
 									</a>
 								<?php elseif($this->session->role == "APP_USER"): ?>
 									<?php if($service->type == "Freelance"): ?>
-										<b>Professional:</b>
+										<b><?php echo lang('service_professional') ?>:</b>
 											<a href="<?php echo site_url("customer/showProfile/".$service->customer_id) ?>">
 												<?php echo $service->name ?>
 											</a>
 									<?php else: ?>
-										<b>Business:</b>
+										<b><?php echo lang('service_professional') ?>:</b>
 											<a href="<?php echo site_url("customer/showProfile/".$service->customer_id) ?>">
 												<?php echo $service->name ?>
 											</a>
@@ -54,15 +54,15 @@
 								</td>
 							</tr>
 							<tr>
-								<td><b>Description:</b> <?php echo $service->description ?></td>	
+								<td><b><?php echo lang('service_description')?>:</b> <?php echo $service->description ?></td>	
 						    </tr>
 							<tr>
 								<td>
-									<b>Discount to apply:</b> 
+									<b><?php echo lang('service_discount_to_apply') ?>:</b> 
 									<?php if($service->discount_to_apply != null): ?>
 										<?php echo $service->discount_to_apply?> %
 									<?php else: ?>
-										None
+										<?php echo lang('service_no_discount') ?>
 									<?php endif; ?>
 								</td>	
 							</tr>
@@ -70,14 +70,14 @@
 								<td>
 							<?php if($service->status == 'PENDING'):?>
 								<button type="button" class="btn btn-danger btn-md" data-toggle="modal" 
-									data-target='#<?php echo "cancel_service_".$service->service_id ?>'>Cancel Service</button>
+									data-target='#<?php echo "cancel_service_".$service->service_id ?>'><?php echo lang('service_cancel_service') ?></button>
 								<?php echo get_confirmation_modal("cancel_service_".$service->service_id,
 									site_url("app_user/cancelService/".$service->service_id)) ?>
 								<?php if($this->session->role == "CUSTOMER"): ?>
 								<button type="button" 
 										class="btn btn-success btn-md pull-right" 
 										data-toggle="modal" 
-										data-target='#<?php echo "active_service_".$service->service_id ?>'>Active Service</button>
+										data-target='#<?php echo "active_service_".$service->service_id ?>'><?php echo lang('service_active_service') ?></button>
 								<?php echo get_confirmation_modal(
 										"active_service_".$service->service_id,
 										site_url("customer/activateService/".$service->service_id)) ?>
@@ -88,10 +88,10 @@
 							<?php if($service->status == 'FINALIZED'): ?>
 
 								<?php if($this->session->role == "CUSTOMER"): ?>
-									<?php if($service->rating_user != null): ?>
+									<?php if($service->rating_user != null && $service->rating_customer != null): ?>
 										<tr>
 											<td>
-												<b>The user's rate for you:</b>
+												<b><?php echo lang('service_users_rate') ?>:</b>
 												<div class="ratingShow">
 													<?php for ($i=0 ; $i < $service->rating_user; $i++){
 														echo '<span>&#9733</span>';
@@ -100,10 +100,10 @@
 											</td>
 										</tr>
 									<?php endif; ?>
-									<?php if($service->comment_user != null): ?>
+									<?php if($service->comment_user != null  && $service->rating_customer != null): ?>
 										<tr>
 											<td>
-												<b>Comment Customer:</b>
+												<b><?php echo lang('service_comment_customer') ?>:</b>
 												<?php echo $service->comment_user?>
 											</td>
 										</tr>
@@ -111,7 +111,7 @@
 									<?php if($service->rating_customer == null): ?>
 										<tr>
 											<td>
-												<b>Rate the user:</b>
+												<b><?php echo lang('service_rate_user')?>:</b>
 												<div class="rating">
 													<span id="<?php echo $service->service_id ?>span5" 
 																onclick="changeStarsForService('5', 
@@ -134,7 +134,7 @@
 									<?php else:?>
 										<tr>
 											<td>
-												<b>Your rate for this user:</b>
+												<b><?php echo lang('service_your_rate_user') ?>:</b>
 												<div class="ratingShow">
 													<?php for ($i=0 ; $i < $service->rating_customer; $i++){
 															echo '<span>&#9733</span>';
@@ -146,16 +146,16 @@
 									<?php if($service->comment_customer != null): ?>
 										<tr>
 											<td>
-												<b>Comment Customer:</b>
-												<?php echo $service->comment_customer?>
+												<b><?php echo lang('service_comment_customer') ?>:</b>
+												<?php echo $service->comment_customer ?>
 											</td>
 										</tr>
 									<?php endif; ?>									
 								<?php elseif($this->session->role == "APP_USER"): ?>
-									<?php if($service->rating_customer != null): ?>
+									<?php if($service->rating_customer != null && $service->rating_user != null): ?>
 										<tr>
 											<td>
-												<b>Customer's rate for you:</b>
+												<b><?php echo lang('service_customers_rate') ?>:</b>
 												<div class="ratingShow">
 													<?php for ($i=0 ; $i < $service->rating_customer; $i++){
 																echo '<span>&#9733</span>';
@@ -164,10 +164,10 @@
 											</td>
 										</tr>
 									<?php endif; ?>
-									<?php if($service->comment_customer != null): ?>
+									<?php if($service->comment_customer != null && $service->rating_user != null): ?>
 										<tr>
 											<td>
-												<b>Comment:</b>
+												<b><?php echo lang('service_comment') ?>:</b>
 												<?php echo $service->comment_customer?>
 											</td>
 										</tr>
@@ -175,7 +175,7 @@
 									<?php if($service->rating_user == null): ?>
 										<tr>
 											<td>
-												<b>Rate the customer:</b>
+												<b><?php echo lang('service_rate') ?>:</b>
 												<div class="rating">
 													<span id="<?php echo $service->service_id ?>span5" 
 																onclick="changeStarsForService('5', 
@@ -198,7 +198,7 @@
 									<?php else: ?>
 										<tr>
 											<td>
-												<b>Your customer's rate:</b>
+												<b><?php echo lang('service_your_rate_customer') ?>:</b>
 												<div class="ratingShow">
 													<?php for ($i=0 ; $i < $service->rating_user; $i++){
 																echo '<span>&#9733</span>';
@@ -210,7 +210,7 @@
 									<?php if($service->comment_user != null): ?>
 										<tr>
 											<td>
-												<b>Comment:</b>
+												<b><?php echo lang('service_comment') ?>:</b>
 												<?php echo $service->comment_user?>
 											</td>
 										</tr>
@@ -221,12 +221,12 @@
 								<tr>
 									<td>
 										<button type="button" class="btn btn-success btn-md pull-right" data-toggle="modal" 
-											data-target='#<?php echo "finalize_service".$service->service_id ?>'>Finalize Service</button>
+											data-target='#<?php echo "finalize_service".$service->service_id ?>'><?php echo lang('service_finalize_service') ?></button>
 										<?php echo get_confirmation_modal("finalize_service".$service->service_id,
 											site_url("customer/finalizeService/".$service->service_id)) ?>
 
 										<button type="button" class="btn btn-danger btn-md pull-left" data-toggle="modal" 
-											data-target='#<?php echo "cancel_service_".$service->service_id ?>'>Cancel Service</button>
+											data-target='#<?php echo "cancel_service_".$service->service_id ?>'><?php echo lang('service_cancel_service') ?></button>
 										<?php echo get_confirmation_modal("cancel_service_".$service->service_id,
 											site_url("customer/cancelService/".$service->service_id)) ?>
 									</td>
@@ -240,13 +240,13 @@
 					<div class="row">
 						<div class="col-md-10">
 							<div class="form-group">
-								<label for="comment_customer">Comment:</label>
+								<label for="comment_customer"><?php echo lang('service_comment') ?>:</label>
 									<input type="hidden" name="rating_customer" id="<?php echo $service->service_id?>rating" value="" />
 									<textarea class="form-control" rows="5" name="comment_customer"></textarea>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<button type="submit" class="btn buttonBlack pull-right">Send</button>
+							<button type="submit" class="btn buttonBlack pull-right"><?php echo lang('service_send') ?></button>
 						</div>
 					</div>
 				</form>
@@ -258,13 +258,13 @@
 					<div class="row">
 						<div class="col-md-10">
 							<div class="form-group">
-								<label for="comment_user">Comment:</label>
+								<label for="comment_user"><?php echo lang('service_comment') ?>:</label>
 								<input type="hidden" name="rating_user" id="<?php echo $service->service_id ?>rating" value="" />
 								<textarea class="form-control" rows="5" name="comment_user"></textarea>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<button type="submit" class="btn buttonBlack pull-right">Send</button>
+							<button type="submit" class="btn buttonBlack pull-right"><?php echo lang('service_send') ?></button>
 						</div>
 					</div>
 				</form>
