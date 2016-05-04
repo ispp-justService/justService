@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['profile_my_profile'] = 'Mi perfil';
 $lang['profile_name'] = 'Nombre';
 $lang['profile_surnames'] = 'Apellidos';
-$lang['profile_discount'] = 'Descuento';
+$lang['profile_discount'] = 'Descuento disponible';
 $lang['profile_zipCode'] = 'Código postal';
 $lang['profile_phone_number'] = 'Número de teléfono';
 $lang['profile_customers_comments'] = "Comentarios de los clientes para este usuario";

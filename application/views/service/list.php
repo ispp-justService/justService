@@ -60,7 +60,7 @@
 								<td>
 									<b><?php echo lang('service_discount_to_apply') ?>:</b> 
 									<?php if($service->discount_to_apply != null): ?>
-										<?php echo $service->discount_to_apply?> %
+										<?php echo $service->discount_to_apply?> €
 									<?php else: ?>
 										<?php echo lang('service_no_discount') ?>
 									<?php endif; ?>

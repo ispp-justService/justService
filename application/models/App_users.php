@@ -128,6 +128,22 @@ class App_users extends CI_Model {
 
 		}
 
+		public function updateDiscount($app_user_id){
+
+			$this->db->select('count(*) % 2 = 0 as services');
+			$this->db->where('app_user_id', $app_user_id);
+			$this->db->where('status', 'FINALIZED');
+
+			$increaseDiscount = $this->db->get('service')->row()->services;			
+
+			if($increaseDiscount == 't'){
+			
+				$this->db->query("UPDATE app_user SET discount = discount + 10.00 WHERE app_user_id = '".$app_user_id."'");
+
+			}
+
+		}
+
 }
 
 ?>

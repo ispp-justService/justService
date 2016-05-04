@@ -402,22 +402,49 @@ INSERT INTO TAG_ENTRY VALUES('20','34');
 /*
   Service's populate
 */
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Hey there is no light at my home. I need an electrician.','PENDING','1','3');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I cannot enter in my home. Can you help me?','PENDING','9','2');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('This is a mistake, but i cannot delete this for now','PENDING','3','4');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I want to build a house. A BIG house','PENDING','17','4');
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('My bathroom is crazy!!! I had to built a boat like Noah.','ACTIVE','5','1');
 
+-- App_User 1
+-- 	Activos
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('My bathroom is crazy!!! I had to built a boat like Noah.','ACTIVE','5','1');
+--	Finalizados
 INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer) 
 			VALUES('I forgot my keys inside my house :( help!','FINALIZED','10','1','5','It saved my life','5','Thanks for calling me');
+--	Pendientes
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I need a plumber please. Pipes of my kitchen are broken','PENDING','11','1');
+
+-- App_User 2
+--	Activos
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Need to do a reform in my house, call me for more information','ACTIVE','8','2');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Need to change the floor of my house, I need a builder please','ACTIVE','10','2');
+-- 	Finalizados
 INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
 			VALUES('Hey I need to do some changes in my house. Can you do it?', 'FINALIZED','13','2','4','It´s a good business','5','Thanks for calling me');
+--	Pendientes
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I cannot enter in my home. Can you help me?','PENDING','9','2');
+
+-- App_User 3
+--	Activos
+-- 	Finalizados
 INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
 			VALUES('Need a hand with a thing, please call me.', 'FINALIZED','14','3','3','Not bad','5','Thanks for calling me');
+--	Pendientes
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Hey there is no light at my home. I need an electrician.','PENDING','1','3');
+
+-- App_User 4
+--	Activos
+--	Finalizados
 INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
 			VALUES('I need you to do an empire state in my garden for 5 dollars.','FINALIZED','13','4','2','Bad service','5','Thanks for calling me');
+--	Pendientes
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('This is a mistake, but i cannot delete this for now','PENDING','3','4');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I want to build a house. A BIG house','PENDING','17','4');
+
+-- App_User 5
+--	Activos
+--	Finalizados
+--	Pendientes
 INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
-			VALUES('I need you to do an empire state in my garden for 5 dollars.','FINALIZED','14','5','1','Horrible service','5','Thanks for calling me');
+			VALUES('I need you to do a copy of the Eiffel Tower in my garden for 50 dollars.','FINALIZED','14','5','1','Horrible service','5','Thanks for calling me');
 
 
 /*

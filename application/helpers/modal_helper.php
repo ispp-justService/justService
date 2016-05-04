@@ -36,7 +36,7 @@ if ( ! function_exists('confirmation_modal')){
 
 if ( ! function_exists('get_creation_service_modal')){
 
-    function get_creation_service_modal($id, $controller_path){
+    function get_creation_service_modal($id, $controller_path, $max_discount){
 		$modal = '
 			<!-- Modal -->
 			<div id="creation_service_modal_'.$id.'" class="modal fade" role="dialog">
@@ -48,12 +48,17 @@ if ( ! function_exists('get_creation_service_modal')){
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Confirmation request of service</h4>
 				  </div>
-				  <form action="'.$controller_path.'" id="serviceForm" method="POST">
+				  <form action="'.$controller_path.'" id="serviceForm'.$id.'" method="POST">
 				  <div class="modal-body">
 					<div class="form-group">
 						<label>Description</label>
-						<textarea name="description" class="form-control" form="serviceForm" placeholder="Enter description here..." rows="3"></textarea>
+						<textarea name="description" class="form-control" form="serviceForm'.$id.'" placeholder="Enter description here..." rows="3"></textarea>
+						<input type="checkbox" name="want_discount" value="" onclick='."'".'hideShowDiv("input_discount")'."'".'>'.lang("service_want_discount").'<br>
+						<div id=input_discount class="hidden">
+						<input type="text" name="discount"><b>'.lang("service_discount_avialable").'('.$max_discount.' €)</b>
 						<input type="hidden" name="customer_id" value="'.$id.'">
+						<input type="hidden" name="max_discount" value="'.$max_discount.'">
+						</div>
 					</div>
 				  </div>
 				  <div class="modal-footer">

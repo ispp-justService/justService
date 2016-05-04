@@ -18,5 +18,15 @@ class App_user_utils{
 		
 		return $this->CI->form_validation->run();
 	}	
+
+	public function checkRequestServiceForm(){
+		
+		$this->CI = & get_instance();
+		
+		$this->CI->form_validation->set_rules('description','Description','required');
+		$this->CI->form_validation->set_rules('discount','Discount','decimal|less_than[max_discount]');
+
+		return $this->CI->form_validation->run();
+	}
 }
 ?>

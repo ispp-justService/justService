@@ -36,3 +36,7 @@ function showError(error) {
     }
 }
 
+function hideShowDiv(id){
+	$("#"+id).toggleClass('hidden');
+}
+

@@ -98,6 +98,10 @@ class Customer extends CI_Controller {
 			$result = $this->services->finalize_service($id, $customer_id);
 
 			if($result != FALSE){
+
+				$this->load->model('app_users');
+				$this->app_users->updateDiscount($result->row()->app_user_id);
+				
 				$status = $result->row()->status;
 				if($status == 'FINALIZED'){
 					redirect('customer/servicesList');

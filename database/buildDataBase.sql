@@ -16,7 +16,7 @@ CREATE TABLE app_user (
 	password 	varchar		NOT NULL,
 	moment 		timestamp	NOT NULL DEFAULT current_timestamp,
 	deleted 	bool		NOT NULL DEFAULT false,
-	discount 	decimal		NOT NULL CHECK(discount<0.5 AND discount>=0.0) DEFAULT 0.0,
+	discount 	decimal		NOT NULL CHECK(discount >= 0.00) DEFAULT 0.00,
 	photo 		varchar,
 	zip_code 	int,
 	phone_number 	integer
@@ -48,7 +48,7 @@ CREATE TABLE service(
 	comment_user		varchar,
 	rating_customer		smallint	CHECK(rating_customer >= 0 AND rating_customer <= 5),
 	comment_customer	varchar,
-	discount_to_apply	decimal		CHECK(discount_to_apply < 0.2),
+	discount_to_apply	decimal		CHECK(discount_to_apply < 50.0),
 
 	customer_id		serial		REFERENCES customer(customer_id),
 	app_user_id		serial		REFERENCES app_user(app_user_id)

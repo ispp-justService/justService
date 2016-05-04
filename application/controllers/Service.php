@@ -158,6 +158,12 @@ class Service extends CI_Controller {
 				$data['map'] = $this->googlemaps->create_map();
 				// Creamos los enlaces de la paginación y lo ubicamos como dato de salida
 				$data['pagination'] = $this->pagination->create_links();
+
+				if($this->session->role && $this->session->role == "APP_USER"){
+					$this->load->model("app_users");
+					$user = $this->app_users->find_app_user($this->session->id);
+					$data['user_discount'] = $user->row()->discount;
+				}
 	
 				// Renderizamos la pantalla
 				$this->render->renderView('service/search',$data);			

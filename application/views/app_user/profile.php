@@ -44,7 +44,7 @@
 			</div>
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
-				  <label for="discount"><?php echo lang('profile_discount') ?>: </label>&nbsp;<?php echo $user->discount ?> %
+				  <label for="discount"><?php echo lang('profile_discount') ?>: </label>&nbsp;<?php echo $user->discount ?> €
 		     		</div>
 			</div>
 		</div>

@@ -29,10 +29,7 @@ $lang['service_CANCELLED'] = "Cancelled";
 $lang['service_request_service'] = "Request Service";
 
 $lang['service_customers_can_help_you'] = "Customers who can help you";
-$lang['service_ACTIVE'] = "Active";
-$lang['service_ACTIVE'] = "Active";
-$lang['service_ACTIVE'] = "Active";
-$lang['service_ACTIVE'] = "Active";
-$lang['service_ACTIVE'] = "Active";
-$lang['service_ACTIVE'] = "Active";
+$lang['service_want_discount'] = "Want to apply any discount?";
+$lang['service_discount_avialable'] = "Available";
+
 
