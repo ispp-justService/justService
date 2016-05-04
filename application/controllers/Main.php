@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 
 	public function index(){
+
 		$this->load->model('tags');
 
 		$result = $this->tags->get_all();
@@ -112,6 +113,15 @@ class Main extends CI_Controller {
 		$result = $this->banners->get_active_banners();
 
 		return $result;
+	}
+
+	public function changeLanguage($type){
+	
+		if($type == "spanish" || $type == "english"){
+			$this->session->set_userdata('language',$type);
+		}
+
+		redirect("main");
 	}
 
 	public function logout(){

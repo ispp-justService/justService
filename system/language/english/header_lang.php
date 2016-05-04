@@ -16,6 +16,8 @@ $lang['header_users_list'] = "User's List";
 $lang['header_customers_list'] = "Customer's List";
 $lang['header_customers_signup'] = "Customer's Singup";
 
+$lang['header_choose_lang'] = "Languages";
+
 
 
 
