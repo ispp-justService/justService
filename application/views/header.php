@@ -14,6 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/rating.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/footer-distributed-with-address-and-phones.css"); ?>">
+	<link rel="stylesheet" href="<?php echo base_url("assets/css/flags.css"); ?>">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
 	<!-- CARGA DE ARCHIVOS JS -->
@@ -183,6 +184,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url('admin/signupCustomer') ?>"><?php echo lang('header_customers_signup') ?></a></li>
 			<li><a href="<?php echo site_url('admin/customersList') ?>"><?php echo lang('header_customers_list') ?></a></li>
+			<li class="divider" role="separator"></li>			
+			<li><a href="#"><div class="flag flag-es"></div>Español</a></li>
+			<li><a href="#"><div class="flag flag-gb"></div>Inglés</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
 		</ul>
@@ -197,6 +201,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li><a href="<?php echo site_url('customer/showTags') ?>"><?php echo lang('header_manage_tags') ?></a></li>
 			<li><a href="<?php echo site_url('customer/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>
 			<li><a href="<?php echo site_url('customer/servicesList') ?>"><?php echo lang('header_list_service'); ?></a></li>
+			<li class="divider" role="separator"></li>			
+			<li><a href="#"><div class="flag flag-es"></div>Español</a></li>
+			<li><a href="#"><div class="flag flag-gb"></div>Inglés</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
 		</ul>
@@ -211,6 +218,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li><a href="<?php echo site_url('app_user/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>
 			<li><a href="<?php echo site_url('app_user/myBookmarks') ?>"><?php echo lang('header_bookmarks'); ?></a></li>
 			<li><a href="<?php echo site_url('app_user/servicesList') ?>"><?php echo lang('header_list_service'); ?></a></li>
+			<li class="divider" role="separator"></li>			
+			<li><a href="#"><div class="flag flag-es"></div>Español</a></li>
+			<li><a href="#"><div class="flag flag-gb"></div>Inglés</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
 		</ul>
@@ -229,14 +239,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	 			<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("app_user/signup"); ?>"><?php echo lang('header_sign_up'); ?></a>
 	  		</div>
 			<form class="navbar-form navbar-right" role="form" action="<?php echo site_url("main/login"); ?>" method="POST">
-	            <div class="form-group">
-					<input type="email" name="email" placeholder="Email" class="form-control">
-            	</div>
-            	<div class="form-group">
-              		<input type="password" name="password" placeholder="<?php echo lang('header_password'); ?>" class="form-control">
-           		</div>
-            	<button type="submit" class="btn buttonRed"><?php echo lang('header_sign_in'); ?></button>
-          	</form>
+			    <div class="form-group">
+						<input type="email" name="email" placeholder="Email" class="form-control">
+		    	</div>
+		    	<div class="form-group">
+		      		<input type="password" name="password" placeholder="<?php echo lang('header_password'); ?>" class="form-control">
+		   		</div>
+		    	<button type="submit" class="btn buttonRed"><?php echo lang('header_sign_in'); ?></button>
+		  	</form>
+		<div id="textWhiteHeader" class="navbar-left navbar-text cursor" data-toggle="dropdown" data-target=".user-dropdown">
+		 	Idiomas<span class="caret"></span>
+		</div>
+		<ul class="nav navbar-nav navbar-user navbar-left">
+		   <li class="dropdown user-dropdown">
+			<ul class="dropdown-menu">	
+				<li><a href="#"><div class="flag flag-es"></div>Español</a></li>
+				<li><a href="#"><div class="flag flag-gb"></div>Inglés</a></li>
+			</ul>
+		   </li>
+		</ul>
 		<?php endif; ?>
         </div><!--/.navbar-collapse -->
       </div>
