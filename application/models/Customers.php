@@ -25,7 +25,8 @@ class Customers extends CI_Model {
 		}
 
 		public function get_all(){
-			$query = $this->db->get('customer');
+			//$query = $this->db->get('customer');
+			$query = $this->db->query("select (select (count(*)/2) from service where c1.customer_id = customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment) group by customer_id having count(*) >= 2) as num_bonus, c1.* from customer c1");
 			return $query;
 		}
 
