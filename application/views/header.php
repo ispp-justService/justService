@@ -235,17 +235,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			 	<?php echo $this->session->name ?> <span class="caret"></span>
 			</div>
 		<?php else: ?>
-			<div class="navbar-header pull-right">
-	 			<a class="navbar-brand" id="navbar-signup" href="<?php echo site_url("app_user/signup"); ?>"><?php echo lang('header_sign_up'); ?></a>
-	  		</div>
 			<form class="navbar-form navbar-right" role="form" action="<?php echo site_url("main/login"); ?>" method="POST">
-			    <div class="form-group">
-						<input type="email" name="email" placeholder="Email" class="form-control">
-		    	</div>
-		    	<div class="form-group">
-		      		<input type="password" name="password" placeholder="<?php echo lang('header_password'); ?>" class="form-control">
-		   		</div>
-		    	<button type="submit" class="btn buttonRed"><?php echo lang('header_sign_in'); ?></button>
+			    	<div class="form-group">
+					<input type="email" name="email" placeholder="Email" class="form-control">
+			    	</div>
+			    	<div class="form-group">
+			      		<input type="password" name="password" placeholder="<?php echo lang('header_password'); ?>" class="form-control">
+			   		</div>
+			    	<button type="submit" class="btn buttonRed"><?php echo lang('header_sign_in'); ?></button>
+				<a id="textWhiteHeader" style="font-size: 16px;" href="<?php echo site_url("app_user/signup"); ?>"><?php echo lang('header_sign_up'); ?></a>
 		  	</form>
 		<div id="textWhiteHeader" class="navbar-left navbar-text cursor" data-toggle="dropdown" data-target=".user-dropdown">
 		 	<?php echo lang('header_choose_lang') ?><span class="caret"></span>
