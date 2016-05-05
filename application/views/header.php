@@ -243,7 +243,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			      		<input type="password" name="password" placeholder="<?php echo lang('header_password'); ?>" class="form-control">
 			   		</div>
 			    	<button type="submit" class="btn buttonRed"><?php echo lang('header_sign_in'); ?></button>
-				<a id="textWhiteHeader" style="font-size: 16px;" href="<?php echo site_url("app_user/signup"); ?>"><?php echo lang('header_sign_up'); ?></a>
+				<a class="btn btn-default" style="font-size: 14px;" href="<?php echo site_url("app_user/signup"); ?>"><?php echo lang('header_sign_up'); ?></a>
 		  	</form>
 		<div id="textWhiteHeader" class="navbar-left navbar-text cursor" data-toggle="dropdown" data-target=".user-dropdown">
 		 	<?php echo lang('header_choose_lang') ?><span class="caret"></span>
