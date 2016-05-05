@@ -17,14 +17,14 @@
 	<p>Contamos con un equipo de desarrollo bastante joven y con buenas aptitudes, personas con unas capacidades<br/> 
 	altas de aprendizaje ante las nuevas tecnologías. El equipo de trabajo está familiarizado especialmente en:</p>
 	<p>
-	   <img src="http://localhost/web/assets/img/bootstrapLogo.png" id="logo" wight="100px" height="100px">
-	   <img src="http://localhost/web/assets/img/codeigniter.svg" id="logo" wight="100px" height="100px">
-	   <img src="http://localhost/web/assets/img/postgresqlLogo.png" id="logo" wight="150px" height="150px">
+	   <img src="<?php echo base_url("assets/img/bootstrapLogo.png"); ?>" id="logo" wight="100px" height="100px">
+	   <img src="<?php echo base_url("assets/img/codeigniter.svg"); ?>" id="logo" wight="100px" height="100px">
+	   <img src="<?php echo base_url("assets/img/postgresqlLogo.png"); ?>" id="logo" wight="150px" height="150px">
 	</p>
 	<p>
-	   <img src="http://localhost/web/assets/img/html5Logo.png" id="logo" wight="100px" height="100px">
-	   <img src="http://localhost/web/assets/img/phpLogo.png" id="logo" wight="100px" height="100px">
-	   <img src="http://localhost/web/assets/img/jqueryLogo.png" id="logo" wight="100px" height="100px">
+	   <img src="<?php echo base_url("assets/img/html5Logo.png"); ?>" id="logo" wight="100px" height="100px">
+	   <img src="<?php echo base_url("assets/img/phpLogo.png"); ?>" id="logo" wight="100px" height="100px">
+	   <img src="<?php echo base_url("assets/img/jqueryLogo.png"); ?>" id="logo" wight="100px" height="100px">
 	</p>
       </div> <!-- /row -->
     </div> <!-- /container -->
