@@ -5,7 +5,7 @@
 		
 		<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
 		
-		<div class="row">
+		<div class="row row-centered">
 			<button type="button" 
 				class="btn btn-xl btn-info" 
 				data-toggle="modal" 
