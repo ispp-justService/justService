@@ -28,3 +28,6 @@ $lang['service_CANCELLED'] = "Cancelado";
 
 $lang['service_request_service'] = "Solicitar Servicio";
 
+$lang['service_customers_can_help_you'] = "Clientes que te podrían ayudar";
+$lang['service_want_discount'] = "¿Quieres aplicar algún descuento?";
+$lang['service_discount_avialable'] = "Disponible";

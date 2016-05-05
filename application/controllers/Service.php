@@ -12,7 +12,7 @@ class Service extends CI_Controller {
 			$data['customer_id'] = $this->input->post('customer_id');	
 			$this->render->renderView('service/request',$data);
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}	
 	}
 
@@ -169,10 +169,10 @@ class Service extends CI_Controller {
 				$this->render->renderView('service/search',$data);			
 			}else{
 				$data['showAdvancedSearch'] = TRUE;
-				$this->render->renderViewWithError('main/main',"No results found according to that search", $data);			
+				$this->render->renderViewWithError('main/main',lang("error_no_results"), $data);			
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"The search text has empty values or is too short");
+			$this->render->renderViewWithError('main/main',lang("error_search_text_empty_short"));
 		}
 	}
 }

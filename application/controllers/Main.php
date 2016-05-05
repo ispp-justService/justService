@@ -49,7 +49,7 @@ class Main extends CI_Controller {
 
 		// Si finalmente el resultado es falso, ha fallado el login
 		if($result == false){
-			$this->render->renderViewWithError('main/main',"Sorry. Did you put your credentials correctly?");
+			$this->render->renderViewWithError('main/main',lang("error_wrong_credentials"));
 		}else{
 			if(password_verify($data['password'], $result->password)){
 				
@@ -58,7 +58,7 @@ class Main extends CI_Controller {
 				$this->session->set_userdata('name',$name);
 				$this->render->renderView('main/main');
 			}else{
-				$this->render->renderViewWithError('main/main',"Wrong password.");
+				$this->render->renderViewWithError('main/main',lang("error_wrong_password"));
 			}
 		}
 	}
@@ -78,7 +78,7 @@ class Main extends CI_Controller {
 
 			if ( ! $this->upload->do_upload('image')){
 				//echo $this->upload->display_errors();
-				$this->render->renderViewWithError('main/main',"Error at uploading the selected image. Maybe try another format or reduce the size.");	
+				$this->render->renderViewWithError('main/main',lang("error_wrong_image"));	
 			}else{
 				$image_name = $this->upload->data()['file_name'];
 
@@ -89,7 +89,7 @@ class Main extends CI_Controller {
 					if($result == TRUE){
 						redirect('app_user/showProfile/'.$id);
 					}else{
-						$this->render->renderViewWithError('main/main',"There was an error at uploading your image.");
+						$this->render->renderViewWithError('main/main',lang("error_uploading_image"));
 					}
 				}elseif($role == 'CUSTOMER'){
 					$this->load->model('customers');
@@ -98,12 +98,12 @@ class Main extends CI_Controller {
 					if($result == TRUE){
 						redirect('customer/showProfile/'.$id);
 					}else{
-						$this->render->renderViewWithError('main/main',"There was an error at uploading your image.");
+						$this->render->renderViewWithError('main/main',lang("error_uploading_image"));
 					}
 				}
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"You cannot change other user's image.");
+			$this->render->renderViewWithError('main/main',lang('error_no_change_user_image'));
 		}
 	}
 

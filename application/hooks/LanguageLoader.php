@@ -13,6 +13,7 @@ class LanguageLoader{
             $ci->lang->load('profile',$ci->session->userdata('language'));
             $ci->lang->load('service_list',$ci->session->userdata('language'));
             $ci->lang->load('tags',$ci->session->userdata('language'));
+			$ci->lang->load('error',$ci->session->userdata('language'));
 
         } else {
 
@@ -22,6 +23,7 @@ class LanguageLoader{
             $ci->lang->load('profile','english');
             $ci->lang->load('service_list','english');
             $ci->lang->load('tags','english');
+			$ci->lang->load('error','english');
 			
         }
     }

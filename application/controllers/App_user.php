@@ -19,7 +19,7 @@ class App_user extends CI_Controller {
 			$data['services'] = $result->result();
 			$this->render->renderView('service/list',$data);
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 
@@ -63,7 +63,7 @@ class App_user extends CI_Controller {
 			$checkForm = $this->app_user_utils->checkRequestServiceForm();
 
 			if($checkForm == FALSE){
-				$this->render->renderViewWithError('main/main',"A description must be entered and the Discount must be a numerical value");
+				$this->render->renderViewWithError('main/main',lang("error_form_request_Service"));
 			}else{
 
 				$customer_id 	= $this->input->post('customer_id');
@@ -80,12 +80,12 @@ class App_user extends CI_Controller {
 				if($result == TRUE){
 					redirect('app_user/servicesList');
 				}else{
-					$this->render->renderViewWithError('main/main',"Sorry! Error at creating a new request of service");
+					$this->render->renderViewWithError('main/main',lang("error_request_service"));
 				}		
 			}
 		
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}		
 	}
 
@@ -107,7 +107,7 @@ class App_user extends CI_Controller {
 				echo "no se ha podido finalizar servicio";
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 
@@ -128,7 +128,7 @@ class App_user extends CI_Controller {
 				}
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 
@@ -144,11 +144,11 @@ class App_user extends CI_Controller {
 					$data['comments'] = $result->result();
 					$this->render->renderView('app_user/profile',$data);
 				}else{
-					$this->render->renderViewWithError('main/main',"The User is desactivated, sorry");					
+					$this->render->renderViewWithError('main/main',lang("error_user_deactivated"));					
 				}
 				
 			}else{
-				$this->render->renderViewWithError('main/main',"Can not find that User");
+				$this->render->renderViewWithError('main/main',lang("error_user_not_found"));
 			}
 		}
 	}
@@ -177,7 +177,7 @@ class App_user extends CI_Controller {
 			$data['customers'] = $result->result();
 			$this->render->renderView('app_user/myBookmarks',$data);
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 	
@@ -194,10 +194,10 @@ class App_user extends CI_Controller {
 			if($result == TRUE){
 				redirect('customer/showProfile/'.$customerId);
 			}else{
-				$this->render->renderViewWithError('main/main',"Error at bookmarking a customer");
+				$this->render->renderViewWithError('main/main',lang("error_booking_customer"));
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 
@@ -216,10 +216,10 @@ class App_user extends CI_Controller {
 			if($result != TRUE){
 				redirect('customer/showProfile/'.$customerId);
 			}else{
-				$this->render->renderViewWithError('main/main',"Error at unBookmarking a customer");
+				$this->render->renderViewWithError('main/main',lang("error_unbookmarking_customer"));
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an User");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 

@@ -38,10 +38,10 @@ class Customer extends CI_Controller {
 
 					$this->render->renderView('customer/profile',$data);
 				}else{
-					$this->render->renderViewWithError('main/main',"That customer is desactivated, sorry");
+					$this->render->renderViewWithError('main/main',lang("error_customer_deactivated"));
 				}
 			}else{
-				$this->render->renderViewWithError('main/main',"Can not find that customer");
+				$this->render->renderViewWithError('main/main',lang("error_customer_not_found"));
 			}
 		}
 	}
@@ -64,7 +64,7 @@ class Customer extends CI_Controller {
 				echo "no se ha podido activar el servicio";
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}				
 	}
 
@@ -85,7 +85,7 @@ class Customer extends CI_Controller {
 				}
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 		
 	}
@@ -106,13 +106,13 @@ class Customer extends CI_Controller {
 				if($status == 'FINALIZED'){
 					redirect('customer/servicesList');
 				}else{
-					$this->render->renderViewWithError('service/list',"State of service not changed");
+					$this->render->renderViewWithError('service/list',lang("error_service_state"));
 				}								
 			}else{
-				$this->render->renderViewWithError('service/list',"Error at finishing the Service");
+				$this->render->renderViewWithError('service/list',lang("error_service_finish"));
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 
@@ -128,13 +128,13 @@ class Customer extends CI_Controller {
 				if($status == 'CANCELLED'){
 					redirect('customer/servicesList');
 				}else{
-					$this->render->renderViewWithError('service/list',"State of service not changed");
+					$this->render->renderViewWithError('service/list',lang("error_service_state"));
 				}								
 			}else{
-				$this->render->renderViewWithError('service/list',"Error at cancelling the Service");
+				$this->render->renderViewWithError('service/list',lang("error_service_cancel"));
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 
@@ -151,10 +151,10 @@ class Customer extends CI_Controller {
 				$data['customerTags'] = $customerTags->result();
 				$this->render->renderView('customer/showTags',$data);
 			}else{
-				$this->render->renderViewWithError('main/main',"Could not show tags");
+				$this->render->renderViewWithError('main/main',lang("error_show_tags"));
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 
@@ -169,10 +169,10 @@ class Customer extends CI_Controller {
 				$data['tags'] = $tags->result();
 				$this->render->renderView('customer/editTags',$data);
 			}else{
-				$this->render->renderViewWithError('main/main',"Could not show tags");
+				$this->render->renderViewWithError('main/main',lang("error_show_tags"));
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 		
 	}
@@ -196,10 +196,10 @@ class Customer extends CI_Controller {
 			if($result == TRUE){
 				redirect('customer/showTags');
 			}else{
-				$this->render->renderViewWithError('main/main',"Error at editing tags");
+				$this->render->renderViewWithError('main/main',lang("error_edit_tags"));
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 
@@ -213,7 +213,7 @@ class Customer extends CI_Controller {
 			$data['services'] = $result->result();
 			$this->render->renderView('service/list',$data);
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not a Customer");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 
@@ -228,7 +228,7 @@ class Customer extends CI_Controller {
 				$this->render->renderView('customer/editInformation',$data);
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 

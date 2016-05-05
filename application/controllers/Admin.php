@@ -66,10 +66,10 @@ class Admin extends CI_Controller {
 			if($deletedStatus == TRUE){
 				redirect('admin/customersList');
 			}else{
-				$this->render->renderViewWithError('main/main',"Error at deactivating the customer");
+				$this->render->renderViewWithError('main/main',lang("error_deactivating_customer"));
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 
@@ -85,10 +85,10 @@ class Admin extends CI_Controller {
 			if($deletedStatus == TRUE){
 				redirect('admin/usersList');
 			}else{
-				$this->render->renderViewWithError('main/main',"Error at deactivating the user");
+				$this->render->renderViewWithError('main/main',lang("error_deactivating_user"));
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
 	}
 	
@@ -104,7 +104,7 @@ class Admin extends CI_Controller {
 
 			$this->render->renderView("admin/seeCustomersBanners", $data);
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");			
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));			
 		}	
 	}
 
@@ -126,7 +126,7 @@ class Admin extends CI_Controller {
 
 			if ( ! $this->upload->do_upload('image')){
 				//echo ;
-				$this->render->renderViewWithError('main/main',"Error at uploading the selected image: ".$this->upload->display_errors());	
+				$this->render->renderViewWithError('main/main',lang("error_uploading_image"));	
 			}else{
 				$image_name = $this->upload->data()['file_name'];
 				$data['image'] = '././assets/uploads/'.$image_name;
@@ -135,13 +135,13 @@ class Admin extends CI_Controller {
 				if($result == TRUE){
 					redirect("admin/seeCustomersBanners/".$data['customer_id']);
 				}else{
-					$this->render->renderViewWithError('main/main',"There was an error about creating a banner, sorry");	
+					$this->render->renderViewWithError('main/main',lang("error_create_banner"));	
 				}
 			}
 
 			$this->render->renderView("admin/createBanner");
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");			
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));			
 		}
 	}
 	
@@ -158,10 +158,10 @@ class Admin extends CI_Controller {
 			if($result == TRUE){
 				redirect("admin/seeCustomersBanners/".$customer_id);
 			}else{
-				$this->render->renderViewWithError('main/main',"Error at deactivating the banner, sorry");			
+				$this->render->renderViewWithError('main/main',lang("error_deactivating_banner"));			
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");			
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));			
 		}
 	}
 
@@ -179,11 +179,11 @@ class Admin extends CI_Controller {
 			if($result == TRUE){
 				redirect("admin/seeCustomersBanners/".$customer_id);
 			}else{
-				$this->render->renderViewWithError('main/main',"Error at use the banner, sorry");			
+				$this->render->renderViewWithError('main/main',lang("error_user_banner"));			
 			}
 
 		}else{
-			$this->render->renderViewWithError('main/main',"Session expired or you are not an Admin");			
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));			
 		}
 		
 	} 

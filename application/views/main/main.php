@@ -20,7 +20,7 @@
 			</div>
 		<?php if(isset($showAdvancedSearch)): ?>
 		<div id="advanced-search" class="panel panel-default">
-			Maybe you wanted to say: <br>
+			<?php echo lang('user_of_tags') ?>: <br>
 				<?php echo form_label("electrician", "electrician"); ?>
 				<?php echo form_checkbox("electrician", "electrician", FALSE); ?>
 
