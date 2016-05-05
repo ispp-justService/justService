@@ -53,8 +53,8 @@ if ( ! function_exists('get_creation_service_modal')){
 					<div class="form-group">
 						<label>Description</label>
 						<textarea name="description" class="form-control" form="serviceForm'.$id.'" placeholder="Enter description here..." rows="3"></textarea>
-						<input type="checkbox" name="want_discount" value="" onclick='."'".'hideShowDiv("input_discount")'."'".'>'.lang("service_want_discount").'<br>
-						<div id=input_discount class="hidden">
+						<input type="checkbox" name="want_discount" value="" onclick='."'".'hideShowDiv("input_discount'.$id.'")'."'".'>'.lang("service_want_discount").'<br>
+						<div id="input_discount'.$id.'" class="hidden">
 						<input type="text" name="discount"><b>'.lang("service_discount_avialable").'('.$max_discount.' €)</b>
 						<input type="hidden" name="customer_id" value="'.$id.'">
 						<input type="hidden" name="max_discount" value="'.$max_discount.'">

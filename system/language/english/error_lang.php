@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['error_no_change_user_image'] = "You cannot change other user's image";
 $lang['error_uploading_image']		= "There was an error at uploading your image";
 $lang['error_wrong_image']			= "Error at uploading the selected image. Maybe try another format or reduce the size.";
-$lang['error_wrong_password']		= "asdasdsaWrong password.";
+$lang['error_wrong_password']		= "Wrong password.";
 $lang['error_wrong_credentials']	= "Sorry. Did you put your credentials correctly?";
 
 // Session
