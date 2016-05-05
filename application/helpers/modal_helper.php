@@ -12,17 +12,17 @@ if ( ! function_exists('confirmation_modal')){
 				<div class="modal-content">
 				  <div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Confirmation Dialog</h4>
+					<h4 class="modal-title">'.lang('modals_title_confirmation').'</h4>
 				  </div>
 				  <div class="modal-body">
 					<form action="'.$controller_path.'" method="POST">
-						<label>Are you sure you want to do this operation?</label>';
+						<label>'.lang('modals_ask_confirmation').'</label>';
 		foreach($hidden_fields as $field => $value){
 			$modal.='<input type="hidden" name="'.$field.'" value="'.$value.'">';
 		}
 		$modal.='
-						<button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-						<input type="submit" class="btn btn-success" value="Yes">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">'.lang('modals_no').'</button>
+						<input type="submit" class="btn btn-success" value="'.lang('modals_yes').'">
 					</form>
 				  </div>
 				</div>

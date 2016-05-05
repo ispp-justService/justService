@@ -25,3 +25,16 @@ $lang['profile_Business'] = "Empresa";
 
 $lang['profile_my_bookmarks'] = "Mis favoritos";
 $lang['profile_need_a_service'] = "¿Necesitas un servicio?";
+
+$lang['profile_latitude'] = "Latitud";
+$lang['profile_longitude'] = "Longitud";
+$lang['profile_password'] = "Contraseña";
+$lang['profile_confirm_password'] = "Confirmar contraseña";
+
+$lang['profile_first_name'] = "Nombre";
+$lang['profile_last_name'] = "Apellidos";
+$lang['profile_signup'] = "Registrarse";
+$lang['profile_users_signup'] = "Registro de usuario";
+
+
+

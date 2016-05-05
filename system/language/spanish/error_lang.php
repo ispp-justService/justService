@@ -7,7 +7,7 @@ $lang['error_no_change_user_image'] = "No está permitido cambiar la imagen de o
 $lang['error_uploading_image']		= "Ha habido un error al actualizar tu foto de perfil";
 $lang['error_wrong_image']			= "Error al subir la imagen seleccionada. Prueba otro formato o reduce el tamaño.";
 $lang['error_wrong_password']		= "Contraseña errónea";
-$lang['error_wrong_credentials']	= "Lo siento, ¿ pusiste las credenciales correctamente ?";
+$lang['error_wrong_credentials']	= "Lo siento, ¿pusiste las credenciales correctamente?";
 
 // Session
 $lang['error_session_expired_not_logged']	= "Sesión expirada o no estas logueado";

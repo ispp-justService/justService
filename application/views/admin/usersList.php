@@ -1,11 +1,16 @@
     <div class="container">
       <div class="row row-centered">
-	<h3>User's list</h3>
+	<h3><?php echo lang('admin_users_list') ?></h3>
 	<hr>
 		<?php foreach($users as $user): ?>
 		<div class="col-xs-12 col-sm-6 col-md-6 col-centered">
 		<div class="panel panel-default" >
-		   <div class="panel-heading"><?php echo $user->name." ".$user->surname ?></div>
+		   <div class="panel-heading">
+			<a href="<?php echo site_url("app_user/showProfile/".$user->app_user_id) ?>">
+				<?php echo $user->name." ".$user->surname ?>
+			</a>
+			
+			</div>
 		      <div class="panel-body">
 			      	<table>
 				   <tr>
@@ -21,16 +26,16 @@
 					<td><b>Email:</b> <?php echo $user->email ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Moment:</b> <?php echo date('Y-m-d H:i', strtotime($user->moment))?></td>	
+					<td><b><?php echo lang('admin_moment') ?>:</b> <?php echo date('Y-m-d H:i', strtotime($user->moment))?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Discount available:</b> <?php echo $user->discount?></td>	
+					<td><b><?php echo lang('admin_user_discount_avialable') ?>:</b> <?php echo $user->discount?> €</td>	
 				   </tr>
 				   <tr>
-					<td><b>Zip Code:</b> <?php echo $user->zip_code?></td>	
+					<td><b><?php echo lang('profile_zipCode') ?>:</b> <?php echo $user->zip_code?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Phone Number:</b> <?php echo $user->phone_number?></td>	
+					<td><b><?php echo lang('profile_phone_number') ?>:</b> <?php echo $user->phone_number?></td>	
 				   </tr>				
 				</table>
 				<div class="pull-right">
@@ -38,10 +43,10 @@
 					<button type="button" 
 						class="btn btn-md buttonRed" 
 						data-toggle="modal" 
-						data-target='#<?php echo $user->app_user_id ?>'>Deactivate User</button>
+						data-target='#<?php echo $user->app_user_id ?>'><?php echo lang('admin_deactivate_user') ?></button>
 					<?php echo get_confirmation_modal($user->app_user_id , site_url('admin/deactivateUser'), array("app_user_id" => $user->app_user_id)) ?>
 				<?php else: ?>
-					User deleted
+					<?php echo lang('admin_user_deleted') ?>
 				<?php endif; ?>
 				</div>
 		      </div>

@@ -14,6 +14,8 @@ class LanguageLoader{
             $ci->lang->load('service_list',$ci->session->userdata('language'));
             $ci->lang->load('tags',$ci->session->userdata('language'));
 			$ci->lang->load('error',$ci->session->userdata('language'));
+			$ci->lang->load('admin',$ci->session->userdata('language'));
+			$ci->lang->load('modals',$ci->session->userdata('language'));
 
         } else {
 
@@ -24,6 +26,8 @@ class LanguageLoader{
             $ci->lang->load('service_list','english');
             $ci->lang->load('tags','english');
 			$ci->lang->load('error','english');
+			$ci->lang->load('admin','english');
+			$ci->lang->load('modals','english');
 			
         }
     }

@@ -1,6 +1,6 @@
     <div class="container">
       <div class="row row-centered">
-	<h3>Customer's list</h3>
+	<h3><?php echo lang('admin_customers_list') ?></h3>
 	<hr>
 	
 		<?php foreach($customers as $customer): ?>
@@ -20,10 +20,10 @@
 						<button type="button" 
 							class="btn btn-md buttonRed" 
 							data-toggle="modal" 
-							data-target='#<?php echo $customer->customer_id ?>'>Deactivate Customer</button>
+							data-target='#<?php echo $customer->customer_id ?>'><?php echo lang('admin_deactivate_customer') ?></button>
 						<?php echo get_confirmation_modal($customer->customer_id , site_url('admin/deactivateCustomer'), array("customer_id"=>$customer->customer_id)) ?>
 					<?php else: ?>
-						Customer deleted
+						<?php echo lang('admin_customer_deleted') ?>
 					<?php endif; ?>
 			</div><!-- /pull-right-->
 		</div><!-- /panel-heading -->
@@ -43,21 +43,21 @@
 					<td><b>Email:</b> <?php echo $customer->email ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Moment:</b> <?php echo date('Y-m-d H:i', strtotime($customer->moment)) ?></td>	
+					<td><b><?php echo lang('admin_moment') ?>:</b> <?php echo date('Y-m-d H:i', strtotime($customer->moment)) ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Type:</b> <?php echo $customer->type ?></td>	
+					<td><b><?php echo lang('profile_type')?>:</b> <?php echo lang('profile_'.$customer->type) ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Zip Code:</b> <?php echo $customer->zip_code ?></td>	
+					<td><b><?php echo lang('profile_zipCode') ?>:</b> <?php echo $customer->zip_code ?></td>	
 				   </tr>
 				   <tr>
-					<td><b>Phone Number:</b> <?php echo $customer->phone_number ?></td>	
+					<td><b><?php echo lang('profile_phone_number')?>:</b> <?php echo $customer->phone_number ?></td>	
 				   </tr>
 				   <tr>
 					<td>
 						<a href="<?php echo site_url("admin/seeCustomersBanners/".$customer->customer_id) ?>">
-							See customer's banners
+							<?php echo lang('admin_see_customers_banners') ?>
 						</a>
 					</td>
 				   <tr>				
