@@ -36,5 +36,5 @@ $lang['profile_last_name'] = "Apellidos";
 $lang['profile_signup'] = "Registrarse";
 $lang['profile_users_signup'] = "Registro de usuario";
 
-
+$lang['profile_customer_price'] = "Pago para este mes";
 

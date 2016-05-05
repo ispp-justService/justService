@@ -407,8 +407,8 @@ INSERT INTO TAG_ENTRY VALUES('20','34');
 -- 	Activos
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('My bathroom is crazy!!! I had to built a boat like Noah.','ACTIVE','5','1');
 --	Finalizados
-INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer) 
-			VALUES('I forgot my keys inside my house :( help!','FINALIZED','10','1','5','It saved my life','5','Thanks for calling me');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer, moment, finalize_moment) 
+			VALUES('I forgot my keys inside my house :( help!','FINALIZED','10','1','5','It saved my life','5','Thanks for calling me', CURRENT_TIMESTAMP - interval '1' month , CURRENT_TIMESTAMP);
 --	Pendientes
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I need a plumber please. Pipes of my kitchen are broken','PENDING','11','1');
 
@@ -417,24 +417,24 @@ INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I ne
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Need to do a reform in my house, call me for more information','ACTIVE','8','2');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Need to change the floor of my house, I need a builder please','ACTIVE','10','2');
 -- 	Finalizados
-INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
-			VALUES('Hey I need to do some changes in my house. Can you do it?', 'FINALIZED','13','2','4','It´s a good business','5','Very nice person');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer, moment, finalize_moment)  
+			VALUES('Hey I need to do some changes in my house. Can you do it?', 'FINALIZED','13','2','4','It´s a good business','5','Very nice person', CURRENT_TIMESTAMP - interval '1' month, CURRENT_TIMESTAMP);
 --	Pendientes
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I cannot enter in my home. Can you help me?','PENDING','9','2');
 
 -- App_User 3
 --	Activos
 -- 	Finalizados
-INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
-			VALUES('Need a hand with a thing, please call me.', 'FINALIZED','14','3','3','Not bad','5','Great person');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer, moment, finalize_moment)  
+			VALUES('Need a hand with a thing, please call me.', 'FINALIZED','14','3','3','Not bad','5','Great person', CURRENT_TIMESTAMP - interval '1' month, CURRENT_TIMESTAMP);
 --	Pendientes
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Hey there is no light at my home. I need an electrician.','PENDING','1','3');
 
 -- App_User 4
 --	Activos
 --	Finalizados
-INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer)  
-			VALUES('I need you to do an empire state in my garden for 5 dollars.','FINALIZED','13','4','2','Bad service','5','Thanks you are awesome');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer, moment, finalize_moment)  
+			VALUES('I need you to do an empire state in my garden for 5 dollars.','FINALIZED','13','4','2','Bad service','5','Thanks you are awesome', CURRENT_TIMESTAMP - interval '1' month, CURRENT_TIMESTAMP);
 --	Pendientes
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('This is a mistake, but i cannot delete this for now','PENDING','3','4');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I want to build a house. A BIG house','PENDING','17','4');
@@ -451,10 +451,10 @@ INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user,
  Banner's populate
 */
 
-INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner1','././assets/uploads/logo1.jpg',11, 't');
-INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner2','././assets/uploads/logo2.jpg',12, 't'); 
-INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner3','././assets/uploads/logo3.jpg',13, 't');
-INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner4','././assets/uploads/logo4.jpg',14, 't');
-INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner5','././assets/uploads/logo5.jpg',15, 't');
-INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner6','././assets/uploads/logo6.jpg',16, 't');
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('logo banner','././assets/uploads/logo1.jpg',11, 't');
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('banner logo','././assets/uploads/logo2.jpg',12, 't'); 
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('company logo','././assets/uploads/logo3.jpg',13, 't');
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('business logo may','././assets/uploads/logo4.jpg',14, 't');
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('logo for business until june','././assets/uploads/logo5.jpg',15, 't');
+INSERT INTO BANNER (name, image, customer_id, active) VALUES ('six months paid banner','././assets/uploads/logo6.jpg',16, 't');
 			

@@ -54,6 +54,16 @@
 				   <tr>
 					<td><b><?php echo lang('profile_phone_number')?>:</b> <?php echo $customer->phone_number ?></td>	
 				   </tr>
+					<tr>
+						<td>
+							<b><?php echo lang('profile_customer_price') ?>: </b>
+							<?php if($customer->type == "Business"): ?>
+								<?php echo 45+($customer->num_bonus * 40)?> €
+							<?php else: ?>
+								<?php echo 15+($customer->num_bonus * 10)?> €
+							<?php endif; ?>
+						</td>	
+				   </tr>
 				   <tr>
 					<td>
 						<a href="<?php echo site_url("admin/seeCustomersBanners/".$customer->customer_id) ?>">
