@@ -20,7 +20,7 @@ class Services extends CI_Model {
 
 	public function finalize_service($id, $customer_id){
 			
-		$this->db->query("UPDATE service SET status = 'FINALIZED' where service_id =".$id.' and customer_id ='.$customer_id);
+		$this->db->query("UPDATE service SET status = 'FINALIZED', finalize_moment = CURRENT_TIMESTAMP where service_id =".$id.' and customer_id ='.$customer_id);
 
 		$query = $this->db->query("select * from service where service_id =".$id);
 		

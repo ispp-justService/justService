@@ -47,9 +47,9 @@
 						<td>
 							<b><?php echo lang('profile_customer_price') ?>: </b>
 							<?php if($customer->type == "Business"): ?>
-								<?php echo 45+($customer->num_bonus * 40)?> €
+								<?php echo (45+($customer->num_bonus * 40)) - $customer->discount?> €
 							<?php else: ?>
-								<?php echo 15+($customer->num_bonus * 10)?> €
+								<?php echo (15+($customer->num_bonus * 10)) - $customer->discount?> €
 							<?php endif; ?>
 						</td>	
 				   </tr>

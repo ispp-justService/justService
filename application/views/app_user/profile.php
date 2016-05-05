@@ -49,11 +49,13 @@
 				  <label for="email">Email: </label>&nbsp;<?php echo $user->email ?>
 		     		</div>
 			</div>
+			<?php if($this->session->role == "APP_USER"): ?>
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
 				  <label for="discount"><?php echo lang('profile_discount') ?>: </label>&nbsp;<?php echo $user->discount ?> €
 		     		</div>
 			</div>
+			<?php endif; ?>
 		</div>
 		<div class="row">
 			<div class="col-md-6 col-lg-6">

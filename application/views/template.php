@@ -3,7 +3,7 @@
 
 		echo $content;	
 		
-		if($this->session->role != "ADMINISTRATOR"){
+		if($this->session->role != "ADMINISTRATOR" && $this->session->role != "CUSTOMER"){
 			include('banners.php');		
 		}
 
