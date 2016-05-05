@@ -1,5 +1,6 @@
     <div class="container">
       <div class="row row-centered">
+	<br />
 	<h3><?php echo lang('footer_aboutUs') ?></h3>
 	<hr>
 	<p><b>¿Quienes somos?</b></p>	
@@ -16,15 +17,30 @@
 	<p><b>Equipo de desarrollo</b></p>
 	<p>Contamos con un equipo de desarrollo bastante joven y con buenas aptitudes, personas con unas capacidades<br/> 
 	altas de aprendizaje ante las nuevas tecnologías. El equipo de trabajo está familiarizado especialmente en:</p>
-	<p>
-	   <img src="<?php echo base_url("assets/img/bootstrapLogo.png"); ?>" id="logo" wight="100px" height="100px">
-	   <img src="<?php echo base_url("assets/img/codeigniter.svg"); ?>" id="logo" wight="100px" height="100px">
-	   <img src="<?php echo base_url("assets/img/postgresqlLogo.png"); ?>" id="logo" wight="150px" height="150px">
-	</p>
-	<p>
-	   <img src="<?php echo base_url("assets/img/html5Logo.png"); ?>" id="logo" wight="100px" height="100px">
-	   <img src="<?php echo base_url("assets/img/phpLogo.png"); ?>" id="logo" wight="100px" height="100px">
-	   <img src="<?php echo base_url("assets/img/jqueryLogo.png"); ?>" id="logo" wight="100px" height="100px">
-	</p>
+	<div class="col-md-4 col-xs-12 col-lg-4 col-sm-4 col-centered">
+	   <div class="row">
+		<div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 col-centered">
+			<img src="<?php echo base_url("assets/img/bootstrapLogo.png"); ?>"  width="100%;" />
+		</div>
+		<div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 col-centered">
+			<img src="<?php echo base_url("assets/img/codeigniter.svg"); ?>"  width="100%;" />
+		</div>
+		<div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 col-centered">
+			<img src="<?php echo base_url("assets/img/postgresqlLogo.png"); ?>"  width="100%;" />
+		</div>
+	   </div>
+	   <div class="row">
+		<div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 col-centered">
+			<img src="<?php echo base_url("assets/img/html5Logo.png"); ?>"  width="100%;" />
+		</div>
+		<div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 col-centered">
+			<img src="<?php echo base_url("assets/img/phpLogo.png"); ?>"  width="100%;" />
+		</div>
+		<div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 col-centered">
+			<img src="<?php echo base_url("assets/img/jqueryLogo.png"); ?>"  width="100%;" />
+		</div>
+	   </div>
+	
+	</div>
       </div> <!-- /row -->
     </div> <!-- /container -->
