@@ -21,6 +21,18 @@
 		      <div class="panel-body">
 			      	<table>
 					<?php if($this->session->id): ?>
+					<tr>
+						<td>
+						<?php if($customer->photo): ?>
+							<img src="<?php echo base_url($customer->photo); ?>" 
+							id="logo" wight ="100px" height="100px"/><br />
+						<?php else: ?>
+							<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" 
+							id="logo" wight ="100px" height="100px"/><br />
+						<?php endif; ?>
+						</td>
+						
+			        </tr>
 				   <tr>
 					<td><b>Email:</b> <?php echo $customer->email ?></td>	
 				   </tr>
@@ -53,20 +65,7 @@
 					   ?>
 					   </div>
 					</td>	
-				   </tr>
-				   <tr>
-						<td>
-						<?php if($customer->photo): ?>
-							<img src="<?php echo base_url($customer->photo); ?>" 
-							id="logo" wight ="100px" height="100px"/><br />
-						<?php else: ?>
-							<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" 
-							id="logo" wight ="100px" height="100px"/><br />
-						<?php endif; ?>
-						</td>
-						
-			        </tr>			
-					
+				   </tr>					
 				</table>
 				<div class="pull-right">	
 					<?php if($this->session->id && $this->session->role == "APP_USER"): ?>
