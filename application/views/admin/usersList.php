@@ -26,7 +26,7 @@
 					<td><b>Email:</b> <?php echo $user->email ?></td>	
 				   </tr>
 				   <tr>
-					<td><b><?php echo lang('admin_moment') ?>:</b> <?php echo date('Y-m-d H:i', strtotime($user->moment))?></td>	
+					<td><b><?php echo lang('admin_moment') ?>:</b> <?php echo date('Y-m-d', strtotime($user->moment))?></td>	
 				   </tr>
 				   <tr>
 					<td><b><?php echo lang('admin_user_discount_avialable') ?>:</b> <?php echo $user->discount?> €</td>	

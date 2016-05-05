@@ -78,11 +78,11 @@ INSERT INTO ADMINISTRATOR VALUES('admin@admin.com','$2y$10$Peb3/ZA1pRgV3kx6NQcxA
 /*
 App_user's Populate
 */
-INSERT INTO APP_USER(name,surname,email,password,photo) VALUES('Domingo','García Romero','domgarrom@gmail.com','$2y$10$WDX.39gPfkLySFPVwMgDWey1PTslMXzRfeiWPevSa2Ed7AMRqizvK','././assets/uploads/user1.jpg');
-INSERT INTO APP_USER(name,surname,email,password,photo) VALUES('Antonio','Gallego Rodriguez','antgarod@gmail.com','$2y$10$R8N7o4BjbH7q8oI1WdcQGO1hwgOGTG3XmvS1iEkN0ut53IyE8h6ky','././assets/uploads/user2.jpg');
-INSERT INTO APP_USER(name,surname,email,password,photo) VALUES('José David','Martín Fernandez','josmarfer@gmail.com','$2y$10$5OoEQGEcwQnjbYW70kLsOe3tGQDGAYl/AviUZZQ5c6FSkQxepySHm','././assets/uploads/user3.jpg');
-INSERT INTO APP_USER(name,surname,email,password,photo) VALUES('Guillermo','De la cruz Dorado','guicrudor@gmail.com','$2y$10$IZw8kMnsxOX5dTM8MLvws.dg.GcT1UBDNSbeqVkKWAoql4/bZl2h6','././assets/uploads/user4.jpg');
-INSERT INTO APP_USER(name,surname,email,password) VALUES('Luis','Garrido Rodríguez','lugarrod@gmail.com','$2y$10$tfhevzvr9o2mnqSqHqb0lezXyzNAFUBB1Q//QmBxj5PzYLc0uCGCO');
+INSERT INTO APP_USER(name,surname,email,password,photo,zip_code,phone_number) VALUES('Domingo','García Romero','domgarrom@gmail.com','$2y$10$WDX.39gPfkLySFPVwMgDWey1PTslMXzRfeiWPevSa2Ed7AMRqizvK','././assets/uploads/user1.jpg',41012,954366263);
+INSERT INTO APP_USER(name,surname,email,password,photo,zip_code,phone_number) VALUES('Antonio','Gallego Rodriguez','antgarod@gmail.com','$2y$10$R8N7o4BjbH7q8oI1WdcQGO1hwgOGTG3XmvS1iEkN0ut53IyE8h6ky','././assets/uploads/user2.jpg',41012,95424678);
+INSERT INTO APP_USER(name,surname,email,password,photo,zip_code,phone_number) VALUES('José David','Martín Fernandez','josmarfer@gmail.com','$2y$10$5OoEQGEcwQnjbYW70kLsOe3tGQDGAYl/AviUZZQ5c6FSkQxepySHm','././assets/uploads/user3.jpg',41013,954783212);
+INSERT INTO APP_USER(name,surname,email,password,photo,zip_code,phone_number) VALUES('Guillermo','De la cruz Dorado','guicrudor@gmail.com','$2y$10$IZw8kMnsxOX5dTM8MLvws.dg.GcT1UBDNSbeqVkKWAoql4/bZl2h6','././assets/uploads/user4.jpg',41014,954893577);
+INSERT INTO APP_USER(name,surname,email,password,zip_code,phone_number) VALUES('Luis','Garrido Rodríguez','lugarrod@gmail.com','$2y$10$tfhevzvr9o2mnqSqHqb0lezXyzNAFUBB1Q//QmBxj5PzYLc0uCGCO',41015,954783541);
 
 /*
 Tag's Populate

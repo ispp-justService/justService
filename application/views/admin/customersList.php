@@ -43,7 +43,7 @@
 					<td><b>Email:</b> <?php echo $customer->email ?></td>	
 				   </tr>
 				   <tr>
-					<td><b><?php echo lang('admin_moment') ?>:</b> <?php echo date('Y-m-d H:i', strtotime($customer->moment)) ?></td>	
+					<td><b><?php echo lang('admin_moment') ?>:</b> <?php echo date('Y-m-d', strtotime($customer->moment)) ?></td>	
 				   </tr>
 				   <tr>
 					<td><b><?php echo lang('profile_type')?>:</b> <?php echo lang('profile_'.$customer->type) ?></td>	

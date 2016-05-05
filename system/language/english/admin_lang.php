@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $lang['admin_customers_list'] = "Customer's List";
 $lang['admin_deactivate_customer'] = "Deactivate Customer";
 $lang['admin_customer_deleted'] = "Customer deleted";
-$lang['admin_customer_moment'] = "Moment";
+$lang['admin_moment'] = "Moment of creation";
 $lang['admin_see_customers_banners'] = "See customer's banners";
 $lang['admin_users_list'] = "User's List";
 $lang['admin_user_discount_avialable'] = "Discount available";

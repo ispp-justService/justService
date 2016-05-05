@@ -3,7 +3,9 @@
 
 		echo $content;	
 		
-		include('banners.php');		
+		if($this->session->role != "ADMINISTRATOR"){
+			include('banners.php');		
+		}
 
 		include('footer.php'); 
 	?>

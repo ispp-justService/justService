@@ -90,7 +90,7 @@ if ( ! function_exists('get_upload_image_modal')){
 						<form action="'.$controller_path.'" method="POST" enctype="multipart/form-data">
 						<div class="modal-body">
 							<div class="form-group">
-								<input type="file" name="image" size="20" />
+								<input type="file" class="filestyle" name="image" size="20" />
 								<input type="hidden" name="id" value="'.$id.'" />
 								<input type="hidden" name="role" value="'.$role.'" />
 							</div>
