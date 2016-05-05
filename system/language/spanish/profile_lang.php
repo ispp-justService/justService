@@ -38,3 +38,5 @@ $lang['profile_users_signup'] = "Registro de usuario";
 
 $lang['profile_customer_price'] = "Pago para este mes";
 
+$lang['profile_other_user_profile'] = "Perfil de usuario";
+

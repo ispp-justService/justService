@@ -22,7 +22,14 @@
 		   </div>
 		</div>
 		<div class="col-md-9 col-lg-9">
-			<h3><?php echo lang('profile_my_profile') ?></h3>
+			<h3>
+				<?php if($this->session->role == "APP_USER"): ?>
+					<?php echo lang('profile_my_profile') ?>
+				<?php else: ?>
+					<?php echo lang('profile_other_user_profile') ?>
+				<?php endif; ?>
+			</h3>
+		
 			<hr>
 		<div class="row">
 			<div class="col-md-6 col-lg-6">

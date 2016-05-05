@@ -4,7 +4,7 @@
 	<hr>
 	
 		<?php foreach($customers as $customer): ?>
-		<div class="col-xs-12 col-sm-6 col-md-6 col-centered">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-centered">
 		<div class="panel panel-default">
 
 		<?php if($customer->type == 'Freelance'): ?>
@@ -15,17 +15,6 @@
 			<a style="color: #000000;" href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
 								<?php echo $customer->name ?>
 							</a>
-			<div class="pull-right">
-				<?php if($customer->deleted == "f"): ?>
-						<button type="button" 
-							class="btn btn-md buttonRed" 
-							data-toggle="modal" 
-							data-target='#<?php echo $customer->customer_id ?>'><?php echo lang('admin_deactivate_customer') ?></button>
-						<?php echo get_confirmation_modal($customer->customer_id , site_url('admin/deactivateCustomer'), array("customer_id"=>$customer->customer_id)) ?>
-					<?php else: ?>
-						<?php echo lang('admin_customer_deleted') ?>
-					<?php endif; ?>
-			</div><!-- /pull-right-->
 		</div><!-- /panel-heading -->
 
 
@@ -72,6 +61,18 @@
 					</td>
 				   <tr>				
 				</table>
+</br>
+				<div class="pull-right">
+					<?php if($customer->deleted == "f"): ?>
+						<button type="button" 
+						class="btn btn-md buttonRed" 
+						data-toggle="modal" 
+						data-target='#<?php echo $customer->customer_id ?>'><?php echo lang('admin_deactivate_customer') ?></button>
+						<?php echo get_confirmation_modal($customer->customer_id , site_url('admin/deactivateCustomer'), array("customer_id"=>$customer->customer_id)) ?>
+					<?php else: ?>
+						<?php echo lang('admin_customer_deleted') ?>
+					<?php endif; ?>
+				</div><!-- /pull-right-->
 		     </div><!-- /panel-body--> 
 		</div><!-- /row para separar los paneles entre sí --></div>
 		<br />

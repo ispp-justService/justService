@@ -3,7 +3,7 @@
 		<h3><?php echo lang('admin_customers_banner') ?></h3>
 		<hr>
 		
-		<div class="col-xs-6 col-sm-6 col-md-6 col-centered">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-centered">
 		
 		<div class="row row-centered">
 			<button type="button" 
@@ -47,17 +47,6 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"">
 						<b><?php echo $banner->name ?></b>
-						<div class="pull-right">
-							<?php if($banner->delete == "f"): ?>
-								<button type="button" 
-								class="btn btn-xs buttonRed" 
-								data-toggle="modal" 
-								data-target='#delete<?php echo $banner->banner_id ?>'><?php echo lang('admin_deactivate_banner') ?></button>
-							<?php echo get_confirmation_modal("delete".$banner->banner_id , site_url('admin/deactivateBanner'), array("banner_id" => $banner->banner_id, "customer_id" => $customer_id)) ?>
-							<?php else: ?>
-								<?php echo lang('admin_banner_deactivated') ?>
-							<?php endif; ?>
-						</div>
 					</div>
 					<div class="panel-body">
 							<table>
@@ -66,6 +55,17 @@
 							   	<td><b><?php echo lang('admin_moment') ?>:</b>&nbsp;<?php echo date('Y-m-d', strtotime($banner->moment)) ?></td>
 							   </tr>
 							</table>
+						<div class="pull-right">
+							<?php if($banner->delete == "f"): ?>
+								<button type="button" 
+								class="btn btn-md buttonRed" 
+								data-toggle="modal" 
+								data-target='#delete<?php echo $banner->banner_id ?>'><?php echo lang('admin_deactivate_banner') ?></button>
+							<?php echo get_confirmation_modal("delete".$banner->banner_id , site_url('admin/deactivateBanner'), array("banner_id" => $banner->banner_id, "customer_id" => $customer_id)) ?>
+							<?php else: ?>
+								<?php echo lang('admin_banner_deactivated') ?>
+							<?php endif; ?>
+						</div>
 					</div><!-- /panel-body-->
 					<div class="panel-footer">
 							<?php if($banner->delete == 'f'): ?>

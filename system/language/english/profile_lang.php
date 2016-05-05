@@ -39,6 +39,8 @@ $lang['profile_users_signup'] = "User's Sign up";
 
 $lang['profile_customer_price'] = "Payment for this month";
 
+$lang['profile_other_user_profile'] = "User's profile";
+
 
 
 

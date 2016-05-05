@@ -38,6 +38,7 @@
 					<td><b><?php echo lang('profile_phone_number') ?>:</b> <?php echo $user->phone_number?></td>	
 				   </tr>				
 				</table>
+</br>
 				<div class="pull-right">
 				<?php if($user->deleted == "f"): ?>
 					<button type="button" 

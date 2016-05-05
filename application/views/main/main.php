@@ -4,6 +4,7 @@
 	</div>
       </div>
 
+	<?php if($this->session->role != "ADMINISTRATOR"): ?>
     <div class="container">
       <div class="row row-centered">
         <div class="col-centered" id="search">
@@ -40,5 +41,5 @@
 		</div> 
         </div>
       </div>
-
+		<?php endif; ?>
     </div> <!-- /container -->
