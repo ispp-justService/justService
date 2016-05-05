@@ -83,7 +83,7 @@
 			<div class="row">
 			  <div class="col-md-6 col-lg-6">
 				<h4><?php echo lang('profile_need_a_service') ?></h4>
-				<button type="button" class="btn btn-xs buttonRed" data-toggle="modal" 
+				<button type="button" class="btn btn-md buttonRed" data-toggle="modal" 
 						data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'><?php echo lang('service_request_service')?></button>
 				<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService'),$user_discount) ?>
 			  </div>

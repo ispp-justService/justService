@@ -11,7 +11,7 @@
 			·
 			<a href="#"><?php echo lang('footer_terms'); ?></a>
 			·
-			<a href="#"><?php echo lang('footer_contact'); ?></a>
+			<a href="<?php echo site_url('main/aboutUs') ?>"><?php echo lang('footer_aboutUs'); ?></a>
 		</p>
 
 		<p class="footer-company-name">Home in Need &copy; 2016</p>

@@ -130,6 +130,10 @@ class Main extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect(site_url('/'), 'refresh'); 
 	}
+
+	public function aboutUs(){
+		$this->render->renderView('main/aboutUs');
+	}
 }
 
 ?>
