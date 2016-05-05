@@ -245,7 +245,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    	<button type="submit" class="btn buttonRed"><?php echo lang('header_sign_in'); ?></button>
 				<a class="btn btn-default" style="font-size: 14px;" href="<?php echo site_url("app_user/signup"); ?>"><?php echo lang('header_sign_up'); ?></a>
 		  	</form>
-		<div id="textWhiteHeader" class="navbar-left navbar-text cursor" data-toggle="dropdown" data-target=".user-dropdown">
+		<div id="textWhiteHeader" class="navbar-left cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".user-dropdown">
 		 	<?php echo lang('header_choose_lang') ?><span class="caret"></span>
 		</div>
 		<ul class="nav navbar-nav navbar-user navbar-left">
