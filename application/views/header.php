@@ -184,9 +184,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url('admin/signupCustomer') ?>"><?php echo lang('header_customers_signup') ?></a></li>
 			<li><a href="<?php echo site_url('admin/customersList') ?>"><?php echo lang('header_customers_list') ?></a></li>
-			<li class="divider" role="separator"></li>			
-			<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div>Español</a></li>
-			<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div>Inglés</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
 		</ul>
@@ -201,9 +198,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li><a href="<?php echo site_url('customer/showTags') ?>"><?php echo lang('header_manage_tags') ?></a></li>
 			<li><a href="<?php echo site_url('customer/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>
 			<li><a href="<?php echo site_url('customer/servicesList') ?>"><?php echo lang('header_list_service'); ?></a></li>
-			<li class="divider" role="separator"></li>			
-			<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div>Español</a></li>
-			<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div>Inglés</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
 		</ul>
@@ -218,9 +212,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<li><a href="<?php echo site_url('app_user/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>
 			<li><a href="<?php echo site_url('app_user/myBookmarks') ?>"><?php echo lang('header_bookmarks'); ?></a></li>
 			<li><a href="<?php echo site_url('app_user/servicesList') ?>"><?php echo lang('header_list_service'); ?></a></li>
-			<li class="divider" role="separator"></li>			
-			<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div>Español</a></li>
-			<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div>Inglés</a></li>
 			<li class="divider" role="separator"></li>
 			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
 		</ul>
@@ -245,18 +236,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    	<button type="submit" class="btn buttonRed"><?php echo lang('header_sign_in'); ?></button>
 				<a class="btn btn-default" style="font-size: 14px;" href="<?php echo site_url("app_user/signup"); ?>"><?php echo lang('header_sign_up'); ?></a>
 		  	</form>
-		<div id="textWhiteHeader" class="navbar-left cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".user-dropdown">
+		<?php endif; ?>
+		<div id="textWhiteHeader" class="navbar-left cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".language-dropdown">
 		 	<?php echo lang('header_choose_lang') ?><span class="caret"></span>
 		</div>
 		<ul class="nav navbar-nav navbar-user navbar-left">
-		   <li class="dropdown user-dropdown">
+		   <li class="dropdown language-dropdown">
 			<ul class="dropdown-menu">	
 				<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div>Español</a></li>
 				<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div>Inglés</a></li>
 			</ul>
 		   </li>
 		</ul>
-		<?php endif; ?>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
