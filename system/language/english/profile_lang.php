@@ -24,6 +24,9 @@ $lang['profile_users_coments'] = "User's comments for this customer";
 $lang['profile_Freelance'] = "Freelance";
 $lang['profile_Business'] = "Business";
 
+$lang['profile_my_bookmarks'] = "My Bookmarks";
+$lang['profile_need_a_service'] = "Need a service?";
+
 
 
 

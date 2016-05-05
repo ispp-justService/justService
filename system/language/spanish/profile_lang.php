@@ -22,3 +22,6 @@ $lang['profile_users_coments'] = "Comentarios de usuarios para este cliente";
 
 $lang['profile_Freelance'] = "Autónomo";
 $lang['profile_Business'] = "Empresa";
+
+$lang['profile_my_bookmarks'] = "Mis favoritos";
+$lang['profile_need_a_service'] = "¿Necesitas un servicio?";

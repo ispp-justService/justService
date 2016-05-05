@@ -1,6 +1,6 @@
     <div class="container">
       <div class="row row-centered">
-	<h3>My Bookmarks</h3>
+	<h3><?php echo lang('profile_my_bookmarks') ?></h3>
 	<hr>
 		<?php foreach($customers as $customer): ?>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-centered">
@@ -21,7 +21,7 @@
 				<td><b>Email:</b> <?php echo $customer->email ?></td>	
 			   </tr>
 			   <tr>
-				<td><b>Phone Number:</b> <?php echo $customer->phone_number ?></td>	
+				<td><b><?php echo lang('profile_phone_number') ?>:</b> <?php echo $customer->phone_number ?></td>	
 			   </tr>
 			   <tr>
 				<?php if($customer->photo): ?>
