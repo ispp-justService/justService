@@ -8,3 +8,11 @@ $lang['modals_ask_confirmation'] = "Are you sure do you want to do this operatio
 $lang['modals_yes'] = "Yes";
 $lang['modals_no'] = "No";
 
+
+$lang['modals_choose_file'] = "Choose file";
+
+$lang['modals_change_image_title'] = "Change your profile image";
+$lang['modals_change_image_cancel'] = "Cancel";
+$lang['modals_change_image_upload'] = "Upload";
+
+$lang['modals_create'] = "Create";

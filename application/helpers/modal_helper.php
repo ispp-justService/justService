@@ -85,20 +85,20 @@ if ( ! function_exists('get_upload_image_modal')){
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Change your profile image</h4>
+							<h4 class="modal-title">'.lang('modals_change_image_title').'</h4>
 						</div>
 						<form action="'.$controller_path.'" method="POST" enctype="multipart/form-data">
 						<div class="modal-body">
 							<div class="form-group">
-								<input type="file" class="filestyle" name="image" size="20" />
+								<input type="file" class="filestyle" data-buttonText="'.lang("modals_choose_file").'" name="image" size="20" />
 								<input type="hidden" name="id" value="'.$id.'" />
 								<input type="hidden" name="role" value="'.$role.'" />
 							</div>
 						</div>
 					<div class="modal-footer">
 
-						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-						<input type="submit" class="btn btn-success" value="Upload">
+						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">'.lang('modals_change_image_cancel').'</button>
+						<input type="submit" class="btn btn-success" value="'.lang('modals_change_image_upload').'">
 						</div>
 						</form>
 					</div>

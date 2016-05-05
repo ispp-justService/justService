@@ -28,13 +28,13 @@
 					<label><?php echo lang('profile_name') ?></label>
 					<input type="text" name="name" class="form-control" placeholder="<?php echo lang('profile_name') ?>">
 					<label><?php echo lang('admin_banner_image') ?></label>
-					<input type="file" name="image" size="20" />
+					<input type="file" class="filestyle" data-buttonText="<?php echo lang("modals_choose_file") ?>" name="image" size="20" />
 					<input type="hidden" name="customer_id" value="<?php echo $customer_id?>">
 				</div>
 			  </div>
 			  <div class="modal-footer">
 			    <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><?php echo lang('admin_banner_cancel') ?></button>
-			    <input type="submit" class="btn btn-success" value="Create">
+			    <input type="submit" class="btn btn-success" value="<?php echo lang('modals_create') ?>">
 			  </div>
 			  </form>
 			</div>
@@ -63,20 +63,23 @@
 							<table>
 							   <tr>
 								<td><img src="<?php echo base_url($banner->image); ?>" id="logo" wight ="100px" height="100px"/><br /></td>
-							   	<td><b><?php echo lang('profile_moment') ?>:</b>&nbsp;<?php echo date('Y-m-d H:i', strtotime($banner->moment)) ?></td>
+							   	<td><b><?php echo lang('admin_moment') ?>:</b>&nbsp;<?php echo date('Y-m-d', strtotime($banner->moment)) ?></td>
 							   </tr>
 							</table>
 					</div><!-- /panel-body-->
 					<div class="panel-footer">
-					     	<?php if($banner->active == "f"): ?>
-							<button type="button" 
-							class="btn btn-sm btn-primary" 
-							data-toggle="modal" 
-							data-target='#active<?php echo $banner->banner_id ?>'><?php echo lang('admin_user_banner') ?></button>
-						<?php echo get_confirmation_modal("active".$banner->banner_id , site_url('admin/useBanner'), array("banner_id" => $banner->banner_id, "customer_id" => $customer_id)) ?>
-						<?php else: ?>
-							<?php echo lang('admin_already_using_banner') ?>
-						<?php endif; ?>
+							<?php if($banner->delete == 'f'): ?>
+							 	<?php if($banner->active == "f"): ?>
+								<button type="button" 
+								class="btn btn-sm btn-primary" 
+								data-toggle="modal" 
+								data-target='#active<?php echo $banner->banner_id ?>'><?php echo lang('admin_user_banner') ?></button>
+								<?php echo get_confirmation_modal("active".$banner->banner_id , site_url('admin/useBanner'), array("banner_id" => $banner->banner_id, "customer_id" => $customer_id)) ?>
+								<?php else: ?>
+									<?php echo lang('admin_already_using_banner') ?>
+								<?php endif; ?>
+							<?php endif; ?>
+							
 					  
 					</div><!-- /panel-footer-->
 				</div><!-- /panel-default-->

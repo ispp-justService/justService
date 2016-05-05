@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['admin_customers_list'] = "Customer's List";
-$lang['admin_deactivate_customer'] = "Deactivate Customer";
+$lang['admin_deactivate_customer'] = "Eliminate Customer";
 $lang['admin_customer_deleted'] = "Customer deleted";
 $lang['admin_moment'] = "Moment of creation";
 $lang['admin_see_customers_banners'] = "See customer's banners";
@@ -20,8 +20,8 @@ $lang['admin_create_banner'] = "Create a new Banner";
 $lang['admin_banner_form'] = "Banner form";
 $lang['admin_banner_image'] = "Image";
 $lang['admin_banner_cancel'] = "Cancel";
-$lang['admin_deactivate_banner'] = "Deactivate banner";
-$lang['admin_banner_deactivated'] = "Banner deactivated";
+$lang['admin_deactivate_banner'] = "Delete banner";
+$lang['admin_banner_deactivated'] = "Banner deleted";
 $lang['admin_user_banner'] = "Use this banner";
 $lang['admin_already_using_banner'] = "Already using this banner.";
 

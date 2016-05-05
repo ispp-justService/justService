@@ -31,7 +31,7 @@ class Banners extends CI_Model {
 
 	public function deactivate_banner($banner_id){
 		
-		$data = array('delete' => TRUE);
+		$data = array('delete' => TRUE, 'active' => FALSE);
 
 		$this->db->where('banner_id', $banner_id);
 		$this->db->update('banner', $data);  

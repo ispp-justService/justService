@@ -21,8 +21,8 @@ $lang['admin_create_banner'] = "Crear un nuevo Banner";
 $lang['admin_banner_form'] = "Formulario de un banner";
 $lang['admin_banner_image'] = "Imagen";
 $lang['admin_banner_cancel'] = "Cancelar";
-$lang['admin_deactivate_banner'] = "Desactivar banner";
-$lang['admin_banner_deactivated'] = "Banner desactivado";
+$lang['admin_deactivate_banner'] = "Eliminar banner";
+$lang['admin_banner_deactivated'] = "Banner eliminado";
 $lang['admin_user_banner'] = "Usar este banner";
 $lang['admin_already_using_banner'] = "Ya se está usando este Banner.";
 
