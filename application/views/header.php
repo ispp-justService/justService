@@ -162,6 +162,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	#panel-heading-size{ font-size: 16px; }
+
+	.modalHeader-background-color{
+	   background-color: #559cd9;
+	   -webkit-border-top-left-radius: 5px;
+	   -webkit-border-top-right-radius: 5px;
+	   -moz-border-radius-topleft: 5px;
+	   -moz-border-radius-topright: 5px;
+	   border-top-left-radius: 5px;
+	   border-top-right-radius: 5px;
+	}
         </style>
 
     </head>
@@ -221,10 +231,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</ul>
 	<?php endif; ?>
 
+	<ul class="nav navbar-nav navbar-user navbar-left">
+	   <li class="dropdown language-dropdown">
+		<ul class="dropdown-menu">	
+			<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div><?php echo lang('header_spanish');?></a></li>
+			<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div><?php echo lang('header_english');?></a></li>
+		</ul>
+	   </li>
+	</ul>
+
         <div id="navbar" class="navbar-collapse collapse" id="navbar-login-signup">
 
 		<?php if($this->session->userdata('id')):?>
-			<div id="textWhiteHeader" class="navbar-right navbar-text cursor" data-toggle="dropdown" data-target=".user-dropdown">
+			<div id="textWhiteHeader" class="navbar-right cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".user-dropdown">
 			 	<?php echo $this->session->name ?> <span class="caret"></span>
 			</div>
 		<?php else: ?>
@@ -240,16 +259,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		  	</form>
 		<?php endif; ?>
 		<div id="textWhiteHeader" class="navbar-left cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".language-dropdown">
-		 	<?php echo lang('header_choose_lang') ?><span class="caret"></span>
+		 	<i class="fa fa-language" aria-hidden="true"></i><span class="caret"></span>
 		</div>
-		<ul class="nav navbar-nav navbar-user navbar-left">
-		   <li class="dropdown language-dropdown">
-			<ul class="dropdown-menu">	
-				<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div>Español</a></li>
-				<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div>Inglés</a></li>
-			</ul>
-		   </li>
-		</ul>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>

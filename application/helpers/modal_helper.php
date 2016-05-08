@@ -6,11 +6,11 @@ if ( ! function_exists('confirmation_modal')){
 		$modal = '
 			<!-- Modal -->
 			<div id="'.$id.'" class="modal fade" role="dialog">
-			  <div class="modal-dialog modal-sm">
+			  <div class="modal-dialog modal-md">
 
 				<!-- Modal content-->
 				<div class="modal-content">
-				  <div class="modal-header">
+				  <div class="modal-header modalHeader-background-color">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">'.lang('modals_title_confirmation').'</h4>
 				  </div>
@@ -21,10 +21,14 @@ if ( ! function_exists('confirmation_modal')){
 			$modal.='<input type="hidden" name="'.$field.'" value="'.$value.'">';
 		}
 		$modal.='
-						<button type="button" class="btn btn-danger" data-dismiss="modal">'.lang('modals_no').'</button>
-						<input type="submit" class="btn btn-success" value="'.lang('modals_yes').'">
-					</form>
+					
 				  </div>
+				
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">'.lang('modals_no').'</button>
+					<input type="submit" class="btn btn-success pull-right" value="'.lang('modals_yes').'">
+				</div>
+				   </form>
 				</div>
 
 			  </div>
@@ -44,7 +48,7 @@ if ( ! function_exists('get_creation_service_modal')){
 
 				<!-- Modal content-->
 				<div class="modal-content">
-				  <div class="modal-header">
+				  <div class="modal-header modalHeader-background-color">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Confirmation request of service</h4>
 				  </div>
@@ -83,7 +87,7 @@ if ( ! function_exists('get_upload_image_modal')){
 				<div class="modal-dialog modal-xs">
 					<!-- Modal content-->
 					<div class="modal-content">
-						<div class="modal-header">
+						<div class="modal-header modalHeader-background-color">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 							<h4 class="modal-title">'.lang('modals_change_image_title').'</h4>
 						</div>

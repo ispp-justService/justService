@@ -17,6 +17,8 @@ $lang['header_customers_list'] = 'Lista de clientes';
 $lang['header_customers_signup'] = 'Registro de cliente';
 
 $lang['header_choose_lang'] = "Idiomas";
+$lang['header_english'] = "Inglés";
+$lang['header_spanish'] = "Español";
 
 
 
