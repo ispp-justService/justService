@@ -46,13 +46,13 @@ if ( ! function_exists('get_creation_service_modal')){
 				<div class="modal-content">
 				  <div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Confirmation request of service</h4>
+					<h4 class="modal-title">'.lang('modals_title_confirmation_request_service').'</h4>
 				  </div>
 				  <form action="'.$controller_path.'" id="serviceForm'.$id.'" method="POST">
 				  <div class="modal-body">
 					<div class="form-group">
-						<label>Description</label>
-						<textarea name="description" class="form-control" form="serviceForm'.$id.'" placeholder="Enter description here..." rows="3"></textarea>
+						<label>'.lang('service_description').'</label>
+						<textarea name="description" class="form-control" form="serviceForm'.$id.'" placeholder="'.lang('modals_enter_description').'" rows="3"></textarea>
 						<input type="checkbox" name="want_discount" value="" onclick='."'".'hideShowDiv("input_discount'.$id.'")'."'".'>'.lang("service_want_discount").'<br>
 						<div id="input_discount'.$id.'" class="hidden">
 						<input type="text" name="discount"><b>'.lang("service_discount_avialable").'('.$max_discount.' €)</b>
@@ -62,8 +62,8 @@ if ( ! function_exists('get_creation_service_modal')){
 					</div>
 				  </div>
 				  <div class="modal-footer">
-				    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-				    <input type="submit" class="btn btn-success" value="Create">
+				    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">'.lang('modals_change_image_cancel').'</button>
+				    <input type="submit" class="btn btn-success" value="'.lang('modals_create').'">
 				  </div>
 				  </form>
 				</div>

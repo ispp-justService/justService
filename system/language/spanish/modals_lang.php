@@ -3,10 +3,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['modals_title_confirmation'] = "Cuadro de dialogo de confirmación";
+$lang['modals_title_confirmation_request_service'] = "Confirmación de petición de servicio";
 $lang['modals_ask_confirmation'] = "¿Está seguro de que quiere realizar esta operación?";
 
 $lang['modals_yes'] = "Si";
 $lang['modals_no'] = "No";
+
+$lang['modals_enter_description'] = "Introduzca la descripción aquí...";
 
 $lang['modals_choose_file'] = "Seleccionar archivo";
 
