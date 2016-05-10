@@ -18,7 +18,7 @@
 
 			<!-- Modal content-->
 			<div class="modal-content">
-			  <div class="modal-header">
+			  <div class="modal-header modalHeader-background-color">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h4 class="modal-title"><?php echo lang('admin_banner_form') ?></h4>
 			  </div>
