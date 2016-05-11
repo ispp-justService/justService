@@ -14,8 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/rating.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/footer-distributed-with-address-and-phones.css"); ?>">
-	<link rel="stylesheet" href="<?php echo base_url("assets/css/flags.css"); ?>">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
 	<!-- CARGA DE ARCHIVOS JS -->
 	

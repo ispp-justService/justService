@@ -25,6 +25,7 @@ class Customer extends CI_Controller {
 					$this->load->library('googlemaps');
 
 					$config['center'] = $data['customer']->latitude.','.$data['customer']->longitude;
+					$config['https'] = $this->config->item('https');
 					$this->googlemaps->initialize($config);
 
 					$marker = array();

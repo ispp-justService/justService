@@ -129,6 +129,7 @@ class Service extends CI_Controller {
 												}
 											centreGot = true;';
 				// Iniciamos la libreria de google maps con la configuración asociada.
+				$config['https'] = $this->config->item('https');
 				$this->googlemaps->initialize($config);
 
 				$marker = array();

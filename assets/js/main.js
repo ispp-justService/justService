@@ -5,7 +5,7 @@ $(function() {
 function getLocation() {
 	
 	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(setPosition,showError);
+		navigator.geolocation.getCurrentPosition(setPosition);
 	} else { 
 		alert("Your Device does not support HTML5 GeoLocation");
 	}
