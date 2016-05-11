@@ -158,7 +158,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		-moz-column-count: 3;
 		column-count: 3;
 	   }
-	  ul.headerDropdown{margin-left: -35px;}
+	  ul.headerDropdown{margin-left: -50px;}
 	  ul.headerDropdownRight{margin-right: -161px;}
 	}
 
@@ -180,14 +180,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-	  <a href="<?php echo base_url("/") ?>"> <img src="<?php echo base_url("assets/img/rotulo.png"); ?>" class="navbar-brand" id="logo" wight ="100px" height="100px"/> </a>
-        </div>
+	  <a href="<?php echo base_url("/") ?>"> <img src="<?php echo base_url("assets/img/rotulo.png"); ?>" class="navbar-brand" id="logo" wight ="100px" height="100px"/> </a>  
+	  <div id="textWhiteHeader" class="navbar-left navbar-text cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".language-dropdown">
+		 	<i class="fa fa-language" aria-hidden="true"></i><span class="caret"></span>
+	  </div>
+
+	  <ul class="nav navbar-nav navbar-user navbar-left" style="margin-top: 4px;">
+	   <li class="dropdown language-dropdown">
+		<ul class="dropdown-menu headerDropdown">	
+			<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div><?php echo lang('header_spanish');?></a></li>
+			<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div><?php echo lang('header_english');?></a></li>
+		</ul>
+	   </li>
+	</ul>
+	</div><!-- /navbar-header -->
 
         <div id="navbar" class="navbar-collapse collapse" id="navbar-login-signup">
 
@@ -197,7 +209,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 
 			<?php if($this->session->role == "ADMINISTRATOR"): ?>
-			<ul class="nav navbar-nav navbar-user navbar-right">
+			<ul class="nav navbar-nav navbar-user navbar-right" style="margin-top: 4px;">
 			   <li class="dropdown user-dropdown">
 				<ul class="dropdown-menu headerDropdownRight">
 					<li><a href="<?php echo site_url('admin/usersList') ?>"><?php echo lang('header_users_list') ?></a></li>
@@ -210,7 +222,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			   </li>
 			</ul>
 			<?php elseif($this->session->role == "CUSTOMER"): ?>
-			<ul class="nav navbar-nav navbar-user navbar-right">
+			<ul class="nav navbar-nav navbar-user navbar-right" style="margin-top: 4px;">
 			   <li class="dropdown user-dropdown">
 				<ul class="dropdown-menu headerDropdownRight">
 					<li><a href="<?php echo site_url('customer/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></li>
@@ -224,7 +236,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			   </li>
 			</ul>
 			<?php elseif($this->session->role == "APP_USER"): ?>
-			<ul class="nav navbar-nav navbar-user navbar-right">
+			<ul class="nav navbar-nav navbar-user navbar-right" style="margin-top: 4px;">
 			   <li class="dropdown user-dropdown">
 				<ul class="dropdown-menu headerDropdownRight">
 					<li><a href="<?php echo site_url('app_user/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></a></li>
@@ -250,18 +262,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a class="btn btn-default" style="font-size: 14px;" href="<?php echo site_url("app_user/signup"); ?>"><?php echo lang('header_sign_up'); ?></a>
 		  	</form>
 		<?php endif; ?>
-		<div id="textWhiteHeader" class="navbar-left cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".language-dropdown">
-		 	<i class="fa fa-language" aria-hidden="true"></i><span class="caret"></span>
-		</div>
-
-		<ul class="nav navbar-nav navbar-user navbar-left">
-		   <li class="dropdown language-dropdown">
-			<ul class="dropdown-menu headerDropdown">	
-				<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div><?php echo lang('header_spanish');?></a></li>
-				<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div><?php echo lang('header_english');?></a></li>
-			</ul>
-		   </li>
-		</ul>
+ 
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
