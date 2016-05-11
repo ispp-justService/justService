@@ -8,14 +8,10 @@
 
 		<?php if($customer->type == 'Freelance'): ?>
 		   <div class="panel-heading" style="background-color: #7DED58;">
-				<i class="fa fa-hand-o-right" aria-hidden="true"></i><a style="color: #000000;" href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
-								<?php echo $customer->name ?>
-				</a>
+				<i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp;<a style="color: #000000;" href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>"><?php echo $customer->name ?></a>
 		<?php else: ?>
 		   <div class="panel-heading" style="background-color: #58C8ED;" >
-				<i class="fa fa-hand-o-right" aria-hidden="true"></i><a style="color: #000000;" href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
-								<?php echo $customer->name ?>
-				</a>
+				<i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp;<a style="color: #000000;" href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>"><?php echo $customer->name ?></a>
 		<?php endif; ?>
 		      </div>
 		      <div class="panel-body">
