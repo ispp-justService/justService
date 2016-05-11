@@ -159,6 +159,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		-moz-column-count: 3;
 		column-count: 3;
 	   }
+	  ul.headerDropdown{margin-left: -35px;}
+	  ul.headerDropdownRight{margin-right: -161px;}
 	}
 
 	#panel-heading-size{ font-size: 16px; }
@@ -187,58 +189,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </button>
 	  <a href="<?php echo base_url("/") ?>"> <img src="<?php echo base_url("assets/img/rotulo.png"); ?>" class="navbar-brand" id="logo" wight ="100px" height="100px"/> </a>
         </div>
-	
-	<?php if($this->session->role == "ADMINISTRATOR"): ?>
-	<ul class="nav navbar-nav navbar-user navbar-right">
-	   <li class="dropdown user-dropdown">
-		<ul class="dropdown-menu">
-			<li><a href="<?php echo site_url('admin/usersList') ?>"><?php echo lang('header_users_list') ?></a></li>
-			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url('admin/signupCustomer') ?>"><?php echo lang('header_customers_signup') ?></a></li>
-			<li><a href="<?php echo site_url('admin/customersList') ?>"><?php echo lang('header_customers_list') ?></a></li>
-			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
-		</ul>
-	   </li>
-	</ul>
-	<?php elseif($this->session->role == "CUSTOMER"): ?>
-	<ul class="nav navbar-nav navbar-user navbar-right">
-	   <li class="dropdown user-dropdown">
-		<ul class="dropdown-menu">
-			<li><a href="<?php echo site_url('customer/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></li>
-			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url('customer/showTags') ?>"><?php echo lang('header_manage_tags') ?></a></li>
-			<li><a href="<?php echo site_url('customer/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>
-			<li><a href="<?php echo site_url('customer/servicesList') ?>"><?php echo lang('header_list_service'); ?></a></li>
-			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
-		</ul>
-	   </li>
-	</ul>
-	<?php elseif($this->session->role == "APP_USER"): ?>
-	<ul class="nav navbar-nav navbar-user navbar-right">
-	   <li class="dropdown user-dropdown">
-		<ul class="dropdown-menu">
-			<li><a href="<?php echo site_url('app_user/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></a></li>
-			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url('app_user/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>
-			<li><a href="<?php echo site_url('app_user/myBookmarks') ?>"><?php echo lang('header_bookmarks'); ?></a></li>
-			<li><a href="<?php echo site_url('app_user/servicesList') ?>"><?php echo lang('header_list_service'); ?></a></li>
-			<li class="divider" role="separator"></li>
-			<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
-		</ul>
-	   </li>
-	</ul>
-	<?php endif; ?>
-
-	<ul class="nav navbar-nav navbar-user navbar-left">
-	   <li class="dropdown language-dropdown">
-		<ul class="dropdown-menu">	
-			<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div><?php echo lang('header_spanish');?></a></li>
-			<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div><?php echo lang('header_english');?></a></li>
-		</ul>
-	   </li>
-	</ul>
 
         <div id="navbar" class="navbar-collapse collapse" id="navbar-login-signup">
 
@@ -246,6 +196,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div id="textWhiteHeader" class="navbar-right cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".user-dropdown">
 			 	<?php echo $this->session->name ?> <span class="caret"></span>
 			</div>
+
+			<?php if($this->session->role == "ADMINISTRATOR"): ?>
+			<ul class="nav navbar-nav navbar-user navbar-right">
+			   <li class="dropdown user-dropdown">
+				<ul class="dropdown-menu headerDropdownRight">
+					<li><a href="<?php echo site_url('admin/usersList') ?>"><?php echo lang('header_users_list') ?></a></li>
+					<li class="divider" role="separator"></li>
+					<li><a href="<?php echo site_url('admin/signupCustomer') ?>"><?php echo lang('header_customers_signup') ?></a></li>
+					<li><a href="<?php echo site_url('admin/customersList') ?>"><?php echo lang('header_customers_list') ?></a></li>
+					<li class="divider" role="separator"></li>
+					<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
+				</ul>
+			   </li>
+			</ul>
+			<?php elseif($this->session->role == "CUSTOMER"): ?>
+			<ul class="nav navbar-nav navbar-user navbar-right">
+			   <li class="dropdown user-dropdown">
+				<ul class="dropdown-menu headerDropdownRight">
+					<li><a href="<?php echo site_url('customer/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></li>
+					<li class="divider" role="separator"></li>
+					<li><a href="<?php echo site_url('customer/showTags') ?>"><?php echo lang('header_manage_tags') ?></a></li>
+					<li><a href="<?php echo site_url('customer/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>
+					<li><a href="<?php echo site_url('customer/servicesList') ?>"><?php echo lang('header_list_service'); ?></a></li>
+					<li class="divider" role="separator"></li>
+					<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
+				</ul>
+			   </li>
+			</ul>
+			<?php elseif($this->session->role == "APP_USER"): ?>
+			<ul class="nav navbar-nav navbar-user navbar-right">
+			   <li class="dropdown user-dropdown">
+				<ul class="dropdown-menu headerDropdownRight">
+					<li><a href="<?php echo site_url('app_user/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></a></li>
+					<li class="divider" role="separator"></li>
+					<li><a href="<?php echo site_url('app_user/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>
+					<li><a href="<?php echo site_url('app_user/myBookmarks') ?>"><?php echo lang('header_bookmarks'); ?></a></li>
+					<li><a href="<?php echo site_url('app_user/servicesList') ?>"><?php echo lang('header_list_service'); ?></a></li>
+					<li class="divider" role="separator"></li>
+					<li><a href="<?php echo site_url("main/logout"); ?>"><?php echo lang('header_logout'); ?></a></li>
+				</ul>
+			   </li>
+			</ul>
+			<?php endif; ?>
 		<?php else: ?>
 			<form class="navbar-form navbar-right" role="form" action="<?php echo site_url("main/login"); ?>" method="POST">
 			    	<div class="form-group">
@@ -261,6 +254,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div id="textWhiteHeader" class="navbar-left cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".language-dropdown">
 		 	<i class="fa fa-language" aria-hidden="true"></i><span class="caret"></span>
 		</div>
+
+		<ul class="nav navbar-nav navbar-user navbar-left">
+		   <li class="dropdown language-dropdown">
+			<ul class="dropdown-menu headerDropdown">	
+				<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div><?php echo lang('header_spanish');?></a></li>
+				<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div><?php echo lang('header_english');?></a></li>
+			</ul>
+		   </li>
+		</ul>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>

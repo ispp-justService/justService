@@ -25,7 +25,7 @@ class App_user extends CI_Controller {
 
 	public function sendRegistration(){
 
-		$this->form_validation->set_error_delimiters('<div class="alert alert-warning">', '</div>');
+		$this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
 		$this->form_validation->set_rules('name','Name','required');
 		$this->form_validation->set_rules('surname','Surname','required');
@@ -243,6 +243,7 @@ class App_user extends CI_Controller {
 				$data['phone_number'] = $this->input->post('phoneNumber');						
 			}			
 			$updateUser = $this->app_users->updateApp_user($id, $data);
+			$data['comments'] = $this->app_users->get_user_comments($id)->result();
 			if($updateUser!=FALSE){
 				$data['user'] = $updateUser->row();
 				$this->render->renderView('app_user/profile',$data);			
