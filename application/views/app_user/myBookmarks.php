@@ -11,10 +11,11 @@
 		<?php else: ?>
 		   <div class="panel-heading" style="background-color: #58C8ED;" >
 		<?php endif; ?>
-				<a style="color: #000000;" href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
+				<i class="fa fa-hand-o-right" aria-hidden="true"></i>
+<a style="color: #000000;" href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
 								<?php echo $customer->name ?>
 				</a>
-			</div>
+			</div><!-- /panel-heading -->
 		      <div class="panel-body">
 		      	<table>
 			   <tr>
@@ -31,10 +32,9 @@
 				<?php endif; ?>
 			   </tr>				
 			</table>
-		      </div>
-		   </div>
-		</div>
-		</div><!-- /row para separar los paneles entre sí -->
+		      </div><!-- /panel-body -->
+		   </div><!-- /panel-default -->
+		</div><!-- /col -->
 		<br />
 		<?php endforeach; ?> 
       </div> <!-- /row -->

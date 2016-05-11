@@ -8,7 +8,7 @@ class Customer_utils{
 		
 		$this->CI =& get_instance();
 		
-		$this->CI->form_validation->set_error_delimiters('<div class="alert alert-warning">', '</div>');
+		$this->CI->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
 
 		$this->CI->form_validation->set_rules('name','Name','required');
 		$this->CI->form_validation->set_rules('type','Type','required');
