@@ -47,9 +47,17 @@
 						<td>
 							<b><?php echo lang('profile_customer_price') ?>: </b>
 							<?php if($customer->type == "Business"): ?>
-								<?php echo (45+($customer->num_bonus * 40)) - $customer->discount?> €
+								<?php if($customer->hasbanner): ?>
+									<?php echo (45+150+($customer->num_bonus * 40)) - $customer->discount?> €
+								<?php else: ?>
+									<?php echo (45+($customer->num_bonus * 40)) - $customer->discount?> €
+								<?php endif; ?>
 							<?php else: ?>
-								<?php echo (15+($customer->num_bonus * 10)) - $customer->discount?> €
+								<?php if($customer->hasbanner): ?>
+									<?php echo (15+50+($customer->num_bonus * 10)) - $customer->discount?> €
+								<?php else: ?>
+									<?php echo (15+($customer->num_bonus * 10)) - $customer->discount?> €
+								<?php endif; ?>
 							<?php endif; ?>
 						</td>	
 				   </tr>
