@@ -4,11 +4,13 @@
 		   <div class="row">
 			<div class="text-center">
 				<?php if($user->photo): ?>
-					<img src="<?php echo base_url($user->photo); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+					<img src="<?php echo base_url($user->photo); ?>" style="margin-top:80px" id="logo" wight ="200px" height="200px"/><br />
 				<?php else: ?>
-			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="200px" height="200px"/><br />
 				<?php endif; ?>
-			   <b><?php echo lang('profile_my_photo') ?></b><br>
+				<?php for ($i=0 ; $i < $user->rating; $i++){
+					echo '<span>&#9733</span>';
+				}?>
 				<?php if($this->session->id == $user->app_user_id && $this->session->role == "APP_USER"): ?>
 					<button type="button" 
 										class="btn btn-info btn-md" 
@@ -26,30 +28,19 @@
 				<?php if($this->session->role == "APP_USER"): ?>
 					<?php echo lang('profile_my_profile') ?>
 				<?php else: ?>
-					<?php echo lang('profile_other_user_profile') ?>
+					<?php echo lang('profile_other_user_profile') ?> <?php echo $user->name ?> <?php echo $user->surname ?> 
 				<?php endif; ?>
 			</h3>
 		
 			<hr>
 		<div class="row">
-			<div class="col-md-6 col-lg-6">
-				<div class="form-group">
-				  <label for="name"><?php echo lang('profile_name') ?>: </label>&nbsp;<?php echo $user->name ?>
-		     		</div>
-			</div>
-			<div class="col-md-6 col-lg-6">
-				<div class="form-group">
-				  <label for="type"><?php echo lang('profile_surnames') ?>: </label>&nbsp;<?php echo $user->surname ?>
-		     		</div>
-			</div>
-		</div>
-		<div class="row">
+			<?php if($this->session->role == "ADMINISTRATOR" || $this->session->role == "APP_USER"): ?>
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
 				  <label for="email">Email: </label>&nbsp;<?php echo $user->email ?>
 		     		</div>
 			</div>
-			<?php if($this->session->role == "APP_USER"): ?>
+			
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
 				  <label for="discount"><?php echo lang('profile_discount') ?>: </label>&nbsp;<?php echo $user->discount ?> €
@@ -57,6 +48,7 @@
 			</div>
 			<?php endif; ?>
 		</div>
+		<?php if($this->session->role == "ADMINISTRATOR" || $this->session->role == "APP_USER"): ?>
 		<div class="row">
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
@@ -64,6 +56,7 @@
 		     		</div>
 			</div>
 		</div>
+
 		<div class="row">
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
@@ -71,6 +64,7 @@
 		     		</div>
 			</div>
 		</div>
+		<?php endif; ?>
 	</div>
 
 	</div> <!-- /class cols  -->

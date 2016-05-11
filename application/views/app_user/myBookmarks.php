@@ -19,18 +19,37 @@
 		      <div class="panel-body">
 		      	<table>
 			   <tr>
-				<td><b>Email:</b> <?php echo $customer->email ?></td>	
+				<td><b><?php echo lang('profile_type') ?>:</b> <?php echo lang('profile_'.$customer->type) ?></td>	
 			   </tr>
 			   <tr>
-				<td><b><?php echo lang('profile_phone_number') ?>:</b> <?php echo $customer->phone_number ?></td>	
+				<td><b><?php echo lang('profile_zipCode') ?>:</b> <?php echo $customer->zip_code ?>	
 			   </tr>
+				<tr>
+					<td>
+						<b><?php echo lang('profile_rating')?>:</b>
+						<div class="ratingShow">
+							<?php 
+							for ($i=0 ; $i < ceil($customer->rating); $i++){
+								echo '<span>&#9733</span>';
+							}
+							$numAux = 5 - ceil($customer->rating);
+							if ($numAux != 0){
+								for ($i=0 ; $i < $numAux; $i++){
+									echo '<span>&#9734</span>';
+								}
+							}
+							?>
+						</div>
+					</td>	
+				</tr>
 			   <tr>
 				<?php if($customer->photo): ?>
-					<img src="<?php echo base_url($customer->photo); ?>" id="logo" wight ="100px" height="100px"/><br />
+					<img src="<?php echo base_url($customer->photo); ?>" id="logo" wight ="125px" height="125px"/><br />
 				<?php else: ?>
-			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="100px" height="100px"/><br />
+			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" id="logo" wight ="125px" height="125px"/><br />
 				<?php endif; ?>
-			   </tr>				
+			   </tr>	
+			
 			</table>
 		      </div><!-- /panel-body -->
 		   </div><!-- /panel-default -->

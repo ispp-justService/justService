@@ -4,11 +4,15 @@
 		   <div class="row">
 			<div class="text-center">
 			   <?php if($customer->photo): ?>
-					<img src="<?php echo base_url($customer->photo); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+					<img src="<?php echo base_url($customer->photo); ?>" style="margin-top:80px" id="logo" wight ="150px" height="150px"/><br />
 				<?php else: ?>
-			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="100px" height="100px"/><br />
+			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="150px" height="150px"/><br />
 				<?php endif; ?>
-			   <b><?php echo lang('profile_my_photo') ?></b><br>
+				<?php for ($i=0 ; $i < $customer->rating; $i++){
+					echo '<span>&#9733</span>';
+				}?>
+				</br>
+				<?php echo lang('profile_finalized_services')?>: <?php echo $customer->finalized_services ?>
 				<?php if($this->session->id == $customer->customer_id  && $this->session->role == "CUSTOMER" ): ?>
 					<button type="button" 
 										class="btn btn-info btn-md" 
@@ -27,7 +31,7 @@
 				<?php if($this->session->id && $this->session->id == $customer->customer_id): ?>
 				<h3><?php echo lang('profile_my_profile') ?></h3>
 				<?php else: ?>
-				<h3><?php echo lang('profile_customer_profile') ?></h3>			
+				<h3><?php echo lang('profile_customer_profile').' '.$customer->name ?></h3>			
 				<?php endif; ?>
 			</div>
 			<div class="col-md-6 col-lg-6">
@@ -45,11 +49,7 @@
 		</div>
 			<hr>
 		<div class="row">
-			<div class="col-md-6 col-lg-6">
-				<div class="form-group">
-				  <label for="name"><?php echo lang('profile_name') ?>:</label>&nbsp;<?php echo $customer->name ?>
-		     		</div>
-			</div>
+
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
 				  <label for="type"><?php echo lang('profile_type') ?>: </label>&nbsp;<?php echo lang('profile_'.$customer->type) ?>
@@ -57,7 +57,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<?php if($this->session->id): ?>
+			<?php if($this->session->role == "ADMINISTRATOR" || $this->session->role == "CUSTOMER"): ?>
 				<div class="col-md-6 col-lg-6">
 					<div class="form-group">
 					  <label for="phone_number"><?php echo lang('profile_phone_number') ?>: </label>&nbsp;<?php echo $customer->phone_number ?>
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<?php if($this->session->id): ?>
+			<?php if($this->session->role == "ADMINISTRATOR" || $this->session->role == "CUSTOMER"): ?>
 				<div class="col-md-6 col-lg-6">
 					<div class="form-group">
 	  				  <label for="email">Email: </label>&nbsp;<?php echo $customer->email ?>
@@ -82,7 +82,7 @@
 		<?php if($this->session->role == "APP_USER"): ?>
 			<div class="row">
 			  <div class="col-md-6 col-lg-6">
-				<h4><?php echo lang('profile_need_a_service') ?></h4>
+				<h3><?php echo lang('profile_need_a_service') ?></h3>
 				<button type="button" class="btn btn-md buttonRed" data-toggle="modal" 
 						data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'><?php echo lang('service_request_service')?></button>
 				<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService'),$user_discount) ?>

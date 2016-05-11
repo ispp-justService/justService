@@ -8,7 +8,8 @@ class App_users extends CI_Model {
 
 		public function find_app_user($id){
 
-			$query = $this->db->get_where('app_user',array('app_user_id'=> $id), 0, 0);
+			$query = $this->db->query("select (select coalesce(sum(rating_user)/sum(case when coalesce(rating_user,0) = 0 then 0 else 1 end) , 2.5)
+as rating from service where app_user_id = a1.app_user_id) as rating, a1.* from app_user as a1 where a1.app_user_id = ".$id);
 			
 			if($query->num_rows() == 1){
 				return $query;

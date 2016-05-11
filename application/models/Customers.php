@@ -8,7 +8,8 @@ class Customers extends CI_Model {
 
 		public function find_customer($id){
 
-			$query = $this->db->get_where('customer',array('customer_id'=> $id), 0, 0);
+			$query = $this->db->query("select (select count(*) from service where customer_id = c1.customer_id and status = 'FINALIZED') as finalized_services, (select coalesce(sum(rating_customer)/sum(case when coalesce(rating_customer,0) = 0 then 0 else 1 end) , 2.5)
+as rating from service where customer_id = c1.customer_id) as rating ,c1.* from customer as c1 where customer_id = ".$id);
 			
 			if($query->num_rows() == 1){
 				return $query;
@@ -133,12 +134,8 @@ class Customers extends CI_Model {
 
 	public function get_by_my_bookmarks($app_user_id){
 
-		$this->db->select('c.*');
-		$this->db->where('app_user_id', $app_user_id);	
-		$this->db->from('bookmark b');
-		$this->db->join('customer c', 'c.customer_id = b.customer_id');
-
-		$query = $this->db->get();
+		$query = $this->db->query("select (select count(*) from service where customer_id = c1.customer_id and status = 'FINALIZED') as finalized_services, (select coalesce(sum(rating_customer)/sum(case when coalesce(rating_customer,0) = 0 then 0 else 1 end) , 2.5)
+as rating from service where customer_id = c1.customer_id) as rating ,c1.* from customer as c1 natural join bookmark as b1 where b1.app_user_id = ".$app_user_id);
 
 		return $query;
 		
