@@ -16,7 +16,6 @@
 		      </div>
 		      <div class="panel-body">
 			      	<table>
-					<?php if($this->session->id): ?>
 					<tr>
 						<td>
 						<?php if($customer->photo): ?>
@@ -29,7 +28,6 @@
 						</td>
 						
 			        </tr>
-					<?php endif; ?>
 				   <tr>
 					<td><b><?php echo lang('profile_type') ?>:</b> <?php echo lang('profile_'.$customer->type) ?></td>	
 				   </tr>

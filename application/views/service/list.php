@@ -36,7 +36,7 @@
 								<?php if($this->session->role == "CUSTOMER"): ?>
 									<b>User:</b>
 									<a href="<?php echo site_url("app_user/showProfile/".$service->app_user_id) ?>">
-										<?php echo $service->name ?>, <?php echo $service->surname ?>
+										<?php echo $service->name ?> <?php echo $service->surname ?>
 									</a>
 								<?php elseif($this->session->role == "APP_USER"): ?>
 									<?php if($service->type == "Freelance"): ?>
@@ -56,6 +56,7 @@
 							<tr>
 								<td><b><?php echo lang('service_description')?>:</b> <?php echo $service->description ?></td>	
 						    </tr>
+							<?php if($service->discount_to_apply != null && $service->discount_to_apply != 0): ?>
 							<tr>
 								<td>
 									<b><?php echo lang('service_discount_to_apply') ?>:</b> 
@@ -66,7 +67,8 @@
 									<?php endif; ?>
 								</td>	
 							</tr>
-							<?php if($service->status == 'PENDING' || $service->status == 'ACTIVE'):?>
+							<?php endif; ?>
+							<?php if($this->session->role == "CUSTOMER" && ($service->status == 'PENDING' || $service->status == 'ACTIVE')):?>
 							<tr>
 								<td>
 									<b><?php echo lang('profile_phone_number') ?>:</b> 

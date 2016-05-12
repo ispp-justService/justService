@@ -408,7 +408,7 @@ INSERT INTO TAG_ENTRY VALUES('20','34');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('My bathroom is crazy!!! I had to built a boat like Noah.','ACTIVE','5','1');
 --	Finalizados
 INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer, moment, finalize_moment) 
-			VALUES('I forgot my keys inside my house :( help!','FINALIZED','10','1','5','It saved my life','5','Thanks for calling me', CURRENT_TIMESTAMP - interval '1' month , CURRENT_TIMESTAMP);
+			VALUES('I forgot my keys inside my house :( help!','FINALIZED','10','1','1','Awful','5','Thanks for calling me', CURRENT_TIMESTAMP - interval '1' month , CURRENT_TIMESTAMP);
 --	Pendientes
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I need a plumber please. Pipes of my kitchen are broken','PENDING','11','1');
 
@@ -434,7 +434,7 @@ INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Hey 
 --	Activos
 --	Finalizados
 INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer, moment, finalize_moment)  
-			VALUES('I need you to do an empire state in my garden for 5 dollars.','FINALIZED','13','4','2','Bad service','5','Thanks you are awesome', CURRENT_TIMESTAMP - interval '1' month, CURRENT_TIMESTAMP);
+			VALUES('I need you to do an empire state in my garden for 5 dollars.','FINALIZED','13','4','1','Bad service','5','Thanks you are awesome', CURRENT_TIMESTAMP - interval '1' month, CURRENT_TIMESTAMP);
 --	Pendientes
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('This is a mistake, but i cannot delete this for now','PENDING','3','4');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I want to build a house. A BIG house','PENDING','17','4');

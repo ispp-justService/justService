@@ -8,7 +8,7 @@ class Customers extends CI_Model {
 
 		public function find_customer($id){
 
-			$query = $this->db->query("select (select count(*) from service where customer_id = c1.customer_id and status = 'FINALIZED') as finalized_services, (select coalesce(sum(rating_customer)/sum(case when coalesce(rating_customer,0) = 0 then 0 else 1 end) , 2.5)
+			$query = $this->db->query("select (select count(*) from service where customer_id = c1.customer_id and status = 'FINALIZED') as finalized_services, (select coalesce(sum(rating_user)/sum(case when coalesce(rating_user,0) = 0 then 0 else 1 end) , 2.5)
 as rating from service where customer_id = c1.customer_id) as rating ,c1.* from customer as c1 where customer_id = ".$id);
 			
 			if($query->num_rows() == 1){
