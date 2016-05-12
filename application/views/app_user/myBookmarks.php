@@ -11,7 +11,7 @@
 		<?php else: ?>
 		   <div class="panel-heading" style="background-color: #58C8ED;" >
 		<?php endif; ?>
-				<i class="fa fa-hand-o-right" aria-hidden="true"></i>
+				<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
 <a style="color: #000000;" href="<?php echo site_url("customer/showProfile/".$customer->customer_id) ?>">
 								<?php echo $customer->name ?>
 				</a>

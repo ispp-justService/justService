@@ -42,9 +42,9 @@
 		
 				<?php if($this->session->role && $this->session->role == "APP_USER"): ?>
 					<?php if(isset($bookmarked) && $bookmarked == TRUE): ?>
-						<a href="<?php echo site_url("app_user/unBookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary"><?php echo lang('profile_favorite') ?> <span class="glyphicon glyphicon-heart"></span></a>
+						<a href="<?php echo site_url("app_user/unBookmark_a_customer/".$customer->customer_id) ?>" style="margin-top: -15px;" class="btn btn-primary"><?php echo lang('profile_favorite') ?> <span class="glyphicon glyphicon-heart"></span></a>
 					<?php else: ?>
-						<a href="<?php echo site_url("app_user/bookmark_a_customer/".$customer->customer_id) ?>" class="btn btn-primary"><?php echo lang('profile_mark_favorite') ?><span class="glyphicon glyphicon-heart-empty"></span></a>
+						<a href="<?php echo site_url("app_user/bookmark_a_customer/".$customer->customer_id) ?>" style="margin-top: -15px;" class="btn btn-primary"><?php echo lang('profile_mark_favorite') ?><span class="glyphicon glyphicon-heart-empty"></span></a>
 					<?php endif; ?>
 				<?php endif; ?>
 			</div>

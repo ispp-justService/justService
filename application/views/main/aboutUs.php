@@ -1,22 +1,18 @@
     <div class="container">
       <div class="row row-centered">
 	<br />
-	<h3><?php echo lang('footer_aboutUs') ?></h3>
+	<h3><?php echo lang('footer_aboutUs'); ?></h3>
 	<hr>
-	<p><b>¿Quienes somos?</b></p>	
-	<p>Home in Need es una empresa encargada de centralizar en un mismo punto, todo trabajo del<br /> sector servicio. Ayudamos a más de 3 millones de personas a facilitar la búsqueda de servicios.</p>
+	<p><b><?php echo lang('aboutus_question1'); ?></b></p>	
+	<p><?php echo lang('aboutus_answer1'); ?></p>
 	<br />
 
-	<p><b>¿Cómo surge este proyecto?</b></p>
-	<p>Este proyecto nace ante la necesidad de reparar algo que se nos ha estropeado.<br />
-	   Todos conocemos a alguien cercano que se dedica al sector servicio,<br/>
-	   cada uno de nosotros ha tenido al menos una vez problemas con algún tipo de avería.</p>
-	<p>Home in Need evita que cada usuario pierda el menor tiempo posible parar cubrir sus necesidades.</p>
+	<p><b><?php echo lang('aboutus_question2'); ?></b></p>
+	<p><?php echo lang('aboutus_answer2'); ?></p>
 	<br />
 
-	<p><b>Equipo de desarrollo</b></p>
-	<p>Contamos con un equipo de desarrollo bastante joven y con buenas aptitudes, personas con unas capacidades<br/> 
-	altas de aprendizaje ante las nuevas tecnologías. El equipo de trabajo está familiarizado especialmente en:</p>
+	<p><b><?php echo lang('aboutus_question3'); ?></b></p>
+	<p><?php echo lang('aboutus_answer3'); ?></p>
 	<div class="col-md-4 col-xs-12 col-lg-4 col-sm-4 col-centered">
 	   <div class="row">
 		<div class="col-md-4 col-xs-4 col-lg-4 col-sm-4 col-centered">
