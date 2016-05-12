@@ -175,6 +175,11 @@ class App_user extends CI_Controller {
 			$result = $this->customers->get_by_my_bookmarks($id);
 				
 			$data['customers'] = $result->result();
+
+			$this->load->model("app_users");
+			$user = $this->app_users->find_app_user($this->session->id);
+			$data['user_discount'] = $user->row()->discount;
+
 			$this->render->renderView('app_user/myBookmarks',$data);
 		}else{
 			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));

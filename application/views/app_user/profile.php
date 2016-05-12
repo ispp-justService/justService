@@ -11,6 +11,7 @@
 				<?php for ($i=0 ; $i < $user->rating; $i++){
 					echo '<span>&#9733</span>';
 				}?>
+				<br/>
 				<?php if($this->session->id == $user->app_user_id && $this->session->role == "APP_USER"): ?>
 					<button type="button" 
 										class="btn btn-info btn-md" 
@@ -26,7 +27,7 @@
 		<div class="col-md-9 col-lg-9">
 			<h3>
 				<?php if($this->session->role == "APP_USER"): ?>
-					<?php echo lang('profile_my_profile') ?>
+					<?php echo $user->name ?> <?php echo $user->surname ?> 
 				<?php else: ?>
 					<?php echo lang('profile_other_user_profile') ?> <?php echo $user->name ?> <?php echo $user->surname ?> 
 				<?php endif; ?>
