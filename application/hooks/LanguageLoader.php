@@ -16,6 +16,7 @@ class LanguageLoader{
 			$ci->lang->load('error',$ci->session->userdata('language'));
 			$ci->lang->load('admin',$ci->session->userdata('language'));
 			$ci->lang->load('modals',$ci->session->userdata('language'));
+			$ci->lang->load('aboutus',$ci->session->userdata('language'));
 
         } else {
 
@@ -28,6 +29,7 @@ class LanguageLoader{
 			$ci->lang->load('error','english');
 			$ci->lang->load('admin','english');
 			$ci->lang->load('modals','english');
+			$ci->lang->load('aboutus','english');
 			
         }
     }

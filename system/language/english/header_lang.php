@@ -19,6 +19,8 @@ $lang['header_customers_signup'] = "Customer's Signup";
 $lang['header_choose_lang'] = "Languages";
 $lang['header_english'] = "English";
 $lang['header_spanish'] = "Spanish";
+$lang['header_cookieMessage'] = "This website uses cookies to ensure you get the best experience on our website";
+$lang['header_cookieButton'] = "Accept";
 
 
 

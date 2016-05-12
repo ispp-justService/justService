@@ -6,7 +6,8 @@
 		<div class="col-xs-12 col-sm-6 col-md-6 col-centered">
 		<div class="panel panel-default" >
 		   <div class="panel-heading">
-			<a href="<?php echo site_url("app_user/showProfile/".$user->app_user_id) ?>">
+			<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+<a href="<?php echo site_url("app_user/showProfile/".$user->app_user_id) ?>">
 				<?php echo $user->name." ".$user->surname ?>
 			</a>
 			
