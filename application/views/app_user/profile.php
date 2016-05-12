@@ -8,9 +8,11 @@
 				<?php else: ?>
 			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="200px" height="200px"/><br />
 				<?php endif; ?>
+				<div class="ratingShow">
 				<?php for ($i=0 ; $i < $user->rating; $i++){
 					echo '<span>&#9733</span>';
 				}?>
+				</div>
 				<br/>
 				<?php if($this->session->id == $user->app_user_id && $this->session->role == "APP_USER"): ?>
 					<button type="button" 
@@ -24,18 +26,19 @@
 			</div>
 		   </div>
 		</div>
+
 		<div class="col-md-9 col-lg-9">
 			<h3>
 				<?php if($this->session->role == "APP_USER"): ?>
-					<?php echo $user->name ?> <?php echo $user->surname ?> 
+					<?php echo lang('profile_my_profile') ?>
 				<?php else: ?>
 					<?php echo lang('profile_other_user_profile') ?> <?php echo $user->name ?> <?php echo $user->surname ?> 
 				<?php endif; ?>
 			</h3>
 		
 			<hr>
+		<?php if($this->session->role == "APP_USER" || $this->session->role == "ADMINISTRATOR"): ?>
 		<div class="row">
-			<?php if($this->session->role == "ADMINISTRATOR" || $this->session->role == "APP_USER"): ?>
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
 				  <label for="email">Email: </label>&nbsp;<?php echo $user->email ?>
@@ -47,9 +50,7 @@
 				  <label for="discount"><?php echo lang('profile_discount') ?>: </label>&nbsp;<?php echo $user->discount ?> €
 		     		</div>
 			</div>
-			<?php endif; ?>
 		</div>
-		<?php if($this->session->role == "ADMINISTRATOR" || $this->session->role == "APP_USER"): ?>
 		<div class="row">
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
@@ -66,15 +67,10 @@
 			</div>
 		</div>
 		<?php endif; ?>
-	</div>
-
-	</div> <!-- /class cols  -->
-
 	<?php if($comments): ?>
-		<div class="row row-centered">
+		<div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-6 col-centered" >
 		<h3><?php echo lang('profile_customers_comments') ?></h3>
-		<hr>
 		<?php foreach($comments as $comment): ?>
 			<div class="alert alert-info">
 			<p><?php echo lang('profile_rating') ?>: 
@@ -96,5 +92,8 @@
 		</div>
 		</div>
 	<?php endif; ?>
+	</div>
+
+	</div> <!-- /class cols  -->
 
     </div> <!-- /container -->

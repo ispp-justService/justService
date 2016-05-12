@@ -8,9 +8,11 @@
 				<?php else: ?>
 			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="150px" height="150px"/><br />
 				<?php endif; ?>
+				<div class="ratingShow">
 				<?php for ($i=0 ; $i < $customer->rating; $i++){
 					echo '<span>&#9733</span>';
 				}?>
+				</div>
 				</br>
 				<?php echo lang('profile_finalized_services')?>: <?php echo $customer->finalized_services ?>
 				<?php if($this->session->id == $customer->customer_id  && $this->session->role == "CUSTOMER" ): ?>
@@ -28,7 +30,7 @@
 		<div class="col-md-9 col-lg-9">
 		<div class="row">
 			<div class="col-md-6 col-lg-6">
-				<?php if($this->session->id && $this->session->id == $customer->customer_id): ?>
+				<?php if($this->session->role == "CUSTOMER" ): ?>
 				<h3><?php echo lang('profile_my_profile') ?></h3>
 				<?php else: ?>
 				<h3><?php echo lang('profile_customer_profile').' '.$customer->name ?></h3>			
@@ -49,13 +51,22 @@
 		</div>
 			<hr>
 		<div class="row">
-
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
 				  <label for="type"><?php echo lang('profile_type') ?>: </label>&nbsp;<?php echo lang('profile_'.$customer->type) ?>
 		     		</div>
 			</div>
 		</div>
+		<?php if($this->session->role == "CUSTOMER" ): ?>
+		<div class="row">
+			<div class="col-md-6 col-lg-6">
+				<div class="form-group">
+				  <label for="type"><?php echo lang('profile_name') ?>: </label>&nbsp;<?php echo $customer->name ?>
+		     		</div>
+			</div>
+		</div>
+		<?php endif; ?>
+
 		<div class="row">
 			<?php if($this->session->role == "ADMINISTRATOR" || $this->session->role == "CUSTOMER"): ?>
 				<div class="col-md-6 col-lg-6">
