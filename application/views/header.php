@@ -13,6 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/rating.css"); ?>">
+	<link rel="icon" href="<?php echo base_url("assets/img/favicon.png"); ?>" type="image/png">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/footer-distributed-with-address-and-phones.css"); ?>">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
