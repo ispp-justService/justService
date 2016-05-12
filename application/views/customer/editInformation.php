@@ -67,12 +67,6 @@
 				  <input type="email" name="email" class="form-control" placeholder="Enter your email" value="<?php echo $customer->email ?>">
 			     	</div>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6">
-				<div class="form-group">
-				  <label for="photo">Photo (Optional)</label>
-				  <input type="text" name="photo" class="form-control" placeholder="Photo" value="<?php echo $customer->photo ?>">
-			     	</div>
-			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">

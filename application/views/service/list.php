@@ -66,7 +66,15 @@
 									<?php endif; ?>
 								</td>	
 							</tr>
+							<?php if($service->status == 'PENDING' || $service->status == 'ACTIVE'):?>
 							<tr>
+								<td>
+									<b><?php echo lang('profile_phone_number') ?>:</b> 
+									<?php echo $service->phone_number?> 
+								</td>	
+							</tr>
+							<tr>
+							<?php endif; ?>
 								<td>
 							<?php if($service->status == 'PENDING'):?>
 								<button type="button" class="btn btn-danger btn-md" data-toggle="modal" 
