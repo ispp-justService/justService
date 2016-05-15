@@ -160,7 +160,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		column-count: 3;
 	   }
 	  ul.headerDropdown{margin-left: -50px;}
-	  ul.headerDropdownRight{margin-right: -161px;}
+	  ul.headerDropdownRight{margin-right: -225px;}
 	}
 
 	#panel-heading-size{ font-size: 16px; }
@@ -174,6 +174,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	   border-top-left-radius: 5px;
 	   border-top-right-radius: 5px;
 	}
+	.dropdown-menu{text-align:center;}
         </style>
 
     </head>
@@ -206,13 +207,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<?php if($this->session->userdata('id')):?>
 			<div id="textWhiteHeader" class="navbar-right cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".user-dropdown">
-			 	<?php echo $this->session->name ?> <span class="caret"></span>
+			<?php if($this->session->role == "APP_USER" || $this->session->role == "CUSTOMER"): ?>			 	
+				<img src="<?php echo base_url($this->session->userdata('photo')); ?>" class="img-circle" id="logo" wight ="35px" height="35px"/>
+			<?php else: ?>
+				<i class="fa fa-tachometer" aria-hidden="true"></i>
+			<?php endif; ?>
+			<?php echo $this->session->name ?> <span class="caret"></span>
 			</div>
 
 			<?php if($this->session->role == "ADMINISTRATOR"): ?>
 			<ul class="nav navbar-nav navbar-user navbar-right" style="margin-top: 4px;">
 			   <li class="dropdown user-dropdown">
 				<ul class="dropdown-menu headerDropdownRight">
+					<li><i class="fa fa-tachometer fa-5x" aria-hidden="true"></i></li>
 					<li><a href="<?php echo site_url('admin/usersList') ?>"><?php echo lang('header_users_list') ?></a></li>
 					<li class="divider" role="separator"></li>
 					<li><a href="<?php echo site_url('admin/signupCustomer') ?>"><?php echo lang('header_customers_signup') ?></a></li>
@@ -226,6 +233,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<ul class="nav navbar-nav navbar-user navbar-right" style="margin-top: 4px;">
 			   <li class="dropdown user-dropdown">
 				<ul class="dropdown-menu headerDropdownRight">
+					<li><img src="<?php echo base_url($this->session->userdata('photo')); ?>" class="img-circle" id="logo" wight ="75px" height="75px"/></li>
 					<li><a href="<?php echo site_url('customer/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></li>
 					<li class="divider" role="separator"></li>
 					<li><a href="<?php echo site_url('customer/showTags') ?>"><?php echo lang('header_manage_tags') ?></a></li>
@@ -240,6 +248,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<ul class="nav navbar-nav navbar-user navbar-right" style="margin-top: 4px;">
 			   <li class="dropdown user-dropdown">
 				<ul class="dropdown-menu headerDropdownRight">
+					<li><img src="<?php echo base_url($this->session->userdata('photo')); ?>" class="img-circle" id="logo" wight ="75px" height="75px"/></li>
 					<li><a href="<?php echo site_url('app_user/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></a></li>
 					<li class="divider" role="separator"></li>
 					<li><a href="<?php echo site_url('app_user/editInformation') ?>"><?php echo lang('header_edit_information'); ?></a></li>

@@ -24,7 +24,7 @@ class Accounts extends CI_Model {
 
 		public function login_as_customer($data){
 			
-				$this->db->select('customer_id, password,name');
+				$this->db->select('customer_id, password,name,photo');
 				$this->db->from('customer');
 				$this->db->where('email = '. "'". $data['email'] . "'");
 				$this->db->where("deleted != 't'");
@@ -41,7 +41,7 @@ class Accounts extends CI_Model {
 
 		public function login_as_app_user($data){
 			
-				$this->db->select('app_user_id, password,name');
+				$this->db->select('app_user_id, password,name,photo');
 				$this->db->from('app_user');
 				$this->db->where('email = '. "'". $data['email'] . "'");
 				$this->db->where("deleted != 't'");
