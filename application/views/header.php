@@ -166,13 +166,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	#panel-heading-size{ font-size: 16px; }
 
 	.modalHeader-background-color{
-	   background-color: #559cd9;
+	   background-color: #FF0000;
 	   -webkit-border-top-left-radius: 5px;
 	   -webkit-border-top-right-radius: 5px;
 	   -moz-border-radius-topleft: 5px;
 	   -moz-border-radius-topright: 5px;
 	   border-top-left-radius: 5px;
 	   border-top-right-radius: 5px;
+	   color: #FFFFFF;
 	}
 	.dropdown-menu{text-align:center;}
         </style>
