@@ -207,8 +207,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<?php if($this->session->userdata('id')):?>
 			<div id="textWhiteHeader" class="navbar-right cursor" style="margin-top: 10px;" data-toggle="dropdown" data-target=".user-dropdown">
-			<?php if($this->session->role == "APP_USER" || $this->session->role == "CUSTOMER"): ?>			 	
+			<?php if($this->session->role == "APP_USER"):?>			 	
 				<img src="<?php echo base_url($this->session->userdata('photo')); ?>" class="img-circle" id="logo" wight ="35px" height="35px"/>
+			<?php elseif($this->session->role == "CUSTOMER"): ?>
+				<?php if($this->session->type == "Freelance"): ?>
+					<img src="http://www.iconarchive.com/download/i43682/treetog/junior/tool-box.ico" class="img-circle" id="logo" wight ="35px" height="35px"/>
+				<?php elseif($this->session->type == "Business"): ?>
+					<img src="<?php echo base_url($this->session->userdata('photo')); ?>" class="img-circle" id="logo" wight ="35px" height="35px"/>
+				<?php endif; ?>
 			<?php else: ?>
 				<i class="fa fa-tachometer" aria-hidden="true"></i>
 			<?php endif; ?>

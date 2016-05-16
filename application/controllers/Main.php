@@ -26,6 +26,7 @@ class Main extends CI_Controller {
 		$id = "";
 		$name = "";
 		$photo = "";
+		$type = "";
 		// Intentamos primero el login del admin
 			$result = $this->accounts->login_as_administrator($data);
 		if($result == false){
@@ -45,6 +46,7 @@ class Main extends CI_Controller {
 				$id = $result->customer_id;
 				$name = $result->name;
 				$photo = $result->photo;
+				$type = $result->type;
 			}
 		}else{
 			$role = "ADMINISTRATOR";		
@@ -62,6 +64,7 @@ class Main extends CI_Controller {
 				$this->session->set_userdata('id',$id);
 				$this->session->set_userdata('name',$name);
 				$this->session->set_userdata('photo',$photo);
+				$this->session->set_userdata('type',$type);
 				$this->render->renderView('main/main');
 			}else{
 				$this->render->renderViewWithError('main/main',lang("error_wrong_password"));

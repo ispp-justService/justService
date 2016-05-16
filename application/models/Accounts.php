@@ -24,7 +24,7 @@ class Accounts extends CI_Model {
 
 		public function login_as_customer($data){
 			
-				$this->db->select('customer_id, password,name,photo');
+				$this->db->select('customer_id, password,name,photo,type');
 				$this->db->from('customer');
 				$this->db->where('email = '. "'". $data['email'] . "'");
 				$this->db->where("deleted != 't'");
