@@ -21,8 +21,14 @@ class Service extends CI_Controller {
 		// Obtenemos el texto de búsqueda por GET
 		$text_search = "";
 
+		// Obtenemos la posición actual del usuario
+		$latitude = $this->input->get('latitude');
+		$longitude = $this->input->get('longitude');
+
 		foreach($this->input->get() as $input){
-			$text_search.= $input." ";
+			if($input != $latitude && $input != $longitude){
+				$text_search.= $input." ";
+			}
 		}
 
 		$text_search = strtolower($text_search);
@@ -43,17 +49,6 @@ class Service extends CI_Controller {
 			// Cargamos lo que vamos a necesitar aqui
 			$this->load->library('googlemaps');
 			$this->load->model('customers');
-		
-			// Obtenemos la posición actual del usuario
-			$latitude = $this->input->get('latitude');
-			$longitude = $this->input->get('longitude');
-
-			$like = "";
-
-			foreach($filtered as $word){
-				$like.= " %".$word."% ,";
-			}
-			$like = substr($like,0, -1);
 
 			// Vamos a configurar la paginacion que vayamos a usar
 			$config = array();
@@ -62,8 +57,13 @@ class Service extends CI_Controller {
 			$config["base_url"] = base_url() . "index.php/service/search";
 			$config["uri_segment"] = 3;
 
+			// Usuarios que encajan con la búsqueda
+			$resultCustomersId = $this->customers->get_all_related_to_keywords($filtered);
+
 			// Número de elementos totales sobre los que haremos la paginación
-			$config["total_rows"] = $this->customers->get_all_related_to_keywords($like)->num_rows();
+			$config["total_rows"] = $resultCustomersId->num_rows();
+
+			$resultCustomersId = $resultCustomersId->result_array();
 
 			// El número de elementos por página
 			$config["per_page"] = 2;
@@ -108,11 +108,11 @@ class Service extends CI_Controller {
 
 			// Obtenemos los customers que cumplan con los requisitos asociados a la búsqueda
 			if(isset($latitude) && isset($longitude)){
-				$result = $this->customers->get_all_related_to_keywords_order_by_distance($like, $latitude, $longitude, $config['per_page'],$page );
+				$result = $this->customers->get_all_related_to_keywords_order_by_distance($resultCustomersId, $latitude, $longitude, $config['per_page'],$page );
 			}else{
-				$result = $this->customers->get_all_related_to_keywords_order_by_them($like, $config['per_page'],$page );
+				$result = $this->customers->get_all_related_to_keywords_order_by_them($resultCustomersId, $config['per_page'],$page );
 			}
-			
+		
 			if( $result->num_rows() > 0 ){
 				// Lo ubicamos como dato de salida
 				$data['customers'] = $result->result();

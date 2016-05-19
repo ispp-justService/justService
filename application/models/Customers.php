@@ -8,8 +8,12 @@ class Customers extends CI_Model {
 
 		public function find_customer($id){
 
-			$query = $this->db->query("select (select count(*) from service where customer_id = c1.customer_id and status = 'FINALIZED') as finalized_services, (select coalesce(sum(rating_user)/sum(case when coalesce(rating_user,0) = 0 then 0 else 1 end) , 2.5)
-as rating from service where customer_id = c1.customer_id) as rating ,c1.* from customer as c1 where customer_id = ".$id);
+			$this->db->select("(select count(*) from service where customer_id = c1.customer_id and status = 'FINALIZED') as finalized_services, (select coalesce(sum(rating_user)/sum(case when coalesce(rating_user,0) = 0 then 0 else 1 end) , 2.5)
+as rating from service where customer_id = c1.customer_id) as rating ,c1.*", FALSE);
+			$this->db->from("customer as c1");
+			$this->db->where("customer_id",$id);
+			
+			$query = $this->db->get();
 			
 			if($query->num_rows() == 1){
 				return $query;
@@ -26,7 +30,6 @@ as rating from service where customer_id = c1.customer_id) as rating ,c1.* from 
 		}
 
 		public function get_all(){
-			//$query = $this->db->get('customer');
 			$query = $this->db->query("select (select sum(discount_to_apply) from service where customer_id = c1.customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment)) as discount, (select (count(*)/2) from service where c1.customer_id = customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment) group by customer_id having count(*) >= 2) as num_bonus,(select active from banner join customer using (customer_id) where customer_id = c1.customer_id and active = 't') as hasbanner, c1.* from customer c1");
 			return $query;
 		}
@@ -52,51 +55,46 @@ as rating from service where customer_id = c1.customer_id) as rating ,c1.* from 
 		}	
 
 	public function get_all_related_to_keywords($like){
+		
+		$this->db->select("customer_id as id");
+		$this->db->distinct();
+		$this->db->from("tag_entry");
+		$this->db->join("tag","tag_entry.tag_id = tag.tag_id");
+		foreach($like as $word){
+			$this->db->or_like("name",$word,"both");
+		}
+		$query = $this->db->get();
 
-		$query = $this->db->query("SELECT distinct customer_id FROM tag_entry NATURAL JOIN tag WHERE name like any ('{".$like."}')");
 		return $query;
 	}
 
-	public function get_all_related_to_keywords_order_by_distance($like, $latitude, $longitude, $limit, $page){
+	public function get_all_related_to_keywords_order_by_distance($resultCustomersId, $latitude, $longitude, $limit, $page){
 
-		$query = $this->db->query("SELECT c.* , abs( 
-														sqrt(pow(latitude,2) + pow(longitude,2)) - sqrt(pow(".$latitude.",2) + pow(".$longitude.",2) ) ) 
-														/ 
-														coalesce(sum(s.rating_customer) 
-																		/ 
-																 sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5) 
-												as distancia,
-												coalesce(sum(s.rating_customer) 
-																		/ 
-																 sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5)
-														as rating
-										FROM service s RIGHT JOIN customer c USING (customer_id) 
-												WHERE c.customer_id 
-														IN 
-														(SELECT distinct customer_id 
-																	FROM tag_entry NATURAL JOIN tag 
-																				WHERE name like any ('{".$like."}') ) and c.deleted != 't'
-										GROUP BY c.customer_id ORDER BY distancia
-										LIMIT ".$limit." OFFSET ".( ($page - 1) * $limit));
+
+		$this->db->select("c.*, abs(sqrt(pow(latitude,2) + pow(longitude,2)) - sqrt(pow(".$latitude.",2) + pow(".$longitude.",2) )/ coalesce(sum(s.rating_customer) / sum( case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5)) as distancia, coalesce(sum(s.rating_customer) / sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5) as rating", TRUE);
+		$this->db->from('service as s ');
+		$this->db->join('customer as c', "c.customer_id = s.customer_id", 'right');
+		$this->db->where_in("c.customer_id",$this->utils->flatten($resultCustomersId));
+		$this->db->where("c.deleted !=", TRUE);
+		$this->db->group_by("c.customer_id");
+		$this->db->limit($limit," OFFSET".( ($page - 1) * $limit));
+
+		$query = $this->db->get();
+
 		return $query;
 	}		
-	public function get_all_related_to_keywords_order_by_them($like, $limit, $page){
+	public function get_all_related_to_keywords_order_by_them($resultCustomersId, $limit, $page){
 
-		$query = $this->db->query("SELECT c.* , 1 / coalesce(sum(s.rating_customer) / 
-																 sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5) 
-												as distancia,
-												coalesce(sum(s.rating_customer) 
-																		/ 
-																 sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5)
-														as rating
-										FROM service s RIGHT JOIN customer c USING (customer_id) 
-												WHERE c.customer_id 
-														IN 
-														(SELECT distinct customer_id 
-																	FROM tag_entry NATURAL JOIN tag 
-																				WHERE name like any ('{".$like."}') )
-										GROUP BY c.customer_id ORDER BY distancia
-										LIMIT ".$limit." OFFSET ".( ($page - 1) * $limit));
+		$this->db->select("c.* , 1 / coalesce(sum(s.rating_customer) / sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5) as distancia, coalesce(sum(s.rating_customer) / sum(case when coalesce(s.rating_customer,0) = 0 then 0 else 1 end) , 2.5) as rating", TRUE);
+		$this->db->from('service as s ');
+		$this->db->join('customer as c', "c.customer_id = s.customer_id", 'right');
+		$this->db->where_in("c.customer_id",$this->utils->flatten($resultCustomersId));
+		$this->db->where("c.deleted !=", TRUE);
+		$this->db->group_by("c.customer_id");
+		$this->db->limit($limit," OFFSET".( ($page - 1) * $limit));
+
+		$query = $this->db->get();
+
 		return $query;
 	}	
 
@@ -134,8 +132,13 @@ as rating from service where customer_id = c1.customer_id) as rating ,c1.* from 
 
 	public function get_by_my_bookmarks($app_user_id){
 
-		$query = $this->db->query("select (select count(*) from service where customer_id = c1.customer_id and status = 'FINALIZED') as finalized_services, (select coalesce(sum(rating_customer)/sum(case when coalesce(rating_customer,0) = 0 then 0 else 1 end) , 2.5)
-as rating from service where customer_id = c1.customer_id) as rating ,c1.* from customer as c1 natural join bookmark as b1 where b1.app_user_id = ".$app_user_id);
+		$this->db->select("(select count(*) from service where customer_id = c1.customer_id and status = 'FINALIZED') as finalized_services, (select coalesce(sum(rating_customer)/sum(case when coalesce(rating_customer,0) = 0 then 0 else 1 end) , 2.5)
+as rating from service where customer_id = c1.customer_id) as rating ,c1.* ");
+		$this->db->from("customer as c1");
+		$this->db->join("bookmark as b1","c1.customer_id = b1.customer_id","right");
+		$this->db->where("b1.app_user_id", $app_user_id);
+
+		$query = $this->db->get();
 
 		return $query;
 		
