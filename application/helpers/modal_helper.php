@@ -40,7 +40,7 @@ if ( ! function_exists('confirmation_modal')){
 
 if ( ! function_exists('get_creation_service_modal')){
 
-    function get_creation_service_modal($id, $controller_path, $max_discount){
+    function get_creation_service_modal($id, $controller_path){
 		$modal = '
 			<!-- Modal -->
 			<div id="creation_service_modal_'.$id.'" class="modal fade" role="dialog">
@@ -57,12 +57,7 @@ if ( ! function_exists('get_creation_service_modal')){
 					<div class="form-group">
 						<label>'.lang('service_description').'</label>
 						<textarea name="description" class="form-control" form="serviceForm'.$id.'" placeholder="'.lang('modals_enter_description').'" rows="3"></textarea>
-						<input type="checkbox" name="want_discount" value="" onclick='."'".'hideShowDiv("input_discount'.$id.'")'."'".'>'.lang("service_want_discount").'<br>
-						<div id="input_discount'.$id.'" class="hidden">
-						<input type="text" name="discount"><b>'.lang("service_discount_avialable").'('.$max_discount.' €)</b>
 						<input type="hidden" name="customer_id" value="'.$id.'">
-						<input type="hidden" name="max_discount" value="'.$max_discount.'">
-						</div>
 					</div>
 				  </div>
 				  <div class="modal-footer">
@@ -76,6 +71,40 @@ if ( ! function_exists('get_creation_service_modal')){
 		';
         return $modal;
     }   
+
+}
+if ( ! function_exists('get_add_discount_modal')){
+	function get_add_discount_modal($id, $controller_path, $max_discount){
+		$modal = '
+			<!-- Modal -->
+			<div id="add_discount_'.$id.'" class="modal fade" role="dialog">
+			  <div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+				  <div class="modal-header modalHeader-background-color">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">'.lang('modals_add_discount_title').'</h4>
+				  </div>
+				  <form action="'.$controller_path.'" id="serviceForm'.$id.'" method="POST">
+				  <div class="modal-body">
+					<div class="form-group">
+						<input type="text" name="discount"><b>'.lang("service_discount_avialable").'('.$max_discount.' €)</b>
+						<input type="hidden" name="max_discount" value="'.$max_discount.'">
+						<input type="hidden" name="service_id" value="'.$id.'">
+					</div>
+				  </div>
+				  <div class="modal-footer">
+				    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">'.lang('modals_change_image_cancel').'</button>
+				    <input type="submit" class="btn btn-success" value="'.lang('modals_create').'">
+				  </div>
+				  </form>
+				</div>
+			  </div>
+			</div>
+		';
+		return $modal;
+	}
 }
 
 if ( ! function_exists('get_upload_image_modal')){

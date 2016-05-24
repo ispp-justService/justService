@@ -32,6 +32,8 @@ $lang['error_user_deactivated']		= "The User is desactivated, sorry";
 $lang['error_user_not_found']		= "Can not find that User";
 $lang['error_bookmarking_customer']		= "Error at bookmarking a customer";
 $lang['error_unbookmarking_customer']	= "Error at unbookmark a customer";
+$lang['error_form_add_discount']	= "Incorrect discount value or greater than the available discount";
+$lang['error_add_discount']			= "Error at adding the discount";
 
 // Admin Controller
 $lang['error_deactivating_customer']= "Error at deactivating the customer";
@@ -39,5 +41,6 @@ $lang['error_deactivating_user']	= "Error at deactivating the user";
 $lang['error_user_banner']			= "Error at use the banner, sorry";
 $lang['error_deactivating_banner']	= "Error at deactivating the banner, sorry";
 $lang['error_create_banner']		= "There was an error about creating a banner, sorry";
+
 
 

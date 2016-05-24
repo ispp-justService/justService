@@ -32,6 +32,8 @@ $lang['error_user_deactivated']		= "El usuaio está desactivado, lo sentimos";
 $lang['error_user_not_found']		= "No se pudo encontrar al usuario";
 $lang['error_bookmarking_customer']		= "Error al marcar como favorito al cliente";
 $lang['error_unbookmarking_customer']	= "Error al desmarcar como favorito al cliente";
+$lang['error_form_add_discount']	= "Valor del descuento erróneo o mayor que el máximo disponible";
+$lang['error_add_discount']			= "Error al applicar el descuento";
 
 // Admin Controller
 $lang['error_deactivating_customer']= "Error al desactivar al cliente";

@@ -19,3 +19,6 @@ $lang['modals_change_image_cancel'] = "Cancel";
 $lang['modals_change_image_upload'] = "Upload";
 
 $lang['modals_create'] = "Create";
+
+$lang['modals_add_discount_title'] = "Add a discount for this service";
+

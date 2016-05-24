@@ -5,17 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Service extends CI_Controller {
 
-	public function request(){
-		$role 	= $this->session->role;
-		$id 	= $this->session->id;
-		if(isset($role) && $role == 'APP_USER' && isset($id)){
-			$data['customer_id'] = $this->input->post('customer_id');	
-			$this->render->renderView('service/request',$data);
-		}else{
-			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
-		}	
-	}
-
 	public function search(){
 
 		// Obtenemos el texto de búsqueda por GET

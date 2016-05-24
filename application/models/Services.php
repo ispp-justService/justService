@@ -47,7 +47,7 @@ class Services extends CI_Model {
 		}
 	}
 
-	public function create_pending_service($user_id, $customer_id, $description, $discount){
+	public function create_pending_service($user_id, $customer_id, $description){
 
 		$this->db->trans_begin();
 
@@ -59,8 +59,7 @@ class Services extends CI_Model {
 				   	'description' 		=> $description ,
 				   	'status' 			=> 'PENDING' ,
 				   	'customer_id' 		=> $customer_id,
-					'app_user_id' 		=> $user_id,
-					'discount_to_apply' => $discount
+					'app_user_id' 		=> $user_id
 				);
 
 		$this->db->insert('service', $data);
@@ -68,13 +67,6 @@ class Services extends CI_Model {
 		// Recojo el número posterior
 		$next_number = $this->get_all_by_user($user_id)->num_rows();
 	
-		if($discount > 0.00){
-			// Si se ha introducido algún descuento, lo restamos de lo que tenga le usuario.
-			
-			$this->db->set('discount','discount - '.$discount, FALSE);
-			$this->db->where('app_user_id',$user_id);
-			$this->db->update('app_user');
-		}
 		if ($this->db->trans_status() === FALSE || !($next_number > $prev_number)){
 			$this->db->trans_rollback();
 			return FALSE;
@@ -83,6 +75,24 @@ class Services extends CI_Model {
 			$this->db->trans_commit();
 			return TRUE;
 		}
+	}
+
+	public function add_discount($id, $app_user_id, $discount){
+		$this->db->trans_start();
+		
+		// Actualizar el descuento en el servicio
+		$this->db->set('discount_to_apply', $discount);
+		$this->db->where('service_id',$id);
+		$this->db->update('service');
+
+		// Actualizar el descuento en el usuario
+		$this->db->set('discount','discount - '.$discount, FALSE);
+		$this->db->where('app_user_id',$app_user_id);
+		$this->db->update('app_user');
+		
+		$this->db->trans_complete();
+
+		return $this->db->trans_status();
 	}
 
 	public function activate_service($id, $customer_id){

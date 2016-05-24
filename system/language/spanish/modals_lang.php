@@ -19,4 +19,6 @@ $lang['modals_change_image_upload'] = "Guardar";
 
 $lang['modals_create'] = "Crear";
 
+$lang['modals_add_discount_title'] = "Añade un descuento para este servicio";
+
 

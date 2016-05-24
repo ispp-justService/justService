@@ -227,6 +227,16 @@
 									<?php endif; ?>
 								<?php endif; ?>
 							<?php endif; ?>
+							<?php if($service->status == 'ACTIVE' && $this->session->role == "APP_USER" && !$service->discount_to_apply): ?>
+								<tr>
+									<td>
+										<button type="button" class="btn btn-info btn-md pull-left" data-toggle="modal" 
+											data-target='#<?php echo "add_discount_".$service->service_id ?>'><?php echo lang('service_add_discount') ?></button>
+										<?php echo get_add_discount_modal($service->service_id,
+											site_url("app_user/add_discount_to_service/".$service->service_id), $user_discount) ?>
+									</td>
+								</tr>
+							<?php endif; ?>
 							<?php if($service->status == 'ACTIVE' && $this->session->role == "CUSTOMER"): ?>
 								<tr>
 									<td>

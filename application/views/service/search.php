@@ -58,7 +58,7 @@
 								class="btn btn-md buttonRed" 
 								data-toggle="modal" 
 								data-target='#<?php echo "creation_service_modal_".$customer->customer_id ?>'><?php echo lang('service_request_service') ?></button>
-						<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService'), $user_discount) ?>
+						<?php echo get_creation_service_modal($customer->customer_id , site_url('app_user/createPendingService')) ?>
 					<?php endif; ?>
 				</div>
 		   </div><!-- /panel-body-->

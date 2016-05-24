@@ -15,9 +15,40 @@ class App_user extends CI_Controller {
 		if(isset($role) && $role == 'APP_USER' && isset($id)){
 			$this->load->model('services');
 			$result = $this->services->get_all_by_user($id);
+
+			$this->load->model("app_users");
+			$user = $this->app_users->find_app_user($this->session->id);
+			$data['user_discount'] = $user->row()->discount; 
 			
 			$data['services'] = $result->result();
 			$this->render->renderView('service/list',$data);
+		}else{
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
+		}
+	}
+
+	public function add_discount_to_service(){
+		$role = $this->session->role;
+		$id = $this->session->id;
+		
+		if(isset($role) && $role == 'APP_USER' && isset($id)){
+			$this->load->library("app_user_utils");
+			$checkForm = $this->app_user_utils->checkAddDiscountForm();
+			if($checkForm == FALSE){
+				$this->render->renderViewWithError('main/main',lang("error_form_add_discount"));
+			}else{
+				$discount 		= $this->input->post('discount');
+				$service_id 	= $this->input->post('service_id');
+
+				$this->load->model('services');
+		
+				$result = $this->services->add_discount($service_id, $id, $discount);
+				if($result){
+					redirect('app_user/servicesList');
+				}else{
+					$this->render->renderViewWithError('main/main',lang("error_add_discount"));
+				}
+			}		
 		}else{
 			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
 		}
@@ -68,14 +99,13 @@ class App_user extends CI_Controller {
 
 				$customer_id 	= $this->input->post('customer_id');
 				$description 	= $this->input->post('description');
-				$discount		= $this->input->post('discount');
 
 				if(!$discount){
 					$discount = 0.00;
 				}
 				$this->load->model('services');
 
-				$result = $this->services->create_pending_service($user_id, $customer_id, $description, $discount);
+				$result = $this->services->create_pending_service($user_id, $customer_id, $description);
 
 				if($result == TRUE){
 					redirect('app_user/servicesList');
@@ -175,10 +205,6 @@ class App_user extends CI_Controller {
 			$result = $this->customers->get_by_my_bookmarks($id);
 				
 			$data['customers'] = $result->result();
-
-			$this->load->model("app_users");
-			$user = $this->app_users->find_app_user($this->session->id);
-			$data['user_discount'] = $user->row()->discount;
 
 			$this->render->renderView('app_user/myBookmarks',$data);
 		}else{

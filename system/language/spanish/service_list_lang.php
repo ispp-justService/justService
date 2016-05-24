@@ -31,3 +31,6 @@ $lang['service_request_service'] = "Solicitar Servicio";
 $lang['service_customers_can_help_you'] = "Profesionales que te podrían ayudar";
 $lang['service_want_discount'] = "¿Quieres aplicar algún descuento?";
 $lang['service_discount_avialable'] = "Disponible";
+
+$lang['service_add_discount'] = "Aplica un descuento";
+

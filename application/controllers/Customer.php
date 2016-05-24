@@ -37,12 +37,6 @@ class Customer extends CI_Controller {
 
 					$data['comments'] = $result->result();
 
-					if($this->session->role && $this->session->role == "APP_USER"){
-						$this->load->model("app_users");
-						$user = $this->app_users->find_app_user($this->session->id);
-						$data['user_discount'] = $user->row()->discount;
-					}
-
 					$this->render->renderView('customer/profile',$data);
 				}else{
 					$this->render->renderViewWithError('main/main',lang("error_customer_deactivated"));

@@ -8,11 +8,13 @@
 				<?php else: ?>
 			   		<img src="<?php echo base_url("assets/img/avatar-logo.png"); ?>" style="margin-top:80px" id="logo" wight ="200px" height="200px"/><br />
 				<?php endif; ?>
-				<div class="ratingShow">
-				<?php for ($i=0 ; $i < $user->rating; $i++){
-					echo '<span>&#9733</span>';
-				}?>
-				</div>
+				<?php if($this->session->role == "CUSTOMER" ): ?>
+					<div class="ratingShow">
+					<?php for ($i=0 ; $i < $user->rating; $i++){
+						echo '<span>&#9733</span>';
+					}?>
+					</div>
+				<?php endif; ?>
 				<br/>
 				<?php if($this->session->id == $user->app_user_id && $this->session->role == "APP_USER"): ?>
 					<button type="button" 
@@ -67,7 +69,7 @@
 			</div>
 		</div>
 		<?php endif; ?>
-	<?php if($comments): ?>
+	<?php if($comments && $this->session->role == "CUSTOMER"): ?>
 		<div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-6 col-centered" >
 		<h3><?php echo lang('profile_customers_comments') ?></h3>

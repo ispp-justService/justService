@@ -32,4 +32,6 @@ $lang['service_customers_can_help_you'] = "Professionals who can help you";
 $lang['service_want_discount'] = "Want to apply any discount?";
 $lang['service_discount_avialable'] = "Available";
 
+$lang['service_add_discount'] = "Apply a discount";
+
 
