@@ -37,6 +37,9 @@ class Customer extends CI_Controller {
 
 					$data['comments'] = $result->result();
 
+					$progress = $this->customers->progress_this_month_by_customer($id);
+					$data['progress'] = $progress->row();
+
 					$this->render->renderView('customer/profile',$data);
 				}else{
 					$this->render->renderViewWithError('main/main',lang("error_customer_deactivated"));

@@ -22,6 +22,21 @@ as rating from service where customer_id = c1.customer_id) as rating ,c1.*", FAL
 			}
 		}
 
+		public function progress_this_month_by_customer($id){
+
+			$this->db->select("(select sum(discount_to_apply) from service where customer_id = c1.customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment)) as discount, (select (count(*)/2) from service where c1.customer_id = customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment) group by customer_id having count(*) >= 2) as num_bonus,(select active from banner join customer using (customer_id) where customer_id = c1.customer_id and active = 't') as hasbanner");
+			$this->db->from("customer as c1");
+			$this->db->where("c1.customer_id", $id);
+			$query	= $this->db->get();
+
+			if($query->num_rows() == 1){
+				return $query;
+			}else{
+				return FALSE;
+			}
+
+		}
+
 		public function register_customer($data){
 			
 			$this->db->insert('customer',$data);

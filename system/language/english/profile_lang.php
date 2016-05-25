@@ -42,6 +42,8 @@ $lang['profile_customer_price'] = "Payment for this month";
 
 $lang['profile_other_user_profile'] = "Profile of";
 
+$lang['profile_payment_this_month'] = "Payment for this month";
+
 
 
 

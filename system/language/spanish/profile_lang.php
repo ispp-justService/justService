@@ -42,3 +42,4 @@ $lang['profile_other_user_profile'] = "Perfil de ";
 
 $lang['profile_finalized_services'] = "Servicios finalizados";
 
+$lang['profile_payment_this_month'] = "Pago para este mes";

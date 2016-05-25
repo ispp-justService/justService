@@ -81,15 +81,35 @@
 		     		</div>
 			</div>
 		</div>
-		<div class="row">
-			<?php if($this->session->role == "ADMINISTRATOR" || $this->session->role == "CUSTOMER"): ?>
-				<div class="col-md-6 col-lg-6">
-					<div class="form-group">
-	  				  <label for="email">Email: </label>&nbsp;<?php echo $customer->email ?>
-				 		</div>
-				</div>
-			<?php endif; ?>
-		</div>
+		<?php if($this->session->role == "ADMINISTRATOR" || $this->session->role == "CUSTOMER"): ?>
+			<div class="row">			
+					<div class="col-md-6 col-lg-6">
+						<div class="form-group">
+		  				  <label for="email">Email: </label>&nbsp;<?php echo $customer->email ?>
+					 		</div>
+					</div>		
+			</div>
+			<div class="row">			
+					<div class="col-md-6 col-lg-6">
+						<div class="form-group">
+		  				  <label for="payment"><?php echo lang('profile_payment_this_month') ?>: </label>&nbsp;
+							<?php if($customer->type == "Business"): ?>
+								<?php if($progress->hasbanner): ?>
+									<?php echo (45+150+($progress->num_bonus * 40)) - $progress->discount?> €
+								<?php else: ?>
+									<?php echo (45+($progress->num_bonus * 40)) - $progress->discount?> €
+								<?php endif; ?>
+							<?php else: ?>
+								<?php if($progress->hasbanner): ?>
+									<?php echo (15+50+($progress->num_bonus * 10)) - $progress->discount?> €
+								<?php else: ?>
+									<?php echo (15+($progress->num_bonus * 10)) - $progress->discount?> €
+								<?php endif; ?>
+							<?php endif; ?>
+					 	</div>
+					</div>		
+			</div>
+		<?php endif; ?>
 		<?php if($this->session->role == "APP_USER"): ?>
 			<div class="row">
 			  <div class="col-md-6 col-lg-6">

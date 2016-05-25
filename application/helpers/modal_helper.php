@@ -89,14 +89,15 @@ if ( ! function_exists('get_add_discount_modal')){
 				  <form action="'.$controller_path.'" id="serviceForm'.$id.'" method="POST">
 				  <div class="modal-body">
 					<div class="form-group">
-						<input type="text" name="discount"><b>'.lang("service_discount_avialable").'('.$max_discount.' €)</b>
+						<input type="text" name="discount"><b> '.lang("service_discount_avialable").'('.$max_discount.' €)</b>
+						<h5>'.lang("modals_info_discount").'</h5>
 						<input type="hidden" name="max_discount" value="'.$max_discount.'">
 						<input type="hidden" name="service_id" value="'.$id.'">
 					</div>
 				  </div>
 				  <div class="modal-footer">
 				    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">'.lang('modals_change_image_cancel').'</button>
-				    <input type="submit" class="btn btn-success" value="'.lang('modals_create').'">
+				    <input type="submit" class="btn btn-success" value="'.lang('modals_apply').'">
 				  </div>
 				  </form>
 				</div>

@@ -21,4 +21,6 @@ $lang['modals_create'] = "Crear";
 
 $lang['modals_add_discount_title'] = "Añade un descuento para este servicio";
 
+$lang['modals_apply'] = "Aplicar";
 
+$lang['modals_info_discount'] = "El valor introducido debe de ser número y no superior al máximo disponible";
