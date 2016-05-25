@@ -102,6 +102,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		background-color: #FF1F1F;
 		border-color: #FF1F1F;
 	   }
+	   .buttonBlackWhite{
+		color: #FFFFFF;
+		background-color: #000000;
+		border-color: #000000;
+	   }
+	   .buttonBlackWhite:hover, .buttonBlack:focus{
+		color: #FFFFFF;
+		background-color: #1E1E1E;
+		text-decoration: none;
+		    text-decoration-color: -moz-use-text-color;
+		    text-decoration-line: none;
+		    text-decoration-style: solid;
+	   }
            .buttonBlack:hover, .buttonBlack:focus{
 		color: #FF1F1F;
 		text-decoration: none;
@@ -196,7 +209,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	  <ul class="nav navbar-nav navbar-user navbar-left" style="margin-top: 4px;">
 	   <li class="dropdown language-dropdown">
-		<ul class="dropdown-menu headerDropdown">	
+		<ul class="dropdown-menu headerDropdown" style="font-size: 20px; ">	
 			<li><a href="<?php echo site_url('main/changeLanguage/spanish') ?>"><div class="flag flag-es"></div><?php echo lang('header_spanish');?></a></li>
 			<li><a href="<?php echo site_url('main/changeLanguage/english') ?>"><div class="flag flag-gb"></div><?php echo lang('header_english');?></a></li>
 		</ul>
@@ -225,7 +238,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?php if($this->session->role == "ADMINISTRATOR"): ?>
 			<ul class="nav navbar-nav navbar-user navbar-right" style="margin-top: 4px;">
 			   <li class="dropdown user-dropdown">
-				<ul class="dropdown-menu headerDropdownRight">
+				<ul class="dropdown-menu headerDropdownRight" style="font-size: 20px; ">
 					<li><i class="fa fa-tachometer fa-5x" aria-hidden="true"></i></li>
 					<li><a href="<?php echo site_url('admin/usersList') ?>"><?php echo lang('header_users_list') ?></a></li>
 					<li class="divider" role="separator"></li>
@@ -239,7 +252,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?php elseif($this->session->role == "CUSTOMER"): ?>
 			<ul class="nav navbar-nav navbar-user navbar-right" style="margin-top: 4px;">
 			   <li class="dropdown user-dropdown">
-				<ul class="dropdown-menu headerDropdownRight">
+				<ul class="dropdown-menu headerDropdownRight" style="font-size: 20px; ">
 					<li><img src="<?php echo base_url($this->session->userdata('photo')); ?>" class="img-circle" id="logo" wight ="75px" height="75px"/></li>
 					<li><a href="<?php echo site_url('customer/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></li>
 					<li class="divider" role="separator"></li>
@@ -254,7 +267,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?php elseif($this->session->role == "APP_USER"): ?>
 			<ul class="nav navbar-nav navbar-user navbar-right" style="margin-top: 4px;">
 			   <li class="dropdown user-dropdown">
-				<ul class="dropdown-menu headerDropdownRight">
+				<ul class="dropdown-menu headerDropdownRight" style="font-size: 20px; ">
 					<li><img src="<?php echo base_url($this->session->userdata('photo')); ?>" class="img-circle" id="logo" wight ="75px" height="75px"/></li>
 					<li><a href="<?php echo site_url('app_user/showProfile/'.$this->session->id) ?>"><?php echo lang('header_profile'); ?></a></li>
 					<li class="divider" role="separator"></li>
