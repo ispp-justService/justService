@@ -61,7 +61,7 @@ if ( ! function_exists('get_creation_service_modal')){
 					</div>
 				  </div>
 				  <div class="modal-footer">
-				    <button type="button" class="btn buttonBlackWhite pull-left" data-dismiss="modal">'.lang('modals_change_image_cancel').'</button>
+				    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">'.lang('modals_change_image_cancel').'</button>
 				    <input type="submit" class="btn btn-success" value="'.lang('modals_create').'">
 				  </div>
 				  </form>
@@ -96,7 +96,7 @@ if ( ! function_exists('get_add_discount_modal')){
 					</div>
 				  </div>
 				  <div class="modal-footer">
-				    <button type="button" class="btn buttonBlackWhite pull-left" data-dismiss="modal">'.lang('modals_change_image_cancel').'</button>
+				    <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">'.lang('modals_change_image_cancel').'</button>
 				    <input type="submit" class="btn btn-success" value="'.lang('modals_apply').'">
 				  </div>
 				  </form>
@@ -131,7 +131,7 @@ if ( ! function_exists('get_upload_image_modal')){
 						</div>
 					<div class="modal-footer">
 
-						<button type="button" class="btn buttonBlackWhite pull-left" data-dismiss="modal">'.lang('modals_change_image_cancel').'</button>
+						<button type="button" class="btn btn-danger pull-left" data-dismiss="modal">'.lang('modals_change_image_cancel').'</button>
 						<input type="submit" class="btn btn-success" value="'.lang('modals_change_image_upload').'">
 						</div>
 						</form>
