@@ -83,6 +83,16 @@ as rating from service where customer_id = c1.customer_id) as rating ,c1.*", FAL
 		return $query;
 	}
 
+	public function get_ranking_business(){
+		$query = $this->db->query("select c1.*,coalesce((select count(*) from service where status = 'FINALIZED' and customer_id = c1.customer_id group by customer_id),0) as servicios_finalizados from customer as c1 where type = 'Business' order by servicios_finalizados desc limit 3");
+		return $query;
+	}
+
+	public function get_ranking_freelance(){
+		$query = $this->db->query("select c1.*,coalesce((select count(*) from service where status = 'FINALIZED' and customer_id = c1.customer_id group by customer_id),0) as servicios_finalizados from customer as c1 where type = 'Freelance' order by servicios_finalizados desc limit 5");
+		return $query;
+	}
+
 	public function get_all_related_to_keywords_order_by_distance($resultCustomersId, $latitude, $longitude, $limit, $page){
 
 

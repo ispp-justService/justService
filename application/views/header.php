@@ -227,6 +227,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			   <li class="dropdown user-dropdown">
 				<ul class="dropdown-menu headerDropdownRight">
 					<li><i class="fa fa-tachometer fa-5x" aria-hidden="true"></i></li>
+					<li class="divider" role="separator"></li>
+					<li><a href="<?php echo site_url('admin/dashboard') ?>"><?php echo lang('header_dashboard') ?></a></li>
+					<li class="divider" role="separator"></li>
 					<li><a href="<?php echo site_url('admin/usersList') ?>"><?php echo lang('header_users_list') ?></a></li>
 					<li class="divider" role="separator"></li>
 					<li><a href="<?php echo site_url('admin/signupCustomer') ?>"><?php echo lang('header_customers_signup') ?></a></li>

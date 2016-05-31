@@ -165,6 +165,26 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function dashboard(){
+		$role = $this->session->role;
+		
+		if(isset($role) && $role == "ADMINISTRATOR"){
+		
+			$this->load->model("customers");
+
+			$rankingBusiness = $this->customers->get_ranking_business()->result();
+			$rankingFreelance = $this->customers->get_ranking_freelance()->result();
+
+			$data['rankingBusiness'] = $rankingBusiness;
+			$data['rankingFreelance'] = $rankingFreelance;
+			
+			$this->render->renderView("admin/dashboard",$data);
+
+		}else{
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));			
+		}
+	}
+
 	public function useBanner(){
 		
 		$role 			= $this->session->role;

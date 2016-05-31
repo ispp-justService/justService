@@ -26,6 +26,8 @@ $lang['admin_banner_deactivated'] = "Banner eliminado";
 $lang['admin_user_banner'] = "Usar este banner";
 $lang['admin_already_using_banner'] = "Ya se está usando este Banner.";
 
-
-
+$lang['admin_dashboard'] = "Dashboard";
+$lang['admin_ranking_business'] = "Ranking de empresas";
+$lang['admin_ranking_freelance'] = "Ranking de autónomos";
+$lang['admin_finalized_services'] = "Servicios finalizados";
 

@@ -25,3 +25,10 @@ $lang['admin_banner_deactivated'] = "Banner deleted";
 $lang['admin_user_banner'] = "Use this banner";
 $lang['admin_already_using_banner'] = "Already using this banner.";
 
+$lang['admin_dashboard'] = "Dashboard";
+$lang['admin_ranking_business'] = "Business's ranking";
+$lang['admin_ranking_freelance'] = "Freelance's ranking";
+$lang['admin_finalized_services'] = "Finalized services";
+
+
+

@@ -22,6 +22,10 @@ $lang['header_spanish'] = "Spanish";
 $lang['header_cookieMessage'] = "This website uses cookies to ensure you get the best experience on our website";
 $lang['header_cookieButton'] = "Accept";
 
+$lang['header_dashboard'] = "Dashboard";
+
+
+
 
 
 
