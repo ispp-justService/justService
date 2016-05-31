@@ -14,7 +14,6 @@
 				}?>
 				</div>
 				</br>
-				<?php echo lang('profile_finalized_services')?>: <?php echo $customer->finalized_services ?>
 				<?php if($this->session->id == $customer->customer_id  && $this->session->role == "CUSTOMER" ): ?>
 					<button type="button" 
 										class="btn btn-info btn-md" 
@@ -31,7 +30,8 @@
 		<div class="row">
 			<div class="col-md-6 col-lg-6">
 				<?php if($this->session->role == "CUSTOMER" ): ?>
-				<h3><?php echo lang('profile_my_profile') ?></h3>
+				<h2><?php echo lang('profile_my_profile') ?></h2>
+
 				<?php else: ?>
 				<h3><?php echo lang('profile_customer_profile').' '.$customer->name ?></h3>			
 				<?php endif; ?>
@@ -49,6 +49,60 @@
 				<?php endif; ?>
 			</div>
 		</div>
+				<?php if($this->session->role == "ADMINISTRATOR" || ($this->session->role == "CUSTOMER" && $this->session->id == $customer->customer_id)): ?>
+				<h3><?php echo lang('profile_my_progress')?></h3>
+				<hr>
+				
+				<?php if($servicios_por_delante != 0): ?>
+				<div class="row">
+					<div class="col-md-6 col-lg-6">
+						<div class="form-group">
+							<label for="type"><?php echo lang('profile_services_next')?>: </label>
+							&nbsp;<?php echo $posicion?> (<?php echo $servicios_por_delante ?> Services)
+						</div>
+					</div>
+				</div>
+				<?php endif; ?>
+				<div class="row">
+					<div class="col-md-6 col-lg-6">
+						<div class="form-group">
+							<label for="type"><?php echo lang('profile_my_position')?>: </label>
+							&nbsp;<?php echo $posicion+1?> (<?php echo $customer->finalized_services ?> <?php echo lang('profile_services') ?>)
+						</div>
+					</div>
+				</div>
+				<?php if($servicios_por_detras != 0): ?>
+				<div class="row">
+					<div class="col-md-6 col-lg-6">
+						<div class="form-group">
+							<label for="type"><?php echo lang('profile_services_before')?>: </label>
+							&nbsp;<?php echo $posicion+2?> (<?php echo $servicios_por_detras ?> <?php echo lang('profile_services') ?>)
+						</div>
+					</div>
+				</div>
+				<?php endif; ?>
+			<div class="row">			
+					<div class="col-md-6 col-lg-6">
+						<div class="form-group">
+		  				  <label for="payment"><?php echo lang('profile_payment_this_month') ?>: </label>&nbsp;
+							<?php if($customer->type == "Business"): ?>
+								<?php if($progress->hasbanner): ?>
+									<?php echo (45+150+($progress->num_bonus * 40)) - $progress->discount?> €
+								<?php else: ?>
+									<?php echo (45+($progress->num_bonus * 40)) - $progress->discount?> €
+								<?php endif; ?>
+							<?php else: ?>
+								<?php if($progress->hasbanner): ?>
+									<?php echo (15+50+($progress->num_bonus * 10)) - $progress->discount?> €
+								<?php else: ?>
+									<?php echo (15+($progress->num_bonus * 10)) - $progress->discount?> €
+								<?php endif; ?>
+							<?php endif; ?>
+					 	</div>
+					</div>		
+			</div>
+			<?php endif; ?>	
+			<h3><?php echo lang('profile_personal_data')?></h3>
 			<hr>
 		<div class="row">
 			<div class="col-md-6 col-lg-6">
@@ -87,26 +141,6 @@
 						<div class="form-group">
 		  				  <label for="email">Email: </label>&nbsp;<?php echo $customer->email ?>
 					 		</div>
-					</div>		
-			</div>
-			<div class="row">			
-					<div class="col-md-6 col-lg-6">
-						<div class="form-group">
-		  				  <label for="payment"><?php echo lang('profile_payment_this_month') ?>: </label>&nbsp;
-							<?php if($customer->type == "Business"): ?>
-								<?php if($progress->hasbanner): ?>
-									<?php echo (45+150+($progress->num_bonus * 40)) - $progress->discount?> €
-								<?php else: ?>
-									<?php echo (45+($progress->num_bonus * 40)) - $progress->discount?> €
-								<?php endif; ?>
-							<?php else: ?>
-								<?php if($progress->hasbanner): ?>
-									<?php echo (15+50+($progress->num_bonus * 10)) - $progress->discount?> €
-								<?php else: ?>
-									<?php echo (15+($progress->num_bonus * 10)) - $progress->discount?> €
-								<?php endif; ?>
-							<?php endif; ?>
-					 	</div>
 					</div>		
 			</div>
 		<?php endif; ?>

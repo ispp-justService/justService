@@ -40,6 +40,36 @@ class Customer extends CI_Controller {
 					$progress = $this->customers->progress_this_month_by_customer($id);
 					$data['progress'] = $progress->row();
 
+					// Cosas del ranking y tal
+					if($data['customer']->type == 'Business'){
+						$ranking = $this->customers->get_ranking_business();						
+					}else{
+						$ranking = $this->customers->get_ranking_freelance();
+					}
+					
+					$porDelante = 0;
+					$porDetras	= 0;
+					$miPosicion = 0;
+
+					for($i = 0; $i < $ranking->num_rows(); $i++){
+
+						$row = $ranking->row($i);
+
+						if($row->customer_id == $id){
+							$miPosicion = $i;
+							if($i != 0){
+								$porDelante = $ranking->row($i -1)->servicios_finalizados;
+							}
+							if($i != $ranking->num_rows()){
+								$porDetras =  $ranking->row($i +1)->servicios_finalizados;
+							}
+						}
+					}
+
+					$data['posicion'] = $miPosicion;
+					$data['servicios_por_delante'] 	= $porDelante;
+					$data['servicios_por_detras']	= $porDetras;
+
 					$this->render->renderView('customer/profile',$data);
 				}else{
 					$this->render->renderViewWithError('main/main',lang("error_customer_deactivated"));

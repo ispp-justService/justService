@@ -43,3 +43,13 @@ $lang['profile_other_user_profile'] = "Perfil de ";
 $lang['profile_finalized_services'] = "Servicios finalizados";
 
 $lang['profile_payment_this_month'] = "Pago para este mes";
+
+$lang['profile_services_next']		= "Siguiente posición";
+$lang['profile_services_before']	= "Anterior posición";
+$lang['profile_my_position']		= "Mi posición";
+$lang['profile_my_progress']		= "Mi progreso";
+$lang['profile_personal_data']		= "Datos personales";
+$lang['profile_services']			= "Servicios";
+
+
+

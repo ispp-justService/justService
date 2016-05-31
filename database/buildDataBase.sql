@@ -49,7 +49,7 @@ CREATE TABLE service(
 	comment_user		varchar,
 	rating_customer		smallint	CHECK(rating_customer >= 0 AND rating_customer <= 5),
 	comment_customer	varchar,
-	discount_to_apply	decimal		CHECK(discount_to_apply < 50.0),
+	discount_to_apply	decimal,
 
 	customer_id		serial		REFERENCES customer(customer_id),
 	app_user_id		serial		REFERENCES app_user(app_user_id)

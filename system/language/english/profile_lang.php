@@ -44,6 +44,13 @@ $lang['profile_other_user_profile'] = "Profile of";
 
 $lang['profile_payment_this_month'] = "Payment for this month";
 
+$lang['profile_services_next']		= "Next position";
+$lang['profile_services_before']	= "Previous position";
+$lang['profile_my_position']		= "My position";
+$lang['profile_my_progress']		= "My progress";
+$lang['profile_personal_data']		= "Personal data";
+$lang['profile_services']			= "Services";
+
 
 
 
