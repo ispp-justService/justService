@@ -166,6 +166,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    }
 	}
 	
+	.test{}
+	
 	@media (min-width:768px){
 	  ul.ulDivideColumn{
 		-webkit-column-count: 3;
@@ -174,6 +176,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	   }
 	  ul.headerDropdown{margin-left: -50px;}
 	  ul.headerDropdownRight{margin-right: -225px;}
+	  button.buttonDown{margin-top: 128px;}
 	}
 
 	#panel-heading-size{ font-size: 16px; }

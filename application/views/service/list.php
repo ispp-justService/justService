@@ -266,7 +266,7 @@
 							</div>
 						</div>
 						<div class="col-md-2">
-							<button type="submit" class="btn buttonBlack pull-right"><?php echo lang('service_send') ?></button>
+							<button type="submit" class="btn buttonBlack buttonDown pull-right"><?php echo lang('service_send') ?></button>
 						</div>
 					</div>
 				</form>
@@ -284,7 +284,8 @@
 							</div>
 						</div>
 						<div class="col-md-2">
-							<button type="submit" class="btn buttonBlack pull-right"><?php echo lang('service_send') ?></button>
+							<br /><br /><br /><br /><br />
+							<button type="submit" class="btn buttonBlack buttonDown pull-right"><?php echo lang('service_send') ?></button>
 						</div>
 					</div>
 				</form>
