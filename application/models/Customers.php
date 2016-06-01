@@ -24,7 +24,7 @@ as rating from service where customer_id = c1.customer_id) as rating ,c1.*", FAL
 
 		public function progress_this_month_by_customer($id){
 
-			$this->db->select("(select sum(discount_to_apply) from service where customer_id = c1.customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment)) as discount, (select (count(*)/2) from service where c1.customer_id = customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment) group by customer_id having count(*) >= 2) as num_bonus,(select active from banner join customer using (customer_id) where customer_id = c1.customer_id and active = 't') as hasbanner");
+			$this->db->select("(select sum(discount_to_apply) from service where customer_id = c1.customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment)) as discount, (select (count(*)/2) from service where c1.customer_id = customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment) group by customer_id having count(*) >= 2) as num_bonus,(select active from banner join customer using (customer_id) where customer_id = c1.customer_id and active = 't' and mustPay = 't') as hasbanner");
 			$this->db->from("customer as c1");
 			$this->db->where("c1.customer_id", $id);
 			$query	= $this->db->get();
@@ -45,7 +45,7 @@ as rating from service where customer_id = c1.customer_id) as rating ,c1.*", FAL
 		}
 
 		public function get_all(){
-			$query = $this->db->query("select (select sum(discount_to_apply) from service where customer_id = c1.customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment)) as discount, (select (count(*)/2) from service where c1.customer_id = customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment) group by customer_id having count(*) >= 2) as num_bonus,(select active from banner join customer using (customer_id) where customer_id = c1.customer_id and active = 't') as hasbanner, c1.* from customer c1");
+			$query = $this->db->query("select (select sum(discount_to_apply) from service where customer_id = c1.customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment)) as discount, (select (count(*)/2) from service where c1.customer_id = customer_id and status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment) group by customer_id having count(*) >= 2) as num_bonus,(select active from banner join customer using (customer_id) where customer_id = c1.customer_id and active = 't' and mustPay = 't') as hasbanner, c1.* from customer c1");
 			return $query;
 		}
 
@@ -84,12 +84,12 @@ as rating from service where customer_id = c1.customer_id) as rating ,c1.*", FAL
 	}
 
 	public function get_ranking_business(){
-		$query = $this->db->query("select c1.*,coalesce((select count(*) from service where status = 'FINALIZED' and customer_id = c1.customer_id group by customer_id),0) as servicios_finalizados from customer as c1 where type = 'Business' order by servicios_finalizados desc limit 3");
+		$query = $this->db->query("select c1.*,coalesce((select count(*) from service where status = 'FINALIZED' and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment) and customer_id = c1.customer_id group by customer_id),0) as servicios_finalizados from customer as c1 where type = 'Business' order by servicios_finalizados desc limit 3");
 		return $query;
 	}
 
 	public function get_ranking_freelance(){
-		$query = $this->db->query("select c1.*,coalesce((select count(*) from service where status = 'FINALIZED' and customer_id = c1.customer_id group by customer_id),0) as servicios_finalizados from customer as c1 where type = 'Freelance' order by servicios_finalizados desc limit 5");
+		$query = $this->db->query("select c1.*,coalesce((select count(*) from service where status = 'FINALIZED'and date_part('month', CURRENT_TIMESTAMP) = date_part('month', finalize_moment) and customer_id = c1.customer_id group by customer_id),0) as servicios_finalizados from customer as c1 where type = 'Freelance' order by servicios_finalizados desc limit 5");
 		return $query;
 	}
 

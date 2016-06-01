@@ -7,7 +7,7 @@
 		
 		<div class="row row-centered">
 			<button type="button" 
-				class="btn btn-xl btn-info" 
+				class="btn buttonBlack btn-xl " 
 				data-toggle="modal" 
 				data-target='#modalCreateBanner'><?php echo lang('admin_create_banner') ?></button>
 		</div>

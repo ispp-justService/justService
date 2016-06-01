@@ -49,10 +49,10 @@
 				<?php endif; ?>
 			</div>
 		</div>
-				<?php if($this->session->role == "ADMINISTRATOR" || ($this->session->role == "CUSTOMER" && $this->session->id == $customer->customer_id)): ?>
+				<?php if($this->session->role == "ADMINISTRATOR" || ($this->session->role == "CUSTOMER" && $this->session->id == $customer->customer_id ) ): ?>
 				<h3><?php echo lang('profile_my_progress')?></h3>
 				<hr>
-				
+				<?php if($customer->finalized_services > 0): ?>
 				<?php if($servicios_por_delante != 0): ?>
 				<div class="row">
 					<div class="col-md-6 col-lg-6">
@@ -81,6 +81,7 @@
 					</div>
 				</div>
 				<?php endif; ?>
+				<?php endif;?>
 			<div class="row">			
 					<div class="col-md-6 col-lg-6">
 						<div class="form-group">
@@ -183,7 +184,7 @@
 						  }
 					   ?>
 				</p>
-				<p><?php echo lang('profile_comment') ?>:<?php echo $comment->comment ?></p>
+				<p><?php echo lang('profile_comment') ?>: <?php echo $comment->comment ?></p>
 				</div>
 			<?php endforeach; ?>
 		<?php endif; ?>

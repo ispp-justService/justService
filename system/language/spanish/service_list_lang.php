@@ -11,6 +11,7 @@ $lang['service_no_discount'] = "Ninguno";
 $lang['service_cancel_service'] = "Cancelar Servicio";
 $lang['service_active_service'] = "Activar Servicio";
 $lang['service_users_rate'] = "La valoración que hizo el usuario";
+$lang['service_users_comment'] = "El comentario que hizo el usuario";
 $lang['service_comment_customer'] = "Comentario del profesional";
 $lang['service_rate_user'] = "Valora al usuario";
 $lang['service_your_rate_user'] = "Su valoración para este usuario";

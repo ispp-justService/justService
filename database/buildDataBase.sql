@@ -62,6 +62,7 @@ CREATE TABLE banner(
 	image		varchar		NOT NULL,
 	delete		bool		NOT NULL DEFAULT false,
 	active		bool		NOT NULL DEFAULT false,
+	mustpay		bool		NOT NULL DEFAULT true,
 	moment		timestamp	NOT NULL DEFAULT current_timestamp,
 
 	customer_id	serial		REFERENCES customer(customer_id)

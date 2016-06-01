@@ -34,10 +34,13 @@ class App_user extends CI_Controller {
 		if(isset($role) && $role == 'APP_USER' && isset($id)){
 			$this->load->library("app_user_utils");
 			$checkForm = $this->app_user_utils->checkAddDiscountForm();
-			if($checkForm == FALSE){
+		
+			$discount 		= $this->input->post('discount');
+			$max_discount	= $this->input->post('max_discount');
+
+			if($checkForm == FALSE || $discount > $max_discount){
 				$this->render->renderViewWithError('main/main',lang("error_form_add_discount"));
 			}else{
-				$discount 		= $this->input->post('discount');
 				$service_id 	= $this->input->post('service_id');
 
 				$this->load->model('services');
@@ -48,6 +51,7 @@ class App_user extends CI_Controller {
 				}else{
 					$this->render->renderViewWithError('main/main',lang("error_add_discount"));
 				}
+			
 			}		
 		}else{
 			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));

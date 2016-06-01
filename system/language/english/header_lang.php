@@ -13,8 +13,8 @@ $lang['header_sign_in'] = 'Sign in';
 $lang['header_sign_up'] = 'Sign up';
 $lang['header_manage_tags'] = 'Manage Tags';
 $lang['header_users_list'] = "User's List";
-$lang['header_customers_list'] = "Customer's List";
-$lang['header_customers_signup'] = "Customer's Signup";
+$lang['header_customers_list'] = "Profesional's List";
+$lang['header_customers_signup'] = "Profesional's Signup";
 
 $lang['header_choose_lang'] = "Languages";
 $lang['header_english'] = "English";

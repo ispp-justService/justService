@@ -108,6 +108,44 @@ class Admin extends CI_Controller {
 		}	
 	}
 
+	public function createFreeBanner(){
+		$role 			= $this->session->role;
+
+		$data['customer_id'] 	= $this->input->post("customer_id");
+		$data['name'] 			= $this->input->post("name");
+
+		if(isset($role) && $role == "ADMINISTRATOR"){
+
+			$config['upload_path'] = '././assets/uploads/';
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$config['max_size']	= '100';
+			$config['max_width']  = '1024';
+			$config['max_height']  = '768';
+
+			$this->load->library('upload', $config);
+
+			if ( ! $this->upload->do_upload('image')){
+				//echo ;
+				$this->render->renderViewWithError('main/main',lang("error_uploading_image"));	
+			}else{
+				$image_name = $this->upload->data()['file_name'];
+				$data['image'] = '././assets/uploads/'.$image_name;
+				$data['mustpay'] = FALSE;
+				$this->load->model('banners');
+				$result = $this->banners->create_free_banner($data);
+				if($result == TRUE){
+					redirect("admin/seeCustomersBanners/".$data['customer_id']);
+				}else{
+					$this->render->renderViewWithError('main/main',lang("error_create_banner"));	
+				}
+			}
+
+			$this->render->renderView("admin/createBanner");
+		}else{
+			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));			
+		}
+	}
+
 	public function createBanner(){
 		$role 			= $this->session->role;
 

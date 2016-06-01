@@ -88,7 +88,7 @@
 					  }
 				   ?>
 			</p>
-			<p><?php echo lang('profile_comment') ?>:<?php echo $comment->comment ?></p>
+			<p><?php echo lang('profile_comment') ?>: <?php echo $comment->comment ?></p>
 			</div>
 		<?php endforeach; ?>
 		</div>

@@ -108,6 +108,79 @@ if ( ! function_exists('get_add_discount_modal')){
 	}
 }
 
+if ( ! function_exists('get_create_new_banner')){
+	function get_create_new_banner($id){
+		$modal = '
+		<!-- Modal -->
+		<div id="modalCreateBanner_'.$id.'" class="modal fade" role="dialog">
+		  <div class="modal-dialog modal-md">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header modalHeader-background-color">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">'.lang("admin_banner_form").'</h4>
+			  </div>
+			  <form action="'.site_url("admin/createBanner").'" method="POST" enctype="multipart/form-data">
+			  <div class="modal-body">
+				<div class="form-group">
+					<label>'.lang("profile_name").'</label>
+					<input type="text" name="name" class="form-control" placeholder="'.lang("profile_name").'">
+					<label>'.lang("admin_banner_image").'</label>
+					<input type="file" class="filestyle" data-buttonText="'.lang("modals_choose_file").'" name="image" size="20" />
+					<input type="hidden" name="customer_id" value="'.$id.'">
+				</div>
+			  </div>
+			  <div class="modal-footer">
+			    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">'.lang("admin_banner_cancel").'</button>
+			    <input type="submit" class="btn btn-success" value="'.lang("modals_create").'">
+			  </div>
+			  </form>
+			</div>
+		  </div>
+		</div>
+		';
+		return $modal;
+	}
+}
+
+if ( ! function_exists('get_create_new_free_banner')){
+	function get_create_new_free_banner($id){
+		$modal = '
+		<!-- Modal -->
+		<div id="modalCreateBanner_'.$id.'" class="modal fade" role="dialog">
+		  <div class="modal-dialog modal-md">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header modalHeader-background-color">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">'.lang("admin_banner_form").'</h4>
+			  </div>
+			  <form action="'.site_url("admin/createFreeBanner").'" method="POST" enctype="multipart/form-data">
+			  <div class="modal-body">
+				<div class="form-group">
+					<label>'.lang("profile_name").'</label>
+					<input type="text" name="name" class="form-control" placeholder="'.lang("profile_name").'">
+					<label>'.lang("admin_banner_image").'</label>
+					<input type="file" class="filestyle" data-buttonText="'.lang("modals_choose_file").'" name="image" size="20" />
+					<input type="hidden" name="customer_id" value="'.$id.'">
+				</div>
+			  </div>
+			  <div class="modal-footer">
+			    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">'.lang("admin_banner_cancel").'</button>
+			    <input type="submit" class="btn btn-success" value="'.lang("modals_create").'">
+			  </div>
+			  </form>
+			</div>
+		  </div>
+		</div>
+		';
+		return $modal;
+	}
+}
+
+
 if ( ! function_exists('get_upload_image_modal')){
 
     function get_upload_image_modal($id, $role, $controller_path){

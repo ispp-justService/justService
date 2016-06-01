@@ -29,6 +29,26 @@ class Banners extends CI_Model {
 		}
 	}
 
+	public function create_free_banner($data){
+
+		$this->db->where("customer_id",$data['customer_id']);
+		$this->db->from("banner");
+		$prev = $this->db->count_all_results();
+
+		$this->db->insert('banner',$data);
+
+		$this->db->where("customer_id",$data['customer_id']);
+		$this->db->from("banner");
+		$after = $this->db->count_all_results();
+
+		if($after > $prev){
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
+	
+
 	public function deactivate_banner($banner_id){
 		
 		$data = array('delete' => TRUE, 'active' => FALSE);

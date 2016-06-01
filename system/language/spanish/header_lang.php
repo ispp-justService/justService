@@ -13,8 +13,8 @@ $lang['header_sign_in'] = 'Entrar';
 $lang['header_sign_up'] = 'Registrarse';
 $lang['header_manage_tags'] = 'Gestionar Etiquetas';
 $lang['header_users_list'] = 'Lista de usuarios';
-$lang['header_customers_list'] = 'Lista de clientes';
-$lang['header_customers_signup'] = 'Registro de cliente';
+$lang['header_customers_list'] = 'Lista de profesionales';
+$lang['header_customers_signup'] = 'Registro de profesional';
 
 $lang['header_choose_lang'] = "Idiomas";
 $lang['header_english'] = "Inglés";

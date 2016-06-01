@@ -113,7 +113,7 @@
 									<?php if($service->comment_user != null  && $service->rating_customer != null): ?>
 										<tr>
 											<td>
-												<b><?php echo lang('service_comment_customer') ?>:</b>
+												<b><?php echo lang('service_users_comment') ?>:</b>
 												<?php echo $service->comment_user?>
 											</td>
 										</tr>
@@ -145,6 +145,7 @@
 										<tr>
 											<td>
 												<b><?php echo lang('service_your_rate_user') ?>:</b>
+
 												<div class="ratingShow">
 													<?php for ($i=0 ; $i < $service->rating_customer; $i++){
 															echo '<span>&#9733</span>';
@@ -162,26 +163,6 @@
 										</tr>
 									<?php endif; ?>									
 								<?php elseif($this->session->role == "APP_USER"): ?>
-									<?php if($service->rating_customer != null && $service->rating_user != null): ?>
-										<tr>
-											<td>
-												<b><?php echo lang('service_customers_rate') ?>:</b>
-												<div class="ratingShow">
-													<?php for ($i=0 ; $i < $service->rating_customer; $i++){
-																echo '<span>&#9733</span>';
-													}?>
-												</div>
-											</td>
-										</tr>
-									<?php endif; ?>
-									<?php if($service->comment_customer != null && $service->rating_user != null): ?>
-										<tr>
-											<td>
-												<b><?php echo lang('service_comment') ?>:</b>
-												<?php echo $service->comment_customer?>
-											</td>
-										</tr>
-									<?php endif; ?>
 									<?php if($service->rating_user == null): ?>
 										<tr>
 											<td>
@@ -220,7 +201,7 @@
 									<?php if($service->comment_user != null): ?>
 										<tr>
 											<td>
-												<b><?php echo lang('service_comment') ?>:</b>
+												<b><?php echo lang('service_comment_customer') ?>:</b>
 												<?php echo $service->comment_user?>
 											</td>
 										</tr>

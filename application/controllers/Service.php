@@ -34,7 +34,7 @@ class Service extends CI_Controller {
 			}
 		}
 
-		if(count($filtered)){		
+		if(count($filtered)){	
 			// Cargamos lo que vamos a necesitar aqui
 			$this->load->library('googlemaps');
 			$this->load->model('customers');
@@ -48,8 +48,8 @@ class Service extends CI_Controller {
 
 			// Usuarios que encajan con la búsqueda
 			$resultCustomersId = $this->customers->get_all_related_to_keywords($filtered);
-
-			if($resultCustomersId->num_rows > 0){
+			if($resultCustomersId->num_rows() > 0){
+			
 				// Número de elementos totales sobre los que haremos la paginación
 				$config["total_rows"] = $resultCustomersId->num_rows();
 
@@ -164,7 +164,7 @@ class Service extends CI_Controller {
 				}
 			}else{
 				$data['showAdvancedSearch'] = TRUE;
-				$this->render->renderViewWithError('main/main',lang("error_no_results"), $data);			
+				//$this->render->renderViewWithError('main/main',lang("error_no_results"), $data);			
 			}
 		}else{
 			$this->render->renderViewWithError('main/main',lang("error_search_text_empty_short"));
