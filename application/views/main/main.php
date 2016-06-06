@@ -19,7 +19,7 @@
 					</button>
 				</span>
 			</div>
-		<?php if(isset($showAdvancedSearch)): ?>
+		<?php if($this->session->flashdata('showAdvancedSearch')): ?>
 		<div id="advanced-search" class="panel panel-default">
 			<?php echo lang('user_of_tags') ?>: <br>
 				<?php echo form_label("electrician", "electrician"); ?>
