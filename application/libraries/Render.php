@@ -18,20 +18,12 @@ class Render{
 		return $this->CI->load->view('template', $content_data, FALSE);
 	}
 
-	public function renderViewWithError($nameView,  $error, $data = array()){
-
-		$data['error'] = $error;
-
+	public function redirectWithError($path, $error_message){
 		$this->CI =& get_instance();
 
-		$this->CI->load->model("banners");
-		$result = $this->CI->banners->get_active_banners();
-		
-		$data['exposed_banners'] = $result->result();
+		$this->CI->session->set_flashdata('error_message', lang($error_message));
 
-		$content_data['content'] = $this->CI->load->view($nameView, $data, TRUE);
-
-		return $this->CI->load->view('template', $content_data, FALSE);
+		redirect($path);
 	}
 
 }

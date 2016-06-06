@@ -23,7 +23,7 @@ class App_user extends CI_Controller {
 			$data['services'] = $result->result();
 			$this->render->renderView('service/list',$data);
 		}else{
-			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
+			$this->render->redirectWithError("main", "error_session_expired_not_logged");
 		}
 	}
 
@@ -39,7 +39,7 @@ class App_user extends CI_Controller {
 			$max_discount	= $this->input->post('max_discount');
 
 			if($checkForm == FALSE || $discount > $max_discount){
-				$this->render->renderViewWithError('main/main',lang("error_form_add_discount"));
+				$this->render->redirectWithError("app_user/servicesList", "error_form_add_discount");
 			}else{
 				$service_id 	= $this->input->post('service_id');
 
@@ -49,12 +49,12 @@ class App_user extends CI_Controller {
 				if($result){
 					redirect('app_user/servicesList');
 				}else{
-					$this->render->renderViewWithError('main/main',lang("error_add_discount"));
+					$this->render->redirectWithError("app_user/servicesList", "error_add_discount");
 				}
 			
 			}		
 		}else{
-			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
+			$this->render->redirectWithError("main", "error_session_expired_not_logged");
 		}
 	}
 
@@ -95,14 +95,14 @@ class App_user extends CI_Controller {
 
 			$this->load->library('app_user_utils');
 
+			$customer_id 	= $this->input->post('customer_id');
+			$description 	= $this->input->post('description');
+
 			$checkForm = $this->app_user_utils->checkRequestServiceForm();
 
 			if($checkForm == FALSE){
-				$this->render->renderViewWithError('main/main',lang("error_form_request_Service"));
+				$this->render->redirectWithError("customer/showProfile/".$customer_id, "error_form_request_Service");
 			}else{
-
-				$customer_id 	= $this->input->post('customer_id');
-				$description 	= $this->input->post('description');
 
 				if(!$discount){
 					$discount = 0.00;
@@ -114,12 +114,12 @@ class App_user extends CI_Controller {
 				if($result == TRUE){
 					redirect('app_user/servicesList');
 				}else{
-					$this->render->renderViewWithError('main/main',lang("error_request_service"));
+					$this->render->redirectWithError("customer/showProfile/".$customer_id, "error_request_service");
 				}		
 			}
 		
 		}else{
-			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
+			$this->render->redirectWithError("main", "error_session_expired_not_logged");
 		}		
 	}
 
@@ -141,28 +141,37 @@ class App_user extends CI_Controller {
 				echo "no se ha podido finalizar servicio";
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
+			$this->render->redirectWithError("main", "error_session_expired_not_logged");
 		}
 	}
 
 	public function rateService($id){
 		$user_id 	= $this->session->id;
-		$role 			= $this->session->role;
+		$role 		= $this->session->role;	
+
 		if(isset($id) && isset($user_id) && isset($role) && $role == "APP_USER"){
-			$this->load->model("services");
-			$rating_user = $this->input->post("rating_user");
-			$comment_user = $this->input->post("comment_user");
+			$this->load->library('app_user_utils');
+			$checkForm = $this->app_user_utils->checkRateProfessional();
+
+			if($checkForm!= FALSE){
 			
-			$result = $this->services->rate_service_by_user($id,$user_id,$rating_user,$comment_user);
+				$this->load->model("services");
+				$rating_user = $this->input->post("rating_user");
+				$comment_user = $this->input->post("comment_user");
 			
-			if($result != FALSE){
-				$result = $result->row();
-				if($result->rating_user == $rating_user && $result->comment_user == $comment_user){
-					redirect('app_user/servicesList');
+				$result = $this->services->rate_service_by_user($id,$user_id,$rating_user,$comment_user);
+			
+				if($result != FALSE){
+					$result = $result->row();
+					if($result->rating_user == $rating_user && $result->comment_user == $comment_user){
+						redirect('app_user/servicesList');
+					}
 				}
+			}else{
+				$this->render->redirectWithError("app_user/servicesList", "service_empty_comment");
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
+			$this->render->redirectWithError("main", "error_session_expired_not_logged");
 		}
 	}
 
@@ -178,11 +187,11 @@ class App_user extends CI_Controller {
 					$data['comments'] = $result->result();
 					$this->render->renderView('app_user/profile',$data);
 				}else{
-					$this->render->renderViewWithError('main/main',lang("error_user_deactivated"));					
+					$this->render->redirectWithError("main", "error_user_deactivated");			
 				}
 				
 			}else{
-				$this->render->renderViewWithError('main/main',lang("error_user_not_found"));
+				$this->render->redirectWithError("main", "error_session_expired_not_logged");
 			}
 		}
 	}
@@ -212,7 +221,7 @@ class App_user extends CI_Controller {
 
 			$this->render->renderView('app_user/myBookmarks',$data);
 		}else{
-			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
+			$this->render->redirectWithError("main", "error_session_expired_not_logged");			
 		}
 	}
 	
@@ -229,10 +238,10 @@ class App_user extends CI_Controller {
 			if($result == TRUE){
 				redirect('customer/showProfile/'.$customerId);
 			}else{
-				$this->render->renderViewWithError('main/main',lang("error_booking_customer"));
+				$this->render->redirectWithError("'customer/showProfile/'.$customerId", "error_booking_customer");
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
+			$this->render->redirectWithError("main", "error_session_expired_not_logged");
 		}
 	}
 
@@ -251,10 +260,10 @@ class App_user extends CI_Controller {
 			if($result != TRUE){
 				redirect('customer/showProfile/'.$customerId);
 			}else{
-				$this->render->renderViewWithError('main/main',lang("error_unbookmarking_customer"));
+				$this->render->redirectWithError("'customer/showProfile/'.$customerId", "error_unbookmarking_customer");
 			}
 		}else{
-			$this->render->renderViewWithError('main/main',lang("error_session_expired_not_logged"));
+			$this->render->redirectWithError("main", "error_session_expired_not_logged");
 		}
 	}
 

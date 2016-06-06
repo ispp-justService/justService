@@ -23,7 +23,8 @@ $lang['error_service_finish']		= "Error al finalizar el servicio";
 $lang['error_service_state']		= "Error al cambiar el estado del servicio";
 $lang['error_service_cancel']		= "Error al cancelar el servicio";
 $lang['error_show_tags']			= "Error al mostrar las etiquetas";
-$lang['error_edit_tags']			= "Error al editar las etiquetas";
+$lang['error_state_not_changed']	= "No se ha podido modificar el estado";
+$lang['error_activate_service']		= "No se ha podido activar el servicio";
 
 // App user controller
 $lang['error_form_request_Service']	= "Debe introducirse una descripción y el campo de descuento debe de ser númerico";

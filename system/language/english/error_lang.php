@@ -24,6 +24,8 @@ $lang['error_service_state']		= "State of service not changed";
 $lang['error_service_cancel']		= "Error at cancelling the Service";
 $lang['error_show_tags']			= "Could not show tags";
 $lang['error_edit_tags']			= "Error at editing tags";
+$lang['error_state_not_changed']	= "State of service not changed";
+$lang['error_activate_service']		= "Could not activate the service";
 
 // App user controller
 $lang['error_form_request_Service']	= "A description must be entered and the Discount must be a numerical value";

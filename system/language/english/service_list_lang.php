@@ -35,4 +35,6 @@ $lang['service_discount_avialable'] = "Available";
 
 $lang['service_add_discount'] = "Apply a discount";
 
+$lang['service_empty_comment'] = "Must enter a comment and a rate";
+
 

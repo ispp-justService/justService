@@ -35,3 +35,4 @@ $lang['service_discount_avialable'] = "Disponible";
 
 $lang['service_add_discount'] = "Aplica un descuento";
 
+$lang['service_empty_comment'] = "Los campos de comentario y valoración deben de ser rellenados";

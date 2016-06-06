@@ -35,7 +35,18 @@ class App_user_utils{
 		$this->CI->form_validation->set_rules('discount','Discount','required|numeric|less_than[max_discount]');
 
 		return $this->CI->form_validation->run();
+	}
+
+	public function checkRateProfessional(){
+
+		$this->CI = & get_instance();
+
+		$this->CI->form_validation->set_rules('rating_customer','Rate','required');
+		$this->CI->form_validation->set_rules('comment_customer','Comment','required');
+
+		return $this->CI->form_validation->run();
 
 	}
+
 }
 ?>
