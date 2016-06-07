@@ -16,6 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="icon" href="<?php echo base_url("assets/img/favicon.png"); ?>" type="image/png">
 	<link rel="stylesheet" href="<?php echo base_url("assets/css/footer-distributed-with-address-and-phones.css"); ?>">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.1.0/css/bootstrap-slider.min.css">
+
 
 	<!-- CARGA DE ARCHIVOS JS -->
 	
@@ -34,6 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    window.cookieconsent_options = {"message":"<?php echo lang('header_cookieMessage') ?>","dismiss":"<?php echo lang('header_cookieButton') ?>","theme":"dark-bottom"};
 	</script>
 
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.1.0/bootstrap-slider.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
 	<!-- End Cookie Consent plugin -->
 	
@@ -133,6 +136,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		overflow: inherit;
 		padding-right: 0 !important;
 	   }
+		
+		#discount_slider.slider-selection {
+			background: #FF8282;
+		}
+		#discount_slider.slider-handle {
+			background: red;
+		}
 
 	.cursor {cursor:pointer}
 

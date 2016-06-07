@@ -90,8 +90,25 @@ if ( ! function_exists('get_add_discount_modal')){
 				  <form action="'.$controller_path.'" id="serviceForm'.$id.'" method="POST">
 				  <div class="modal-body">
 					<div class="form-group">
-						<input type="text" name="discount"><b> '.lang("service_discount_avialable").'('.$max_discount.' €)</b>
-						<h5>'.lang("modals_info_discount").'</h5>
+						<input id="ex1" 
+							data-slider-id="discount_slider" 
+							type="text" data-slider-min="0.5" 
+							data-slider-max="'.$max_discount.'" 
+							data-slider-step="0.5" 
+							data-slider-value="0"  
+							data-slider-tooltip="hide" 
+							style="width: 100%;"/>
+						<span id="ex6CurrentSliderValLabel">Actual discount to apply: <span id="ex6SliderVal">0 €</span></span>
+					<script>
+						$("#ex1").slider({
+							formatter: function(value) {
+								return "Current value: " + value;
+							}
+						});
+						$("#ex1").on("slide", function(slideEvt) {
+							$("#ex6SliderVal").text(slideEvt.value+" €");
+						});
+					</script>
 						<input type="hidden" name="max_discount" value="'.$max_discount.'">
 						<input type="hidden" name="service_id" value="'.$id.'">
 					</div>

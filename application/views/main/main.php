@@ -22,19 +22,19 @@
 		<?php if($this->session->flashdata('showAdvancedSearch')): ?>
 		<div id="advanced-search" class="panel panel-default">
 			<?php echo lang('user_of_tags') ?>: <br>
-				<?php echo form_label("electrician", "electrician"); ?>
+				<?php echo form_label(lang("tags_electrician"), "electrician"); ?>
 				<?php echo form_checkbox("electrician", "electrician", FALSE); ?>
 
-				<?php echo form_label("locksmith", "locksmith"); ?>
+				<?php echo form_label(lang("tags_locksmith"), "locksmith"); ?>
 				<?php echo form_checkbox("locksmith", "locksmith", FALSE); ?>
 
-				<?php echo form_label("plumber", "plumber"); ?>
+				<?php echo form_label(lang("tags_plumber"), "plumber"); ?>
 				<?php echo form_checkbox("plumber", "plumber", FALSE); ?>
 	
-				<?php echo form_label("printer", "printer"); ?>
+				<?php echo form_label(lang("tags_printer"), "printer"); ?>
 				<?php echo form_checkbox("printer", "printer", FALSE); ?>
 
-				<?php echo form_label("builder", "builder"); ?>
+				<?php echo form_label(lang("tags_builder"), "builder"); ?>
 				<?php echo form_checkbox("builder", "builder", FALSE); ?>
 		<?php endif; ?>
 			</form>
