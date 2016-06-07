@@ -33,7 +33,7 @@ class Service extends CI_Controller {
 				array_push($filtered,$keyword);
 			}
 		}
-
+	
 		if(count($filtered)){	
 			// Cargamos lo que vamos a necesitar aqui
 			$this->load->library('googlemaps');
@@ -157,6 +157,8 @@ class Service extends CI_Controller {
 					}
 
 					// Renderizamos la pantalla
+					$data["request_uri"] = $_SERVER['REQUEST_URI'];
+					
 					$this->render->renderView('service/search',$data);			
 				}else{
 					$this->session->set_flashdata('showAdvancedSearch', TRUE);

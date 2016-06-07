@@ -162,7 +162,7 @@ class Admin extends CI_Controller {
 			$this->load->library('upload', $config);
 
 			if ( ! $this->upload->do_upload('image')){
-				$this->render->redirectWithError("admin/seeCustomersBanners/".$customer_id, "error_uploading_image");	
+				$this->render->redirectWithError("admin/seeCustomersBanners/".$data['customer_id'], "error_uploading_image");	
 			}else{
 				$image_name = $this->upload->data()['file_name'];
 				$data['image'] = '././assets/uploads/'.$image_name;
@@ -171,7 +171,7 @@ class Admin extends CI_Controller {
 				if($result == TRUE){
 					redirect("admin/seeCustomersBanners/".$data['customer_id']);
 				}else{
-					$this->render->redirectWithError("admin/seeCustomersBanners/".$customer_id, "error_create_banner");	
+					$this->render->redirectWithError("admin/seeCustomersBanners/".$data['customer_id'], "error_create_banner");	
 				}
 			}
 

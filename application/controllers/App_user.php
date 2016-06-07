@@ -91,6 +91,9 @@ class App_user extends CI_Controller {
 		$user_id 	= $this->session->id;
 		$role 			= $this->session->role;
 		
+		$url = parse_url($this->input->post("request_uri"));
+		$params =  $url["query"];
+		
 		if(isset($user_id) && isset($role) && $role == "APP_USER"){
 
 			$this->load->library('app_user_utils');
@@ -101,7 +104,7 @@ class App_user extends CI_Controller {
 			$checkForm = $this->app_user_utils->checkRequestServiceForm();
 
 			if($checkForm == FALSE){
-				$this->render->redirectWithError("customer/showProfile/".$customer_id, "error_form_request_Service");
+				$this->render->redirectWithError("service/search/?".$params, "error_form_request_Service");
 			}else{
 
 				if(!$discount){
@@ -114,13 +117,13 @@ class App_user extends CI_Controller {
 				if($result == TRUE){
 					redirect('app_user/servicesList');
 				}else{
-					$this->render->redirectWithError("customer/showProfile/".$customer_id, "error_request_service");
+					$this->render->redirectWithError("service/search/?".$params, "error_form_request_Service");
 				}		
 			}
 		
 		}else{
 			$this->render->redirectWithError("main", "error_session_expired_not_logged");
-		}		
+		}
 	}
 
 	public function cancelService($id){

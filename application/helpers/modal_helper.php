@@ -40,7 +40,7 @@ if ( ! function_exists('confirmation_modal')){
 
 if ( ! function_exists('get_creation_service_modal')){
 
-    function get_creation_service_modal($id, $controller_path){
+    function get_creation_service_modal($id, $controller_path,$request_uri){
 		$modal = '
 			<!-- Modal -->
 			<div id="creation_service_modal_'.$id.'" class="modal fade" role="dialog">
@@ -58,6 +58,7 @@ if ( ! function_exists('get_creation_service_modal')){
 						<label>'.lang('service_description').'</label>
 						<textarea name="description" class="form-control" form="serviceForm'.$id.'" placeholder="'.lang('modals_enter_description').'" rows="3"></textarea>
 						<input type="hidden" name="customer_id" value="'.$id.'">
+						<input type="hidden" name="request_uri" value="'.$request_uri.'">
 					</div>
 				  </div>
 				  <div class="modal-footer">

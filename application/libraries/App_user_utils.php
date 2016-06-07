@@ -32,7 +32,7 @@ class App_user_utils{
 
 		$this->CI = & get_instance();
 
-		$this->CI->form_validation->set_rules('discount','Discount','required|numeric|less_than[max_discount]');
+		$this->CI->form_validation->set_rules('discount','Discount','required|numeric|less_than[max_discount]|greater_than[0]');
 
 		return $this->CI->form_validation->run();
 	}
