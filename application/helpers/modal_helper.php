@@ -79,7 +79,7 @@ if ( ! function_exists('get_add_discount_modal')){
 		$modal = '
 			<!-- Modal -->
 			<div id="add_discount_'.$id.'" class="modal fade" role="dialog">
-			  <div class="modal-dialog modal-lg">
+			  <div class="modal-dialog modal-xs">
 
 				<!-- Modal content-->
 				<div class="modal-content">
@@ -89,7 +89,7 @@ if ( ! function_exists('get_add_discount_modal')){
 				  </div>
 				  <form action="'.$controller_path.'" id="serviceForm'.$id.'" method="POST">
 				  <div class="modal-body">
-					<div class="form-group">
+					<div class="form-group row-centered">
 						<input id="ex1" 
 							data-slider-id="discount_slider" 
 							type="text" data-slider-min="0.5" 
@@ -97,7 +97,7 @@ if ( ! function_exists('get_add_discount_modal')){
 							data-slider-step="0.5" 
 							data-slider-value="0"  
 							data-slider-tooltip="hide" 
-							style="width: 100%;"/>
+							style="width: 90%;"/>
 						<span id="ex6CurrentSliderValLabel">Actual discount to apply: <span id="ex6SliderVal">0 €</span></span>
 					<script>
 						$("#ex1").slider({
