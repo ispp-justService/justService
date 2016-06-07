@@ -137,10 +137,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding-right: 0 !important;
 	   }
 		
-		#discount_slider.slider-selection {
-			background: #FF8282;
+		#discount_slider .slider-selection {
+			background: red;
 		}
-		#discount_slider.slider-handle {
+		#discount_slider .slider-handle {
 			background: red;
 		}
 
