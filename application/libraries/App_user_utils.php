@@ -41,8 +41,8 @@ class App_user_utils{
 
 		$this->CI = & get_instance();
 
-		$this->CI->form_validation->set_rules('rating_customer','Rate','required');
-		$this->CI->form_validation->set_rules('comment_customer','Comment','required');
+		$this->CI->form_validation->set_rules('rating_user','Rate','required');
+		$this->CI->form_validation->set_rules('comment_user','Comment','required');
 
 		return $this->CI->form_validation->run();
 

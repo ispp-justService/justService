@@ -40,7 +40,7 @@ if ( ! function_exists('confirmation_modal')){
 
 if ( ! function_exists('get_creation_service_modal')){
 
-    function get_creation_service_modal($id, $controller_path,$request_uri){
+    function get_creation_service_modal($id, $controller_path,$request_uri = FALSE){
 		$modal = '
 			<!-- Modal -->
 			<div id="creation_service_modal_'.$id.'" class="modal fade" role="dialog">

@@ -102,7 +102,8 @@ as rating from service where customer_id = c1.customer_id) as rating ,c1.*", FAL
 		$this->db->where_in("c.customer_id",$this->utils->flatten($resultCustomersId));
 		$this->db->where("c.deleted !=", TRUE);
 		$this->db->group_by("c.customer_id");
-		$this->db->limit($limit," OFFSET".( ($page - 1) * $limit));
+		$this->db->order_by("distancia"); 
+		$this->db->limit($limit,($page - 1) * $limit);
 
 		$query = $this->db->get();
 
@@ -116,7 +117,8 @@ as rating from service where customer_id = c1.customer_id) as rating ,c1.*", FAL
 		$this->db->where_in("c.customer_id",$this->utils->flatten($resultCustomersId));
 		$this->db->where("c.deleted !=", TRUE);
 		$this->db->group_by("c.customer_id");
-		$this->db->limit($limit," OFFSET".( ($page - 1) * $limit));
+		$this->db->order_by("distancia");
+		$this->db->limit($limit,($page - 1) * $limit);
 
 		$query = $this->db->get();
 

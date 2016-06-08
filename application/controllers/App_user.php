@@ -91,8 +91,10 @@ class App_user extends CI_Controller {
 		$user_id 	= $this->session->id;
 		$role 			= $this->session->role;
 		
-		$url = parse_url($this->input->post("request_uri"));
-		$params =  $url["query"];
+		if($this->input->post("request_uri") != FALSE){
+			$url = parse_url($this->input->post("request_uri"));
+			$params =  $url["query"];
+		}
 		
 		if(isset($user_id) && isset($role) && $role == "APP_USER"){
 
@@ -104,7 +106,11 @@ class App_user extends CI_Controller {
 			$checkForm = $this->app_user_utils->checkRequestServiceForm();
 
 			if($checkForm == FALSE){
-				$this->render->redirectWithError("service/search/?".$params, "error_form_request_Service");
+				if($this->input->post("request_uri") != FALSE){
+					$this->render->redirectWithError("service/search/?".$params, "error_form_request_Service");
+				}else{
+					$this->render->redirectWithError("customer/showProfile/".$customer_id,"error_form_request_Service");
+				}
 			}else{
 
 				if(!$discount){
@@ -117,7 +123,11 @@ class App_user extends CI_Controller {
 				if($result == TRUE){
 					redirect('app_user/servicesList');
 				}else{
+					if($this->input->post("request_uri") != FALSE){
 					$this->render->redirectWithError("service/search/?".$params, "error_form_request_Service");
+					}else{
+						$this->render->redirectWithError("customer/showProfile/".$customer_id,"error_form_request_Service");
+					}
 				}		
 			}
 		
@@ -170,6 +180,7 @@ class App_user extends CI_Controller {
 						redirect('app_user/servicesList');
 					}
 				}
+			
 			}else{
 				$this->render->redirectWithError("app_user/servicesList", "service_empty_comment");
 			}
