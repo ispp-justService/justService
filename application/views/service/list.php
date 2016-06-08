@@ -265,7 +265,6 @@
 							</div>
 						</div>
 						<div class="col-md-2">
-							<br /><br /><br /><br /><br />
 							<button type="submit" class="btn buttonBlack buttonDown pull-right"><?php echo lang('service_send') ?></button>
 						</div>
 					</div>

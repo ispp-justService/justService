@@ -141,6 +141,11 @@ INSERT INTO TAG (name) VALUES('baño');
 INSERT INTO TAG (name) VALUES('bano');
 INSERT INTO TAG (name) VALUES('bathroom');
 
+/*
+	TAGS EXTRAS
+*/
+INSERT INTO TAG (name) VALUES('light');
+INSERT INTO TAG (name) VALUES('lights');
 
 /*
  Tag_entry's populate
@@ -224,24 +229,32 @@ INSERT INTO TAG_ENTRY VALUES('3','12');
 INSERT INTO TAG_ENTRY VALUES('3','13');
 INSERT INTO TAG_ENTRY VALUES('3','14');
 INSERT INTO TAG_ENTRY VALUES('3','15');
+INSERT INTO TAG_ENTRY VALUES('3','46');
+INSERT INTO TAG_ENTRY VALUES('3','47');
 
 INSERT INTO TAG_ENTRY VALUES('4','11');
 INSERT INTO TAG_ENTRY VALUES('4','12');
 INSERT INTO TAG_ENTRY VALUES('4','13');
 INSERT INTO TAG_ENTRY VALUES('4','14');
 INSERT INTO TAG_ENTRY VALUES('4','15');
+INSERT INTO TAG_ENTRY VALUES('4','46');
+INSERT INTO TAG_ENTRY VALUES('4','47');
 
 INSERT INTO TAG_ENTRY VALUES('13','11');
 INSERT INTO TAG_ENTRY VALUES('13','12');
 INSERT INTO TAG_ENTRY VALUES('13','13');
 INSERT INTO TAG_ENTRY VALUES('13','14');
 INSERT INTO TAG_ENTRY VALUES('13','15');
+INSERT INTO TAG_ENTRY VALUES('13','46');
+INSERT INTO TAG_ENTRY VALUES('13','47');
 
 INSERT INTO TAG_ENTRY VALUES('14','11');
 INSERT INTO TAG_ENTRY VALUES('14','12');
 INSERT INTO TAG_ENTRY VALUES('14','13');
 INSERT INTO TAG_ENTRY VALUES('14','14');
 INSERT INTO TAG_ENTRY VALUES('14','15');
+INSERT INTO TAG_ENTRY VALUES('14','46');
+INSERT INTO TAG_ENTRY VALUES('14','47');
 
 /* PRINTER TAGS */
 INSERT INTO TAG_ENTRY VALUES('5','16');
@@ -405,15 +418,15 @@ INSERT INTO TAG_ENTRY VALUES('20','34');
 
 -- App_User 1
 -- 	Activos
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('My bathroom is crazy!!! I had to built a boat like Noah.','ACTIVE','5','1');
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I need a plumber please. Pipes of my kitchen are broken','ACTIVE','11','1');
 --	Finalizados
 INSERT INTO SERVICE (description, status, customer_id, app_user_id, rating_user, comment_user, rating_customer, comment_customer, moment, finalize_moment) 
 			VALUES('I forgot my keys inside my house :( help!','FINALIZED','10','1','1','Awful','5','Thanks for calling me', CURRENT_TIMESTAMP - interval '1' month , CURRENT_TIMESTAMP);
 --	Pendientes
-INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('I need a plumber please. Pipes of my kitchen are broken','PENDING','11','1');
 
 -- App_User 2
 --	Activos
+INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('My bathroom is crazy!!! I had to built a boat like Noah.','ACTIVE','5','2');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Need to do a reform in my house, call me for more information','ACTIVE','8','2');
 INSERT INTO SERVICE (description, status, customer_id, app_user_id) VALUES('Need to change the floor of my house, I need a builder please','ACTIVE','10','2');
 -- 	Finalizados

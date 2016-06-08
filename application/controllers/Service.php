@@ -48,10 +48,6 @@ class Service extends CI_Controller {
 
 			// Usuarios que encajan con la búsqueda
 			$resultCustomersId = $this->customers->get_all_related_to_keywords($filtered);
-			foreach($resultCustomersId->result() as $wow){
-				echo $wow->id." , ";
-			}
-			echo "<br>";
 			
 			if($resultCustomersId->num_rows() > 0){
 		
@@ -107,9 +103,6 @@ class Service extends CI_Controller {
 				}else{
 					$result = $this->customers->get_all_related_to_keywords_order_by_them($resultCustomersId, $config['per_page'],$page );
 				}
-			
-				echo $config['per_page']."<br>";
-				echo $page."<br>";
 	
 				if( $result->num_rows() > 0 ){
 					// Lo ubicamos como dato de salida
